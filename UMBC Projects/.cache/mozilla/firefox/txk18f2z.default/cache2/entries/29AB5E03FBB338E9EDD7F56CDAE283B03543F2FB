@@ -1,0 +1,431 @@
+
+
+var loggedin = null;
+if($('body').hasClass('logged-in')) { loggedin = 1; }
+	
+$(document).ready(function() {
+
+	$('#mobile-search-toggle').click(function(e){
+		e.preventDefault();
+		var el = $('#site-search');
+		var branding = $('#branding');
+		if(el.hasClass('active')) {
+			el.show().attr('style', '').removeClass('active');
+			branding.css('padding-top', '20px');
+			$(this).css('margin-top', '0px');
+		}
+		else
+		{
+			el.show().css('margin-top','62px').addClass('active');
+			branding.css('padding-top', '80px');
+			$(this).css('margin-top', '62px');
+		}
+
+	});
+
+	/* ================= Removes branding padding top if window is enlarged while mobile search bar is visible == */
+
+
+
+	$(window).resize(function() {
+		var width = $(window).width();
+		if(width > 767) {
+			$('#branding').attr('style','');
+			$('#site-search').attr('style','');
+		}				
+	});
+
+	$('.mobile-select-nav select, .mobile-career-select select').change(function() {
+	  document.location = $(this).val();
+	});
+
+
+
+	if( !$('body').hasClass('content-checkout') ) {
+		$('input, textarea').placeholder();
+	}
+
+
+
+
+	//Exam instructions
+
+	$('#mobile-exam-instructions .button.mobile-exam-instructions-button').click(function(e) {
+		e.preventDefault();
+		var el = $(this).siblings('.ac-box');
+		if(el.is(':visible')) {
+			$(this).siblings('.ac-box').slideUp();
+		}
+		else
+		{
+			$(this).siblings('.ac-box').slideDown();
+		}
+	});
+
+
+
+
+
+	//Select Replace
+	
+	//Fire her up
+	if(!IE6) SelectReplace('.sr-replace');
+	
+
+	function SelectReplace(selector) {
+	
+		var el = $(selector),
+			tabIndex = 250;
+		
+		el.each(function(i){
+			var select = $(this);
+			select.wrap('<div class="select-replace-wrap"></div>');
+			select.after('<div class="select-replace" id="sr-'+i+'" tabindex="'+tabIndex+'"><dl><dt class="sr-toggle"><span class="chrome">&nbsp;</span></dt><dd><ul></ul></dd></dl></div>');
+			tabIndex++;
+			select.find('option').each(function(i2){
+			
+				var option = $(this),
+					dataValue = option.attr('value'),
+					html = option.html();
+				if(html.length == 0) html = false;
+				
+				//reset select elements to defaults
+				option.prop('selected', function() {
+					return this.defaultSelected;
+				});
+
+				if(option.attr('selected') && option.attr('disabled') && html) 
+				{
+					$('#sr-'+i+' .sr-toggle').html(html+'<span class="chrome">&nbsp;</span>'); 
+					if(dataValue) {
+						$('#sr-'+i+' ul').append('<li class="sr-disabled" data-value="'+dataValue+'">'+html+'</li>'); 
+					} else {
+						$('#sr-'+i+' ul').append('<li class="sr-disabled">'+html+'</li>'); 
+					}
+				}
+
+				
+				if(option.attr('selected') && !option.attr('disabled') && html) 
+				{ 
+					$('#sr-'+i+' .sr-toggle').html(html+'<span class="chrome">&nbsp;</span>');  
+					if(dataValue) {
+						$('#sr-'+i+' ul').append('<li  data-value="'+dataValue+'" class="sr-selected sr-enabled">'+html+'</li>'); 
+					} else {
+						$('#sr-'+i+' ul').append('<li class="sr-selected sr-enabled">'+html+'</li>'); 
+					}
+					
+				}
+				if(option.attr('disabled') && !option.attr('selected') && html) 
+				{ 
+					if(dataValue) {
+						$('#sr-'+i+' ul').append('<li class="sr-disabled" data-value="'+dataValue+'">'+html+'</li>'); 
+					} else {
+						$('dl#sr-'+i+' ul').append('<li class="sr-disabled">'+html+'</li>'); 
+					}
+				}
+				if(!option.attr('selected') && !option.attr('disabled') && html) 
+				{
+					if(dataValue) {
+						$('#sr-'+i+' ul').append('<li data-value="'+dataValue+'" class="sr-enabled">'+html+'</li>'); 
+					} else {
+						$('#sr-'+i+' ul').append('<li class="sr-enabled">'+html+'</li>'); 
+					}
+				}
+				
+				
+				if(!html) {
+					$('#sr-'+i+' ul').append('<li class="sr-disabled blank"></li>'); 
+				}
+				
+			});
+			select.hide();
+		});
+		
+	}
+
+	//selectReplace functionality
+	function SelectReplaceOpenClose(el) {
+		if(!el.hasClass('open')) {
+			//Open
+			el.addClass('open').after('<div class="sr-blanket">&nbsp;</div>');
+		}
+		else
+		{
+			//Close
+			el.removeClass('open');
+			$('.select-replace-wrap').removeClass('focus');
+			$('.sr-blanket').remove();
+		}
+	}
+	
+	function SelectReplaceUpdate(el) {
+
+		var parent = el.parents('.select-replace-wrap');
+		
+		if(!el.hasClass('sr-disabled')) {
+
+			if(!el.hasClass('sr-selected')) {
+				
+				var selectedText = el.text(),
+				selectedVal = el.data('value');
+
+				
+				//Update replaced select for form submission
+				parent.find('.sr-replace option').removeAttr('selected').siblings('option[value="'+selectedVal+'"]').prop('selected',true);
+				parent.find('.sr-replace').change();
+				//Update selectreplace and close
+				el.addClass('sr-selected').siblings().removeClass('sr-selected');
+				parent.find('.sr-toggle').html(selectedText+'<span class="chrome">&nbsp;</span>');
+			}
+			parent.removeClass('focus');
+			parent.find('.select-replace').removeClass('open');
+			parent.find('.sr-blanket').remove();
+		}
+	
+	
+	}
+	
+	//Open + Close + update 
+	var keyDownCount = 0;
+	$(document).on('click touchstart keydown', '.select-replace', function(e) {
+
+		//console.log(e);
+		var target = $(e.target);
+		//console.log(target);
+		
+		//Open + Close on top el, mouse event
+		if( target.is('dt.sr-toggle') ||  target.is('.chrome')) {
+			if(e.type == 'click' || e.type == 'touchstart') {
+				e.preventDefault();
+				SelectReplaceOpenClose($(this));
+			}
+		}
+		
+		
+		//Open + Close on top el, keyboard
+		if( target.is('.select-replace') ) {
+			if(e.keyCode == '32') {
+				e.preventDefault();
+				SelectReplaceOpenClose($(this));
+			}
+		}
+		
+
+		//Update, mouse event
+		if( target.is('li') ) {
+			if(e.type == 'click' || e.type == 'touchstart') {
+				e.preventDefault();
+				SelectReplaceUpdate(target);
+			}
+		}
+		
+		//Select and update keyboard event
+		if( target.is('.select-replace.open') ) {
+			if(e.keyCode == '40') { //down
+				e.preventDefault();
+				
+				var total = $(this).find('li.sr-enabled').length;  //zero based
+
+				var $highLighted = $(this).find('li.highlight');
+
+				if($highLighted.length == 0) {
+					$(this).find('li.sr-enabled').eq(0).addClass('highlight');
+					keyDownCount = 1;
+				}
+				if($highLighted.length > 0) {
+					if(keyDownCount == total) {
+						$highLighted.removeClass('highlight');
+						$(this).find('li.sr-enabled').eq(0).addClass('highlight');
+						keyDownCount = 1;
+					}
+					else
+					{
+						$highLighted.removeClass('highlight').next('li.sr-enabled').addClass('highlight');
+						keyDownCount++;
+					}
+				}
+
+			}
+			
+			if(e.keyCode == '13') { //update 
+				e.preventDefault();
+				var $highLighted = $(this).find('li.highlight');
+				$highLighted.removeClass('highlight');
+				SelectReplaceUpdate($highLighted);
+				keyDownCount = 0;
+			}
+			if(e.keyCode == '9') { //close 
+				e.preventDefault();
+				SelectReplaceOpenClose($(this));
+				keyDownCount = 0;
+			}
+
+		}
+
+	});
+
+	
+	//Close due to click on document
+	$(document).on('click touchstart', '.sr-blanket', function(e) { 
+		$('.select-replace-wrap').removeClass('focus');
+		$('.select-replace').removeClass('open');
+		$(this).remove();
+	});
+	$(document).on('focus', '.select-replace-wrap', function(e) { 
+		$('.select-replace-wrap').removeClass('focus');
+		$(this).addClass('focus');
+	});
+	
+	
+
+	
+	//Adjust tab order of exam inputs, starting from 250
+	if( $('body').hasClass('exam-part') ) {
+		var tabindex = 260;
+		$('.exam-question input[type=text], .exam-question .select-replace').each(function(i) {
+			$(this).attr('tabindex',tabindex);
+			tabindex = tabindex+10;
+		});
+
+	}
+
+
+	if(tls_check) {
+
+		$.ajax({
+            url: "https://www.howsmyssl.com/a/check",
+            type: "GET",
+            dataType: "json",
+            success: function(json) {
+            	processTlsCheck(json.tls_version == "TLS 1.2");
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+			    processTlsCheck(false);
+			}
+        });
+	}
+
+	function processTlsCheck (okay) {
+		$.ajax({
+    		url: ajaxurl,
+            type: "GET",
+            data: { action: 'set_tls_cookie', tls_okay : okay },
+            dataType: "html"
+        });
+        if(!okay) {
+        	var tls_warning_template = '<div id="tls-warning">' +
+        						'<div class="tls-warning-inner">' +
+        							'<div class="tls-warning-title">Warning: Your browser doesn\'t support TLS 1.2<\/div>' +
+        							'Please upgrade to <a href="https://en.wikipedia.org/wiki/Template:TLS/SSL_support_history_of_web_browsers" target="_blank">a browser with TLS 1.2 support</a> before purchasing<br>' +
+        							'AccountingCoach PRO or logging into our site.' +
+        							'<div id="tls-warning-close"><\/div>' +
+        						'<\/div>' +
+        					'<\/div>';
+        	$('body').prepend(tls_warning_template)
+        	$('#tls-warning').show();
+		 	$('#tls-warning-close').click(function() {
+		 		$('#tls-warning').hide();
+				$.ajax({
+		    		url: ajaxurl,
+		            type: "GET",
+		            data: { action: 'set_tls_cookie', tls_okay : true },
+		            dataType: "html"
+		        });
+		 	});
+        }
+	}
+
+	/* 2014 Sept sticky sidebar */
+	if($(window).width() > 1024 && $('.sidebar_sticky_items').length){
+		
+			var elSticky = $('.sidebar_sticky_items'),
+				stickyOffset = elSticky.offset(),
+				parent = elSticky.parent(),
+				sidebarOffset = parent.offset(),
+				adsenseOffset = elSticky.find('.sidebar_adsense').offset(),
+				stickyStop = (parent.offset().top + $('.full-width .grid-8').height()) - (elSticky.height() + 70),
+				scrollPos,
+				isStuck = false,
+				ticking = false;
+					
+                if(parent.height() < $('.full-width .grid-8').height()) {
+                    parent.height($('.full-width .grid-8').height()); //fix sidebar to content height
+                }
+				elSticky.width(parent.width()); //set width of sticky ideams to width of parent sidebar
+		
+			function onScroll() {
+				scrollPos = window.pageYOffset || document.documentElement.scrollTop;
+				requestTick();
+			}
+			function requestTick() {
+				if(!ticking) {
+					requestAnimationFrame(stickySidebar);
+				}
+				ticking = true;
+			}
+			function stickySidebar() {
+
+                if(!$('.sidebar_sticky_items').length) return;
+
+				ticking = false;
+				newScrollPos = scrollPos;
+				
+				if(scrollPos >= stickyOffset.top && scrollPos < stickyStop) {
+					if(!isStuck) {
+						elSticky.removeClass('absolute').addClass('fixed').css({'left': sidebarOffset.left+'px'});
+						isStuck = true;
+					}
+				} else if(scrollPos >= stickyStop) {
+					if(isStuck) {
+						elSticky.removeClass('fixed').addClass('absolute');
+						isStuck = false;
+					}
+				} else {
+					if(isStuck) {
+						elSticky.removeClass('fixed absolute').css({'left':'auto'});
+						isStuck = false;
+					}
+				}
+				
+			}
+		
+			if(!$('html').hasClass('oldie')) {
+			
+				//Request Animation Frame Polyfill
+				"use strict";if(!Date.now)Date.now=function(){return(new Date).getTime()};(function(){var n=["webkit","moz"];for(var e=0;e<n.length&&!window.requestAnimationFrame;++e){var i=n[e];window.requestAnimationFrame=window[i+"RequestAnimationFrame"];window.cancelAnimationFrame=window[i+"CancelAnimationFrame"]||window[i+"CancelRequestAnimationFrame"]}if(/iP(ad|hone|od).*OS 6/.test(window.navigator.userAgent)||!window.requestAnimationFrame||!window.cancelAnimationFrame){var a=0;window.requestAnimationFrame=function(n){var e=Date.now();var i=Math.max(a+16,e);return setTimeout(function(){n(a=i)},i-e)};window.cancelAnimationFrame=clearTimeout}})();
+			
+				window.addEventListener("scroll", onScroll, false);
+				
+			} else {
+				
+				$(window).scroll(function(e){
+					scrollPos = window.pageYOffset || document.documentElement.scrollTop;
+					stickySidebar();
+				});
+			}
+			
+		}
+	
+
+});
+
+function setDefaultSort(order, user_id) {
+	$.ajax({
+      url: ajaxurl,
+      type: "POST",
+      data: { 
+        action: 'set_default_sort', 
+        user_id: user_id,
+        order: order
+      },
+      dataType: "json"
+    });
+}‘•Ð[ìð      WVÚ¶WVÚ<‰þKWc—|   R    :http://www.accountingcoach.com/wp-content/themes/accounting-coach/js/all.js?v1.21 necko:classified 1 request-method GET response-head HTTP/1.1 200 OK
+Date: Tue, 07 Jun 2016 14:21:41 GMT
+Server: Apache/2.2.15
+Last-Modified: Wed, 02 Mar 2016 21:59:04 GMT
+Etag: "f182b4-2e19-52d17fd7eda00"
+Accept-Ranges: bytes
+Content-Length: 11801
+Content-Type: text/javascript
+ uncompressed-len 0   .

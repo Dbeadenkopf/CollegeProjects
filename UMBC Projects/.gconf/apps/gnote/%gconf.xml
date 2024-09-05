@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="start_note" mtime="1410276384" type="string">
+		<stringvalue>note://gnote/d51e21f8-3a6f-4b51-bd1d-6aed7de97c4b</stringvalue>
+	</entry>
+</gconf>

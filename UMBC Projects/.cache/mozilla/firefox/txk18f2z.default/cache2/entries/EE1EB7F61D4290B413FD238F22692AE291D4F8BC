@@ -1,0 +1,2186 @@
+@media only screen 
+and (min-width : 260px) 
+and (max-width :480px) /* Mobile Specific Styles */
+
+{
+	#page-content h2 {font-size:28px;line-height:30px;}
+	#page-content h3 {font-size:24px;line-height:26px;}
+	#page-content h4 {font-size:20px;line-height:22px;}
+	#page-content h5 {font-size:18px;line-height:20px;}
+	#page-content h6 {font-size:16px;}
+
+	
+	/*=== Testimonials == */
+	#testimonial-sidebar input#comment_captcha_code {
+		width:60%!important;
+	}
+	#newsletter-sidebar h4 {
+		max-width:200px;
+	}
+	#newsletter-sidebar.reduced:after {
+		content: "";
+		display: inline-block;
+		width: 85px;
+		height: 85px;
+		background: url(../images/free-download-badge@2x.png) 0 0 no-repeat;
+		background-size: contain;
+		position: absolute;
+		top: 10px;
+		right: 10px;
+	}
+	
+	
+	/* Home */
+	
+	#hero-bottom img {
+		display:none;
+	}
+	
+	
+	#contact .wpcf7-textarea {
+		max-width: 295px;
+	}
+	
+	.explanation-page-content table {
+		max-width:96%!important;
+		margin-left:auto;
+		margin-right:auto;
+		width:auto!important;
+	}
+	
+	#page-content a.term-tooltip {
+		white-space: normal;
+	}
+    
+    
+    #bookkeeping-topics > div,
+    #bookkeeping-topics > div > ol {
+        padding-right:0!important;
+        margin-right:0!important;
+    }
+    
+    /* post checkout */
+    
+    #post-checkout-splash {
+        padding-top:50px;
+    }
+    #post-checkout-splash .logo img {
+        width:250px;
+        height:auto;
+    }
+    
+    #post-checkout-splash h1 {
+        font-size: 32px;
+        padding-top: 50px;
+        line-height: 38px;
+    }
+	
+
+}
+
+@media only screen 
+and (min-width : 260px) 
+and (max-width : 767px)
+and (max-height : 480px)
+and (orientation : landscape) {
+
+    /* post checkout */
+    
+    #post-checkout-splash {
+        padding-top:50px;
+    }
+    #post-checkout-splash .logo img {
+        width:250px;
+        height:auto;
+    }
+    
+    #post-checkout-splash h1 {
+        font-size: 32px;
+        padding-top: 30px;
+        line-height: 38px;
+    }
+
+}
+
+@media only screen 
+and (min-width : 260px) 
+and (max-width : 767px) /* Main Mobile Styles */
+
+{
+
+
+	h2 {
+		font-size:30px;
+	}
+
+	.mobile {
+		display:block!important;
+	}
+	.desktop {
+		display:none!important;
+	}
+	
+	.button.medium {
+		font-size: 14px;
+		padding: 4px 8px!important;
+	}
+	.button.arrow-spin {
+		padding-left: 30px!important;
+	}
+
+	/* ------------------------ Select Boxes */
+	
+	.styled-select {
+		width:auto;
+		max-width:280px;
+		margin-left:auto;
+		margin-right:auto;
+		display:block;
+	}
+
+	
+	#ad_holder,
+	.sidebar_adsense,
+	#exam-home-sidebar  {
+		display:none;
+	}
+	
+	
+	/* ------------------------ Header */
+
+	header#masthead {
+		margin-top: 0px;
+	}
+
+	#sub-menu-bar,
+	#main-menu-container {
+		display:none;
+	}
+	#navigation-bar {
+		height:auto;
+		background-color:#00344a;
+		padding:12px 0;
+	}
+	#main-menu-mobile {
+		margin-left:auto;
+		margin-right:auto;
+		width:100%;
+	}
+		#main-menu-mobile .styled-select {
+			width:100%;
+		}
+	
+	
+	
+	
+
+	
+	
+	#user-menus {
+		text-align:center;
+		width:100%;
+		float:none;
+		height:auto;
+	}
+	#login, #pro-feat {
+		float:none;
+		text-align:left;
+	}
+	#aux-menu {
+		float:none;
+		width:100%;
+		text-align:center;
+		margin-top:12px;
+	}
+	
+	#aux-menu li {
+		display: inline-block;
+		margin-left: 0px;
+		border-left: 1px solid #e1e1e1;
+		padding-left: 4px;
+		padding-right:4px;
+		line-height: 14px;
+		height: 14px;
+	}
+	#aux-menu li:first-child {
+		margin-left:0;
+		padding-left:0;
+	}
+	#aux-menu li:last-child {
+		padding-right:0;
+	}
+	
+	#site-search-wrap {
+		position:static;
+	}
+	#site-search {
+		position:absolute;
+		top:-62px;
+		left:0;
+		right:0;
+		padding:12px 10px;
+		float:none;
+		height:auto;
+		border:0;
+		border-radius:0;
+		background: #00344a url(../images/sprite.png?v1.1) repeat-x 0 -435px;
+		height:62px;
+		z-index:99;
+		-webkit-transition:margin-top .35s linear;
+		-moz-transition:margin-top .35s linear;
+		transition:margin-top .35s linear;
+	}
+	#searchform {
+		width:auto;
+		max-width:380px;
+		margin-left:auto;
+		margin-right:auto;
+		height:38px;
+		position:relative;
+	}
+	input#s {
+		box-shadow: 0 0 8px #f1f1f1 inset;
+		padding: 9px 16px 5px 8px;
+		font-size: 18px;
+		line-height:18px;
+		color: #999;
+		margin-bottom: 0px;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		-webkit-font-smoothing: antialiased;
+		margin-left: 0;
+		margin-right: 0;
+		margin-top: 0;
+		border: 1px solid #d7e2ed;
+		height:auto;
+		width:95%;
+		-moz-border-radius:0;
+		-webkit-border-radius:0;
+		border-radius:0;
+	}
+	#site-search input#searchsubmit {
+		border: 0;
+		background:#256589 url(../images/sprite.png?v1.1) no-repeat -248px -147px;
+		height: 37px;
+		width: 41px;
+		cursor: pointer;
+		margin-left: 0px;
+		z-index: 30;
+		border-radius:0;
+		-moz-border-radius-topright: 4px;
+		-moz-border-radius-bottomright: 4px;
+		-webkit-border-top-right-radius: 4px;
+		-webkit-border-bottom-right-radius: 4px;
+		border-top-right-radius: 4px;
+		border-bottom-right-radius: 4px;
+		border-top-right-radius: 4px;
+		border-bottom-right-radius: 4px;
+		position:absolute;
+		top:0;
+		right:-3px;
+		-webkit-appearance:none;
+}
+	#bg-decoration {
+		display:none;
+	}
+
+	#mobile-search-toggle {
+		display:inline-block;
+		width:29px;
+		height:29px;
+		background:#edf5fa url(../images/sprite.png?v1.1) no-repeat -135px -369px;
+		border:1px solid #d1e3ee;
+		-moz-border-radius:4px;
+		-webkit-border-radius:4px;
+		border-radius:4px;
+		position:absolute;
+		top:10px;
+		left:50%;
+		margin-left:120px;
+		-webkit-transition:margin .35s linear;
+		-moz-transition:margin .35s linear;
+		transition:margin .35s linear;
+	}
+	#branding {
+		text-align:left;
+		background:#fff;
+		padding-top:20px;
+		-webkit-transition:padding .35s linear;
+		-moz-transition:padding  .35s linear;
+		transition:padding  .35s linear;
+		width:300px!important;
+		margin-right:auto;
+		margin-left:auto;
+	}
+	#branding img {
+		width:auto;
+		max-width:230px;
+		height:auto;
+	}
+	
+	.logo:hover:after, .logo:focus:after {
+		display:none;
+	}
+	
+	
+	#page-heading h1, #page-heading h2, #page-heading h3, #page-heading p.h1 {
+		margin-top:0;
+		padding-top:30px;
+		font-size:32px;
+		line-height:32px;
+		margin-bottom:0px;
+		padding-bottom: 0px!important;
+		margin-top: 0px!important;
+	}
+	#page-heading h1 span, #page-heading h2 span, #page-heading h3 span {
+		font-size:70%;
+		line-height:100%;
+		display:inline-block;
+		margin-top:10px;
+		top:0;
+	}
+	
+	body.logged-in #page-heading h1, 
+	body.logged-in #page-heading h2, 
+	body.logged-in #page-heading h3, 
+	body.logged-in #page-heading p.h1 {
+		padding-right:0!important;
+	}
+	
+	
+	#page-heading {	
+		padding-bottom: 10px;
+	}
+	
+
+	/* ------------------------ Sidebar */
+	body.404 #sidebar {
+		display:none;
+	}
+	aside.sidebar {
+		max-width:344px;
+		margin-left:auto;
+		margin-right:auto;
+	}
+	
+	#newsletter-sidebar img {
+		display: none;
+	}
+	input#nl-submit, input#bg-submit {
+		float: none;
+		font-size: 16px;
+	}
+
+	#newsletter-signup-form span {
+		float: none;
+		width: 100%;
+		display: block;
+		text-align: left;
+		margin-top: 4px;
+	}
+	#newsletter-signup-form span br {
+		display: none;
+	}
+	#newsletter-sidebar img {
+		display: none;
+	}
+	input#nl-submit, input#bg-submit {
+		font-size: 16px;
+	}
+	
+	#newsletter-sidebar h4 {
+		padding-right:40px;
+	}
+
+
+	
+	
+	#newsletter-sidebar:after {
+		content:"";
+		display:inline-block;
+		height:85px;
+		width:85px;
+		background:url(../images/free-download-badge@2x.png) 0 0 no-repeat;
+		background-size:85px 85px;
+		top:-16px;
+		right:-16px;
+		position:absolute;
+	}
+	
+
+	.yellow-sidebar-ad {
+		background:#ffe100 url(../images/yellow_sidebar_ad_bg.png) 100% -10px no-repeat;
+		background:url(../images/yellow_sidebar_ad_bg.png) 100% -10px no-repeat, -moz-linear-gradient(left, #ffe100 0%, #ffd000 100%);
+		background:url(../images/yellow_sidebar_ad_bg.png) 100% -10px no-repeat, -webkit-gradient(linear, left top, right top, color-stop(0%,#ffe100), color-stop(100%,#ffd000));
+		background:url(../images/yellow_sidebar_ad_bg.png) 100% -10px no-repeat, -webkit-linear-gradient(left, #ffe100 0%,#ffd000 100%);
+		background:url(../images/yellow_sidebar_ad_bg.png) 100% -10px no-repeat, -o-linear-gradient(left, #ffe100 0%,#ffd000 100%);
+		background:url(../images/yellow_sidebar_ad_bg.png) 100% -10px no-repeat, -ms-linear-gradient(left, #ffe100 0%,#ffd000 100%);
+		background:url(../images/yellow_sidebar_ad_bg.png) 100% -10px no-repeat, linear-gradient(to right, #ffe100 0%,#ffd000 100%);
+		height:155px;
+	}
+	.yellow-sidebar-ad:hover {
+		background:#ffee66 url(./images/yellow_sidebar_ad_bg.png) 100% -10px no-repeat;
+		background:url(../images/yellow_sidebar_ad_bg.png) 100% -10px no-repeat, -moz-linear-gradient(left, #ffee66 0%, #ffe366 100%);
+		background:url(../images/yellow_sidebar_ad_bg.png) 100% -10px no-repeat, -webkit-gradient(linear, left top, right top, color-stop(0%,#ffee66), color-stop(100%,#ffe366));
+		background:url(../images/yellow_sidebar_ad_bg.png) 100% -10px no-repeat, -webkit-linear-gradient(left, #ffee66 0%,#ffe366 100%);
+		background:url(../images/yellow_sidebar_ad_bg.png) 100% -10px no-repeat, -o-linear-gradient(left, #ffee66 0%,#ffe366 100%);
+		background:url(../images/yellow_sidebar_ad_bg.png) 100% -10px no-repeat, -ms-linear-gradient(left, #ffee66 0%,#ffe366 100%);
+		background:url(../images/yellow_sidebar_ad_bg.png) 100% -10px no-repeat, linear-gradient(to right, #ffee66 0%,#ffe366 100%);
+	}
+	
+	.yellow-sidebar-ad a {
+		padding:23px 0 0 16px;
+		height:155px;
+	}
+	
+	.yellow-sidebar-ad:hover a {
+		padding-left:20px;
+	}
+	
+	.yellow-sidebar-ad strong {
+		font-size:22px;
+		line-height:24px;
+	}
+	
+	.yellow-sidebar-ad .ad-subheading {
+		font-size: 14px;
+	}
+
+	
+	/* ------------------------ Home Page */
+	#hero {
+        padding-top:70px;
+    }
+	#hero-top h1 {
+		font-size: 36px;
+		line-height: 38px;
+	}
+	#hero-top h1 > span {
+		font-size: 20px;
+		line-height:26px;
+		display:inline-block;
+		padding-top:20px;
+		margin-top:14px;
+	}
+	#hero-bottom h2 {
+		font-size:16px;
+		line-height:20px;
+	}
+	
+	
+	#hero-bottom h2 {
+		color:#333;
+		font-family: Georgia, Times, "Times New Roman", serif;
+		line-height:30px;
+		font-size:24px;
+		margin-bottom:28px;
+	}
+
+	#hero-bottom {
+		font-size:18px;
+	}
+	#hero-bottom a {
+		color:#ff5200;
+		text-decoration:underline;
+	}
+
+	#hero-bottom em {
+		position:relative;
+	}
+
+	#hero-bottom img {
+		position:absolute;
+		left:-124px;
+		top:10px;
+	}
+
+	.wista-home-video {
+        display:none;
+    }
+	
+
+	#accounting-topics {
+		min-width:320px;
+	}
+		#accounting-topics .button.slim {
+			padding-right:38px;
+		}
+
+		
+	#topic-tabs {
+		display:none;
+	}
+	#topic-select {
+		margin-bottom:30px;
+	}
+		#topic-select .styled-select {
+			margin-left:0;
+		}
+	.sort-topics {
+		position:relative;
+		top:-10px;
+	}
+	
+	
+	#careers #topic-select .styled-select {
+		margin-left:auto;
+	}
+
+	
+	/* ------------------------ Accounting Topics */
+	
+	#accounting-topics > .grid-4 {
+		width:47.5%!important;
+		display: inline!important;
+		float: left!important;
+		position: relative!important;
+		margin-left: 1.22377622377622%!important;
+		margin-right: 1.22377622377622%!important;
+		min-width:230px!important;
+	}
+	.single-topic.open .topic-children {
+		margin-left:0px;
+	}
+	
+	
+
+	
+	
+	
+	/*------------------------------- 404 */
+	#searchform-404 div {
+		width: 100%;
+	}
+	
+	/* ------------------------ Topic Explanation */
+	#page-heading .topic-more-ways {
+		display:none;
+	}
+	.topic-more-ways {
+		border-radius:0;
+		margin-bottom:50px;
+		margin-top:0;
+		min-width:320px;
+		width:100%;
+		display:none;
+
+	}
+	
+	
+
+	.topic-downloads {
+		position:absolute;
+		bottom:auto;
+		right:auto;
+		margin-top:20px;
+		width:100%;
+		position: absolute;
+		bottom: auto!important;
+		right: auto;
+		margin-top: 0;
+		width: auto;
+		top: 50%;
+		margin-top: -10px;
+		right: 0;
+		left: auto;
+	}
+		.topic-downloads > div {
+			max-width:300px;
+			width:100%;
+		}
+		
+	body.logged-in .topic-downloads {
+		position:relative;
+		top:auto;
+		margin-top:0;
+	}	
+	
+	.topic-pro-download {
+		padding-top:0;
+	}
+		
+		
+		
+	.topic-downloads > div > p {
+		
+	}
+	body.blog .topic-pro-download p,
+	body.terms .topic-pro-download p,
+	body.quiz .topic-pro-download p,
+	body.exams .topic-pro-download p {
+		width:220px;
+	}
+	.topic-downloads > div > p > br {
+		
+	}
+	body.blog .topic-downloads > div > p > br,
+	body.terms .topic-downloads > div > p > br,
+	body.forms .topic-downloads > div > p > br,
+	body.quizzes .topic-downloads > div > p > br,
+	body.quiz .topic-downloads > div > p > br,
+	body.exams .topic-downloads > div > p > br {
+		display:inline;
+	}
+	.topic-downloads .icon.pdf,
+	.topic-downloads .icon.epub,
+	.topic-downloads .icon.zip {
+		/*position:absolute;
+		right:0;
+		float:none;*/
+	}
+	.topic-downloads .icon.pdf {
+		/*right:47px;*/
+	}
+	
+	body.blog .topic-downloads .icon.pdf,
+	body.blog .topic-downloads .icon.zip,
+	body.blog-topics .topic-downloads .icon.zip,
+	body.terms .topic-downloads .icon.pdf,
+	body.forms .topic-downloads .icon.zip,
+	body.quizzes .topic-downloads .icon.zip,
+	body.quiz .topic-downloads .icon.pdf,
+	body.exams .topic-downloads .icon.zip,
+	body.word-scramble-categories .topic-downloads .icon.zip,
+	body.word-scrambles .topic-downloads .icon.pdf {
+		/*right:33px;*/
+	}
+		
+	.topic-downloads .icon.pro-down {
+		top: -30px;
+		right: 30px!important;
+		/*width:35px;
+		height:17px;
+		background-position:-346px -135px;*/
+	}
+	body.blog .topic-downloads  .icon.pro-down,
+	body.blog-topics .topic-downloads  .icon.pro-down,
+	body.terms .topic-downloads .icon.pro-down,
+	body.forms .topic-downloads .icon.pro-down,
+	body.quizzes .topic-downloads .icon.pro-down,
+	body.quiz .topic-downloads .icon.pro-down,
+	body.exams .topic-downloads .icon.pro-down,
+	body.word-scramble-categories .topic-downloads .icon.pro-down,
+	body.word-scrambles .topic-downloads .icon.pro-down {
+		top: 50%;
+		right: 0px!important;
+		width:35px;
+		height:17px;
+		background-position:-346px -135px;
+		float:none;
+		margin-right:0;
+		margin-top:-8px;
+	}
+	
+	
+	
+	.topic-non-pro-download .wistia_embed, .topic-pro-download .wistia_embed {
+		display:none;
+	}
+	
+	
+	
+	
+	
+	
+	.topic-parts {
+		margin-left:-10px;
+		margin-right:-10px;
+		border-radius:0;
+		border-width:1px 0;
+		padding-bottom:6px;
+	}
+	.topic-parts .icon {
+		display:none!important;
+	}
+	
+
+	.topic-parts .part-name {
+		display:inline-block;
+	}
+	
+	.topic-parts li {
+		margin-bottom:2px;
+	}
+	.topic-parts li.current-page a,
+	.topic-parts li a {
+
+	}
+	.topic-parts li a span.part {
+
+	}
+	.pagination {
+		margin-bottom:30px;
+	}
+	
+		#468-ad {
+	display: none;
+	}
+	
+	
+	/* ----------------------------------- Quizzes  */
+	
+	.quiz-question.multiple-question .question {
+		width:auto;
+	}
+	.quiz-question.multiple-question .question span.subquestion {
+		display:block;
+		float:none;
+		width:auto;
+	}
+
+	.quiz-question .icon.info-other {
+		height: 24px;
+		width: 24px;
+		background-position: -332px -168px;
+		opacity:.8;
+	}
+
+
+	
+	
+	
+	/*--------------------------- Word Scramble */
+	#word-scramble-question-list tr {
+		position:relative;
+		display:block;
+	}
+	#word-scramble-question-list .word-scramble-question {
+		width: 100%;
+		padding-bottom:70px;
+	}
+	.word-scramble-answer,.word-scramble-control {
+		position:absolute;
+		bottom:2px;
+		left:0;
+	}
+	.word-scramble-control {
+		width:100px;
+		text-align:left!important;
+	}
+	.word-scramble-answer {
+		left:110px;
+		width:auto!important;
+	}
+	/* ------------------------ Exams */
+	
+	
+	.ac-box.free.exam-overview {
+		height:auto!important;
+	}
+
+	.exam-completion-status {
+		padding-bottom:0;
+	}
+	
+	.exam-completion-status h2 {
+		font-size:24px;
+	}
+	
+	#mobile-exam-instructions .ac-box {
+		display:none;
+	}
+
+	.exam-score-large {
+		height: 70px;
+		width: 70px;
+		line-height: 65px;
+		margin-right:20px;
+		background-position:-218px -353px;
+		margin-top:30px;
+	}
+		.exam-score-large > .exam-percentage {
+			font-size:28px;
+		}
+		.exam-score-large > .exam-percentage span {
+			font-size:70%;
+		}
+		
+	.exam-status-info {
+		display:inline-block;
+		float:left;
+		width:70%;
+		padding:0;
+	}
+	.exam-question {
+		max-width:100%;
+		padding-left:0;
+	}
+	.exam-question.wrong,
+	.exam-question.correct {
+		padding-left:20px;
+	}
+	#exam-submit {
+		max-width:98%;
+	}
+	.exam-explanation {
+		width:auto;
+	}
+	.exam-question {
+		padding-bottom:20px;
+	}
+	.exam-question .answers-holder {
+		width: 100%;
+		float:none;
+	}
+	.exam-question .question,
+	.exam-question .answer {
+		display:block;
+		float:none;
+		width:auto;
+		margin-right:0;
+	}
+	.exam-question .answer {
+		padding-top:20px;
+	}
+	.exam-question .answer.wrong {
+		max-width:320px;
+		padding-bottom:22px;
+	}
+	.exam-question a.view-answer,
+	.exam-question .multi-select-answer a.view-answer {
+		bottom:0;
+		top:auto;
+	}
+	.answer .styled-select,
+	.answer input {
+		max-width:320px;
+	}
+
+	#exam-submit {
+		margin-top:60px;
+	}
+	#exam-submit input {
+		float:right;
+	}
+	#exam-home-sidebar {
+		display:none;
+	}
+	#mobile-exam-instructions {
+		margin-bottom:20px;
+	}
+
+
+	#mobile-exam-instructions .icon.info {
+	height:32px;
+	width:32px;
+	background-position: -356px -168px;
+	top:12px;
+	right:22px;
+	}
+	#happy-face-example {
+		position:relative;
+		padding-left:34px;
+	}
+	#happy-face-example .icon {
+		position:absolute;
+		top:50%;
+		margin-top:-12px;
+		display:inline-block;
+		float:none;
+		left:0;
+		margin-right:0;
+	}
+	#mobile-exam-instructions .button.slim {
+		position:relative;
+	}
+	#mobile-exam-instructions .button.slim .icon { 
+		background-position: -579px -41px;
+		display: inline-block;
+		height: 21px;
+		width: 21px;
+		position: absolute;
+		right: 12px;
+		top: 50%;
+		margin-top: -10px;
+	}
+	#mobile-exam-instructions .button.dark {
+		width:100%;
+		padding-left:74px;
+		position:relative;
+	}
+		#mobile-exam-instructions .button.dark .icon
+		{
+			left:28px;
+			top:11px;
+		}
+	
+	
+	#exam-single .pagination {
+		min-height:32px;
+	}
+	.exam-part .pagination .prev,
+	#exam-single .pagination .prev {
+		margin-bottom:10px;
+		display:inline-block;
+		width:100%;
+		max-width:320px;
+		text-align:left;
+		float:left;
+	}
+	.exam-part .pagination .next,
+	#exam-single .pagination .next {
+		display:inline-block;
+		width:100%;
+		max-width:320px;
+		text-align:right;
+	}
+	.exam-part .pagination a {
+		height:auto;
+	}
+	.prev, .next, .pagination-no {
+		height:auto;
+	}
+	
+	/* ---------------------- Test Yourself */
+	
+	#test-yourself a.word-searches .icon.pro-left-small {     
+		left:255px; 
+	}
+
+	#test-yourself a.flash-cards .icon.pro-left-small {     
+		left: 208px;
+	}
+
+	#test-yourself div.infotip {
+		top: 70%;
+		left:0;
+		max-width:290px;
+	}
+	
+	#test-yourself {
+		margin-bottom:40px;
+	}
+	
+
+	/* ------------------------ Questions and Answers */
+	.content-search, .job-search {
+		width: 100%;
+	}
+	.job-search {
+		display:none;
+	}
+	#harold-qna img {
+		width:30%;
+		max-width:107px;
+		
+	}
+	#harold-qna p {
+		margin-left:30%;
+		padding-left:10px;
+	}
+	
+	#qna-archive .ta-right {
+		text-align:center;
+	}
+	.pagination {
+		text-align:center;
+	}
+	
+	#qna-topic .tabs {
+		display:none;
+	}
+	
+	body.qna #qna-archive .grid-6 p {
+		margin-bottom:0;
+	}
+	body.qna #qna-archive .grid-6 {
+		margin-bottom:20px;
+	}
+	
+	.content-search input[type=text]
+	 {
+		width:80%;
+		margin-right:10%;
+	}
+	.job-search input[type=text] {
+		width:84%;
+	}
+	
+	body.logged-in #qna-topic .container .grid-8 {
+		width:auto!important;
+	}
+
+	/* ------------------------ Visual learning */
+	#video-sidebar {
+		display:none;
+	}
+	#visual-learning-seminar-part .ac-box.free.inline {
+		display:block;
+	}
+	
+	/* ------------------------ Business Forms */
+	
+	.business-form-table thead .mobile th {
+		padding-bottom:10px;
+	}
+	.business-form-table tbody .mobile {
+		border-bottom:0;
+	}
+	.business-form-table tbody .mobile td {
+		padding:10px 0 0 0;
+	}
+	.business-form-table tr:hover {
+		background:none;
+	}
+	
+	
+	tr.mobile {
+		display:table-row!important;
+	}
+	th.form-name {
+		width:auto;
+	}
+	td.form-type {
+		width:33%;
+	}
+	
+	
+	/* --------------------------- Dictionary */
+	
+	#topic-col-left ol {
+		margin-bottom:0px;
+	}
+	
+		
+	.dictionary-terms-list li.terms-list-split {
+		clear:none;
+	}
+	
+	
+	/*---------------------- Bookkeeping Training */
+    
+    
+    
+    #bookkeeping-topics > div {
+        padding-right:0!important;
+    }
+    #bookkeeping-topics > div > ol {
+        margin-right:0!important;
+    }
+	
+	#bookkeeping-topics .topic {
+		margin-left:0!important;
+	}
+	
+	#bookkeeping-training div.infotip {
+		top: 96%;
+		left:10px;
+		max-width:280px;
+		min-width:240px;
+	}
+	
+	#bookkeeping-training #bookkeeping-videos-exams,
+	#bookkeeping-training #bookkeeping-qna {
+		margin-top:40px;
+	}
+	
+	#bookkeeping-training .ac-box.exam-overview.block {
+		height:auto!important;
+	}
+	#bookkeeping-training .ac-box.exam-overview.block h2 br {
+		display:none;
+	}
+	
+	/* ------------------------ Pro Tooltips */
+	
+	div.infotip.absolute {
+		left: 0;
+		top: 118%;
+		right:0;
+		width:auto;
+	}
+	div.infotip:after {
+		left:13px;
+	}
+	
+	
+	
+	/* ------------------------ Business Forms Tooltips */
+	
+	
+	
+	
+	
+	
+	#visual-learning div.infotip, #business-forms div.infotip, #test-yourself div.infotip, #business-form-single div.infotip, div.infotip.absolute, #bookkeeping-training div.infotip, #exams div.infotip
+	{
+	}
+	
+	#test-yourself div.infotip {left:10px;right:10px;min-width:240px;}
+
+	/* ------------------------ Pro Account */
+	
+	#pro-account-details input[type=text],
+	#pro-account-details input[type=email],
+	#pro-account-details input[type=url],
+	#pro-account-details .styled-select {
+		margin-bottom:2px;
+	}
+	
+	#pro-account-details .grid-2 {
+		float:left;
+		display:inline-block;
+		width:35%!important;
+		margin-right:2%!important;
+		min-width:0!important;
+	}
+	#pro-account-details .grid-6 {
+		float:left;
+		display:inline-block;
+		width:62.5%!important;
+		min-width:0!important;
+	}
+	#pro-account-details .grid-3 {
+		float:left;
+		display:inline-block;
+		margin-left:37%!important;
+		min-width:0!important;
+	}
+	#pro-account-details .form-row {
+		margin-bottom:10px;
+	}
+	#pro-account-details input[type=submit] {
+		margin-left:37%;
+	}
+
+	
+	/* ------------------------ Downloads */
+	
+	#downloads-table .download-name {
+		width:50%;
+		padding-left:10px;
+		text-align:left;
+		text-indent:0;
+		
+	}
+	
+	
+	/* ------------------------ Lower Promo */
+	#lower-promo {
+		display:none;
+	}
+	
+	
+	/*-------------------- Contact */
+	
+	#contact .wpcf7-textarea,
+	.qna-suggest .wpcf7-textarea {
+		max-width:84%;
+	}
+	#contact .wpcf7-form div.form-holder, 
+	.qna-suggest .wpcf7-form div.form-holder,
+	#mm_checkout_form  div.form-holder {
+		padding-left:5px;
+	}
+	#contact .wpcf7-form-control.wpcf7-submit,
+	.qna-suggest .wpcf7-form-control.wpcf7-submit {
+		margin-left:5px;
+	}
+	
+	
+	
+	/* ------------------------ Order */
+	
+	
+	
+	
+	
+	#mm_checkout_form #mm_field_cc_number {
+		width:90%;
+		max-width:250px;
+	}
+	#mm_checkout_form #mm_field_password {
+		margin-bottom:40px;
+	}
+	
+	#mm_checkout_form .payment-details-container div.form-holder,
+	 #mm_checkout_form div.submit-order	{
+		padding-left:20px;
+	}
+	#mm_checkout_form fieldset.payment-details .styled-select {
+		margin-bottom:10px;
+	}
+	.security-code-tooltip,
+	.security-code .icon.circle-question {
+		display:none;
+	}
+	div.payment-details-container {
+		padding-top:44px;
+	}
+	#mm_checkout_form fieldset.payment-details div.checkout-selects .select-replace-wrap:first-child {
+		margin-bottom:10px;
+	}
+	
+	div.payment-details-container .payment-details .icon.padlock-large {
+		top:-23px;
+		right:10px;
+	}
+	div.payment-details-container #norton-badge {
+		top: -36px;
+		right: 60px;
+	}
+    
+    
+
+	/* ============================== Confirmation */
+	
+	#confirmation-video .grid-10 {
+		margin-left:10px;
+		margin-right:10px;
+	}
+	#confirmation-video p {
+		font-size:26px!important;
+		line-height:30px;
+	
+	}
+	#confirmation-video p:after {
+		right:35px;
+	}
+	#wistia-lightbox .wistia-outer,
+	.wistia-lightbox .wistia-outer {
+		width:90%;
+	}
+	
+	
+	
+	
+	
+	#order-guarantee .image img {
+		max-width:100%;
+		width:auto;
+	}
+	
+	/*------------------------ About */
+	#about-tabs {
+	}
+	#about-tabs  > li {
+		margin-bottom:18px;
+	}
+	
+	/* ----------------------- Help */
+	
+	#help-categories {
+		display:none;
+	}
+	
+	
+	/*---------------- Quick tour */
+	
+	.quicktour-section li {
+		width:100%;
+		position:relative;
+		margin-left:-10px;
+		display:inline-block;
+		padding-right:30px;
+	}
+	.quicktour-section li .icon.pro-left-small {
+		margin-right: 0px;
+		margin-left: 0px;
+		top:3px;
+		right:0px;
+		position: relative;
+	}
+	
+	.smallprint .icon.pro-left-small {
+		margin-right: 2px;
+		margin-left: 2px;
+		position: relative;
+		top:3px;
+	}
+	
+	
+	/* ================================ Cheat Sheet */
+
+	.cheat-sheet-image {
+		width:30%;
+	}
+	.cheat-sheet-content {
+		width:68%;
+		padding-top:0;
+	}
+	
+	
+	
+	/* ------------------------ Footer */
+
+	#footer-top .container {
+		padding-bottom:0;
+		
+	}
+	#footer-top > .container {
+		padding-top:0;
+		
+	}
+	#footer-latest {
+		display:none;
+	} 
+	#footer-about.grid-6 {
+		margin-left:0;
+		margin-right:0;
+		padding-top:40px;
+	}
+		#footer-about .padding-left h4,
+		#footer-about .padding-left img {
+			margin-left:10px;
+		}
+		#footer-about .padding-left img {
+			max-width:139px;
+			width:40%;
+		}
+		#footer-about .padding-left > p {
+			padding:0 10px;
+		}
+		#footer-about .ac-box.grey.block {
+			border:0;
+			margin-bottom:0;
+			border-radius:0;
+			text-align:center;
+			padding-bottom:40px;
+			
+		}
+		#testimonial-promo.ac-box.grey.block {
+			text-align:center;
+			padding-top:40px;
+			padding-bottom:20px;
+			width:100%;
+		}
+		#testimonial-promo {
+			height:auto;
+			text-align:center;
+		}
+		#testimonial-promo span {
+			float:none;
+		}
+		#testimonial-promo .stars {
+			float:none;
+			display:block;
+			margin-left:auto;
+			margin-right:auto;
+		}
+		
+		
+		
+		
+		
+		
+
+
+	#footer h6 {
+		display:none;
+	}
+	#footer-menu-about,
+	#footer-menu-legal {
+		display:none;
+	}
+	#footer-mobile-menus {
+		margin-bottom:40px;
+		width:100%;
+	}
+	#footer-mobile-menus .styled-select {
+		margin-bottom:20px;
+		box-shadow:none;
+		margin-left:auto;
+		margin-right:auto;
+		width:100%;
+	}
+		#footer-mobile-menus .styled-select span {
+			background:#256589 url(../images/sprite.png?v1.1) no-repeat -300px -233px;
+			border-radius:0;
+		}
+	
+	
+	#footer .smallprint {
+		text-align:center;
+		padding-top:30px;
+		padding-bottom:60px;
+		margin-bottom:0px;
+	}
+	#footer .float-right {
+		float:none;
+	}
+	#accreditation-protection {
+		width:auto;
+		max-width:372px;
+		margin-left:auto;
+		margin-right:auto;
+		text-align:center;
+	}
+	
+	/* ------------------------ Purchase Pages */
+	
+	#purchase-heading .grid-4,
+	#purchase-overview .grid-4,
+	#purchase-content .grid-4 {
+		display:none;
+		width:0;
+	}
+	.purchase-section img {
+		display:none;
+	}
+	#order-heading #order-header-badges {
+		text-align:center;
+		position:relative;
+	}
+	#purchase-title h1  {font-size:32px;line-height:36px;}
+	#purchase-title h2 {font-size:24px;line-height:30px;}
+	
+	.purchase-pagination a {
+		font-size:12px;
+	}
+	.previous-feature span, .next-feature span {
+		font-size:11px;
+	}
+	
+	#purchase-info-box {
+		width:98%;
+	}
+	#purchase-info-box a {
+		display:block;
+	}
+	
+	#failsafe-purchase-order-now {
+		display: block!important;
+		width: 290px;
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 40px;
+		left:20px;
+	}
+	
+	
+	/* ------------------------ Order Page */
+	
+	#order-heading h1 {
+		font-size:34px;
+	}
+	
+	#mm_checkout_form div.form-holder {
+		padding-left:10px!important;
+	}
+	#mm_checkout_form .payment-details-container div.form-holder {
+		padding-left:34px!important;
+	}
+	
+	#mm_checkout_form .form-holder input[type=text],
+	#mm_checkout_form .form-holder input[type=password] {
+		width:90%;
+	}
+	
+	#pro-order-form input[type=text], #pro-order-form input[type=password], #pro-order-form input[type=email] {
+		width: 100%;
+		max-width: 338px;
+	}
+	#pro-order-form fieldset.payment-details .styled-select {
+		width:110px;
+	}
+	#pro-order-form fieldset.payment-details #order-expire-month {
+		margin-bottom:10px;
+	}
+	#pro-order-form .order-total {
+		text-align:right;
+		padding-top:40px;
+	}
+	#pro-order-form .submit-order {
+		padding-top: 20px;
+	}
+	
+	#order-sidebar {
+		display:none;
+	}
+	#order-page #order-guarantee {
+		padding-left:0;
+	}
+	#order-page #order-guarantee div.image {
+		display:none;
+	}
+	#order-page #order-guarantee div.text {
+		width:100%;
+		float:none;
+		display:block;
+	}
+	#order-header-badges img {
+		top:-18px;
+	}
+	#order-header-badges {
+		position:relative;
+		text-align:left;
+	}
+	#order-header-badges table {
+		float:none;
+		top:0;
+		display: inline-block;
+	}
+	.encryption-promise {
+		padding-left:0;
+	}
+	
+	#mobile-badges {
+		width:300px;
+		margin-left:auto;
+		margin-right:auto;
+	}
+	
+	#aa-mobile {
+		float:left;
+		position:relative;
+		top:30px;
+	}
+	
+	#mobile-badges #aa-mobile {
+		top:20px;
+	}
+
+	#norton-badge-mobile {
+		height:100px;
+		float:right;
+	}
+	
+	#purchase-mobile-guarantee {
+		clear:both;
+	}
+	
+	
+	
+	/* ----------------------- Layout */
+	.container.center-line:before {
+		display:none;
+	}
+	.padding-left,
+	.padding-right {
+		padding-left:0;
+		padding-right:0;
+	}
+	.container {
+		width: 100%;
+		max-width:767px;
+		min-width:300px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.full-width.padded {
+		min-height:100px;
+	}
+
+	.container .grid-1, 
+	.container .grid-2, 
+	.container .grid-3, 
+	.container .grid-4,
+	.container .grid-5, 
+	.container .grid-6, 
+	.container .grid-7, 
+	.container .grid-8, 
+	.container .grid-9,
+	.container .grid-10, 
+	.container .grid-11, 
+	.container .grid-12,
+	.half,
+	.half.alpha,
+	.half.omega {
+		display: block;
+		float: none;
+		position: relative;
+		margin-left: 10px;
+		margin-right: 10px;
+		width:auto!important;
+		min-width:280px!important;
+		max-width:767px!important;
+	}
+	.container .grid-8#order-header-badges {
+		margin-left:0 !important;
+		text-align:center;
+	}
+	#order-header-badges img {
+		margin-left:0 !important;
+	}
+	.half.omega,
+	.half.alpha {
+		margin:0!important;
+	}
+	.grid-1 div[class^="grid"],
+	.grid-2 div[class^="grid"],
+	.grid-3 div[class^="grid"],
+	.grid-4 div[class^="grid"],
+	.grid-5 div[class^="grid"],
+	.grid-6 div[class^="grid"],
+	.grid-7 div[class^="grid"],
+	.grid-8 div[class^="grid"],
+	.grid-9 div[class^="grid"],
+	.grid-10 div[class^="grid"],
+	.grid-11 div[class^="grid"],
+	.grid-12 div[class^="grid"] {
+		margin-left:0!important;
+		margin-right:0!important;
+	}
+  
+  #below-content-ad {
+    float: none;
+  }
+
+}
+
+
+@media only screen 
+and (min-width : 480px) 
+and (max-width :767px) /* Between widths until tablet portrait */
+
+{
+	#page-content h2 {font-size:30px;}
+	#page-content h3 {font-size:26px;}
+	#page-content h4 {font-size:22px;}
+	#page-content h5 {font-size:20px;}
+	#page-content h6 {font-size:18px;}
+	
+	#page-heading h1, #page-heading h2, #page-heading h3 {
+		font-size:36px;
+	}
+	
+	
+	/*--------------------- Exam tooltips ------------*/
+	
+	.exam-question .tooltip {
+		left:0;
+		right:auto;
+		width:100%;
+		top:94%;
+	}
+	
+	
+	/* ================================ Cheat Sheet */
+
+	.cheat-sheet-image {
+		width:40%;
+	}
+	.cheat-sheet-content {
+		width:56%;
+		padding-top:10px;
+	}
+
+	
+	
+	/* Checkout */
+	
+	#order-heading #order-header-badges {
+		text-align:left;
+	}
+	#order-heading #order-header-badges table {
+		top:20px;
+	}
+	
+    
+    #order-page .encryption-promise img {
+        left:0px;
+        display:block;
+        margin-top:50px;
+    }
+	
+	
+}
+
+
+
+
+@media only screen 
+and (min-width : 260px) 
+and (max-width : 600px) 
+{
+
+
+	/* Home */
+	#hero-bottom {
+		padding-top:50px;
+	}
+	#hero-bottom .grid-12 {
+		padding-bottom:40px;
+	}
+
+	#hero-bottom img {
+		position:absolute;
+		left:-94px;
+		top:10px;
+		width:84px;
+		height:71px;
+	}
+
+	
+	
+	/* topic downloads */
+	
+	.topic-downloads {
+		position: relative;
+		margin-top: 0px;
+		top:0;
+		padding-bottom: 0px;
+	}
+	
+	#page-heading h1, #page-heading h2, #page-heading h3 {
+		padding-right:0;
+	}
+	
+	.topic-non-pro-download.testimonials {
+		text-align:left;
+		display:none;
+	}
+	.topic-pro-download {
+		padding-top:0;
+	}
+	
+	
+	body.logged-in .topic-pro-download p {
+		margin-top:20px;
+	}
+	body.logged-in .topic-pro-download a.icon {
+		margin-top:20px;
+	}
+
+	
+	.topic-non-pro-download.wistia p {
+		margin-top:20px;
+		margin-bottom:10px;
+	}
+
+
+	/*------- Careers -- */
+	#sba-two, .sba-two, #sas-two, .sas-two {
+		margin-top:0;
+		margin-left:0;
+	}
+
+	#sba-three, #sas-three {
+		margin-top:-520px;
+	}
+	#sba-four, #sas-four {
+		margin-top:0;
+	}
+	#sba-four, .sba-four, #sas-four, .sas-four {
+		margin-left:50%;
+	}
+
+	.tclist-two-top {
+		margin-top:0;
+	}
+	.tclist-two, .tclist-two-top {
+		margin-left:0
+	}
+	
+	#pocsc-two {
+		margin-top:0;
+		margin-left:0;
+	}
+
+	
+	/* ============================== Confirmation */
+	
+
+	#confirmation-video p {
+		font-size:20px!important;
+		line-height:24px;
+	}
+	#confirmation-video p:after {
+		right:15px;
+	}
+	
+	
+		/*============= Quiz Tooltips == */
+	
+	
+	
+	.wrong-answer, .right-answer {
+		margin-left:0;
+		margin-right:18px;
+	}
+	
+	.multiple-choice .wrong-answer .tooltip, .multiple-choice .right-answer .tooltip {
+		position:relative;
+		left:0;
+		right:0;
+		min-width:260px;
+		width:98%;
+		max-width:460px;
+		margin-top:8px;
+		margin-left:0px;
+	}
+	.tooltip .explanation  {
+		float:none;
+		border-bottom:0!important;
+		min-width:180px;
+	}
+	.multiple-choice .answer {
+		display:block;
+	}
+	.multiple-choice .answer .tooltip:after {
+		left:14px;
+	}
+	
+	
+	.quiz-question.blank-question {
+		position:relative;
+	}
+	.blank-answer {
+		position:static;
+	}
+	
+	.blank-question .tooltip {
+		position: absolute;
+		top: auto;
+		left: auto;
+		width:98%;
+		max-width:460px;
+		margin-top:6px;
+	}
+	.blank-question .tooltip:after {
+		display:none;
+	}
+	.blank-answer.answer:after {
+		content:"";
+		background:url(../images/sprite.png?v1.1) no-repeat -448px -192px;
+		display:none;
+		height:10px;
+		width:19px;
+		position:absolute;
+		margin-top:17px;
+		margin-left:-45px;
+		z-index:30;
+	}
+	
+	
+	.quiz-question.multiple-question .question span.subquestion {
+		padding-left:0;
+	}
+	.multiple-question .question {
+		position:relative;
+	}
+	.multiple-question .question .answer {
+		position:static;
+	}
+	.multiple-question .tooltip:after {
+		display:none;
+	}
+	
+	.multiple-question .answer:after {
+		content:"";
+		background:url(../images/sprite.png?v1.1) no-repeat -448px -192px;
+		display:none;
+		height:10px;
+		width:19px;
+		position:absolute;
+		z-index:90;
+		margin-top:-4px;
+	}
+	.multiple-question .answer.open-answer:after, .blank-answer.answer.open-answer:after {
+		display:inline-block;
+	}
+	
+	.multiple-question .answer .tooltip {
+		top:auto;
+		left:0;
+		width:98%;
+		max-width:460px;
+		margin-top:5px;
+	}
+	
+	.quiz-question.multiple-choice .answer.open-answer {
+		text-decoration:none;
+	}
+	
+}
+
+@media only screen 
+and (min-width : 260px) 
+and (max-width : 540px) 
+
+{
+
+
+
+/* ------------------------ Header */
+
+ 
+
+
+/* ------------------------ Accounting Topics */
+#accounting-topics > .grid-4 {
+		width:auto!important;
+		display:block!important;
+		float: none!important;
+		position: relative!important;
+		margin-left: 10px!important;
+		margin-right: 10px!important;
+		min-width:260px!important;
+	}
+	
+	
+	
+}
+
+
+
+
+@media only screen 
+and (min-width : 260px) 
+and (max-width : 480px) 
+{
+
+
+	#footer-about .padding-left img {
+		width:40%;
+		max-width:139px;
+	}
+	#footer-about .fs-14 {
+		float:left;
+		width:50%;
+	}
+	
+	
+	
+	/*--------------------- Exam tooltips ------------*/
+	
+	
+	
+	.exam-question .tooltip {
+		left:0;
+		right:0;
+		top:94%;
+	}
+	
+	
+	
+	
+	
+	/*============== Cheat Sheet */
+	
+	.cheat-sheet-image {
+		display:none;
+	}
+	
+	.cheat-sheet-content {
+		width:100%;
+		float:none;
+		display:block;
+	}
+	
+	
+	
+	/*============== Quick Tour */
+	.quicktour-section li .icon.pro-left-small {
+		/*margin-right: 0px;*/
+		margin-left: 0px;
+		top:3px;
+		right:0px;
+		position: absolute;
+	}
+	
+	
+	
+	
+	/*============== Sidebar */
+	.yellow-sidebar-ad.b2 strong {
+		margin-left:16px;
+		padding-top:16px;
+	}
+	.yellow-sidebar-ad.b2 .ad-subheading {
+		margin-left:16px;
+	}
+	#seminar-videos.yellow-sidebar-ad.b2 > img {
+
+	}
+	#bookkeeping-exams.yellow-sidebar-ad.b2 > img {
+	
+	}
+	
+	
+	/*============== Checkout */
+	
+	#order-heading {
+		padding-top:42px;
+		padding-bottom:42px;
+	}
+	
+	#order-heading h1 {
+		line-height: 44px;
+		margin-bottom: 0px;
+	}
+	#order-heading h1,
+	#order-header-badges {
+		text-align:center;
+	}
+	#bbb-badge-header {
+		margin-right:4px;
+	}
+	.encryption-promise {
+		padding-left:32px;
+		position:relative;
+		max-width: 190px;
+		margin-top: 20px;
+	}
+	.encryption-promise br {
+		display:none;
+	}
+	.encryption-promise .icon {
+		position:absolute;
+		top:12px;
+		margin-top:0px;
+		left:0;
+	}
+    
+    #order-page .encryption-promise img {
+        position:relative;
+        display:block;
+        margin-top:50px;
+        left:-32px;
+    }
+	
+	#masthead.order {
+		margin-bottom:82px;
+	}
+	
+	body.pro-mobile #masthead.order {
+		margin-bottom:23px;
+	}
+	
+	#order-header-badges {
+		position:absolute!important;
+		width:100%!important;
+		top:-150px!important;
+		margin-left:auto!important;
+		margin-right:auto!important;
+		left:0!important;
+		right:0!important;
+	}
+
+	#order-heading #order-header-badges table {
+		top:20px;
+	}
+	
+	
+	
+	
+	/* ============================== Confirmation */
+	#confirmation-video .grid-10 div {
+		display: block;
+	}
+
+	#confirmation-video p {
+		font-size:24px!important;
+		line-height:28px;
+		float:none;
+		width:100%;
+		margin:0;
+		display:block;
+		margin-bottom:20px;
+		text-align:center;
+		padding-right:0;
+	}
+	#confirmation-video p:after {
+		display:none;
+	}
+	#confirmation-video a {
+		width:auto;
+		float:none;
+		display:block;
+		max-width:300px;
+		margin-left:auto;
+		margin-right:auto;
+	}
+	
+	
+	
+	
+	
+	
+}
+
+
+
+
+
+@media only screen 
+and (min-width : 260px) 
+and (max-width : 364px) 
+{
+	#newsletter-signup-form span {
+		float: none;
+		width: 100%;
+		display: block;
+		text-align: left;
+		margin-top: 4px;
+	}
+	#newsletter-signup-form span br {
+		display: none;
+	}
+	input#nl-submit, input#bg-submit {
+		float: none;
+	}
+	
+	#newsletter-sidebar:after {
+		top: 16px;
+		right: 16px;
+	}
+	
+	
+
+}
+
+
+@media only screen 
+and (min-width : 600px) 
+and (max-width : 767px) 
+{
+
+	#page-heading h1, #page-heading h2, #page-heading h3, #page-heading p.h1 {
+		margin-bottom:20px;
+		padding-bottom: 0px!important;
+		margin-top: 0px!important;
+	}
+
+
+}
+
+
+@media 
+(-webkit-min-device-pixel-ratio: 2), 
+(min-resolution: 192dpi) { 
+
+
+	#footer-mobile-menus .styled-select span,
+	#site-search input#searchsubmit,
+	#mobile-search-toggle,
+	.icon,
+	.styled-select > span,
+	#testimonial-promo .stars,
+	#hero-top:after,
+	#member-menu #member-menu-toggle,
+	#lower-promo:after,
+	#bg-decoration,
+	.single-topic.open:after,
+	.blank-answer.answer:after
+	{
+		background-image:url(../images/sprite@2x.png?v1.1);
+		background-size: 600px;
+	}
+	
+}
+
+
+@media 
+(-webkit-min-device-pixel-ratio: 2), 
+(min-resolution: 192dpi) and (orientation : portrait) { 
+
+
+
+}
+
+	
+	
+
+
+
+æ-ó˜6&      WVÚ¶WVÚ<‰þJWZ2¤   Y    :http://www.accountingcoach.com/wp-content/themes/accounting-coach/css/mobile.css?v=19.32 necko:classified 1 request-method GET response-head HTTP/1.1 200 OK
+Date: Tue, 07 Jun 2016 14:21:41 GMT
+Server: Apache/2.2.15
+Last-Modified: Fri, 13 May 2016 04:05:45 GMT
+Etag: "f18240-9569-532b163971840"
+Accept-Ranges: bytes
+Content-Length: 38249
+Content-Type: text/css
+ uncompressed-len 0   •i

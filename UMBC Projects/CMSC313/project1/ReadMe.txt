@@ -1,0 +1,41 @@
+Project Description
+************************************************************************
+1. Expected inputs/outputs
+************************************************************************
+project1.txt contains the expected input and output, the project takes in
+a user input string and then deciphers it using an atbash lookup table. The
+table contains the alphabet of both lower and upper case. The string given is
+converted as such.
+
+************************************************************************
+2. How to compile and use this project
+************************************************************************
+
+Compilation:
+
+	type make	
+
+Execution:
+	type ./toupper
+
+************************************************************************
+3. Functionality (describe your contributions here)
+************************************************************************
+Works for all the test casses given, I coded from the read_ok all the way
+until Conclusion
+
+
+************************************************************************
+4. Limitations (if any)
+************************************************************************
+
+none
+
+************************************************************************
+5. Applications (your thoughts) of this project
+************************************************************************
+- My thoughts on this project have to be mind bending(Doctor Strange), its just a little
+- tedious to keep track of the string coming in and having to check if some of the characters
+- are lower and upper and then convert them as such. The wrapping around the atbash table logic
+- was a little tough to understand but Overall very clear , cut project. 
+

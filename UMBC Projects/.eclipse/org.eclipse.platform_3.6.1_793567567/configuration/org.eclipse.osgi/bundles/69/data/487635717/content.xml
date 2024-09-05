@@ -1,0 +1,1325 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?metadataRepository version='1.1.0'?>
+<repository name='dropins metadata repo: file:/usr/lib64/eclipse/dropins/jdt/' type='org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository' version='1.0.0'>
+  <properties size='1'>
+    <property name='p2.timestamp' value='1465901240916'/>
+  </properties>
+  <references size='2'>
+    <repository uri='http://download.eclipse.org/eclipse/updates/3.5' url='http://download.eclipse.org/eclipse/updates/3.5' type='0' options='0'/>
+    <repository uri='http://download.eclipse.org/eclipse/updates/3.5' url='http://download.eclipse.org/eclipse/updates/3.5' type='1' options='0'/>
+  </references>
+  <units size='25'>
+    <unit id='org.eclipse.jdt.feature.group' version='3.6.1.r361_v20100714-0800-7z8XFUSFLBmsgvVz0z-3vjz095IX' singleton='false'>
+      <update id='org.eclipse.jdt.feature.group' range='[0.0.0,3.6.1.r361_v20100714-0800-7z8XFUSFLBmsgvVz0z-3vjz095IX)' severity='0'/>
+      <properties size='11'>
+        <property name='org.eclipse.equinox.p2.name' value='%featureName'/>
+        <property name='org.eclipse.equinox.p2.description' value='%description'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.type.group' value='true'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/jdt/features/org.eclipse.jdt_3.6.1.r361_v20100714-0800-7z8XFUSFLBmsgvVz0z-3vjz095IX'/>
+        <property name='file.lastModified' value='1406152430000'/>
+        <property name='df_LT.featureName' value='Eclipse Java Development Tools'/>
+        <property name='df_LT.providerName' value='Eclipse.org'/>
+        <property name='df_LT.description' value='Eclipse Java development tools. (Binary runtime and user documentation.)'/>
+        <property name='df_LT.copyright' value='Copyright (c) 2000, 2010 IBM Corporation and others.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html&#xA;&#xA;Contributors:&#xA;IBM Corporation - initial API and implementation&#xA;'/>
+        <property name='df_LT.license' value='Eclipse Foundation Software User Agreement&#xA;April 14, 2010&#xA;&#xA;Usage Of Content&#xA;&#xA;THE ECLIPSE FOUNDATION MAKES AVAILABLE SOFTWARE, DOCUMENTATION, INFORMATION AND/OR&#xA;OTHER MATERIALS FOR OPEN SOURCE PROJECTS (COLLECTIVELY &quot;CONTENT&quot;).&#xA;USE OF THE CONTENT IS GOVERNED BY THE TERMS AND CONDITIONS OF THIS&#xA;AGREEMENT AND/OR THE TERMS AND CONDITIONS OF LICENSE AGREEMENTS OR&#xA;NOTICES INDICATED OR REFERENCED BELOW.  BY USING THE CONTENT, YOU&#xA;AGREE THAT YOUR USE OF THE CONTENT IS GOVERNED BY THIS AGREEMENT&#xA;AND/OR THE TERMS AND CONDITIONS OF ANY APPLICABLE LICENSE AGREEMENTS&#xA;OR NOTICES INDICATED OR REFERENCED BELOW.  IF YOU DO NOT AGREE TO THE&#xA;TERMS AND CONDITIONS OF THIS AGREEMENT AND THE TERMS AND CONDITIONS&#xA;OF ANY APPLICABLE LICENSE AGREEMENTS OR NOTICES INDICATED OR REFERENCED&#xA;BELOW, THEN YOU MAY NOT USE THE CONTENT.&#xA;&#xA;Applicable Licenses&#xA;&#xA;Unless otherwise indicated, all Content made available by the&#xA;Eclipse Foundation is provided to you under the terms and conditions of&#xA;the Eclipse Public License Version 1.0 (&quot;EPL&quot;). A copy of the EPL is&#xA;provided with this Content and is also available at http://www.eclipse.org/legal/epl-v10.html.&#xA;For purposes of the EPL, &quot;Program&quot; will mean the Content.&#xA;&#xA;Content includes, but is not limited to, source code, object code,&#xA;documentation and other files maintained in the Eclipse Foundation source code&#xA;repository (&quot;Repository&quot;) in software modules (&quot;Modules&quot;) and made available&#xA;as downloadable archives (&quot;Downloads&quot;).&#xA;&#xA;- Content may be structured and packaged into modules to facilitate delivering,&#xA;extending, and upgrading the Content. Typical modules may include plug-ins (&quot;Plug-ins&quot;),&#xA;plug-in fragments (&quot;Fragments&quot;), and features (&quot;Features&quot;).&#xA;- Each Plug-in or Fragment may be packaged as a sub-directory or JAR (Java(TM) ARchive)&#xA;in a directory named &quot;plugins&quot;.&#xA;- A Feature is a bundle of one or more Plug-ins and/or Fragments and associated material.&#xA;Each Feature may be packaged as a sub-directory in a directory named &quot;features&quot;.&#xA;Within a Feature, files named &quot;feature.xml&quot; may contain a list of the names and version&#xA;numbers of the Plug-ins and/or Fragments associated with that Feature.&#xA;- Features may also include other Features (&quot;Included Features&quot;). Within a Feature, files&#xA;named &quot;feature.xml&quot; may contain a list of the names and version numbers of Included Features.&#xA;&#xA;The terms and conditions governing Plug-ins and Fragments should be&#xA;contained in files named &quot;about.html&quot; (&quot;Abouts&quot;). The terms and&#xA;conditions governing Features and Included Features should be contained&#xA;in files named &quot;license.html&quot; (&quot;Feature Licenses&quot;). Abouts and Feature&#xA;Licenses may be located in any directory of a Download or Module&#xA;including, but not limited to the following locations:&#xA;&#xA;- The top-level (root) directory&#xA;- Plug-in and Fragment directories&#xA;- Inside Plug-ins and Fragments packaged as JARs&#xA;- Sub-directories of the directory named &quot;src&quot; of certain Plug-ins&#xA;- Feature directories&#xA;&#xA;Note: if a Feature made available by the Eclipse Foundation is installed using the&#xA;Provisioning Technology (as defined below), you must agree to a license (&quot;Feature &#xA;Update License&quot;) during the installation process. If the Feature contains&#xA;Included Features, the Feature Update License should either provide you&#xA;with the terms and conditions governing the Included Features or inform&#xA;you where you can locate them. Feature Update Licenses may be found in&#xA;the &quot;license&quot; property of files named &quot;feature.properties&quot; found within a Feature.&#xA;Such Abouts, Feature Licenses, and Feature Update Licenses contain the&#xA;terms and conditions (or references to such terms and conditions) that&#xA;govern your use of the associated Content in that directory.&#xA;&#xA;THE ABOUTS, FEATURE LICENSES, AND FEATURE UPDATE LICENSES MAY REFER&#xA;TO THE EPL OR OTHER LICENSE AGREEMENTS, NOTICES OR TERMS AND CONDITIONS.&#xA;SOME OF THESE OTHER LICENSE AGREEMENTS MAY INCLUDE (BUT ARE NOT LIMITED TO):&#xA;&#xA;- Common Public License Version 1.0 (available at http://www.eclipse.org/legal/cpl-v10.html)&#xA;- Apache Software License 1.1 (available at http://www.apache.org/licenses/LICENSE)&#xA;- Apache Software License 2.0 (available at http://www.apache.org/licenses/LICENSE-2.0)&#xA;- Metro Link Public License 1.00 (available at http://www.opengroup.org/openmotif/supporters/metrolink/license.html)&#xA;- Mozilla Public License Version 1.1 (available at http://www.mozilla.org/MPL/MPL-1.1.html)&#xA;&#xA;IT IS YOUR OBLIGATION TO READ AND ACCEPT ALL SUCH TERMS AND CONDITIONS PRIOR&#xA;TO USE OF THE CONTENT. If no About, Feature License, or Feature Update License&#xA;is provided, please contact the Eclipse Foundation to determine what terms and conditions&#xA;govern that particular Content.&#xA;&#xA;&#xA;Use of Provisioning Technology&#xA;&#xA;The Eclipse Foundation makes available provisioning software, examples of which include,&#xA;but are not limited to, p2 and the Eclipse Update Manager (&quot;Provisioning Technology&quot;) for&#xA;the purpose of allowing users to install software, documentation, information and/or&#xA;other materials (collectively &quot;Installable Software&quot;). This capability is provided with&#xA;the intent of allowing such users to install, extend and update Eclipse-based products.&#xA;Information about packaging Installable Software is available at&#xA;http://eclipse.org/equinox/p2/repository_packaging.html (&quot;Specification&quot;).&#xA;&#xA;You may use Provisioning Technology to allow other parties to install Installable Software.&#xA;You shall be responsible for enabling the applicable license agreements relating to the&#xA;Installable Software to be presented to, and accepted by, the users of the Provisioning Technology&#xA;in accordance with the Specification. By using Provisioning Technology in such a manner and&#xA;making it available in accordance with the Specification, you further acknowledge your&#xA;agreement to, and the acquisition of all necessary rights to permit the following:&#xA;&#xA;1. A series of actions may occur (&quot;Provisioning Process&quot;) in which a user may execute&#xA;the Provisioning Technology on a machine (&quot;Target Machine&quot;) with the intent of installing,&#xA;extending or updating the functionality of an Eclipse-based product.&#xA;2. During the Provisioning Process, the Provisioning Technology may cause third party&#xA;Installable Software or a portion thereof to be accessed and copied to the Target Machine.&#xA;3. Pursuant to the Specification, you will provide to the user the terms and conditions that&#xA;govern the use of the Installable Software (&quot;Installable Software Agreement&quot;) and such&#xA;Installable Software Agreement shall be accessed from the Target Machine in accordance&#xA;with the Specification. Such Installable Software Agreement must inform the user of the&#xA;terms and conditions that govern the Installable Software and must solicit acceptance by&#xA;the end user in the manner prescribed in such Installable Software Agreement. Upon such&#xA;indication of agreement by the user, the provisioning Technology will complete installation&#xA;of the Installable Software.&#xA;&#xA;Cryptography&#xA;&#xA;Content may contain encryption software. The country in which you are&#xA;currently may have restrictions on the import, possession, and use,&#xA;and/or re-export to another country, of encryption software. BEFORE&#xA;using any encryption software, please check the country&apos;s laws,&#xA;regulations and policies concerning the import, possession, or use, and&#xA;re-export of encryption software, to see if this is permitted.&#xA;&#xA;Java and all Java-based trademarks are trademarks of Oracle Corporation in the United States, other countries, or both.&#xA;'/>
+      </properties>
+      <provides size='2'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt.feature.group' version='3.6.1.r361_v20100714-0800-7z8XFUSFLBmsgvVz0z-3vjz095IX'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='27'>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.platform.feature.group' range='3.6.1'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt' range='[3.6.1.r361_v20100714-0800,3.6.1.r361_v20100714-0800]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.ant.ui' range='[3.5.0.v20100427,3.5.0.v20100427]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt.apt.core' range='[3.3.401.R36_v20100727-0110,3.3.401.R36_v20100727-0110]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt.apt.ui' range='[3.3.300.v20100513-0845,3.3.300.v20100513-0845]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt.apt.pluggable.core' range='[1.0.301.R36_v20100727-0110,1.0.301.R36_v20100727-0110]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt.compiler.apt' range='[1.0.300.v20100513-0845,1.0.300.v20100513-0845]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt.compiler.tool' range='[1.0.100.v_A68_R36x,1.0.100.v_A68_R36x]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt.core' range='[3.6.1.v_A68_R36x,3.6.1.v_A68_R36x]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt.core.manipulation' range='[1.3.0.v20100520-0800,1.3.0.v20100520-0800]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt.debug.ui' range='[3.5.0.v20100602-0830,3.5.0.v20100602-0830]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt.debug' range='[3.6.1.v20100715_r361,3.6.1.v20100715_r361]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt.junit' range='[3.6.1.r361_v20100825-0800,3.6.1.r361_v20100825-0800]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt.junit.core' range='[3.6.1.r361_v20100825-0800,3.6.1.r361_v20100825-0800]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt.junit.runtime' range='[3.4.200.v20100526-0800,3.4.200.v20100526-0800]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt.junit4.runtime' range='[1.1.100.v20100526-0800,1.1.100.v20100526-0800]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt.launching' range='[3.5.100.v20100526,3.5.100.v20100526]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt.ui' range='[3.6.1.r361_v20100825-0800,3.6.1.r361_v20100825-0800]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.junit' range='[4.8.1.v4_8_1_v20100427-1100,4.8.1.v4_8_1_v20100427-1100]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.junit' range='[3.8.2.v3_8_2_v20100427-1100,3.8.2.v3_8_2_v20100427-1100]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.junit4' range='[4.8.1.v20100525,4.8.1.v20100525]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.hamcrest.core' range='[1.1.0.v20090501071000,1.1.0.v20090501071000]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt.doc.user' range='[3.6.1.r361_v20100721-0800,3.6.1.r361_v20100721-0800]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt.launching.macosx' range='0.0.0'>
+          <filter>
+            (osgi.os=macosx)
+          </filter>
+        </required>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt.launching.ui.macosx' range='0.0.0'>
+          <filter>
+            (osgi.os=macosx)
+          </filter>
+        </required>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.ant.launching' range='[1.0.0.v20100427,1.0.0.v20100427]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt.feature.jar' range='[3.6.1.r361_v20100714-0800-7z8XFUSFLBmsgvVz0z-3vjz095IX,3.6.1.r361_v20100714-0800-7z8XFUSFLBmsgvVz0z-3vjz095IX]'>
+          <filter>
+            (org.eclipse.update.install.features=true)
+          </filter>
+        </required>
+      </requires>
+      <touchpoint id='null' version='0.0.0'/>
+      <licenses size='1'>
+        <license uri='%25licenseURL' url='%25licenseURL'>
+          %license
+        </license>
+      </licenses>
+      <copyright>
+        %copyright
+      </copyright>
+    </unit>
+    <unit id='org.eclipse.jdt.doc.user' version='3.6.1.r361_v20100721-0800'>
+      <update id='org.eclipse.jdt.doc.user' range='[0.0.0,3.6.1.r361_v20100721-0800)' severity='0'/>
+      <properties size='7'>
+        <property name='df_LT.providerName' value='Eclipse.org'/>
+        <property name='df_LT.pluginName' value='Eclipse Java development user guide'/>
+        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/jdt/plugins/org.eclipse.jdt.doc.user_3.6.1.r361_v20100721-0800.jar'/>
+        <property name='file.lastModified' value='1295470375000'/>
+      </properties>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt.doc.user' version='3.6.1.r361_v20100721-0800'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.jdt.doc.user' version='3.6.1.r361_v20100721-0800'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.jdt.doc.user' version='3.6.1.r361_v20100721-0800'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-Name: %pluginName&#xA;Bundle-Version: 3.6.1.r361_v20100721-0800&#xA;Bundle-SymbolicName: org.eclipse.jdt.doc.user; singleton:=true&#xA;Manifest-Version: 1.0&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Vendor: %providerName&#xA;Bundle-Localization: plugin&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.jdt.core' version='3.6.1.v_A68_R36x'>
+      <update id='org.eclipse.jdt.core' range='[0.0.0,3.6.1.v_A68_R36x)' severity='0'/>
+      <properties size='7'>
+        <property name='df_LT.providerName' value='Eclipse.org'/>
+        <property name='df_LT.pluginName' value='Java Development Tools Core'/>
+        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/jdt/plugins/org.eclipse.jdt.core_3.6.1.v_A68_R36x.jar'/>
+        <property name='file.lastModified' value='1295470375000'/>
+      </properties>
+      <provides size='49'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt.core' version='3.6.1.v_A68_R36x'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.jdt.core' version='3.6.1.v_A68_R36x'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.core' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.core.compiler' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.core.compiler.batch' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.core.dom' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.core.dom.rewrite' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.core.eval' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.core.formatter' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.core.jdom' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.core.search' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.core.util' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.codeassist' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.codeassist.complete' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.codeassist.impl' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.codeassist.select' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.compiler' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.compiler.ast' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.compiler.batch' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.compiler.classfmt' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.compiler.codegen' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.compiler.env' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.compiler.flow' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.compiler.impl' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.compiler.lookup' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.compiler.parser' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.compiler.parser.diagnose' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.compiler.problem' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.compiler.util' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.core' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.core.builder' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.core.dom' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.core.dom.rewrite' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.core.eval' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.core.hierarchy' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.core.index' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.core.jdom' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.core.search' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.core.search.indexing' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.core.search.matching' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.core.search.processing' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.core.util' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.eval' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.formatter' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.formatter.align' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.formatter.comment' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.formatter.old' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='5'>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='[3.3.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='[3.3.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.filesystem' range='[1.0.0,2.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.text' range='[3.1.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.team.core' range='[3.1.0,4.0.0)' optional='true'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.jdt.core' version='3.6.1.v_A68_R36x'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-Name: %pluginName&#xA;Bundle-Version: 3.6.1.v_A68_R36x&#xA;Bundle-Activator: org.eclipse.jdt.core.JavaCore&#xA;Bundle-Vendor: %providerName&#xA;Require-Bundle: org.eclipse.core.resources;bundle-version=&quot;[3.3.0,4.0.0)&quot;,org.eclipse.core.runtime;bundle-version=&quot;[3.3.0,4.0.0)&quot;,org.eclipse.core.filesystem;bundle-version=&quot;[1.0.0,2.0.0)&quot;,org.eclipse.text;bundle-version=&quot;[3.1.0,4.0.0)&quot;,org.eclipse.team.core;bundle-version=&quot;[3.1.0,4.0.0)&quot;;resolution:=optional&#xA;Export-Package: org.eclipse.jdt.core,org.eclipse.jdt.core.compiler,org.eclipse.jdt.core.compiler.batch,org.eclipse.jdt.core.dom,org.eclipse.jdt.core.dom.rewrite,org.eclipse.jdt.core.eval,org.eclipse.jdt.core.formatter,org.eclipse.jdt.core.jdom,org.eclipse.jdt.core.search,org.eclipse.jdt.core.util,org.eclipse.jdt.internal.codeassist;x-internal:=true,org.eclipse.jdt.internal.codeassist.complete;x-internal:=true,org.eclipse.jdt.internal.codeassist.impl;x-internal:=true,org.eclipse.jdt.internal.codeassist.select;x-internal:=true,org.eclipse.jdt.internal.compiler;x-friends:=&quot;org.eclipse.jdt.compiler.tool,org.eclipse.jdt.apt.pluggable.core&quot;,org.eclipse.jdt.internal.compiler.ast;x-friends:=&quot;org.eclipse.jdt.compiler.tool,org.eclipse.jdt.apt.pluggable.core&quot;,org.eclipse.jdt.internal.compiler.batch;x-friends:=&quot;org.eclipse.jdt.compiler.tool,org.eclipse.jdt.apt.pluggable.core&quot;,org.eclipse.jdt.internal.compiler.classfmt;x-friends:=&quot;org.eclipse.jdt.compiler.tool,org.eclipse.jdt.apt.pluggable.core&quot;,org.eclipse.jdt.internal.compiler.codegen;x-friends:=&quot;org.eclipse.jdt.compiler.tool,org.eclipse.jdt.apt.pluggable.core&quot;,org.eclipse.jdt.internal.compiler.env;x-friends:=&quot;org.eclipse.jdt.compiler.tool,org.eclipse.jdt.apt.pluggable.core&quot;,org.eclipse.jdt.internal.compiler.flow;x-friends:=&quot;org.eclipse.jdt.compiler.tool,org.eclipse.jdt.apt.pluggable.core&quot;,org.eclipse.jdt.internal.compiler.impl;x-friends:=&quot;org.eclipse.jdt.compiler.tool,org.eclipse.jdt.apt.pluggable.core&quot;,org.eclipse.jdt.internal.compiler.lookup;x-friends:=&quot;org.eclipse.jdt.compiler.tool,org.eclipse.jdt.apt.pluggable.core&quot;,org.eclipse.jdt.internal.compiler.parser;x-friends:=&quot;org.eclipse.jdt.compiler.tool,org.eclipse.jdt.apt.pluggable.core&quot;,org.eclipse.jdt.internal.compiler.parser.diagnose;x-friends:=&quot;org.eclipse.jdt.compiler.tool,org.eclipse.jdt.apt.pluggable.core&quot;,org.eclipse.jdt.internal.compiler.problem;x-friends:=&quot;org.eclipse.jdt.compiler.tool,org.eclipse.jdt.apt.pluggable.core&quot;,org.eclipse.jdt.internal.compiler.util;x-friends:=&quot;org.eclipse.jdt.compiler.tool,org.eclipse.jdt.apt.pluggable.core&quot;,org.eclipse.jdt.internal.core;x-friends:=&quot;org.eclipse.jdt.apt.pluggable.core&quot;,org.eclipse.jdt.internal.core.builder;x-friends:=&quot;org.eclipse.jdt.apt.pluggable.core&quot;,org.eclipse.jdt.internal.core.dom;x-internal:=true,org.eclipse.jdt.internal.core.dom.rewrite;x-internal:=true,org.eclipse.jdt.internal.core.eval;x-internal:=true,org.eclipse.jdt.internal.core.hierarchy;x-internal:=true,org.eclipse.jdt.internal.core.index;x-internal:=true,org.eclipse.jdt.internal.core.jdom;x-internal:=true,org.eclipse.jdt.internal.core.search;x-internal:=true,org.eclipse.jdt.internal.core.search.indexing;x-internal:=true,org.eclipse.jdt.internal.core.search.matching;x-internal:=true,org.eclipse.jdt.internal.core.search.processing;x-internal:=true,org.eclipse.jdt.internal.core.util;x-friends:=&quot;org.eclipse.jdt.apt.pluggable.core&quot;,org.eclipse.jdt.internal.eval;x-internal:=true,org.eclipse.jdt.internal.formatter;x-internal:=true,org.eclipse.jdt.internal.formatter.align;x-internal:=true,org.eclipse.jdt.internal.formatter.comment;x-internal:=true,org.eclipse.jdt.internal.formatter.old;x-internal:=true&#xA;Eclipse-ExtensibleAPI: true&#xA;Bundle-SymbolicName: org.eclipse.jdt.core; singleton:=true&#xA;Manifest-Version: 1.0&#xA;Main-Class: org.eclipse.jdt.internal.compiler.batch.Main&#xA;Bundle-ActivationPolicy: lazy&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.4&#xA;Bundle-Localization: plugin&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.ant.launching' version='1.0.0.v20100427'>
+      <update id='org.eclipse.ant.launching' range='[0.0.0,1.0.0.v20100427)' severity='0'/>
+      <properties size='7'>
+        <property name='df_LT.providerName' value='Eclipse.org'/>
+        <property name='df_LT.pluginName' value='Ant Launching Support'/>
+        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/jdt/plugins/org.eclipse.ant.launching_1.0.0.v20100427.jar'/>
+        <property name='file.lastModified' value='1295470375000'/>
+      </properties>
+      <provides size='9'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.ant.launching' version='1.0.0.v20100427'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.ant.launching' version='1.0.0.v20100427'/>
+        <provided namespace='java.package' name='org.eclipse.ant.internal.launching' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.ant.internal.launching.debug' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.ant.internal.launching.debug.model' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.ant.internal.launching.launchConfigurations' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.ant.launching' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='10'>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.debug.core' range='[3.6.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.launching' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.variables' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ant.core' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.apache.ant' range='1.7.1'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.externaltools' range='[1.0.0,2.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.text' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.core' range='[3.5.0,4.0.0)'/>
+        <required namespace='java.package' name='com.ibm.icu.text' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.ant.launching' version='1.0.0.v20100427'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-RequiredExecutionEnvironment: J2SE-1.4&#xA;Bundle-Name: %pluginName&#xA;Bundle-Activator: org.eclipse.ant.internal.launching.AntLaunching&#xA;Manifest-Version: 1.0&#xA;Bundle-Vendor: %providerName&#xA;Bundle-ActivationPolicy: lazy&#xA;Bundle-SymbolicName: org.eclipse.ant.launching;singleton:=true&#xA;Import-Package: com.ibm.icu.text&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Version: 1.0.0.v20100427&#xA;Bundle-Localization: plugin&#xA;Export-Package: org.eclipse.ant.internal.launching;x-friends:=&quot;org.eclipse.ant.ui&quot;,org.eclipse.ant.internal.launching.debug;x-friends:=&quot;org.eclipse.ant.ui&quot;,org.eclipse.ant.internal.launching.debug.model;x-friends:=&quot;org.eclipse.ant.ui&quot;,org.eclipse.ant.internal.launching.launchConfigurations;x-friends:=&quot;org.eclipse.ant.ui&quot;,org.eclipse.ant.launching&#xA;Require-Bundle: org.eclipse.core.runtime;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.debug.core;bundle-version=&quot;[3.6.0,4.0.0)&quot;,org.eclipse.jdt.launching;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.core.variables;bundle-version=&quot;[3.2.0,4.0.0)&quot;,org.eclipse.ant.core;bundle-version=&quot;[3.2.0,4.0.0)&quot;,org.apache.ant;bundle-version=&quot;1.7.1&quot;,org.eclipse.core.externaltools;bundle-version=&quot;[1.0.0,2.0.0)&quot;,org.eclipse.text;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.jdt.core;bundle-version=&quot;[3.5.0,4.0.0)&quot;&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.jdt.apt.ui' version='3.3.300.v20100513-0845'>
+      <update id='org.eclipse.jdt.apt.ui' range='[0.0.0,3.3.300.v20100513-0845)' severity='0'/>
+      <properties size='7'>
+        <property name='df_LT.providerName' value='Eclipse.org'/>
+        <property name='df_LT.pluginName' value='Java Annotation Processing UI'/>
+        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/jdt/plugins/org.eclipse.jdt.apt.ui_3.3.300.v20100513-0845.jar'/>
+        <property name='file.lastModified' value='1295470375000'/>
+      </properties>
+      <provides size='7'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt.apt.ui' version='3.3.300.v20100513-0845'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.jdt.apt.ui' version='3.3.300.v20100513-0845'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.apt.ui.internal' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.apt.ui.internal.preferences' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.apt.ui.internal.util' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='7'>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.apt.core' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.ui' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.core' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.forms' range='[3.2.0,4.0.0)'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.jdt.apt.ui' version='3.3.300.v20100513-0845'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Export-Package: org.eclipse.jdt.apt.ui.internal;x-internal:=true,org.eclipse.jdt.apt.ui.internal.preferences;x-internal:=true,org.eclipse.jdt.apt.ui.internal.util;x-internal:=true&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Bundle-Localization: plugin&#xA;Require-Bundle: org.eclipse.jdt.apt.core;bundle-version=&quot;[3.2.0,4.0.0)&quot;,org.eclipse.jdt.ui;bundle-version=&quot;[3.2.0,4.0.0)&quot;,org.eclipse.jdt.core;bundle-version=&quot;[3.2.0,4.0.0)&quot;,org.eclipse.ui;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.core.runtime;bundle-version=&quot;[3.2.0,4.0.0)&quot;,org.eclipse.core.resources;bundle-version=&quot;[3.2.0,4.0.0)&quot;,org.eclipse.ui.forms;bundle-version=&quot;[3.2.0,4.0.0)&quot;&#xA;Bundle-Activator: org.eclipse.jdt.apt.ui.internal.AptUIPlugin&#xA;Bundle-Name: %pluginName&#xA;Bundle-Version: 3.3.300.v20100513-0845&#xA;Bundle-Vendor: %providerName&#xA;Bundle-SymbolicName: org.eclipse.jdt.apt.ui; singleton:=true&#xA;Bundle-ActivationPolicy: lazy&#xA;Manifest-Version: 1.0&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.jdt.junit4.runtime' version='1.1.100.v20100526-0800'>
+      <update id='org.eclipse.jdt.junit4.runtime' range='[0.0.0,1.1.100.v20100526-0800)' severity='0'/>
+      <properties size='7'>
+        <property name='df_LT.providerName' value='Eclipse.org'/>
+        <property name='df_LT.pluginName' value='Java Development Tools JUnit4 Runtime Support'/>
+        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/jdt/plugins/org.eclipse.jdt.junit4.runtime_1.1.100.v20100526-0800.jar'/>
+        <property name='file.lastModified' value='1295470375000'/>
+      </properties>
+      <provides size='5'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt.junit4.runtime' version='1.1.100.v20100526-0800'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.jdt.junit4.runtime' version='1.1.100.v20100526-0800'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.junit4.runner' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='2'>
+        <required namespace='osgi.bundle' name='org.junit' range='4.7.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.junit.runtime' range='[3.4.100,4.0.0)'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.jdt.junit4.runtime' version='1.1.100.v20100526-0800'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Require-Bundle: org.junit;bundle-version=&quot;4.7.0&quot;,org.eclipse.jdt.junit.runtime;bundle-version=&quot;[3.4.100,4.0.0)&quot;&#xA;Manifest-Version: 1.0&#xA;Bundle-Version: 1.1.100.v20100526-0800&#xA;Export-Package: org.eclipse.jdt.internal.junit4.runner;x-internal:=true&#xA;Bundle-SymbolicName: org.eclipse.jdt.junit4.runtime;singleton:=true&#xA;Bundle-Localization: plugin&#xA;Bundle-Name: %pluginName&#xA;Bundle-Vendor: %providerName&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.junit' version='4.8.1.v4_8_1_v20100427-1100' singleton='false'>
+      <update id='org.junit' range='[0.0.0,4.8.1.v4_8_1_v20100427-1100)' severity='0'/>
+      <properties size='7'>
+        <property name='df_LT.providerName' value='Eclipse Orbit'/>
+        <property name='df_LT.pluginName' value='JUnit Testing Framework'/>
+        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/jdt/plugins/org.junit_4.8.1.v4_8_1_v20100427-1100'/>
+        <property name='file.lastModified' value='1406152432000'/>
+      </properties>
+      <provides size='31'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.junit' version='4.8.1.v4_8_1_v20100427-1100'/>
+        <provided namespace='osgi.bundle' name='org.junit' version='4.8.1.v4_8_1_v20100427-1100'/>
+        <provided namespace='java.package' name='junit.extensions' version='4.8.1'/>
+        <provided namespace='java.package' name='junit.framework' version='4.8.1'/>
+        <provided namespace='java.package' name='junit.runner' version='4.8.1'/>
+        <provided namespace='java.package' name='junit.textui' version='4.8.1'/>
+        <provided namespace='java.package' name='org.junit' version='4.8.1'/>
+        <provided namespace='java.package' name='org.junit.experimental' version='4.8.1'/>
+        <provided namespace='java.package' name='org.junit.experimental.categories' version='4.8.1'/>
+        <provided namespace='java.package' name='org.junit.experimental.max' version='4.8.1'/>
+        <provided namespace='java.package' name='org.junit.experimental.results' version='4.8.1'/>
+        <provided namespace='java.package' name='org.junit.experimental.runners' version='4.8.1'/>
+        <provided namespace='java.package' name='org.junit.experimental.theories' version='4.8.1'/>
+        <provided namespace='java.package' name='org.junit.experimental.theories.internal' version='4.8.1'/>
+        <provided namespace='java.package' name='org.junit.experimental.theories.suppliers' version='4.8.1'/>
+        <provided namespace='java.package' name='org.junit.internal' version='4.8.1'/>
+        <provided namespace='java.package' name='org.junit.internal.builders' version='4.8.1'/>
+        <provided namespace='java.package' name='org.junit.internal.matchers' version='4.8.1'/>
+        <provided namespace='java.package' name='org.junit.internal.requests' version='4.8.1'/>
+        <provided namespace='java.package' name='org.junit.internal.runners' version='4.8.1'/>
+        <provided namespace='java.package' name='org.junit.internal.runners.model' version='4.8.1'/>
+        <provided namespace='java.package' name='org.junit.internal.runners.statements' version='4.8.1'/>
+        <provided namespace='java.package' name='org.junit.matchers' version='4.8.1'/>
+        <provided namespace='java.package' name='org.junit.rules' version='4.8.1'/>
+        <provided namespace='java.package' name='org.junit.runner' version='4.8.1'/>
+        <provided namespace='java.package' name='org.junit.runner.manipulation' version='4.8.1'/>
+        <provided namespace='java.package' name='org.junit.runner.notification' version='4.8.1'/>
+        <provided namespace='java.package' name='org.junit.runners' version='4.8.1'/>
+        <provided namespace='java.package' name='org.junit.runners.model' version='4.8.1'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='1'>
+        <required namespace='osgi.bundle' name='org.hamcrest.core' range='1.1.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.junit' version='4.8.1.v4_8_1_v20100427-1100'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='2'>
+          <instruction key='manifest'>
+            Bundle-Vendor: %providerName&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Bundle-ClassPath: junit.jar&#xA;Require-Bundle: org.hamcrest.core;bundle-version=&quot;1.1.0&quot;;visibility:=reexport&#xA;Bundle-Name: %pluginName&#xA;Bundle-Localization: plugin&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: org.junit&#xA;Bundle-Version: 4.8.1.v4_8_1_v20100427-1100&#xA;Export-Package: junit.extensions;version=&quot;4.8.1&quot;,junit.framework;version=&quot;4.8.1&quot;,junit.runner;version=&quot;4.8.1&quot;,junit.textui;version=&quot;4.8.1&quot;,org.junit;version=&quot;4.8.1&quot;,org.junit.experimental;version=&quot;4.8.1&quot;,org.junit.experimental.categories;version=&quot;4.8.1&quot;,org.junit.experimental.max;version=&quot;4.8.1&quot;,org.junit.experimental.results;version=&quot;4.8.1&quot;,org.junit.experimental.runners;version=&quot;4.8.1&quot;,org.junit.experimental.theories;version=&quot;4.8.1&quot;,org.junit.experimental.theories.internal;version=&quot;4.8.1&quot;;x-internal:=true,org.junit.experimental.theories.suppliers;version=&quot;4.8.1&quot;,org.junit.internal;version=&quot;4.8.1&quot;;x-internal:=true,org.junit.internal.builders;version=&quot;4.8.1&quot;;x-internal:=true,org.junit.internal.matchers;version=&quot;4.8.1&quot;;x-internal:=true,org.junit.internal.requests;version=&quot;4.8.1&quot;;x-internal:=true,org.junit.internal.runners;version=&quot;4.8.1&quot;;x-internal:=true,org.junit.internal.runners.model;version=&quot;4.8.1&quot;;x-internal:=true,org.junit.internal.runners.statements;version=&quot;4.8.1&quot;;x-internal:=true,org.junit.matchers;version=&quot;4.8.1&quot;,org.junit.rules;version=&quot;4.8.1&quot;,org.junit.runner;version=&quot;4.8.1&quot;,org.junit.runner.manipulation;version=&quot;4.8.1&quot;,org.junit.runner.notification;version=&quot;4.8.1&quot;,org.junit.runners;version=&quot;4.8.1&quot;,org.junit.runners.model;version=&quot;4.8.1&quot;&#xA;
+          </instruction>
+          <instruction key='zipped'>
+            true
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.ant.ui' version='3.5.0.v20100427'>
+      <update id='org.eclipse.ant.ui' range='[0.0.0,3.5.0.v20100427)' severity='0'/>
+      <properties size='7'>
+        <property name='df_LT.providerName' value='Eclipse.org'/>
+        <property name='df_LT.pluginName' value='Ant UI'/>
+        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/jdt/plugins/org.eclipse.ant.ui_3.5.0.v20100427.jar'/>
+        <property name='file.lastModified' value='1295470375000'/>
+      </properties>
+      <provides size='25'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.ant.ui' version='3.5.0.v20100427'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.ant.ui' version='3.5.0.v20100427'/>
+        <provided namespace='java.package' name='org.eclipse.ant.internal.ui' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.ant.internal.ui.console' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.ant.internal.ui.datatransfer' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.ant.internal.ui.debug.model' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.ant.internal.ui.dtd' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.ant.internal.ui.dtd.schema' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.ant.internal.ui.dtd.util' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.ant.internal.ui.editor' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.ant.internal.ui.editor.actions' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.ant.internal.ui.editor.formatter' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.ant.internal.ui.editor.outline' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.ant.internal.ui.editor.templates' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.ant.internal.ui.editor.text' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.ant.internal.ui.editor.utils' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.ant.internal.ui.launchConfigurations' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.ant.internal.ui.model' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.ant.internal.ui.preferences' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.ant.internal.ui.refactoring' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.ant.internal.ui.views' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.ant.internal.ui.views.actions' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.ant.ui.launching' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='27'>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.ide' range='[3.2.0,4.0.0)' optional='true'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.views' range='[3.2.0,4.0.0)' optional='true'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jface.text' range='[3.5.0,4.0.0)' optional='true'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.workbench.texteditor' range='[3.5.0,4.0.0)' optional='true'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.editors' range='[3.2.0,4.0.0)' optional='true'/>
+        <required namespace='osgi.bundle' name='org.apache.ant' range='1.7.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ant.core' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.filesystem' range='[1.0.0,2.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.variables' range='[3.1.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.externaltools' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.console' range='[3.1.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.debug.core' range='[3.6.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.debug.ui' range='[3.6.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.ui' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.debug.ui' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.launching' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.core' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.team.core' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ltk.core.refactoring' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.expressions' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.junit' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ant.launching' range='[1.0.0,2.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.externaltools' range='[1.0.0,2.0.0)'/>
+        <required namespace='java.package' name='com.ibm.icu.text' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.ant.ui' version='3.5.0.v20100427'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-RequiredExecutionEnvironment: J2SE-1.4&#xA;Bundle-Name: %pluginName&#xA;Bundle-Activator: org.eclipse.ant.internal.ui.AntUIPlugin&#xA;Manifest-Version: 1.0&#xA;Bundle-Vendor: %providerName&#xA;Bundle-ActivationPolicy: lazy&#xA;Bundle-SymbolicName: org.eclipse.ant.ui; singleton:=true&#xA;Import-Package: com.ibm.icu.text&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Version: 3.5.0.v20100427&#xA;Bundle-Localization: plugin&#xA;Export-Package: org.eclipse.ant.internal.ui;x-internal:=true,org.eclipse.ant.internal.ui.console;x-internal:=true,org.eclipse.ant.internal.ui.datatransfer;x-internal:=true,org.eclipse.ant.internal.ui.debug.model;x-internal:=true,org.eclipse.ant.internal.ui.dtd;x-internal:=true,org.eclipse.ant.internal.ui.dtd.schema;x-internal:=true,org.eclipse.ant.internal.ui.dtd.util;x-internal:=true,org.eclipse.ant.internal.ui.editor;x-internal:=true,org.eclipse.ant.internal.ui.editor.actions;x-internal:=true,org.eclipse.ant.internal.ui.editor.formatter;x-internal:=true,org.eclipse.ant.internal.ui.editor.outline;x-internal:=true,org.eclipse.ant.internal.ui.editor.templates;x-internal:=true,org.eclipse.ant.internal.ui.editor.text;x-internal:=true,org.eclipse.ant.internal.ui.editor.utils;x-internal:=true,org.eclipse.ant.internal.ui.launchConfigurations;x-internal:=true,org.eclipse.ant.internal.ui.model;x-internal:=true,org.eclipse.ant.internal.ui.preferences;x-internal:=true,org.eclipse.ant.internal.ui.refactoring;x-internal:=true,org.eclipse.ant.internal.ui.views;x-internal:=true,org.eclipse.ant.internal.ui.views.actions;x-internal:=true,org.eclipse.ant.ui.launching&#xA;Require-Bundle: org.eclipse.ui.ide;bundle-version=&quot;[3.2.0,4.0.0)&quot;;resolution:=optional,org.eclipse.ui.views;bundle-version=&quot;[3.2.0,4.0.0)&quot;;resolution:=optional,org.eclipse.jface.text;bundle-version=&quot;[3.5.0,4.0.0)&quot;;resolution:=optional,org.eclipse.ui.workbench.texteditor;bundle-version=&quot;[3.5.0,4.0.0)&quot;;resolution:=optional,org.eclipse.ui.editors;bundle-version=&quot;[3.2.0,4.0.0)&quot;;resolution:=optional,org.apache.ant;bundle-version=&quot;1.7.0&quot;,org.eclipse.ant.core;bundle-version=&quot;[3.2.0,4.0.0)&quot;,org.eclipse.core.filesystem;bundle-version=&quot;[1.0.0,2.0.0)&quot;,org.eclipse.core.resources;bundle-version=&quot;[3.2.0,4.0.0)&quot;,org.eclipse.core.variables;bundle-version=&quot;[3.1.0,4.0.0)&quot;,org.eclipse.ui.externaltools;bundle-version=&quot;[3.2.0,4.0.0)&quot;,org.eclipse.ui;bundle-version=&quot;[3.2.0,4.0.0)&quot;,org.eclipse.ui.console;bundle-version=&quot;[3.1.0,4.0.0)&quot;,org.eclipse.debug.core;bundle-version=&quot;[3.6.0,4.0.0)&quot;,org.eclipse.debug.ui;bundle-version=&quot;[3.6.0,4.0.0)&quot;,org.eclipse.jdt.ui;bundle-version=&quot;[3.2.0,4.0.0)&quot;,org.eclipse.jdt.debug.ui;bundle-version=&quot;[3.2.0,4.0.0)&quot;,org.eclipse.jdt.launching;bundle-version=&quot;[3.2.0,4.0.0)&quot;,org.eclipse.core.runtime;bundle-version=&quot;[3.2.0,4.0.0)&quot;,org.eclipse.jdt.core;bundle-version=&quot;[3.2.0,4.0.0)&quot;,org.eclipse.team.core;bundle-version=&quot;[3.2.0,4.0.0)&quot;,org.eclipse.ltk.core.refactoring;bundle-version=&quot;[3.2.0,4.0.0)&quot;,org.eclipse.core.expressions;bundle-version=&quot;[3.2.0,4.0.0)&quot;,org.eclipse.jdt.junit;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.ant.launching;bundle-version=&quot;[1.0.0,2.0.0)&quot;,org.eclipse.core.externaltools;bundle-version=&quot;[1.0.0,2.0.0)&quot;&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.jdt.core.manipulation' version='1.3.0.v20100520-0800'>
+      <update id='org.eclipse.jdt.core.manipulation' range='[0.0.0,1.3.0.v20100520-0800)' severity='0'/>
+      <properties size='7'>
+        <property name='df_LT.providerName' value='Eclipse.org'/>
+        <property name='df_LT.pluginName' value='Java Code Manipulation Functionality'/>
+        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/jdt/plugins/org.eclipse.jdt.core.manipulation_1.3.0.v20100520-0800.jar'/>
+        <property name='file.lastModified' value='1295470375000'/>
+      </properties>
+      <provides size='10'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt.core.manipulation' version='1.3.0.v20100520-0800'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.jdt.core.manipulation' version='1.3.0.v20100520-0800'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.core.manipulation' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.core.refactoring' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.core.refactoring.descriptors' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.core.refactoring.participants' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.core.manipulation' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.core.refactoring.descriptors' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='7'>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ltk.core.refactoring' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.core' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.expressions' range='[3.4.100,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.text' range='[3.5.0,4.0.0)'/>
+        <required namespace='java.package' name='com.ibm.icu.text' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.jdt.core.manipulation' version='1.3.0.v20100520-0800'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-RequiredExecutionEnvironment: J2SE-1.4&#xA;Bundle-Name: %pluginName&#xA;Bundle-Activator: org.eclipse.jdt.internal.core.manipulation.JavaManipulationPlugin&#xA;Manifest-Version: 1.0&#xA;Bundle-Vendor: %providerName&#xA;Bundle-ActivationPolicy: lazy&#xA;Bundle-SymbolicName: org.eclipse.jdt.core.manipulation; singleton:=true&#xA;Import-Package: com.ibm.icu.text&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Version: 1.3.0.v20100520-0800&#xA;Bundle-Localization: plugin&#xA;Export-Package: org.eclipse.jdt.core.manipulation,org.eclipse.jdt.core.refactoring,org.eclipse.jdt.core.refactoring.descriptors,org.eclipse.jdt.core.refactoring.participants,org.eclipse.jdt.internal.core.manipulation;x-internal:=true,org.eclipse.jdt.internal.core.refactoring.descriptors;x-friends:=&quot;org.eclipse.jdt.ui&quot;&#xA;Require-Bundle: org.eclipse.core.runtime;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.core.resources;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.ltk.core.refactoring;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.jdt.core;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.core.expressions;bundle-version=&quot;[3.4.100,4.0.0)&quot;,org.eclipse.text;bundle-version=&quot;[3.5.0,4.0.0)&quot;&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.jdt.apt.pluggable.core' version='1.0.301.R36_v20100727-0110'>
+      <update id='org.eclipse.jdt.apt.pluggable.core' range='[0.0.0,1.0.301.R36_v20100727-0110)' severity='0'/>
+      <properties size='7'>
+        <property name='df_LT.providerName' value='Eclipse.org'/>
+        <property name='df_LT.pluginName' value='Java Compiler Apt IDE'/>
+        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/jdt/plugins/org.eclipse.jdt.apt.pluggable.core_1.0.301.R36_v20100727-0110.jar'/>
+        <property name='file.lastModified' value='1295470375000'/>
+      </properties>
+      <provides size='7'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt.apt.pluggable.core' version='1.0.301.R36_v20100727-0110'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.jdt.apt.pluggable.core' version='1.0.301.R36_v20100727-0110'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.apt.pluggable.core' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.apt.pluggable.core.dispatch' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.apt.pluggable.core.filer' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='8'>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.apt.core' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.core' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.jdt.internal.compiler.tool' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.jdt.internal.compiler.apt.dispatch' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.jdt.internal.compiler.apt.model' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.jdt.internal.compiler.apt.util' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.jdt.apt.pluggable.core' version='1.0.301.R36_v20100727-0110'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-RequiredExecutionEnvironment: JavaSE-1.6&#xA;Bundle-Name: %pluginName&#xA;Bundle-Activator: org.eclipse.jdt.internal.apt.pluggable.core.Apt6Plugin&#xA;Manifest-Version: 1.0&#xA;Bundle-Vendor: %providerName&#xA;Bundle-ActivationPolicy: lazy&#xA;Bundle-SymbolicName: org.eclipse.jdt.apt.pluggable.core;singleton:=true&#xA;Import-Package: org.eclipse.jdt.internal.compiler.tool,org.eclipse.jdt.internal.compiler.apt.dispatch,org.eclipse.jdt.internal.compiler.apt.model,org.eclipse.jdt.internal.compiler.apt.util&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Version: 1.0.301.R36_v20100727-0110&#xA;Bundle-Localization: plugin&#xA;Export-Package: org.eclipse.jdt.internal.apt.pluggable.core;x-internal:=true,org.eclipse.jdt.internal.apt.pluggable.core.dispatch;x-internal:=true,org.eclipse.jdt.internal.apt.pluggable.core.filer;x-internal:=true&#xA;Require-Bundle: org.eclipse.core.runtime,org.eclipse.jdt.apt.core,org.eclipse.jdt.core,org.eclipse.core.resources&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.junit4' version='4.8.1.v20100525' singleton='false'>
+      <update id='org.junit4' range='[0.0.0,4.8.1.v20100525)' severity='0'/>
+      <properties size='7'>
+        <property name='df_LT.providerName' value='Eclipse.org'/>
+        <property name='df_LT.pluginName' value='JUnit Testing Framework Version 4'/>
+        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/jdt/plugins/org.junit4_4.8.1.v20100525'/>
+        <property name='file.lastModified' value='1406152432000'/>
+      </properties>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.junit4' version='4.8.1.v20100525'/>
+        <provided namespace='osgi.bundle' name='org.junit4' version='4.8.1.v20100525'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='2'>
+        <required namespace='osgi.bundle' name='org.hamcrest.core' range='1.1.0'/>
+        <required namespace='osgi.bundle' name='org.junit' range='4.8.1'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.junit4' version='4.8.1.v20100525'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='2'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Bundle-Name: %pluginName&#xA;Bundle-Version: 4.8.1.v20100525&#xA;Require-Bundle: org.hamcrest.core;bundle-version=&quot;1.1.0&quot;;visibility:=reexport,org.junit;bundle-version=&quot;4.8.1&quot;;visibility:=reexport&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Bundle-SymbolicName: org.junit4&#xA;Bundle-Localization: plugin&#xA;Manifest-Version: 1.0&#xA;Bundle-Vendor: %providerName&#xA;
+          </instruction>
+          <instruction key='zipped'>
+            true
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.jdt.debug.ui' version='3.5.0.v20100602-0830'>
+      <update id='org.eclipse.jdt.debug.ui' range='[0.0.0,3.5.0.v20100602-0830)' severity='0'/>
+      <properties size='7'>
+        <property name='df_LT.providerName' value='Eclipse.org'/>
+        <property name='df_LT.pluginName' value='JDI Debug UI'/>
+        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/jdt/plugins/org.eclipse.jdt.debug.ui_3.5.0.v20100602-0830.jar'/>
+        <property name='file.lastModified' value='1295470375000'/>
+      </properties>
+      <provides size='26'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt.debug.ui' version='3.5.0.v20100602-0830'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.jdt.debug.ui' version='3.5.0.v20100602-0830'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.debug.ui' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.debug.ui.actions' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.debug.ui.breakpoints' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.debug.ui.launchConfigurations' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.debug.core.refactoring' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.debug.ui' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.debug.ui.actions' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.debug.ui.breakpoints' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.debug.ui.classpath' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.debug.ui.console' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.debug.ui.contentassist' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.debug.ui.display' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.debug.ui.heapwalking' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.debug.ui.jres' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.debug.ui.launcher' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.debug.ui.monitors' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.debug.ui.propertypages' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.debug.ui.search' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.debug.ui.snippeteditor' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.debug.ui.sourcelookup' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.debug.ui.threadgroups' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.debug.ui.variables' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='20'>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.ide' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jface.text' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.workbench.texteditor' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.editors' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.filebuffers' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.variables' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.expressions' range='[3.4.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.core' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.debug.ui' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.debug' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.launching' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.ui' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ltk.core.refactoring' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.console' range='[3.4.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.core.manipulation' range='[1.3.0,2.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.search' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='com.ibm.icu' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.forms' range='[3.4.0,4.0.0)'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.jdt.debug.ui' version='3.5.0.v20100602-0830'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Export-Package: org.eclipse.jdt.debug.ui,org.eclipse.jdt.debug.ui.actions,org.eclipse.jdt.debug.ui.breakpoints,org.eclipse.jdt.debug.ui.launchConfigurations,org.eclipse.jdt.internal.debug.core.refactoring;x-internal:=true,org.eclipse.jdt.internal.debug.ui;x-internal:=true,org.eclipse.jdt.internal.debug.ui.actions;x-internal:=true,org.eclipse.jdt.internal.debug.ui.breakpoints;x-internal:=true,org.eclipse.jdt.internal.debug.ui.classpath;x-internal:=true,org.eclipse.jdt.internal.debug.ui.console;x-internal:=true,org.eclipse.jdt.internal.debug.ui.contentassist;x-internal:=true,org.eclipse.jdt.internal.debug.ui.display;x-internal:=true,org.eclipse.jdt.internal.debug.ui.heapwalking;x-internal:=true,org.eclipse.jdt.internal.debug.ui.jres;x-internal:=true,org.eclipse.jdt.internal.debug.ui.launcher;x-internal:=true,org.eclipse.jdt.internal.debug.ui.monitors;x-internal:=true,org.eclipse.jdt.internal.debug.ui.propertypages;x-internal:=true,org.eclipse.jdt.internal.debug.ui.search;x-internal:=true,org.eclipse.jdt.internal.debug.ui.snippeteditor;x-internal:=true,org.eclipse.jdt.internal.debug.ui.sourcelookup;x-internal:=true,org.eclipse.jdt.internal.debug.ui.threadgroups;x-internal:=true,org.eclipse.jdt.internal.debug.ui.variables;x-internal:=true&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.4&#xA;Bundle-Localization: plugin&#xA;Require-Bundle: org.eclipse.ui.ide;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.jface.text;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.ui.workbench.texteditor;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.ui.editors;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.ui;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.core.filebuffers;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.core.variables;bundle-version=&quot;[3.2.0,4.0.0)&quot;,org.eclipse.core.expressions;bundle-version=&quot;[3.4.0,4.0.0)&quot;,org.eclipse.jdt.core;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.debug.ui;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.jdt.debug;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.jdt.launching;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.jdt.ui;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.core.runtime;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.ltk.core.refactoring;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.ui.console;bundle-version=&quot;[3.4.0,4.0.0)&quot;,org.eclipse.jdt.core.manipulation;bundle-version=&quot;[1.3.0,2.0.0)&quot;,org.eclipse.search;bundle-version=&quot;[3.5.0,4.0.0)&quot;,com.ibm.icu,org.eclipse.ui.forms;bundle-version=&quot;[3.4.0,4.0.0)&quot;&#xA;Bundle-Activator: org.eclipse.jdt.internal.debug.ui.JDIDebugUIPlugin&#xA;Bundle-Name: %pluginName&#xA;Bundle-Version: 3.5.0.v20100602-0830&#xA;Bundle-Vendor: %providerName&#xA;Bundle-SymbolicName: org.eclipse.jdt.debug.ui; singleton:=true&#xA;Bundle-ActivationPolicy: lazy&#xA;Manifest-Version: 1.0&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.jdt.junit.runtime' version='3.4.200.v20100526-0800'>
+      <update id='org.eclipse.jdt.junit.runtime' range='[0.0.0,3.4.200.v20100526-0800)' severity='0'/>
+      <properties size='7'>
+        <property name='df_LT.providerName' value='Eclipse.org'/>
+        <property name='df_LT.pluginName' value='Java Development Tools JUnit Runtime Support'/>
+        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/jdt/plugins/org.eclipse.jdt.junit.runtime_3.4.200.v20100526-0800.jar'/>
+        <property name='file.lastModified' value='1295470375000'/>
+      </properties>
+      <provides size='6'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt.junit.runtime' version='3.4.200.v20100526-0800'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.jdt.junit.runtime' version='3.4.200.v20100526-0800'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.junit.runner' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.junit.runner.junit3' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='1'>
+        <required namespace='osgi.bundle' name='org.junit' range='3.8.2'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.jdt.junit.runtime' version='3.4.200.v20100526-0800'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.3&#xA;Require-Bundle: org.junit;bundle-version=&quot;3.8.2&quot;&#xA;Manifest-Version: 1.0&#xA;Bundle-Version: 3.4.200.v20100526-0800&#xA;Export-Package: org.eclipse.jdt.internal.junit.runner;x-friends:=&quot;org.eclipse.jdt.junit.core,org.eclipse.jdt.junit4.runtime,org.eclipse.pde.junit.runtime&quot;,org.eclipse.jdt.internal.junit.runner.junit3;x-internal:=true&#xA;Bundle-SymbolicName: org.eclipse.jdt.junit.runtime;singleton:=true&#xA;Bundle-Localization: plugin&#xA;Bundle-Name: %pluginName&#xA;Bundle-Vendor: %providerName&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.jdt.compiler.tool' version='1.0.100.v_A68_R36x'>
+      <update id='org.eclipse.jdt.compiler.tool' range='[0.0.0,1.0.100.v_A68_R36x)' severity='0'/>
+      <properties size='7'>
+        <property name='df_LT.providerName' value='Eclipse.org'/>
+        <property name='df_LT.fragmentName' value='Java Compiler Tool Support'/>
+        <property name='org.eclipse.equinox.p2.name' value='%fragmentName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='compiler_tool_fragment'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/jdt/plugins/org.eclipse.jdt.compiler.tool_1.0.100.v_A68_R36x.jar'/>
+        <property name='file.lastModified' value='1295470375000'/>
+      </properties>
+      <provides size='7'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt.compiler.tool' version='1.0.100.v_A68_R36x'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.jdt.compiler.tool' version='1.0.100.v_A68_R36x'/>
+        <provided namespace='java.package' name='META-INF.services' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.compiler.tool' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='osgi.fragment' name='org.eclipse.jdt.core' version='1.0.100.v_A68_R36x'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='1'>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.core' range='[3.3.0,4.0.0)'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.jdt.compiler.tool' version='1.0.100.v_A68_R36x'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Fragment-Host: org.eclipse.jdt.core;bundle-version=&quot;[3.3.0,4.0.0)&quot;&#xA;Bundle-RequiredExecutionEnvironment: JavaSE-1.6&#xA;Manifest-Version: 1.0&#xA;Bundle-Version: 1.0.100.v_A68_R36x&#xA;Export-Package: META-INF.services,org.eclipse.jdt.internal.compiler.tool;x-internal:=true&#xA;Bundle-SymbolicName: org.eclipse.jdt.compiler.tool;singleton:=true&#xA;Bundle-Localization: compiler_tool_fragment&#xA;Bundle-Name: %fragmentName&#xA;Bundle-Vendor: %providerName&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.hamcrest.core' version='1.1.0.v20090501071000' singleton='false'>
+      <update id='org.hamcrest.core' range='[0.0.0,1.1.0.v20090501071000)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/jdt/plugins/org.hamcrest.core_1.1.0.v20090501071000.jar'/>
+        <property name='file.lastModified' value='1263245101000'/>
+      </properties>
+      <provides size='6'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.hamcrest.core' version='1.1.0.v20090501071000'/>
+        <provided namespace='osgi.bundle' name='org.hamcrest.core' version='1.1.0.v20090501071000'/>
+        <provided namespace='java.package' name='org.hamcrest' version='1.1.0'/>
+        <provided namespace='java.package' name='org.hamcrest.core' version='1.1.0'/>
+        <provided namespace='java.package' name='org.hamcrest.internal' version='1.1.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.hamcrest.core' version='1.1.0.v20090501071000'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Manifest-Version: 1.0&#xA;Bundle-Version: 1.1.0.v20090501071000&#xA;Export-Package: org.hamcrest;version=&quot;1.1.0&quot;;core=split;mandatory:=core,org.hamcrest.core;version=&quot;1.1.0&quot;,org.hamcrest.internal;version=&quot;1.1.0&quot;;x-internal:=true&#xA;Bundle-SymbolicName: org.hamcrest.core&#xA;Bundle-Localization: plugin&#xA;Bundle-ActivationPolicy: lazy&#xA;Bundle-Name: %pluginName&#xA;Bundle-Vendor: %providerName&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.jdt.junit' version='3.6.1.r361_v20100825-0800'>
+      <update id='org.eclipse.jdt.junit' range='[0.0.0,3.6.1.r361_v20100825-0800)' severity='0'/>
+      <properties size='7'>
+        <property name='df_LT.providerName' value='Eclipse.org'/>
+        <property name='df_LT.pluginName' value='Java Development Tools JUnit support'/>
+        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/jdt/plugins/org.eclipse.jdt.junit_3.6.1.r361_v20100825-0800.jar'/>
+        <property name='file.lastModified' value='1295470375000'/>
+      </properties>
+      <provides size='12'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt.junit' version='3.6.1.r361_v20100825-0800'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.jdt.junit' version='3.6.1.r361_v20100825-0800'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.junit.buildpath' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.junit.launcher' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.junit.refactoring' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.junit.ui' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.junit.util' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.junit.wizards' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.junit.launcher' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.junit.wizards' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='21'>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.ide' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.views' range='[3.3.100,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jface.text' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.workbench.texteditor' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.editors' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.expressions' range='[3.4.100,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.debug.core' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.debug.ui' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.core' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.ui' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.launching' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.debug.ui' range='[3.3.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.junit.runtime' range='[3.4.100,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.compare' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ltk.core.refactoring' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.variables' range='[3.2.200,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ltk.ui.refactoring' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.junit.core' range='[3.6.0,4.0.0)'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.jdt.junit' version='3.6.1.r361_v20100825-0800'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Export-Package: org.eclipse.jdt.internal.junit.buildpath;x-internal:=true,org.eclipse.jdt.internal.junit.launcher;x-internal:=true,org.eclipse.jdt.internal.junit.refactoring;x-internal:=true,org.eclipse.jdt.internal.junit.ui;x-internal:=true,org.eclipse.jdt.internal.junit.util;x-internal:=true,org.eclipse.jdt.internal.junit.wizards;x-internal:=true,org.eclipse.jdt.junit.launcher,org.eclipse.jdt.junit.wizards&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.4&#xA;Bundle-Localization: plugin&#xA;Require-Bundle: org.eclipse.ui.ide;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.ui.views;bundle-version=&quot;[3.3.100,4.0.0)&quot;,org.eclipse.jface.text;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.ui.workbench.texteditor;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.ui.editors;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.ui;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.core.expressions;bundle-version=&quot;[3.4.100,4.0.0)&quot;,org.eclipse.core.resources;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.debug.core;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.debug.ui;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.jdt.core;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.jdt.ui;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.core.runtime;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.jdt.launching;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.jdt.debug.ui;bundle-version=&quot;[3.3.0,4.0.0)&quot;,org.eclipse.jdt.junit.runtime;bundle-version=&quot;[3.4.100,4.0.0)&quot;,org.eclipse.compare;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.ltk.core.refactoring;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.core.variables;bundle-version=&quot;[3.2.200,4.0.0)&quot;,org.eclipse.ltk.ui.refactoring;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.jdt.junit.core;bundle-version=&quot;[3.6.0,4.0.0)&quot;;visibility:=reexport&#xA;Bundle-Activator: org.eclipse.jdt.internal.junit.ui.JUnitPlugin&#xA;Bundle-Name: %pluginName&#xA;Bundle-Version: 3.6.1.r361_v20100825-0800&#xA;Bundle-Vendor: %providerName&#xA;Bundle-SymbolicName: org.eclipse.jdt.junit;singleton:=true&#xA;Bundle-ActivationPolicy: lazy&#xA;Manifest-Version: 1.0&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.jdt' version='3.6.1.r361_v20100714-0800'>
+      <update id='org.eclipse.jdt' range='[0.0.0,3.6.1.r361_v20100714-0800)' severity='0'/>
+      <properties size='7'>
+        <property name='df_LT.providerName' value='Eclipse.org'/>
+        <property name='df_LT.pluginName' value='Eclipse Java Development Tools'/>
+        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/jdt/plugins/org.eclipse.jdt_3.6.1.r361_v20100714-0800.jar'/>
+        <property name='file.lastModified' value='1295470375000'/>
+      </properties>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt' version='3.6.1.r361_v20100714-0800'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.jdt' version='3.6.1.r361_v20100714-0800'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='2'>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.intro' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.cheatsheets' range='[3.2.0,4.0.0)'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.jdt' version='3.6.1.r361_v20100714-0800'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Bundle-Version: 3.6.1.r361_v20100714-0800&#xA;Require-Bundle: org.eclipse.ui.intro;bundle-version=&quot;[3.2.0,4.0.0)&quot;,org.eclipse.ui.cheatsheets;bundle-version=&quot;[3.2.0,4.0.0)&quot;&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: org.eclipse.jdt; singleton:=true&#xA;Bundle-Name: %pluginName&#xA;Bundle-Localization: plugin&#xA;Bundle-Vendor: %providerName&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.junit' version='3.8.2.v3_8_2_v20100427-1100' singleton='false'>
+      <update id='org.junit' range='[0.0.0,3.8.2.v3_8_2_v20100427-1100)' severity='0'/>
+      <properties size='7'>
+        <property name='df_LT.providerName' value='Eclipse Orbit'/>
+        <property name='df_LT.pluginName' value='JUnit Testing Framework'/>
+        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/jdt/plugins/org.junit_3.8.2.v3_8_2_v20100427-1100'/>
+        <property name='file.lastModified' value='1406152432000'/>
+      </properties>
+      <provides size='11'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.junit' version='3.8.2.v3_8_2_v20100427-1100'/>
+        <provided namespace='osgi.bundle' name='org.junit' version='3.8.2.v3_8_2_v20100427-1100'/>
+        <provided namespace='java.package' name='junit.awtui' version='3.8.2'/>
+        <provided namespace='java.package' name='junit.extensions' version='3.8.2'/>
+        <provided namespace='java.package' name='junit.framework' version='3.8.2'/>
+        <provided namespace='java.package' name='junit.runner' version='3.8.2'/>
+        <provided namespace='java.package' name='junit.swingui' version='3.8.2'/>
+        <provided namespace='java.package' name='junit.swingui.icons' version='3.8.2'/>
+        <provided namespace='java.package' name='junit.textui' version='3.8.2'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.junit' version='3.8.2.v3_8_2_v20100427-1100'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='2'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.3&#xA;Manifest-Version: 1.0&#xA;Bundle-Version: 3.8.2.v3_8_2_v20100427-1100&#xA;Export-Package: junit.awtui;version=&quot;3.8.2&quot;,junit.extensions;version=&quot;3.8.2&quot;,junit.framework;version=&quot;3.8.2&quot;,junit.runner;version=&quot;3.8.2&quot;,junit.swingui;version=&quot;3.8.2&quot;,junit.swingui.icons;version=&quot;3.8.2&quot;,junit.textui;version=&quot;3.8.2&quot;&#xA;Bundle-SymbolicName: org.junit&#xA;Bundle-Localization: plugin&#xA;Bundle-ClassPath: junit.jar&#xA;Bundle-Name: %pluginName&#xA;Bundle-Vendor: %providerName&#xA;
+          </instruction>
+          <instruction key='zipped'>
+            true
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.jdt.debug' version='3.6.1.v20100715_r361'>
+      <update id='org.eclipse.jdt.debug' range='[0.0.0,3.6.1.v20100715_r361)' severity='0'/>
+      <properties size='7'>
+        <property name='df_LT.providerName' value='Eclipse.org'/>
+        <property name='df_LT.pluginName' value='JDI Debug Model'/>
+        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/jdt/plugins/org.eclipse.jdt.debug_3.6.1.v20100715_r361'/>
+        <property name='file.lastModified' value='1406152431000'/>
+      </properties>
+      <provides size='27'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt.debug' version='3.6.1.v20100715_r361'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.jdt.debug' version='3.6.1.v20100715_r361'/>
+        <provided namespace='java.package' name='com.sun.jdi' version='0.0.0'/>
+        <provided namespace='java.package' name='com.sun.jdi.connect' version='0.0.0'/>
+        <provided namespace='java.package' name='com.sun.jdi.connect.spi' version='0.0.0'/>
+        <provided namespace='java.package' name='com.sun.jdi.event' version='0.0.0'/>
+        <provided namespace='java.package' name='com.sun.jdi.request' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdi' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdi.hcr' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdi.internal' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdi.internal.connect' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdi.internal.event' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdi.internal.jdwp' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdi.internal.request' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdi.internal.spy' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.debug.core' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.debug.eval' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.debug.core' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.debug.core.breakpoints' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.debug.core.hcr' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.debug.core.logicalstructures' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.debug.core.model' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.debug.eval' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.debug.eval.ast.engine' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.debug.eval.ast.instructions' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='6'>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.debug.core' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.core' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.expressions' range='[3.4.0,4.0.0)'/>
+        <required namespace='java.package' name='com.ibm.icu.text' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.jdt.debug' version='3.6.1.v20100715_r361'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='2'>
+          <instruction key='manifest'>
+            Bundle-Name: %pluginName&#xA;Bundle-ClassPath: jdi.jar,jdimodel.jar,tools.jar&#xA;Bundle-Version: 3.6.1.v20100715_r361&#xA;Import-Package: com.ibm.icu.text&#xA;Bundle-Activator: org.eclipse.jdt.internal.debug.core.JDIDebugPlugin&#xA;Bundle-Vendor: %providerName&#xA;Require-Bundle: org.eclipse.core.resources;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.debug.core;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.jdt.core;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.core.runtime;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.core.expressions;bundle-version=&quot;[3.4.0,4.0.0)&quot;&#xA;Export-Package: com.sun.jdi,com.sun.jdi.connect,com.sun.jdi.connect.spi,com.sun.jdi.event,com.sun.jdi.request,org.eclipse.jdi,org.eclipse.jdi.hcr,org.eclipse.jdi.internal;x-friends:=&quot;org.eclipse.jdt.debug.ui&quot;,org.eclipse.jdi.internal.connect;x-friends:=&quot;org.eclipse.jdt.debug.ui&quot;,org.eclipse.jdi.internal.event;x-friends:=&quot;org.eclipse.jdt.debug.ui&quot;,org.eclipse.jdi.internal.jdwp;x-friends:=&quot;org.eclipse.jdt.debug.ui&quot;,org.eclipse.jdi.internal.request;x-friends:=&quot;org.eclipse.jdt.debug.ui&quot;,org.eclipse.jdi.internal.spy;x-friends:=&quot;org.eclipse.jdt.debug.ui&quot;,org.eclipse.jdt.debug.core,org.eclipse.jdt.debug.eval,org.eclipse.jdt.internal.debug.core;x-friends:=&quot;org.eclipse.jdt.debug.ui,org.eclipse.jdt.launching&quot;,org.eclipse.jdt.internal.debug.core.breakpoints;x-friends:=&quot;org.eclipse.jdt.debug.ui&quot;,org.eclipse.jdt.internal.debug.core.hcr;x-friends:=&quot;org.eclipse.jdt.debug.ui&quot;,org.eclipse.jdt.internal.debug.core.logicalstructures;x-friends:=&quot;org.eclipse.jdt.debug.ui&quot;,org.eclipse.jdt.internal.debug.core.model;x-friends:=&quot;org.eclipse.jdt.debug.ui&quot;,org.eclipse.jdt.internal.debug.eval;x-friends:=&quot;org.eclipse.jdt.debug.ui&quot;,org.eclipse.jdt.internal.debug.eval.ast.engine;x-friends:=&quot;org.eclipse.jdt.debug.ui&quot;,org.eclipse.jdt.internal.debug.eval.ast.instructions;x-friends:=&quot;org.eclipse.jdt.debug.ui&quot;&#xA;Bundle-SymbolicName: org.eclipse.jdt.debug; singleton:=true&#xA;Manifest-Version: 1.0&#xA;Bundle-ActivationPolicy: lazy&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.4&#xA;Bundle-Localization: plugin&#xA;
+          </instruction>
+          <instruction key='zipped'>
+            true
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.jdt.junit.core' version='3.6.1.r361_v20100825-0800'>
+      <update id='org.eclipse.jdt.junit.core' range='[0.0.0,3.6.1.r361_v20100825-0800)' severity='0'/>
+      <properties size='7'>
+        <property name='df_LT.providerName' value='Eclipse.org'/>
+        <property name='df_LT.pluginName' value='Java Development Tools JUnit core support'/>
+        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/jdt/plugins/org.eclipse.jdt.junit.core_3.6.1.r361_v20100825-0800.jar'/>
+        <property name='file.lastModified' value='1295470375000'/>
+      </properties>
+      <provides size='12'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt.junit.core' version='3.6.1.r361_v20100825-0800'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.jdt.junit.core' version='3.6.1.r361_v20100825-0800'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.junit' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.junit.buildpath' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.junit.launcher' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.junit.model' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.junit.util' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.junit' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.junit.launcher' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.junit.model' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='9'>
+        <required namespace='osgi.bundle' name='org.eclipse.core.expressions' range='[3.4.100,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.debug.core' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.core' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.launching' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.junit.runtime' range='[3.4.100,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.variables' range='[3.2.200,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.equinox.simpleconfigurator.manipulator' range='[2.0.0,3.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.equinox.frameworkadmin' range='[2.0.0,3.0.0)'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.jdt.junit.core' version='3.6.1.r361_v20100825-0800'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Export-Package: org.eclipse.jdt.internal.junit;x-friends:=&quot;org.eclipse.jdt.junit&quot;,org.eclipse.jdt.internal.junit.buildpath;core=&quot;split&quot;; mandatory:=&quot;core&quot;;x-friends:=&quot;org.eclipse.jdt.junit&quot;,org.eclipse.jdt.internal.junit.launcher;core=&quot;split&quot;; mandatory:=&quot;core&quot;;x-friends:=&quot;org.eclipse.jdt.junit&quot;,org.eclipse.jdt.internal.junit.model;x-friends:=&quot;org.eclipse.jdt.junit&quot;,org.eclipse.jdt.internal.junit.util;core=&quot;split&quot;; mandatory:=&quot;core&quot;;x-friends:=&quot;org.eclipse.jdt.junit&quot;,org.eclipse.jdt.junit,org.eclipse.jdt.junit.launcher;core=&quot;split&quot;; mandatory:=&quot;core&quot;,org.eclipse.jdt.junit.model&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.4&#xA;Bundle-Localization: plugin&#xA;Require-Bundle: org.eclipse.core.expressions;bundle-version=&quot;[3.4.100,4.0.0)&quot;,org.eclipse.debug.core;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.jdt.core;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.core.runtime;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.jdt.launching;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.jdt.junit.runtime;bundle-version=&quot;[3.4.100,4.0.0)&quot;,org.eclipse.core.variables;bundle-version=&quot;[3.2.200,4.0.0)&quot;,org.eclipse.equinox.simpleconfigurator.manipulator;bundle-version=&quot;[2.0.0,3.0.0)&quot;,org.eclipse.equinox.frameworkadmin;bundle-version=&quot;[2.0.0,3.0.0)&quot;&#xA;Bundle-Activator: org.eclipse.jdt.internal.junit.JUnitCorePlugin&#xA;Bundle-Name: %pluginName&#xA;Bundle-Version: 3.6.1.r361_v20100825-0800&#xA;Bundle-Vendor: %providerName&#xA;Bundle-SymbolicName: org.eclipse.jdt.junit.core;singleton:=true&#xA;Bundle-ActivationPolicy: lazy&#xA;Manifest-Version: 1.0&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.jdt.compiler.apt' version='1.0.300.v20100513-0845'>
+      <update id='org.eclipse.jdt.compiler.apt' range='[0.0.0,1.0.300.v20100513-0845)' severity='0'/>
+      <properties size='7'>
+        <property name='df_LT.providerName' value='Eclipse.org'/>
+        <property name='df_LT.fragmentName' value='Java Compiler Apt'/>
+        <property name='org.eclipse.equinox.p2.name' value='%fragmentName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='compiler_apt_fragment'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/jdt/plugins/org.eclipse.jdt.compiler.apt_1.0.300.v20100513-0845.jar'/>
+        <property name='file.lastModified' value='1295470375000'/>
+      </properties>
+      <provides size='9'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt.compiler.apt' version='1.0.300.v20100513-0845'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.jdt.compiler.apt' version='1.0.300.v20100513-0845'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.compiler.apt.dispatch' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.compiler.apt.model' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.compiler.apt.util' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.compiler.lookup' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='osgi.fragment' name='org.eclipse.jdt.core' version='1.0.300.v20100513-0845'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='2'>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.core' range='[3.5.0,4.0.0)'/>
+        <required namespace='java.package' name='org.eclipse.jdt.internal.compiler.tool' range='0.0.0' optional='true'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.jdt.compiler.apt' version='1.0.300.v20100513-0845'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-Vendor: %providerName&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-RequiredExecutionEnvironment: JavaSE-1.6&#xA;Import-Package: org.eclipse.jdt.internal.compiler.tool;resolution:=optional&#xA;Bundle-Name: %fragmentName&#xA;Bundle-Localization: compiler_apt_fragment&#xA;Manifest-Version: 1.0&#xA;Fragment-Host: org.eclipse.jdt.core;bundle-version=&quot;[3.5.0,4.0.0)&quot;&#xA;Bundle-SymbolicName: org.eclipse.jdt.compiler.apt;singleton:=true&#xA;Bundle-Version: 1.0.300.v20100513-0845&#xA;Export-Package: org.eclipse.jdt.internal.compiler.apt.dispatch;x-friends:=&quot;org.eclipse.jdt.apt.pluggable.core&quot;,org.eclipse.jdt.internal.compiler.apt.model;x-friends:=&quot;org.eclipse.jdt.apt.pluggable.core&quot;,org.eclipse.jdt.internal.compiler.apt.util;x-friends:=&quot;org.eclipse.jdt.apt.pluggable.core&quot;,org.eclipse.jdt.internal.compiler.lookup;x-friends:=&quot;org.eclipse.jdt.apt.pluggable.core&quot;&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.jdt.ui' version='3.6.1.r361_v20100825-0800'>
+      <update id='org.eclipse.jdt.ui' range='[0.0.0,3.6.1.r361_v20100825-0800)' severity='0'/>
+      <properties size='7'>
+        <property name='df_LT.providerName' value='Eclipse.org'/>
+        <property name='df_LT.pluginName' value='Java Development Tools UI'/>
+        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/jdt/plugins/org.eclipse.jdt.ui_3.6.1.r361_v20100825-0800.jar'/>
+        <property name='file.lastModified' value='1295470375000'/>
+      </properties>
+      <provides size='106'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt.ui' version='3.6.1.r361_v20100825-0800'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.jdt.ui' version='3.6.1.r361_v20100825-0800'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.corext' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.corext.buildpath' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.corext.callhierarchy' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.corext.codemanipulation' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.corext.codemanipulation.tostringgeneration' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.corext.dom' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.corext.dom.fragments' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.corext.fix' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.corext.javadoc' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.corext.refactoring' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.corext.refactoring.base' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.corext.refactoring.binary' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.corext.refactoring.changes' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.corext.refactoring.code' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.corext.refactoring.code.flow' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.corext.refactoring.delegates' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.corext.refactoring.generics' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.corext.refactoring.nls' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.corext.refactoring.nls.changes' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.corext.refactoring.participants' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.corext.refactoring.rename' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.corext.refactoring.reorg' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.corext.refactoring.scripting' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.corext.refactoring.sef' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.corext.refactoring.structure' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.corext.refactoring.structure.constraints' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.corext.refactoring.surround' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.corext.refactoring.tagging' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.corext.refactoring.typeconstraints' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.corext.refactoring.typeconstraints.types' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.corext.refactoring.typeconstraints.typesets' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.corext.refactoring.typeconstraints2' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.corext.refactoring.util' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.corext.template.java' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.corext.util' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.actions' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.browsing' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.callhierarchy' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.commands' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.compare' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.dialogs' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.dnd' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.filters' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.fix' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.infoviews' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.jarimport' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.jarpackager' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.jarpackagerfat' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.javadocexport' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.javaeditor' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.javaeditor.breadcrumb' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.javaeditor.saveparticipant' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.javaeditor.selectionactions' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.model' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.navigator' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.packageview' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.preferences' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.preferences.cleanup' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.preferences.formatter' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.propertiesfileeditor' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.refactoring' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.refactoring.actions' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.refactoring.binary' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.refactoring.code' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.refactoring.contentassist' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.refactoring.nls' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.refactoring.nls.search' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.refactoring.reorg' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.refactoring.sef' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.search' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.text' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.text.correction' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.text.correction.proposals' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.text.folding' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.text.java' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.text.java.hover' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.text.javadoc' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.text.spelling' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.text.spelling.engine' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.text.template.contentassist' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.text.template.preferences' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.typehierarchy' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.util' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.viewsupport' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.wizards' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.wizards.buildpaths' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.wizards.buildpaths.newsourcepage' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.wizards.dialogfields' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.ui.workingsets' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.ui' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.ui.actions' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.ui.cleanup' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.ui.dialogs' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.ui.jarpackager' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.ui.refactoring' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.ui.search' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.ui.text' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.ui.text.folding' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.ui.text.java' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.ui.text.java.hover' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.ui.wizards' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='28'>
+        <required namespace='osgi.bundle' name='org.eclipse.help' range='[3.4.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.expressions' range='[3.4.100,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.filesystem' range='[1.2.0,2.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.variables' range='[3.2.200,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.core' range='[3.6.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.search' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.debug.core' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.debug.ui' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.launching' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.compare' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.team.ui' range='[3.4.100,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.team.core' range='[3.4.100,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jface.text' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.console' range='[3.4.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.workbench.texteditor' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.ide' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.views' range='[3.3.100,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.editors' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='[3.6.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ltk.core.refactoring' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ltk.ui.refactoring' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.forms' range='[3.4.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.navigator' range='[3.3.200,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.navigator.resources' range='[3.4.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.core.manipulation' range='[1.3.0,2.0.0)'/>
+        <required namespace='osgi.bundle' name='com.ibm.icu' range='3.4.4'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.jdt.ui' version='3.6.1.r361_v20100825-0800'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Export-Package: org.eclipse.jdt.internal.corext;x-friends:=&quot;org.eclipse.jdt.junit&quot;,org.eclipse.jdt.internal.corext.buildpath;x-internal:=true,org.eclipse.jdt.internal.corext.callhierarchy;x-internal:=true,org.eclipse.jdt.internal.corext.codemanipulation;x-friends:=&quot;org.eclipse.jdt.junit&quot;,org.eclipse.jdt.internal.corext.codemanipulation.tostringgeneration;x-internal:=true,org.eclipse.jdt.internal.corext.dom;x-internal:=true,org.eclipse.jdt.internal.corext.dom.fragments;x-internal:=true,org.eclipse.jdt.internal.corext.fix;x-internal:=true,org.eclipse.jdt.internal.corext.javadoc;x-internal:=true,org.eclipse.jdt.internal.corext.refactoring;x-internal:=true,org.eclipse.jdt.internal.corext.refactoring.base;x-internal:=true,org.eclipse.jdt.internal.corext.refactoring.binary;x-internal:=true,org.eclipse.jdt.internal.corext.refactoring.changes;x-internal:=true,org.eclipse.jdt.internal.corext.refactoring.code;x-internal:=true,org.eclipse.jdt.internal.corext.refactoring.code.flow;x-internal:=true,org.eclipse.jdt.internal.corext.refactoring.delegates;x-internal:=true,org.eclipse.jdt.internal.corext.refactoring.generics;x-internal:=true,org.eclipse.jdt.internal.corext.refactoring.nls;x-internal:=true,org.eclipse.jdt.internal.corext.refactoring.nls.changes;x-internal:=true,org.eclipse.jdt.internal.corext.refactoring.participants;x-internal:=true,org.eclipse.jdt.internal.corext.refactoring.rename;x-internal:=true,org.eclipse.jdt.internal.corext.refactoring.reorg;x-internal:=true,org.eclipse.jdt.internal.corext.refactoring.scripting;x-internal:=true,org.eclipse.jdt.internal.corext.refactoring.sef;x-internal:=true,org.eclipse.jdt.internal.corext.refactoring.structure;x-internal:=true,org.eclipse.jdt.internal.corext.refactoring.structure.constraints;x-internal:=true,org.eclipse.jdt.internal.corext.refactoring.surround;x-internal:=true,org.eclipse.jdt.internal.corext.refactoring.tagging;x-internal:=true,org.eclipse.jdt.internal.corext.refactoring.typeconstraints;x-internal:=true,org.eclipse.jdt.internal.corext.refactoring.typeconstraints.types;x-internal:=true,org.eclipse.jdt.internal.corext.refactoring.typeconstraints.typesets;x-internal:=true,org.eclipse.jdt.internal.corext.refactoring.typeconstraints2;x-internal:=true,org.eclipse.jdt.internal.corext.refactoring.util;x-internal:=true,org.eclipse.jdt.internal.corext.template.java;x-internal:=true,org.eclipse.jdt.internal.corext.util;x-friends:=&quot;org.eclipse.jdt.junit&quot;,org.eclipse.jdt.internal.ui;x-friends:=&quot;org.eclipse.jdt.junit, org.eclipse.jdt.apt.ui&quot;,org.eclipse.jdt.internal.ui.actions;x-friends:=&quot;org.eclipse.jdt.junit&quot;,org.eclipse.jdt.internal.ui.browsing;x-internal:=true,org.eclipse.jdt.internal.ui.callhierarchy;x-internal:=true,org.eclipse.jdt.internal.ui.commands;x-internal:=true,org.eclipse.jdt.internal.ui.compare;x-internal:=true,org.eclipse.jdt.internal.ui.dialogs;x-friends:=&quot;org.eclipse.jdt.apt.ui&quot;,org.eclipse.jdt.internal.ui.dnd;x-internal:=true,org.eclipse.jdt.internal.ui.filters;x-internal:=true,org.eclipse.jdt.internal.ui.fix;x-internal:=true,org.eclipse.jdt.internal.ui.infoviews;x-internal:=true,org.eclipse.jdt.internal.ui.jarimport;x-internal:=true,org.eclipse.jdt.internal.ui.jarpackager;x-internal:=true,org.eclipse.jdt.internal.ui.jarpackagerfat;x-internal:=true,org.eclipse.jdt.internal.ui.javadocexport;x-internal:=true,org.eclipse.jdt.internal.ui.javaeditor;x-friends:=&quot;org.eclipse.jdt.junit&quot;,org.eclipse.jdt.internal.ui.javaeditor.breadcrumb;x-internal:=true,org.eclipse.jdt.internal.ui.javaeditor.saveparticipant;x-internal:=true,org.eclipse.jdt.internal.ui.javaeditor.selectionactions;x-internal:=true,org.eclipse.jdt.internal.ui.model;x-internal:=true,org.eclipse.jdt.internal.ui.navigator;x-internal:=true,org.eclipse.jdt.internal.ui.packageview;x-internal:=true,org.eclipse.jdt.internal.ui.preferences;x-friends:=&quot;org.eclipse.jdt.apt.ui&quot;,org.eclipse.jdt.internal.ui.preferences.cleanup;x-internal:=true,org.eclipse.jdt.internal.ui.preferences.formatter;x-internal:=true,org.eclipse.jdt.internal.ui.propertiesfileeditor;x-internal:=true,org.eclipse.jdt.internal.ui.refactoring;x-internal:=true,org.eclipse.jdt.internal.ui.refactoring.actions;x-internal:=true,org.eclipse.jdt.internal.ui.refactoring.binary;x-internal:=true,org.eclipse.jdt.internal.ui.refactoring.code;x-internal:=true,org.eclipse.jdt.internal.ui.refactoring.contentassist;x-friends:=&quot;org.eclipse.jdt.junit&quot;,org.eclipse.jdt.internal.ui.refactoring.nls;x-internal:=true,org.eclipse.jdt.internal.ui.refactoring.nls.search;x-internal:=true,org.eclipse.jdt.internal.ui.refactoring.reorg;x-internal:=true,org.eclipse.jdt.internal.ui.refactoring.sef;x-internal:=true,org.eclipse.jdt.internal.ui.search;x-internal:=true,org.eclipse.jdt.internal.ui.text;x-internal:=true,org.eclipse.jdt.internal.ui.text.correction;x-internal:=true,org.eclipse.jdt.internal.ui.text.correction.proposals;x-internal:=true,org.eclipse.jdt.internal.ui.text.folding;x-internal:=true,org.eclipse.jdt.internal.ui.text.java;x-internal:=true,org.eclipse.jdt.internal.ui.text.java.hover;x-internal:=true,org.eclipse.jdt.internal.ui.text.javadoc;x-internal:=true,org.eclipse.jdt.internal.ui.text.spelling;x-internal:=true,org.eclipse.jdt.internal.ui.text.spelling.engine;x-internal:=true,org.eclipse.jdt.internal.ui.text.template.contentassist;x-internal:=true,org.eclipse.jdt.internal.ui.text.template.preferences;x-internal:=true,org.eclipse.jdt.internal.ui.typehierarchy;x-internal:=true,org.eclipse.jdt.internal.ui.util;x-friends:=&quot;org.eclipse.jdt.junit, org.eclipse.jdt.apt.ui&quot;,org.eclipse.jdt.internal.ui.viewsupport;x-friends:=&quot;org.eclipse.jdt.junit&quot;,org.eclipse.jdt.internal.ui.wizards;x-friends:=&quot;org.eclipse.jdt.junit, org.eclipse.jdt.apt.ui&quot;,org.eclipse.jdt.internal.ui.wizards.buildpaths;x-internal:=true,org.eclipse.jdt.internal.ui.wizards.buildpaths.newsourcepage;x-internal:=true,org.eclipse.jdt.internal.ui.wizards.dialogfields;x-friends:=&quot;org.eclipse.jdt.apt.ui&quot;,org.eclipse.jdt.internal.ui.workingsets;x-internal:=true,org.eclipse.jdt.ui,org.eclipse.jdt.ui.actions,org.eclipse.jdt.ui.cleanup,org.eclipse.jdt.ui.dialogs,org.eclipse.jdt.ui.jarpackager,org.eclipse.jdt.ui.refactoring,org.eclipse.jdt.ui.search,org.eclipse.jdt.ui.text,org.eclipse.jdt.ui.text.folding,org.eclipse.jdt.ui.text.java,org.eclipse.jdt.ui.text.java.hover,org.eclipse.jdt.ui.wizards&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.4&#xA;Bundle-Localization: plugin&#xA;Require-Bundle: org.eclipse.help;bundle-version=&quot;[3.4.0,4.0.0)&quot;,org.eclipse.core.expressions;bundle-version=&quot;[3.4.100,4.0.0)&quot;,org.eclipse.core.filesystem;bundle-version=&quot;[1.2.0,2.0.0)&quot;,org.eclipse.core.resources;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.core.variables;bundle-version=&quot;[3.2.200,4.0.0)&quot;,org.eclipse.jdt.core;bundle-version=&quot;[3.6.0,4.0.0)&quot;,org.eclipse.search;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.debug.core;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.debug.ui;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.jdt.launching;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.compare;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.team.ui;bundle-version=&quot;[3.4.100,4.0.0)&quot;,org.eclipse.team.core;bundle-version=&quot;[3.4.100,4.0.0)&quot;,org.eclipse.jface.text;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.ui;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.ui.console;bundle-version=&quot;[3.4.0,4.0.0)&quot;,org.eclipse.ui.workbench.texteditor;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.ui.ide;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.ui.views;bundle-version=&quot;[3.3.100,4.0.0)&quot;,org.eclipse.ui.editors;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.core.runtime;bundle-version=&quot;[3.6.0,4.0.0)&quot;,org.eclipse.ltk.core.refactoring;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.ltk.ui.refactoring;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.ui.forms;bundle-version=&quot;[3.4.0,4.0.0)&quot;,org.eclipse.ui.navigator;bundle-version=&quot;[3.3.200,4.0.0)&quot;,org.eclipse.ui.navigator.resources;bundle-version=&quot;[3.4.0,4.0.0)&quot;,org.eclipse.jdt.core.manipulation;bundle-version=&quot;[1.3.0,2.0.0)&quot;,com.ibm.icu;bundle-version=&quot;3.4.4&quot;&#xA;Bundle-Activator: org.eclipse.jdt.internal.ui.JavaPlugin&#xA;Bundle-Name: %pluginName&#xA;Bundle-Version: 3.6.1.r361_v20100825-0800&#xA;Bundle-Vendor: %providerName&#xA;Bundle-SymbolicName: org.eclipse.jdt.ui; singleton:=true&#xA;Bundle-ActivationPolicy: lazy&#xA;Manifest-Version: 1.0&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.jdt.feature.jar' version='3.6.1.r361_v20100714-0800-7z8XFUSFLBmsgvVz0z-3vjz095IX'>
+      <properties size='10'>
+        <property name='org.eclipse.equinox.p2.name' value='%featureName'/>
+        <property name='org.eclipse.equinox.p2.description' value='%description'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='df_LT.featureName' value='Eclipse Java Development Tools'/>
+        <property name='df_LT.providerName' value='Eclipse.org'/>
+        <property name='df_LT.description' value='Eclipse Java development tools. (Binary runtime and user documentation.)'/>
+        <property name='df_LT.copyright' value='Copyright (c) 2000, 2010 IBM Corporation and others.&#xA;All rights reserved. This program and the accompanying materials&#xA;are made available under the terms of the Eclipse Public License v1.0&#xA;which accompanies this distribution, and is available at&#xA;http://www.eclipse.org/legal/epl-v10.html&#xA;&#xA;Contributors:&#xA;IBM Corporation - initial API and implementation&#xA;'/>
+        <property name='df_LT.license' value='Eclipse Foundation Software User Agreement&#xA;April 14, 2010&#xA;&#xA;Usage Of Content&#xA;&#xA;THE ECLIPSE FOUNDATION MAKES AVAILABLE SOFTWARE, DOCUMENTATION, INFORMATION AND/OR&#xA;OTHER MATERIALS FOR OPEN SOURCE PROJECTS (COLLECTIVELY &quot;CONTENT&quot;).&#xA;USE OF THE CONTENT IS GOVERNED BY THE TERMS AND CONDITIONS OF THIS&#xA;AGREEMENT AND/OR THE TERMS AND CONDITIONS OF LICENSE AGREEMENTS OR&#xA;NOTICES INDICATED OR REFERENCED BELOW.  BY USING THE CONTENT, YOU&#xA;AGREE THAT YOUR USE OF THE CONTENT IS GOVERNED BY THIS AGREEMENT&#xA;AND/OR THE TERMS AND CONDITIONS OF ANY APPLICABLE LICENSE AGREEMENTS&#xA;OR NOTICES INDICATED OR REFERENCED BELOW.  IF YOU DO NOT AGREE TO THE&#xA;TERMS AND CONDITIONS OF THIS AGREEMENT AND THE TERMS AND CONDITIONS&#xA;OF ANY APPLICABLE LICENSE AGREEMENTS OR NOTICES INDICATED OR REFERENCED&#xA;BELOW, THEN YOU MAY NOT USE THE CONTENT.&#xA;&#xA;Applicable Licenses&#xA;&#xA;Unless otherwise indicated, all Content made available by the&#xA;Eclipse Foundation is provided to you under the terms and conditions of&#xA;the Eclipse Public License Version 1.0 (&quot;EPL&quot;). A copy of the EPL is&#xA;provided with this Content and is also available at http://www.eclipse.org/legal/epl-v10.html.&#xA;For purposes of the EPL, &quot;Program&quot; will mean the Content.&#xA;&#xA;Content includes, but is not limited to, source code, object code,&#xA;documentation and other files maintained in the Eclipse Foundation source code&#xA;repository (&quot;Repository&quot;) in software modules (&quot;Modules&quot;) and made available&#xA;as downloadable archives (&quot;Downloads&quot;).&#xA;&#xA;- Content may be structured and packaged into modules to facilitate delivering,&#xA;extending, and upgrading the Content. Typical modules may include plug-ins (&quot;Plug-ins&quot;),&#xA;plug-in fragments (&quot;Fragments&quot;), and features (&quot;Features&quot;).&#xA;- Each Plug-in or Fragment may be packaged as a sub-directory or JAR (Java(TM) ARchive)&#xA;in a directory named &quot;plugins&quot;.&#xA;- A Feature is a bundle of one or more Plug-ins and/or Fragments and associated material.&#xA;Each Feature may be packaged as a sub-directory in a directory named &quot;features&quot;.&#xA;Within a Feature, files named &quot;feature.xml&quot; may contain a list of the names and version&#xA;numbers of the Plug-ins and/or Fragments associated with that Feature.&#xA;- Features may also include other Features (&quot;Included Features&quot;). Within a Feature, files&#xA;named &quot;feature.xml&quot; may contain a list of the names and version numbers of Included Features.&#xA;&#xA;The terms and conditions governing Plug-ins and Fragments should be&#xA;contained in files named &quot;about.html&quot; (&quot;Abouts&quot;). The terms and&#xA;conditions governing Features and Included Features should be contained&#xA;in files named &quot;license.html&quot; (&quot;Feature Licenses&quot;). Abouts and Feature&#xA;Licenses may be located in any directory of a Download or Module&#xA;including, but not limited to the following locations:&#xA;&#xA;- The top-level (root) directory&#xA;- Plug-in and Fragment directories&#xA;- Inside Plug-ins and Fragments packaged as JARs&#xA;- Sub-directories of the directory named &quot;src&quot; of certain Plug-ins&#xA;- Feature directories&#xA;&#xA;Note: if a Feature made available by the Eclipse Foundation is installed using the&#xA;Provisioning Technology (as defined below), you must agree to a license (&quot;Feature &#xA;Update License&quot;) during the installation process. If the Feature contains&#xA;Included Features, the Feature Update License should either provide you&#xA;with the terms and conditions governing the Included Features or inform&#xA;you where you can locate them. Feature Update Licenses may be found in&#xA;the &quot;license&quot; property of files named &quot;feature.properties&quot; found within a Feature.&#xA;Such Abouts, Feature Licenses, and Feature Update Licenses contain the&#xA;terms and conditions (or references to such terms and conditions) that&#xA;govern your use of the associated Content in that directory.&#xA;&#xA;THE ABOUTS, FEATURE LICENSES, AND FEATURE UPDATE LICENSES MAY REFER&#xA;TO THE EPL OR OTHER LICENSE AGREEMENTS, NOTICES OR TERMS AND CONDITIONS.&#xA;SOME OF THESE OTHER LICENSE AGREEMENTS MAY INCLUDE (BUT ARE NOT LIMITED TO):&#xA;&#xA;- Common Public License Version 1.0 (available at http://www.eclipse.org/legal/cpl-v10.html)&#xA;- Apache Software License 1.1 (available at http://www.apache.org/licenses/LICENSE)&#xA;- Apache Software License 2.0 (available at http://www.apache.org/licenses/LICENSE-2.0)&#xA;- Metro Link Public License 1.00 (available at http://www.opengroup.org/openmotif/supporters/metrolink/license.html)&#xA;- Mozilla Public License Version 1.1 (available at http://www.mozilla.org/MPL/MPL-1.1.html)&#xA;&#xA;IT IS YOUR OBLIGATION TO READ AND ACCEPT ALL SUCH TERMS AND CONDITIONS PRIOR&#xA;TO USE OF THE CONTENT. If no About, Feature License, or Feature Update License&#xA;is provided, please contact the Eclipse Foundation to determine what terms and conditions&#xA;govern that particular Content.&#xA;&#xA;&#xA;Use of Provisioning Technology&#xA;&#xA;The Eclipse Foundation makes available provisioning software, examples of which include,&#xA;but are not limited to, p2 and the Eclipse Update Manager (&quot;Provisioning Technology&quot;) for&#xA;the purpose of allowing users to install software, documentation, information and/or&#xA;other materials (collectively &quot;Installable Software&quot;). This capability is provided with&#xA;the intent of allowing such users to install, extend and update Eclipse-based products.&#xA;Information about packaging Installable Software is available at&#xA;http://eclipse.org/equinox/p2/repository_packaging.html (&quot;Specification&quot;).&#xA;&#xA;You may use Provisioning Technology to allow other parties to install Installable Software.&#xA;You shall be responsible for enabling the applicable license agreements relating to the&#xA;Installable Software to be presented to, and accepted by, the users of the Provisioning Technology&#xA;in accordance with the Specification. By using Provisioning Technology in such a manner and&#xA;making it available in accordance with the Specification, you further acknowledge your&#xA;agreement to, and the acquisition of all necessary rights to permit the following:&#xA;&#xA;1. A series of actions may occur (&quot;Provisioning Process&quot;) in which a user may execute&#xA;the Provisioning Technology on a machine (&quot;Target Machine&quot;) with the intent of installing,&#xA;extending or updating the functionality of an Eclipse-based product.&#xA;2. During the Provisioning Process, the Provisioning Technology may cause third party&#xA;Installable Software or a portion thereof to be accessed and copied to the Target Machine.&#xA;3. Pursuant to the Specification, you will provide to the user the terms and conditions that&#xA;govern the use of the Installable Software (&quot;Installable Software Agreement&quot;) and such&#xA;Installable Software Agreement shall be accessed from the Target Machine in accordance&#xA;with the Specification. Such Installable Software Agreement must inform the user of the&#xA;terms and conditions that govern the Installable Software and must solicit acceptance by&#xA;the end user in the manner prescribed in such Installable Software Agreement. Upon such&#xA;indication of agreement by the user, the provisioning Technology will complete installation&#xA;of the Installable Software.&#xA;&#xA;Cryptography&#xA;&#xA;Content may contain encryption software. The country in which you are&#xA;currently may have restrictions on the import, possession, and use,&#xA;and/or re-export to another country, of encryption software. BEFORE&#xA;using any encryption software, please check the country&apos;s laws,&#xA;regulations and policies concerning the import, possession, or use, and&#xA;re-export of encryption software, to see if this is permitted.&#xA;&#xA;Java and all Java-based trademarks are trademarks of Oracle Corporation in the United States, other countries, or both.&#xA;'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/jdt/features/org.eclipse.jdt_3.6.1.r361_v20100714-0800-7z8XFUSFLBmsgvVz0z-3vjz095IX'/>
+        <property name='file.lastModified' value='1406152430000'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt.feature.jar' version='3.6.1.r361_v20100714-0800-7z8XFUSFLBmsgvVz0z-3vjz095IX'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='feature' version='1.0.0'/>
+        <provided namespace='org.eclipse.update.feature' name='org.eclipse.jdt' version='3.6.1.r361_v20100714-0800-7z8XFUSFLBmsgvVz0z-3vjz095IX'/>
+      </provides>
+      <filter>
+        (org.eclipse.update.install.features=true)
+      </filter>
+      <artifacts size='1'>
+        <artifact classifier='org.eclipse.update.feature' id='org.eclipse.jdt' version='3.6.1.r361_v20100714-0800-7z8XFUSFLBmsgvVz0z-3vjz095IX'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='zipped'>
+            true
+          </instruction>
+        </instructions>
+      </touchpointData>
+      <licenses size='1'>
+        <license uri='%25licenseURL' url='%25licenseURL'>
+          %license
+        </license>
+      </licenses>
+      <copyright>
+        %copyright
+      </copyright>
+    </unit>
+    <unit id='org.eclipse.jdt.apt.core' version='3.3.401.R36_v20100727-0110'>
+      <update id='org.eclipse.jdt.apt.core' range='[0.0.0,3.3.401.R36_v20100727-0110)' severity='0'/>
+      <properties size='7'>
+        <property name='df_LT.providerName' value='Eclipse.org'/>
+        <property name='df_LT.pluginName' value='Java Annotation Processing Core'/>
+        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/jdt/plugins/org.eclipse.jdt.apt.core_3.3.401.R36_v20100727-0110.jar'/>
+        <property name='file.lastModified' value='1295470375000'/>
+      </properties>
+      <provides size='18'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt.apt.core' version='3.3.401.R36_v20100727-0110'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.jdt.apt.core' version='3.3.401.R36_v20100727-0110'/>
+        <provided namespace='java.package' name='com.sun.mirror.apt' version='0.0.0'/>
+        <provided namespace='java.package' name='com.sun.mirror.declaration' version='0.0.0'/>
+        <provided namespace='java.package' name='com.sun.mirror.type' version='0.0.0'/>
+        <provided namespace='java.package' name='com.sun.mirror.util' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.apt.core.build' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.apt.core.env' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.apt.core.internal' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.apt.core.internal.build' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.apt.core.internal.declaration' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.apt.core.internal.env' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.apt.core.internal.generatedfile' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.apt.core.internal.type' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.apt.core.internal.util' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.apt.core.util' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='4'>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.core' range='[3.6.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='[3.5.100,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='[3.6.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.apache.ant' range='[1.6.5,1.8.0)'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.jdt.apt.core' version='3.3.401.R36_v20100727-0110'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Export-Package: com.sun.mirror.apt,com.sun.mirror.declaration,com.sun.mirror.type,com.sun.mirror.util,org.eclipse.jdt.apt.core.build,org.eclipse.jdt.apt.core.env,org.eclipse.jdt.apt.core.internal;x-friends:=&quot;org.eclipse.jdt.apt.pluggable.core,org.eclipse.jdt.apt.tests,org.eclipse.jdt.apt.ui,org.eclipse.jdt.apt.pluggable.tests&quot;,org.eclipse.jdt.apt.core.internal.build;x-friends:=&quot;org.eclipse.jdt.apt.pluggable.core,org.eclipse.jdt.apt.tests,org.eclipse.jdt.apt.ui,org.eclipse.jdt.apt.pluggable.tests&quot;,org.eclipse.jdt.apt.core.internal.declaration;x-friends:=&quot;org.eclipse.jdt.apt.pluggable.core,org.eclipse.jdt.apt.tests,org.eclipse.jdt.apt.ui,org.eclipse.jdt.apt.pluggable.tests&quot;,org.eclipse.jdt.apt.core.internal.env;x-friends:=&quot;org.eclipse.jdt.apt.pluggable.core,org.eclipse.jdt.apt.tests,org.eclipse.jdt.apt.ui,org.eclipse.jdt.apt.pluggable.tests&quot;,org.eclipse.jdt.apt.core.internal.generatedfile;x-friends:=&quot;org.eclipse.jdt.apt.pluggable.core,org.eclipse.jdt.apt.tests,org.eclipse.jdt.apt.ui,org.eclipse.jdt.apt.pluggable.tests&quot;,org.eclipse.jdt.apt.core.internal.type;x-friends:=&quot;org.eclipse.jdt.apt.pluggable.core,org.eclipse.jdt.apt.tests,org.eclipse.jdt.apt.ui,org.eclipse.jdt.apt.pluggable.tests&quot;,org.eclipse.jdt.apt.core.internal.util;x-friends:=&quot;org.eclipse.jdt.apt.pluggable.core,org.eclipse.jdt.apt.tests,org.eclipse.jdt.apt.ui,org.eclipse.jdt.apt.pluggable.tests&quot;,org.eclipse.jdt.apt.core.util&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Bundle-Localization: plugin&#xA;Require-Bundle: org.eclipse.jdt.core;bundle-version=&quot;[3.6.0,4.0.0)&quot;,org.eclipse.core.runtime;bundle-version=&quot;[3.5.100,4.0.0)&quot;,org.eclipse.core.resources;bundle-version=&quot;[3.6.0,4.0.0)&quot;,org.apache.ant;bundle-version=&quot;[1.6.5,1.8)&quot;&#xA;Bundle-Activator: org.eclipse.jdt.apt.core.internal.AptPlugin&#xA;Bundle-Name: %pluginName&#xA;Bundle-Version: 3.3.401.R36_v20100727-0110&#xA;Bundle-Vendor: %providerName&#xA;Bundle-SymbolicName: org.eclipse.jdt.apt.core; singleton:=true&#xA;Bundle-ActivationPolicy: lazy&#xA;Manifest-Version: 1.0&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.jdt.launching' version='3.5.100.v20100526'>
+      <update id='org.eclipse.jdt.launching' range='[0.0.0,3.5.100.v20100526)' severity='0'/>
+      <properties size='7'>
+        <property name='df_LT.providerName' value='Eclipse.org'/>
+        <property name='df_LT.pluginName' value='Java Development Tools Launching Support'/>
+        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/jdt/plugins/org.eclipse.jdt.launching_3.5.100.v20100526.jar'/>
+        <property name='file.lastModified' value='1295470375000'/>
+      </properties>
+      <provides size='10'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jdt.launching' version='3.5.100.v20100526'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.jdt.launching' version='3.5.100.v20100526'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.launching' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.internal.launching.environments' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.launching' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.launching.environments' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.launching.sourcelookup' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.jdt.launching.sourcelookup.containers' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='8'>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.core' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.debug.core' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jdt.debug' range='[3.5.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.variables' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='[3.6.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.expressions' range='[3.4.0,4.0.0)'/>
+        <required namespace='java.package' name='com.ibm.icu.text' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.jdt.launching' version='3.5.100.v20100526'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-RequiredExecutionEnvironment: J2SE-1.4&#xA;Bundle-Name: %pluginName&#xA;Bundle-Activator: org.eclipse.jdt.internal.launching.LaunchingPlugin&#xA;Manifest-Version: 1.0&#xA;Bundle-Vendor: %providerName&#xA;Bundle-ActivationPolicy: lazy&#xA;Bundle-SymbolicName: org.eclipse.jdt.launching; singleton:=true&#xA;Import-Package: com.ibm.icu.text&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Version: 3.5.100.v20100526&#xA;Bundle-Localization: plugin&#xA;Export-Package: org.eclipse.jdt.internal.launching;x-friends:=&quot;org.eclipse.jdt.debug.ui,org.eclipse.jdt.launching.macosx&quot;,org.eclipse.jdt.internal.launching.environments;x-internal:=true,org.eclipse.jdt.launching,org.eclipse.jdt.launching.environments,org.eclipse.jdt.launching.sourcelookup,org.eclipse.jdt.launching.sourcelookup.containers&#xA;Require-Bundle: org.eclipse.core.resources;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.jdt.core;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.debug.core;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.jdt.debug;bundle-version=&quot;[3.5.0,4.0.0)&quot;,org.eclipse.core.variables;bundle-version=&quot;[3.2.0,4.0.0)&quot;,org.eclipse.core.runtime;bundle-version=&quot;[3.6.0,4.0.0)&quot;,org.eclipse.core.expressions;bundle-version=&quot;[3.4.0,4.0.0)&quot;&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+  </units>
+</repository>

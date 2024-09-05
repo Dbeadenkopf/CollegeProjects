@@ -1,0 +1,876 @@
+/*
+ * Thickbox 3.1 - One Box To Rule Them All.
+ * By Cody Lindley (http://www.codylindley.com)
+ * Copyright (c) 2007 cody lindley
+ * Licensed under the MIT License: http://www.opensource.org/licenses/mit-license.php
+ */
+var tb_pathToImage = "images/loadingAnimationThickboxDefault.gif";
+var ajaxContentW = 630; // default
+var ajaxContentH = 440; // default
+
+/*!!!!!!!!!!!!!!!!! edit below this line at your own risk !!!!!!!!!!!!!!!!!!!!!!!*/
+
+//on page load call tb_init
+$(document).ready(function ()
+{
+    //pass where to apply thickbox
+    tb_init('a.thickbox, area.thickbox, input.thickbox');
+    imgLoader = new Image();
+    // preload image
+    imgLoader.src = tb_pathToImage;
+});
+
+//add thickbox to href & area elements that have a class of .thickbox
+function tb_init(domChunk)
+{
+    $(domChunk).click(function ()
+    {
+        var t = this.title || this.name || null;
+        var a = this.href || this.alt;
+        var g = this.rel || false;
+        tb_show(t, a, g);
+        this.blur();
+        return false;
+    });
+}
+
+//function called when the user clicks on a thickbox link
+function tb_show(caption, url, imageGroup)
+{
+    try
+    {
+        if (typeof document.body.style.maxHeight === "undefined")
+        {
+            //if IE 6
+            $("body", "html").css({height:"100%", width:"100%"});
+            $("html").css("overflow", "hidden");
+
+            if (document.getElementById("TB_HideSelect") === null)
+            {
+                //iframe to hide select elements in ie6
+                $("body").append("<iframe id='TB_HideSelect'></iframe><div id='TB_overlay'></div><div id='TB_window'></div>");
+                $("#TB_overlay").click(tb_remove);
+            }
+        }
+        else
+        {
+            //all others
+            if (document.getElementById("TB_overlay") === null)
+            {
+                $("body").append("<div id='TB_overlay'></div><div id='TB_window'></div>");
+                $("#TB_overlay").click(tb_remove);
+            }
+        }
+
+        // Prevent the TB_window div from inheriting display:"block" from a parent since that style is used as a flag
+        $("#TB_window").css({display:"none"});
+
+        if (tb_detectMacXFF() || tb_detectFF())
+        {
+            //use png overlay so hide flash
+            $("#TB_overlay").addClass("TB_overlayMacFFBGHack");
+        }
+        else
+        {
+            //use background and opacity
+            $("#TB_overlay").addClass("TB_overlayBG");
+            // Fix a bug in IE8 where the height was set too high
+            $("#TB_overlay").css({height:'100%'});
+        }
+
+        if (caption === null)
+        {
+            caption = "";
+        }
+
+        //add loader to the page
+        $("body").append("<div id='TB_load'><img src='" + imgLoader.src + "' /></div>");
+        //show loader
+        $('#TB_load').show();
+
+        var baseURL;
+
+        //ff there is a query string involved
+        if (url.indexOf("?") !== -1)
+        {
+            baseURL = url.substr(0, url.indexOf("?"));
+        }
+        else
+        {
+            baseURL = url;
+        }
+
+        // Calculate the layoutDirection by searching for the TB_rtl param in query string
+        var layoutDirection = url.indexOf("TB_rtl") != -1 ? "rtl" : "ltr";
+
+        var urlString = /\.jpg$|\.jpeg$|\.png$|\.gif$|\.bmp$/;
+        var urlType = baseURL.toLowerCase().match(urlString);
+
+        if (urlType == '.jpg' || urlType == '.jpeg' || urlType == '.png' || urlType == '.gif' || urlType == '.bmp')
+        {
+            //code to show images
+            TB_PrevCaption = "";
+            TB_PrevURL = "";
+            TB_PrevHTML = "";
+            TB_NextCaption = "";
+            TB_NextURL = "";
+            TB_NextHTML = "";
+            TB_imageCount = "";
+            TB_FoundURL = false;
+
+            if (imageGroup)
+            {
+                TB_TempArray = $("a[@rel=" + imageGroup + "]").get();
+
+                for (TB_Counter = 0; ((TB_Counter < TB_TempArray.length) && (TB_NextHTML === "")); TB_Counter++)
+                {
+                    var urlTypeTemp = TB_TempArray[TB_Counter].href.toLowerCase().match(urlString);
+
+                    if (!(TB_TempArray[TB_Counter].href == url))
+                    {
+                        if (TB_FoundURL)
+                        {
+                            TB_NextCaption = TB_TempArray[TB_Counter].title;
+                            TB_NextURL = TB_TempArray[TB_Counter].href;
+                            TB_NextHTML = "<span id='TB_next'>&nbsp;&nbsp;<a href='#'>Next &gt;</a></span>";
+                        }
+                        else
+                        {
+                            TB_PrevCaption = TB_TempArray[TB_Counter].title;
+                            TB_PrevURL = TB_TempArray[TB_Counter].href;
+                            TB_PrevHTML = "<span id='TB_prev'>&nbsp;&nbsp;<a href='#'>&lt; Prev</a></span>";
+                        }
+                    }
+                    else
+                    {
+                        TB_FoundURL = true;
+                        TB_imageCount = "Image " + (TB_Counter + 1) + " of " + (TB_TempArray.length);
+                    }
+                }
+            }
+
+            imgPreloader = new Image();
+
+            imgPreloader.onload = function ()
+            {
+                imgPreloader.onload = null;
+
+                // Resizing large images - orginal by Christian Montoya edited by me.
+                var pagesize = tb_getPageSize();
+                var x = pagesize[0] - 150;
+                var y = pagesize[1] - 150;
+                var imageWidth = imgPreloader.width;
+                var imageHeight = imgPreloader.height;
+
+                if (imageWidth > x)
+                {
+                    imageHeight = imageHeight * (x / imageWidth);
+                    imageWidth = x;
+
+                    if (imageHeight > y)
+                    {
+                        imageWidth = imageWidth * (y / imageHeight);
+                        imageHeight = y;
+                    }
+                }
+                else if (imageHeight > y)
+                {
+                    imageWidth = imageWidth * (y / imageHeight);
+                    imageHeight = y;
+
+                    if (imageWidth > x)
+                    {
+                        imageHeight = imageHeight * (x / imageWidth);
+                        imageWidth = x;
+                    }
+                }
+                // End Resizing
+
+                TB_WIDTH = imageWidth;
+                TB_HEIGHT = imageHeight + 60;
+
+                $("#TB_window").append("<a href='' id='TB_ImageOff' title='Close'><img id='TB_Image' src='" + url + "' width='" + imageWidth + "' height='" + imageHeight + "' alt='" + caption + "'/></a>" + "<div id='TB_caption'>" + caption + "<div id='TB_secondLine'>" + TB_imageCount + TB_PrevHTML + TB_NextHTML + "</div></div><div id='TB_closeWindow'><a href='#' id='TB_closeWindowButton' title='Close'><strong>x</strong></a></div>");
+
+                $("#TB_closeWindowButton").click(tb_remove);
+
+                if (!(TB_PrevHTML === ""))
+                {
+                    function goPrev()
+                    {
+                        if ($(document).unbind("click", goPrev))
+                        {
+                            $(document).unbind("click", goPrev);
+                        }
+
+                        $("#TB_window").remove();
+                        $("body").append("<div id='TB_window'></div>");
+                        tb_show(TB_PrevCaption, TB_PrevURL, imageGroup);
+
+                        return false;
+                    }
+
+                    $("#TB_prev").click(goPrev);
+                }
+
+                if (!(TB_NextHTML === ""))
+                {
+                    function goNext()
+                    {
+                        $("#TB_window").remove();
+                        $("body").append("<div id='TB_window'></div>");
+                        tb_show(TB_NextCaption, TB_NextURL, imageGroup);
+
+                        return false;
+                    }
+
+                    $("#TB_next").click(goNext);
+                }
+
+                document.onkeydown = function (e)
+                {
+                    // ie
+                    if (e == null)
+                    {
+                        keycode = event.keyCode;
+                    }
+                    // mozilla
+                    else
+                    {
+                        keycode = e.which;
+                    }
+
+                    // close
+                    if (keycode == 27)
+                    {
+                        tb_remove();
+                    }
+                    // display previous image
+                    else if (keycode == 190)
+                    {
+                        if (!(TB_NextHTML == ""))
+                        {
+                            document.onkeydown = "";
+                            goNext();
+                        }
+                    }
+                    // display next image
+                    else if (keycode == 188)
+                    {
+                        if (!(TB_PrevHTML == ""))
+                        {
+                            document.onkeydown = "";
+                            goPrev();
+                        }
+                    }
+                };
+
+                tb_position();
+                $("#TB_load").remove();
+                $("#TB_ImageOff").click(tb_remove);
+                $("#TB_window").css({display:"block"}); //for safari using css instead of show
+            };
+
+            imgPreloader.src = url;
+        }
+        //code to show html
+        else
+        {
+            var queryString = url.replace(/^[^\?]+\??/, '');
+            var params = tb_parseQuery(queryString);
+
+            TB_WIDTH = (params['width'] * 1) + 40 || 630; //defaults to 630 if no parameters were added to URL
+            TB_HEIGHT = (params['height'] * 1) + 160 || 440; //defaults to 440 if no parameters were added to URL
+
+            //Updated by Pracheta from thickbox3.1.js as the height and width were inappropriate for feedback pop up
+            ajaxContentW = TB_WIDTH;
+            ajaxContentH = TB_HEIGHT;
+
+            /*
+             if (jQuery.browser.msie && jQuery.browser.version < 9) { // Runs for IE 8 and less
+             // [Jason Hanson] IE 8 & IE 7 measure the window differently then other browsers in regards to borders.
+             // This code accounts for that difference by not subtracting the border width from the TB_WIDTH and TB_HEIGHT
+             ajaxContentW = TB_WIDTH -30;
+             ajaxContentH = TB_HEIGHT + 15; // Account for border on top and bottom
+             } else if (jQuery.browser.msie && jQuery.browser.version > 8) { // Runs for IE 9+
+             // [Jason Hanson] IE 9 measures the div differently then other browsers in regards to borders. This code
+             // accounts for that difference by not subtracting the border width from the TB_WIDTH and TB_HEIGHT
+             ajaxContentW = TB_WIDTH + 6;
+             ajaxContentH = TB_HEIGHT + 15; // Account for unique border measurement in IE 9
+             } else {
+             // Default values from thickbox3.1.js
+             ajaxContentW = TB_WIDTH - 30;
+             ajaxContentH = TB_HEIGHT - 45;
+             }
+             */
+
+            // either iframe or ajax window
+            if (url.indexOf('TB_iframe') != -1)
+            {
+                var fullURL = url;
+                // [JH] I want the query string params, don't chop them off.
+                // [TJD] Not sure why we needed to query string params, so I am allowing them to be chopped off since this was causing the videos not to load.
+
+                urlNoQuery = url.split('TB_');
+                $("#TB_iframeContent").remove();
+
+                //iframe no modal
+                if (params['modal'] != "true")
+                {
+                    $("#TB_window").append("<div id='TB_title'><div id='TB_windowTitleBackground'></div><div id='TB_ajaxWindowTitle'>" + caption + "</div><div id='TB_closeAjaxWindow'><a href='#' id='TB_closeWindowButton' title='Close'><strong>x</strong></a></div></div><iframe frameborder='0' hspace='0' src='" + fullURL + "' id='TB_iframeContent' name='TB_iframeContent" + Math.round(Math.random() * 1000) + "' onload='tb_showIframe(\"" + queryString + "\")' style='width:" + (ajaxContentW + 29) + "px;height:" + (ajaxContentH + 17) + "px;' > </iframe>");
+                }
+                //iframe modal
+                else
+                {
+                    $("#TB_overlay").unbind();
+                    $("#TB_window").append("<iframe frameborder='0' hspace='0' src='" + fullURL + "' id='TB_iframeContent' name='TB_iframeContent" + Math.round(Math.random() * 1000) + "' onload='tb_showIframe()' style='width:" + (ajaxContentW + 29) + "px;height:" + (ajaxContentH + 17) + "px;'> </iframe>");
+                }
+            }
+            // not an iframe, ajax
+            else
+            {
+                if ($("#TB_window").css("display") != "block")
+                {
+                    //ajax no modal
+                    if (params['modal'] != "true")
+                    {
+                        $("#TB_window").append("<div id='TB_title'><div id='TB_windowTitleBackground'></div><div id='TB_ajaxWindowTitle'>" + caption + "</div><div id='TB_closeAjaxWindow'><a href='#' id='TB_closeWindowButton'><strong>x</strong></a></div></div><div id='TB_ajaxContent' style='width:auto;height:auto;'></div>");
+                    }
+                    //ajax modal
+                    else
+                    {
+                        // [TJD] Added title window to modal, since this is what Pearson wants
+                        $("#TB_overlay").unbind();
+                        $("#TB_window").append("<div id='TB_title'><div id='TB_windowTitleBackground'></div><div id='TB_ajaxWindowTitle'>" + caption + "</div><div id='TB_closeAjaxWindow'><a href='#' id='TB_closeWindowButton'><strong>x</strong></a></div></div><div id='TB_ajaxContent' class='TB_modal' style='width:auto;height: auto;'></div>");
+                    }
+
+                    //$("#TB_ajaxContent")[0].style.width = ajaxContentW + "px";
+                   // $("#TB_ajaxContent")[0].style.height = ajaxContentH + "px";
+
+                    $("#videoPlayerWrapper")[0].style.width = ajaxContentW + "px";
+                    $("#videoPlayerWrapper")[0].style.height = ajaxContentH + "px";
+
+                }
+                //this means the window is already up, we are just loading new content via ajax
+                else
+                {
+                    $("#TB_ajaxContent")[0].style.width = ajaxContentW + "px";
+                    $("#TB_ajaxContent")[0].style.height = ajaxContentH + "px";
+                    $("#TB_ajaxContent")[0].scrollTop = 0;
+                    $("#TB_ajaxWindowTitle").html(caption);
+
+                    $("#videoPlayerWrapper")[0].style.width = ajaxContentW + "px";
+                    $("#videoPlayerWrapper")[0].style.height = ajaxContentH-140 + "px";
+                }
+            }
+
+            $("#TB_closeWindowButton").click(tb_remove);
+
+            if (url.indexOf('TB_inline') != -1)
+            {
+                $("#TB_ajaxContent").append($('#' + params['inlineId']).children());
+                $("#TB_window").unload(function ()
+                {
+                    /* move elements back when you're finished*/
+                    $('#' + params['inlineId']).append($("#TB_ajaxContent").children());
+                });
+
+                tb_position();
+                $("#TB_load").remove();
+                $("#TB_window").css({display:"block"});
+            }
+            else if (url.indexOf('TB_iframe') != -1)
+            {
+                tb_position();
+
+                //safari needs help because it will not fire iframe onload
+                if ($.browser.safari)
+                {
+                    $("#TB_load").remove();
+                    $("#TB_window").css({display:"block"});
+                }
+            }
+            else
+            {
+                $("#TB_ajaxContent").load(url += "&random=" + (new Date().getTime()), function ()
+                {
+                    //to do a post change this load method
+                    tb_position();
+                    $("#TB_load").remove();
+                    tb_init("#TB_ajaxContent a.thickbox");
+                    $("#TB_window").css({display:"block"});
+                });
+            }
+        }
+
+        // Layout Direction, Left to Right, or Right to Left
+        applyLayoutDirection(layoutDirection);
+
+        // For modal ajax content wait a little bit for the content to render on the DOM and then apply the layout
+        // direction again
+        var timeout = setTimeout(function()
+        {
+            clearTimeout(timeout);
+            applyLayoutDirection(layoutDirection);
+        }, 100);
+
+        // [JH] I have disabled the ESC key to close
+        // [TJ] I have re-enabled as per ETEXT-1753. However, I have removed the check for modality, as this seems to be what they want
+        //if (!params['modal']) {
+            document.onkeyup = function (e)
+            {
+                // ie
+                if (e == null)
+                {
+                    keycode = event.keyCode;
+                }
+                // mozilla
+                else
+                {
+                    keycode = e.which;
+                }
+
+                // close
+                if (keycode == 27)
+                {
+                    tb_remove();
+                }
+            };
+        //}
+
+    }
+    catch (e)
+    {
+        //nothing here
+    }
+}
+
+//Added by Pranjali for ETEXT-2664 and ETEXT-2582
+function tb_show_bookshelf (caption, url, imagegroup){
+	//function called when the user clicks on a thickbox link
+    try {
+        if (typeof document.body.style.maxHeight === "undefined") {//if IE 6
+            $("body", "html").css({height:"100%", width:"100%"});
+            $("html").css("overflow", "hidden");
+            if (document.getElementById("TB_HideSelect") === null) {//iframe to hide select elements in ie6
+                $("body").append("<iframe id='TB_HideSelect'></iframe><div id='TB_overlay'></div><div id='TB_window'></div>");
+                $("#TB_overlay").click(tb_remove);
+            }
+        } else {//all others
+            if (document.getElementById("TB_overlay") === null) {
+                $("body").append("<div id='TB_overlay'></div><div id='TB_window'></div>");
+                $("#TB_overlay").click(tb_remove);
+            }
+        }
+
+        $("#TB_window").css({display:"none"}); // Prevent the TB_window div from inheriting display:"block" from a parent since that style is used as a flag
+
+        if (tb_detectMacXFF() || tb_detectFF()) {
+            $("#TB_overlay").addClass("TB_overlayMacFFBGHack");//use png overlay so hide flash
+        } else {
+            $("#TB_overlay").addClass("TB_overlayBG");//use background and opacity
+            $("#TB_overlay").css({height:'100%'}); // Fix a bug in IE8 where the height was set too high
+        }
+
+        if (caption === null) {
+            caption = "";
+        }
+        $("body").append("<div id='TB_load'><img src='" + imgLoader.src + "' /></div>");//add loader to the page
+        $('#TB_load').show();//show loader
+
+        var baseURL;
+        if (url.indexOf("?") !== -1) { //ff there is a query string involved
+            baseURL = url.substr(0, url.indexOf("?"));
+        } else {
+            baseURL = url;
+        }
+
+        // Calculate the layoutDirection by searching for the TB_rtl param in query string
+        var layoutDirection = url.indexOf("layoutDirection=rtl") != -1 ? "rtl" : "ltr";
+
+        var urlString = /\.jpg$|\.jpeg$|\.png$|\.gif$|\.bmp$/;
+        var urlType = baseURL.toLowerCase().match(urlString);
+
+        if (urlType == '.jpg' || urlType == '.jpeg' || urlType == '.png' || urlType == '.gif' || urlType == '.bmp') {//code to show images
+
+            TB_PrevCaption = "";
+            TB_PrevURL = "";
+            TB_PrevHTML = "";
+            TB_NextCaption = "";
+            TB_NextURL = "";
+            TB_NextHTML = "";
+            TB_imageCount = "";
+            TB_FoundURL = false;
+            if (imageGroup) {
+                TB_TempArray = $("a[@rel=" + imageGroup + "]").get();
+                for (TB_Counter = 0; ((TB_Counter < TB_TempArray.length) && (TB_NextHTML === "")); TB_Counter++) {
+                    var urlTypeTemp = TB_TempArray[TB_Counter].href.toLowerCase().match(urlString);
+                    if (!(TB_TempArray[TB_Counter].href == url)) {
+                        if (TB_FoundURL) {
+                            TB_NextCaption = TB_TempArray[TB_Counter].title;
+                            TB_NextURL = TB_TempArray[TB_Counter].href;
+                            TB_NextHTML = "<span id='TB_next'>&nbsp;&nbsp;<a href='#'>Next &gt;</a></span>";
+                        } else {
+                            TB_PrevCaption = TB_TempArray[TB_Counter].title;
+                            TB_PrevURL = TB_TempArray[TB_Counter].href;
+                            TB_PrevHTML = "<span id='TB_prev'>&nbsp;&nbsp;<a href='#'>&lt; Prev</a></span>";
+                        }
+                    } else {
+                        TB_FoundURL = true;
+                        TB_imageCount = "Image " + (TB_Counter + 1) + " of " + (TB_TempArray.length);
+                    }
+                }
+            }
+
+            imgPreloader = new Image();
+            imgPreloader.onload = function () {
+                imgPreloader.onload = null;
+
+                // Resizing large images - orginal by Christian Montoya edited by me.
+                var pagesize = tb_getPageSize();
+                var x = pagesize[0] - 150;
+                var y = pagesize[1] - 150;
+                var imageWidth = imgPreloader.width;
+                var imageHeight = imgPreloader.height;
+                if (imageWidth > x) {
+                    imageHeight = imageHeight * (x / imageWidth);
+                    imageWidth = x;
+                    if (imageHeight > y) {
+                        imageWidth = imageWidth * (y / imageHeight);
+                        imageHeight = y;
+                    }
+                } else if (imageHeight > y) {
+                    imageWidth = imageWidth * (y / imageHeight);
+                    imageHeight = y;
+                    if (imageWidth > x) {
+                        imageHeight = imageHeight * (x / imageWidth);
+                        imageWidth = x;
+                    }
+                }
+                // End Resizing
+
+                TB_WIDTH = imageWidth + 30;
+                TB_HEIGHT = imageHeight + 60;
+                $("#TB_window").append("<a href='' id='TB_ImageOff' title='Close'><img id='TB_Image' src='" + url + "' width='" + imageWidth + "' height='" + imageHeight + "' alt='" + caption + "'/></a>" + "<div id='TB_caption'>" + caption + "<div id='TB_secondLine'>" + TB_imageCount + TB_PrevHTML + TB_NextHTML + "</div></div><div id='TB_closeWindow'><a href='#' id='TB_closeWindowButton' title='Close'><strong>x</strong></a></div>");
+
+                $("#TB_closeWindowButton").click(tb_remove);
+
+                if (!(TB_PrevHTML === "")) {
+                    function goPrev() {
+                        if ($(document).unbind("click", goPrev)) {
+                            $(document).unbind("click", goPrev);
+                        }
+                        $("#TB_window").remove();
+                        $("body").append("<div id='TB_window'></div>");
+                        tb_show(TB_PrevCaption, TB_PrevURL, imageGroup);
+                        return false;
+                    }
+                    $("#TB_prev").click(goPrev);
+                }
+
+                if (!(TB_NextHTML === "")) {
+                    function goNext() {
+                        $("#TB_window").remove();
+                        $("body").append("<div id='TB_window'></div>");
+                        tb_show(TB_NextCaption, TB_NextURL, imageGroup);
+                        return false;
+                    }
+                    $("#TB_next").click(goNext);
+                }
+
+                document.onkeydown = function (e) {
+                    if (e == null) { // ie
+                        keycode = event.keyCode;
+                    } else { // mozilla
+                        keycode = e.which;
+                    }
+                    if (keycode == 27) { // close
+                        tb_remove();
+                    } else if (keycode == 190) { // display previous image
+                        if (!(TB_NextHTML == "")) {
+                            document.onkeydown = "";
+                            goNext();
+                        }
+                    } else if (keycode == 188) { // display next image
+                        if (!(TB_PrevHTML == "")) {
+                            document.onkeydown = "";
+                            goPrev();
+                        }
+                    }
+                };
+
+                tb_position();
+                $("#TB_load").remove();
+                $("#TB_ImageOff").click(tb_remove);
+                $("#TB_window").css({display:"block"}); //for safari using css instead of show
+            };
+
+            imgPreloader.src = url;
+        } else {//code to show html
+
+            var queryString = url.replace(/^[^\?]+\??/, '');
+            var params = tb_parseQuery(queryString);
+
+            TB_WIDTH = (params['width'] * 1) + 30 || 630; //defaults to 630 if no parameters were added to URL
+            TB_HEIGHT = (params['height'] * 1) + 40 || 440; //defaults to 440 if no parameters were added to URL
+            
+            //Updated by Pracheta from thickbox3.1.js as the height and width were inappropriate for feedback pop up
+            ajaxContentW = TB_WIDTH - 30;
+			ajaxContentH = TB_HEIGHT - 45;
+
+            
+            if (url.indexOf('TB_iframe') != -1) {// either iframe or ajax window
+                var fullURL = url;
+//                urlNoQuery = url.split('TB_'); // [JH] I want the query string params, don't chop them off.
+                $("#TB_iframeContent").remove();
+                if (params['modal'] != "true") {//iframe no modal
+                    $("#TB_window").append("<div id='TB_title'><div id='TB_windowTitleBackground'></div><div id='TB_ajaxWindowTitle'>" + caption + "</div><div id='TB_closeAjaxWindow'><a href='#' id='TB_closeWindowButton' title='Close'><strong>x</strong></a></div></div><iframe frameborder='0' hspace='0' src='" + fullURL + "' id='TB_iframeContent' name='TB_iframeContent" + Math.round(Math.random() * 1000) + "' onload='tb_showIframe(\"" + queryString + "\")' style='width:" + (ajaxContentW + 29) + "px;height:" + (ajaxContentH + 17) + "px;' > </iframe>");
+                } else {//iframe modal
+                    $("#TB_overlay").unbind();
+                    $("#TB_window").append("<iframe frameborder='0' hspace='0' src='" + fullURL + "' id='TB_iframeContent' name='TB_iframeContent" + Math.round(Math.random() * 1000) + "' onload='tb_showIframe()' style='width:" + (ajaxContentW + 29) + "px;height:" + (ajaxContentH + 17) + "px;'> </iframe>");
+                }
+            } else {// not an iframe, ajax
+                if ($("#TB_window").css("display") != "block") {
+                    if (params['modal'] != "true") {//ajax no modal
+                        $("#TB_window").append("<div id='TB_title'><div id='TB_windowTitleBackground'></div><div id='TB_ajaxWindowTitle'>" + caption + "</div><div id='TB_closeAjaxWindow'><a href='#' id='TB_closeWindowButton'><strong>x</strong></a></div></div><div id='TB_ajaxContent' style='width:" + ajaxContentW + "px;height:" + ajaxContentH + "px'></div>");
+                    } else {//ajax modal
+                        $("#TB_overlay").unbind();
+                        $("#TB_window").append("<div id='TB_ajaxContent' class='TB_modal' style='width:" + ajaxContentW + "px;height:" + ajaxContentH + "px;'></div>");
+                    }
+                } else {//this means the window is already up, we are just loading new content via ajax
+                    $("#TB_ajaxContent")[0].style.width = ajaxContentW + "px";
+                    $("#TB_ajaxContent")[0].style.height = ajaxContentH + "px";
+                    $("#TB_ajaxContent")[0].scrollTop = 0;
+                    $("#TB_ajaxWindowTitle").html(caption);
+                }
+            }
+            
+            $("#TB_closeWindowButton").click(tb_remove);
+
+            if (url.indexOf('TB_inline') != -1) {
+                $("#TB_ajaxContent").append($('#' + params['inlineId']).children());
+                $("#TB_window").unload(function () {
+                    $('#' + params['inlineId']).append($("#TB_ajaxContent").children()); /* move elements back when you're finished */
+                });
+                tb_position();
+                $("#TB_load").remove();
+                $("#TB_window").css({display:"block"});
+            } else if (url.indexOf('TB_iframe') != -1) {
+                tb_position();
+                if ($.browser.safari) {//safari needs help because it will not fire iframe onload
+                    $("#TB_load").remove();
+                    $("#TB_window").css({display:"block"});
+                }
+            } else {
+                $("#TB_ajaxContent").load(url += "&random=" + (new Date().getTime()), function () {//to do a post change this load method
+                    tb_position();
+                    $("#TB_load").remove();
+                    tb_init("#TB_ajaxContent a.thickbox");
+                    $("#TB_window").css({display:"block"});
+                });
+            }
+
+        }
+
+        // Layout Direction, Left to Right, or Right to Left
+        applyLayoutDirection(layoutDirection);
+
+        // For modal ajax content wait a little bit for the content to render on the DOM and then apply the layout direction again
+        var timeout = setTimeout(function(){
+            clearTimeout(timeout);
+            applyLayoutDirection(layoutDirection);
+        }, 100);
+
+    } catch (e) {
+        //nothing here
+    }
+
+	
+}
+//helper functions below
+
+function applyLayoutDirection(layoutDirection)
+{
+    if (layoutDirection == "rtl")
+    {
+        $("#TB_ajaxWindowTitle").css({float:"right"});
+        $("#TB_closeAjaxWindow").css({float:"left"});
+    }
+    else
+    {
+        $("#TB_ajaxWindowTitle").css({float:"left"});
+        $("#TB_closeAjaxWindow").css({float:"right"});
+    }
+}
+
+
+function tb_showIframe(queryString)
+{
+    $("#TB_load").remove();
+    $("#TB_window").css({display:"block"});
+}
+
+function tb_remove()
+{
+	//alert("close button pressed")
+	document.cookie="counter= ;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+	 document.cookie='WindowClose=WindowClose;';
+	
+    $("#TB_imageOff").unbind("click");
+    $("#TB_closeWindowButton").unbind("click");
+
+    // [JH] I removed the fade to increase performance
+//    $("#TB_window").fadeOut("fast", function () {
+    $('#TB_window,#TB_overlay,#TB_HideSelect').trigger("unload").unbind().remove();
+//    });
+    $("#TB_load").remove();
+
+    //if IE 6
+    if (typeof document.body.style.maxHeight == "undefined")
+    {
+        $("body", "html").css({height:"auto", width:"auto"});
+        $("html").css("overflow", "");
+    }
+
+    document.onkeydown = "";
+    document.onkeyup = "";
+
+    // Start Addition [JH]
+    // Added by Jason Hanson, Universal Mind
+    // Broadcast that the window has closed. If you would like your code to be notified when thickbox closes then add
+    // a jQuery binding to this event:
+    // $(window).bind("thickboxRemoved", function(e){
+    //      // Your code here
+    // });
+    $(window).trigger("thickboxRemoved");
+    // End Addition [JH]
+
+    return false;
+}
+
+
+//Commented By Pracheta as feedback pop up was not launching in IE8, IE9
+
+/*function tb_position() {
+ $("#TB_window").css({marginLeft:'-' + (parseInt((TB_WIDTH / 2), 10) + 10) + 'px', width:TB_WIDTH + 'px'});
+
+ if (!(jQuery.browser.msie && jQuery.browser.version < 7)) { // take away IE6
+ // Not IE 6
+
+ if (jQuery.browser.msie && jQuery.browser.version < 9) {
+ // Runs for IE 8 and less
+ $("#TB_ajaxContent").css({width:ajaxContentW + 'px'});
+ $("#TB_ajaxContent").css({height:ajaxContentH + 'px'});
+ $("#TB_window").css({marginTop:'-' + parseInt((TB_HEIGHT / 2), 10) + 10 + 'px'});
+ $("#TB_window").css({width:+(TB_WIDTH + 20 + 6) + 'px'}); // Account for 18px of border left and right by adding 36
+ } else if (jQuery.browser.msie && jQuery.browser.version > 8) {
+ // ID 9
+ $("#TB_ajaxContent").css({width:ajaxContentW + 'px'});
+ $("#TB_ajaxContent").css({height:ajaxContentH + 'px'});
+ $("#TB_window").css({marginTop:'-' + parseInt((TB_HEIGHT / 2), 10) + 10 + 'px'});
+ $("#TB_window").css({width:+(TB_WIDTH + 20 + 6) + 'px'}); // Account for odd border / padding rules
+ } else {
+ $("#TB_window").css({marginTop:'-' + parseInt((TB_HEIGHT / 2), 10) + 'px'});
+ $("#TB_window").css({width:(TB_WIDTH + 5) + 'px'});
+ }
+
+ }
+ }*/
+
+
+//Added By Pracheta from thickbox3.1.js
+//For Jason -> I have kept the latest thickbox3.1.js inside javascript folder for your quick reference
+
+function tb_position()
+{
+    $("#TB_window").css({marginLeft: '-' + parseInt((TB_WIDTH / 2),10) + 'px', width: TB_WIDTH + 'px'});
+
+    // take away IE6
+    if ( !(jQuery.browser.msie && jQuery.browser.version < 7))
+    {
+        $("#TB_window").css({marginTop: '-' + parseInt((TB_HEIGHT / 2),10) + 'px'});
+    }
+}
+
+function tb_parseQuery(query)
+{
+    var Params = {};
+
+    if (!query)
+    {
+        // return empty object
+        return Params;
+    }
+
+    var Pairs = query.split(/[;&]/);
+
+    for (var i = 0; i < Pairs.length; i++)
+    {
+        var KeyVal = Pairs[i].split('=');
+
+        if (!KeyVal || KeyVal.length != 2)
+        {
+            continue;
+        }
+
+        var key = unescape(KeyVal[0]);
+        var val = unescape(KeyVal[1]);
+
+        val = val.replace(/\+/g, ' ');
+        Params[key] = val;
+    }
+
+    return Params;
+}
+
+function tb_getPageSize()
+{
+    var de = document.documentElement;
+    var w = window.innerWidth || self.innerWidth || (de && de.clientWidth) || document.body.clientWidth;
+    var h = window.innerHeight || self.innerHeight || (de && de.clientHeight) || document.body.clientHeight;
+
+    arrayPageSize = [w, h];
+
+    return arrayPageSize;
+}
+
+function tb_detectFF()
+{
+    var userAgent = navigator.userAgent.toLowerCase();
+
+    if (userAgent.indexOf('firefox') != -1)
+    {
+        return true;
+    }
+}
+
+function tb_detectChrome()
+{
+    var userAgent = navigator.userAgent.toLowerCase();
+
+    if (userAgent.indexOf('chrome') != -1)
+    {
+        return true;
+    }
+}
+
+function tb_detectMacXFF()
+{
+    var userAgent = navigator.userAgent.toLowerCase();
+
+    if (userAgent.indexOf('mac') != -1 && userAgent.indexOf('firefox') != -1)
+    {
+        return true;
+    }
+}
+
+
+
+½šHù      WVÝPWVÝP<‰þlWbv€   H    :https://view.ebookplus.pearsoncmg.com/ebook/javascript/thickbox_4.14.js necko:classified 1 security-info FnhllAKWRHGAlo+ESXykKAAAAAAAAAAAwAAAAAAAAEaphjojH6pBabDSgSnsfLHeAAQAAgAAAAAAAAAAAAAAAAAAAAAB4vFIJp5wRkeyPxAQ9RJGKPqbqVvKO0mKuIl8ec8o/uhmCjImkVxP+7sgiYWmMt8FvcOXmlQiTNWFiWlrbpbqgwAAAAAAAAhfMIIIWzCCB0OgAwIBAgIRAL1zMhGh29ipMJTT780D1gQwDQYJKoZIhvcNAQELBQAwgZYxCzAJBgNVBAYTAkdCMRswGQYDVQQIExJHcmVhdGVyIE1hbmNoZXN0ZXIxEDAOBgNVBAcTB1NhbGZvcmQxGjAYBgNVBAoTEUNPTU9ETyBDQSBMaW1pdGVkMTwwOgYDVQQDEzNDT01PRE8gUlNBIE9yZ2FuaXphdGlvbiBWYWxpZGF0aW9uIFNlY3VyZSBTZXJ2ZXIgQ0EwHhcNMTQxMDE1MDAwMDAwWhcNMTcwNjMwMjM1OTU5WjCBwTELMAkGA1UEBhMCVVMxDjAMBgNVBBETBTA3Njc1MQswCQYDVQQIEwJOSjETMBEGA1UEBxMKT2xkIFRhcHBhbjEaMBgGA1UECRMRMjAwIE9sZCBUYXBwYW4gUmQxIDAeBgNVBAoTF1BlYXJzb24gRWR1Y2F0aW9uLCBJbmMuMR8wHQYDVQQLExZVbmlmaWVkIENvbW11bmljYXRpb25zMSEwHwYDVQQDExhlYm9va3BsdXMucGVhcnNvbmNtZy5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDhK6liBN8NJsz1UDL0HlpwOxxpBOozgKgR5sFY2DbtjPhrL8uCr/kMZI4GlL6iwUS+qRYFDfZnEOrTBRKBzrY04W0f37zRkfr1BlfPSS6oeLTIOlbub+R+1SdAhpHD19kUQuvaDySk8IMWyNV1GzqUre1eFx1+YuBh3ym66gmj1zMlqSMT0S8E+bvpIMuU6Li4waaEcj6KBjqjNsDwZu/H9SkSo0UIS4WjNjVGL5tuEMs5vbxl9BeEvb7tneV5neGiaIUZ+318Nw8hbA676qafHYgd5TBOBf/UkGO2kGuO45fqd5klvrVyr+GZPklvEAz/8ax0iIHeT1Edv7uNNvPnAgMBAAGjggR1MIIEcTAfBgNVHSMEGDAWgBSa8yvaz61Pti+7KkhIKhK3G0LBJDAdBgNVHQ4EFgQUHTDjUkH2GjE44t0HyztdQccxv5EwDgYDVR0PAQH/BAQDAgWgMAwGA1UdEwEB/wQCMAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMFAGA1UdIARJMEcwOwYMKwYBBAGyMQECAQMEMCswKQYIKwYBBQUHAgEWHWh0dHBzOi8vc2VjdXJlLmNvbW9kby5jb20vQ1BTMAgGBmeBDAECAjBaBgNVHR8EUzBRME+gTaBLhklodHRwOi8vY3JsLmNvbW9kb2NhLmNvbS9DT01PRE9SU0FPcmdhbml6YXRpb25WYWxpZGF0aW9uU2VjdXJlU2VydmVyQ0EuY3JsMIGLBggrBgEFBQcBAQR/MH0wVQYIKwYBBQUHMAKGSWh0dHA6Ly9jcnQuY29tb2RvY2EuY29tL0NPTU9ET1JTQU9yZ2FuaXphdGlvblZhbGlkYXRpb25TZWN1cmVTZXJ2ZXJDQS5jcnQwJAYIKwYBBQUHMAGGGGh0dHA6Ly9vY3NwLmNvbW9kb2NhLmNvbTCCArQGA1UdEQSCAqswggKnghhlYm9va3BsdXMucGVhcnNvbmNtZy5jb22CImxpdmUucHBlMS5lYm9va3BsdXMucGVhcnNvbmNtZy5jb22CImxpdmUucHBlMi5lYm9va3BsdXMucGVhcnNvbmNtZy5jb22CImxpdmUucHBlMy5lYm9va3BsdXMucGVhcnNvbmNtZy5jb22CLnJ1bWJhLmJvb2tzaGVsZi5jZXJ0MS5lYm9va3BsdXMucGVhcnNvbmNtZy5jb22CKHJ1bWJhLmJvb2tzaGVsZi5lYm9va3BsdXMucGVhcnNvbmNtZy5jb22CLXJ1bWJhLmJvb2tzaGVsZi5wcGUxLmVib29rcGx1cy5wZWFyc29uY21nLmNvbYIsc21zLmJvb2tzaGVsZi5jZXJ0MS5lYm9va3BsdXMucGVhcnNvbmNtZy5jb22CJnNtcy5ib29rc2hlbGYuZWJvb2twbHVzLnBlYXJzb25jbWcuY29tgitzbXMuYm9va3NoZWxmLnBwZTEuZWJvb2twbHVzLnBlYXJzb25jbWcuY29tgiJ2aWV3LmNlcnQxLmVib29rcGNsLnBlYXJzb25jbWcuY29tgiN2aWV3LmNlcnQxLmVib29rcGx1cy5wZWFyc29uY21nLmNvbYIjdmlldy5jZXJ0Mi5lYm9va3BsdXMucGVhcnNvbmNtZy5jb22CI3ZpZXcuY2VydDMuZWJvb2twbHVzLnBlYXJzb25jbWcuY29tgh12aWV3LmVib29rcGx1cy5wZWFyc29uY21nLmNvbYIfdmlldy5ldGV4dC5ob21lMS5wZWFyc29uY21nLmNvbYIfdmlldy5ldGV4dC5ob21lMi5wZWFyc29uY21nLmNvbYIfdmlldy5ldGV4dC5ob21lMy5wZWFyc29uY21nLmNvbTANBgkqhkiG9w0BAQsFAAOCAQEAk3RkRCtHKdHs4/4L2zqZO/HIOHhLH8Z547bTEAi5wEE7qAaq9UFhZptP8xzcyGxK4Okt1pRnoiaHmeY4v7usqMmfd454TKVLVvvVYR3PlJJ7n85hfaWLmrZUc6Dhs5rNgnTgZPnb5jXusuYYE/En9kZj7TqAYaVpnB45/dwZ/RpysISQhikQ67gyjVZKRidNxHd9BiArGm39hJCNnnxYSv1TRwk2Oa6HlLqG24hyKPfdQnJA7CxiEZyTzbxrLMd006imjpe6zjLb48x0aT/5gJdCL/4SwPCKb2aNpwRPxVLpHYjP+oGnrAb0l5xPEuCQxNMzBWIzuO7ljOplP42TQwA1AAMAAAAAAQEAAA== request-method GET response-head HTTP/1.1 200 OK
+Accept-Ranges: bytes
+Etag: W/"35660-1457694440000"
+Last-Modified: Fri, 11 Mar 2016 11:07:20 GMT
+Content-Type: text/javascript
+Content-Length: 35660
+Date: Tue, 07 Jun 2016 14:19:42 GMT
+Server: Prod
+ uncompressed-len 0   ‹L

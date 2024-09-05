@@ -1,0 +1,9 @@
+
+
+
+	SECTION .data
+
+msg:	db "Hello WOrld" , 10
+len:	len $-msg
+
+	

@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?artifactRepository version='1.1.0'?>
+<repository name='/usr/lib64/eclipse/dropins/valgrind' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1.0.0'>
+  <properties size='1'>
+    <property name='p2.timestamp' value='1465901240312'/>
+  </properties>
+  <mappings size='3'>
+    <rule filter='(&amp; (classifier=osgi.bundle))' output='${repoUrl}/plugins/${id}_${version}.jar'/>
+    <rule filter='(&amp; (classifier=binary))' output='${repoUrl}/binary/${id}_${version}'/>
+    <rule filter='(&amp; (classifier=org.eclipse.update.feature))' output='${repoUrl}/features/${id}_${version}.jar'/>
+  </mappings>
+  <artifacts size='8'>
+    <artifact classifier='osgi.bundle' id='org.eclipse.linuxtools.valgrind.cachegrind' version='0.6.1.201010081413'>
+      <properties size='2'>
+        <property name='artifact.size' value='42373'/>
+        <property name='download.size' value='42373'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/valgrind/eclipse/plugins/org.eclipse.linuxtools.valgrind.cachegrind_0.6.1.201010081413.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/valgrind/eclipse/plugins/org.eclipse.linuxtools.valgrind.cachegrind_0.6.1.201010081413.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.linuxtools.valgrind.ui.editor' version='0.6.1.201010081413'>
+      <properties size='2'>
+        <property name='artifact.size' value='39613'/>
+        <property name='download.size' value='39613'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/valgrind/eclipse/plugins/org.eclipse.linuxtools.valgrind.ui.editor_0.6.1.201010081413.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/valgrind/eclipse/plugins/org.eclipse.linuxtools.valgrind.ui.editor_0.6.1.201010081413.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.linuxtools.valgrind.doc' version='0.6.1.201010081413'>
+      <properties size='2'>
+        <property name='artifact.size' value='998371'/>
+        <property name='download.size' value='998371'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/valgrind/eclipse/plugins/org.eclipse.linuxtools.valgrind.doc_0.6.1.201010081413.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/valgrind/eclipse/plugins/org.eclipse.linuxtools.valgrind.doc_0.6.1.201010081413.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.linuxtools.valgrind.memcheck' version='0.6.1.201010081413'>
+      <properties size='2'>
+        <property name='artifact.size' value='15587'/>
+        <property name='download.size' value='15587'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/valgrind/eclipse/plugins/org.eclipse.linuxtools.valgrind.memcheck_0.6.1.201010081413.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/valgrind/eclipse/plugins/org.eclipse.linuxtools.valgrind.memcheck_0.6.1.201010081413.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.linuxtools.valgrind.ui' version='0.6.1.201010081413'>
+      <properties size='2'>
+        <property name='artifact.size' value='23927'/>
+        <property name='download.size' value='23927'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/valgrind/eclipse/plugins/org.eclipse.linuxtools.valgrind.ui_0.6.1.201010081413.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/valgrind/eclipse/plugins/org.eclipse.linuxtools.valgrind.ui_0.6.1.201010081413.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.linuxtools.valgrind.launch' version='0.6.1.201010081413'>
+      <properties size='2'>
+        <property name='artifact.size' value='52606'/>
+        <property name='download.size' value='52606'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/valgrind/eclipse/plugins/org.eclipse.linuxtools.valgrind.launch_0.6.1.201010081413.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/valgrind/eclipse/plugins/org.eclipse.linuxtools.valgrind.launch_0.6.1.201010081413.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.linuxtools.valgrind.massif' version='0.6.1.201010081413'>
+      <properties size='2'>
+        <property name='artifact.size' value='79234'/>
+        <property name='download.size' value='79234'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/valgrind/eclipse/plugins/org.eclipse.linuxtools.valgrind.massif_0.6.1.201010081413.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/valgrind/eclipse/plugins/org.eclipse.linuxtools.valgrind.massif_0.6.1.201010081413.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.linuxtools.valgrind.core' version='0.6.1.201010081413'>
+      <properties size='2'>
+        <property name='artifact.size' value='20215'/>
+        <property name='download.size' value='20215'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/valgrind/eclipse/plugins/org.eclipse.linuxtools.valgrind.core_0.6.1.201010081413.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/valgrind/eclipse/plugins/org.eclipse.linuxtools.valgrind.core_0.6.1.201010081413.jar'/>
+      </repositoryProperties>
+    </artifact>
+  </artifacts>
+</repository>

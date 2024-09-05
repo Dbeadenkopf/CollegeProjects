@@ -1,0 +1,200 @@
+#+1637981423
+emacs Character.h
+#+1637982251
+cd classnotes/
+#+1637982264
+cd class_practice
+#+1637983007
+3~~
+#+1637983268
+clear
+#+1637983431
+emacs numberFrequecies.cpp
+#+1637983451
+emacs Number.cpp
+#+1638323430
+rm Driver.cpp
+#+1638323433
+rm Driver.cpp~
+#+1638468142
+emacs proj2.h
+#+1638468205
+emacs proj2.cpp
+#+1638468274
+emacs myPokemon.cpp
+#+1638468279
+emacs MyPokemon.cpp
+#+1638575515
+emacs useraccount.txt
+#+1638576455
+./human
+#+1638909800
+cd lab4
+#+1638909804
+cd lab5
+#+1638909865
+ols
+#+1638909933
+make clean
+#+1638909946
+cd ,,
+#+1638999107
+l ; s
+#+1639161043
+lsw
+#+1639162301
+cd poly_project/
+#+1639162307
+emacs Node.h
+#+1639162311
+emacs Node.cpp
+#+1639162445
+emacs Polynomial.h
+#+1639162478
+emacs List.cpp
+#+1639163382
+emacs Polynomial.cpp
+#+1639163618
+cd abs2020
+#+1639163621
+cd labs2020
+#+1639163631
+cd lab6
+#+1639175254
+cd CMSC341
+#+1639175257
+cd proj0
+#+1639175261
+emacs Driver.cpp
+#+1639181292
+cd labs202
+#+1639422859
+emacs useraccountfile.txt
+#+1639432117
+sl
+#+1639438220
+emacs test1.cpp
+#+1639438243
+g++ test1.cpp
+#+1639438256
+ls *.txt
+#+1639438274
+emacs output.txt
+#+1639438805
+cd j
+#+1640157448
+emacs text.cpp
+#+1640157678
+enacs account.cpp
+#+1641250713
+lsd
+#+1641321797
+emacs Makefile
+#+1641321905
+emacs sched2.cpp
+#+1641868307
+cd class_practice/
+#+1642908122
+cd practice
+#+1643689572
+g++ account.cpp
+#+1643689617
+emacs account.txt
+#+1643689682
+emacs test.cpp
+#+1643690163
+emacs test2.cpp
+#+1643693534
+g++ test2.cpp
+#+1643693536
+./a.out
+#+1644100266
+scl enable python3
+#+1644100333
+which python
+#+1644100343
+python fileio.py
+#+1644100402
+scl enable python33 bash
+#+1644100510
+scl enable python27 bash
+#+1644179613
+emacs test.txt
+#+1644179788
+python getFilecontents.py
+#+1644179790
+emacs getFilecontents.py
+#+1644346759
+emacs file
+#+1644346765
+emacs fileio.py
+#+1644349040
+cd porj2
+#+1644349042
+cd proj3
+#+1644349048
+cd proj2
+#+1644349056
+emacs mypokertest3.cpp
+#+1644349105
+emacs mypokertest.cpp
+#+1644349137
+make
+#+1644349153
+make run
+#+1644349159
+./proj2
+#+1644349250
+cd
+#+1644349286
+emacs Guess_the_number.py
+#+1646681200
+cd lab_practice/
+#+1646682431
+python hw2_part1.py
+#+1646683605
+cd Hw2/
+#+1646685708
+emacs hw2_part1.py
+#+1646695359
+cd Hw3/
+#+1646775422
+python hello.py
+#+1646775424
+emacs hello.py
+#+1646775728
+cd ..
+#+1646853467
+py
+#+1646853482
+; s
+#+1646854222
+cd Hw
+#+1646858404
+python hw3_part1.py
+#+1646860794
+python hw3_part2.py
+#+1646861515
+cd hw3_part1.py
+#+1647287049
+cd python_practice/
+#+1647287056
+cd HW_practice/
+#+1647287060
+cd Hw3
+#+1647288841
+emacs hw3_part1.py
+#+1647289238
+python hw3_part3.py
+#+1647289708
+emacs hw3_part2.py
+#+1648070899
+cd jobpractice/
+#+1648070904
+emacs account.cpp
+#+1650044884
+ks
+#+1650044885
+ls
+#+1661353633
+cd selfprojects/

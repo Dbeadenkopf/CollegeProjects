@@ -1,0 +1,10 @@
+EXECS=hello
+MPICC?=mpicc
+
+all:	${EXECS}
+
+hello: hello.c
+	${MPICC} mpicc -o hello hello.c
+
+clean:
+	rm ${EXECS}

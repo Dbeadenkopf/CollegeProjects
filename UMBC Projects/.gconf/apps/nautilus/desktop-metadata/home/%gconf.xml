@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="nautilus-icon-position-timestamp" mtime="1499369809" type="string">
+		<stringvalue>1499369809</stringvalue>
+	</entry>
+	<entry name="icon-scale" mtime="1410276385" type="string">
+		<stringvalue>1</stringvalue>
+	</entry>
+	<entry name="nautilus-icon-position" mtime="1410276385" type="string">
+		<stringvalue>64,102</stringvalue>
+	</entry>
+</gconf>

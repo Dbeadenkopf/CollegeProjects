@@ -1,0 +1,883 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?artifactRepository version='1.1.0'?>
+<repository name='/usr/lib64/eclipse/dropins/cdt' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1.0.0'>
+  <properties size='1'>
+    <property name='p2.timestamp' value='1465901241920'/>
+  </properties>
+  <mappings size='3'>
+    <rule filter='(&amp; (classifier=osgi.bundle))' output='${repoUrl}/plugins/${id}_${version}.jar'/>
+    <rule filter='(&amp; (classifier=binary))' output='${repoUrl}/binary/${id}_${version}'/>
+    <rule filter='(&amp; (classifier=org.eclipse.update.feature))' output='${repoUrl}/features/${id}_${version}.jar'/>
+  </mappings>
+  <artifacts size='83'>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.cdt.p2' version='1.0.0.201009241320'>
+      <properties size='3'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='4096'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+      <repositoryProperties size='3'>
+        <property name='artifact.folder' value='true'/>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/features/org.eclipse.cdt.p2_1.0.0.201009241320/'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/features/org.eclipse.cdt.p2_1.0.0.201009241320'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.tm.tcf.debug.ui' version='0.3.0.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='1017171'/>
+        <property name='download.size' value='1017171'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.tm.tcf.debug.ui_0.3.0.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.tm.tcf.debug.ui_0.3.0.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.cdt.codan.core.cxx' version='1.0.0.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='24654'/>
+        <property name='download.size' value='24654'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.codan.core.cxx_1.0.0.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.codan.core.cxx_1.0.0.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.cdt.debug.mi.ui' version='6.1.0.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='138191'/>
+        <property name='download.size' value='138191'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.debug.mi.ui_6.1.0.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.debug.mi.ui_6.1.0.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.cdt.examples.dsf' version='2.1.0.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='107175'/>
+        <property name='download.size' value='107175'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.examples.dsf_2.1.0.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.examples.dsf_2.1.0.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.cdt.debug.gdbjtag' version='7.0.0.201009241320'>
+      <properties size='3'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='4096'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+      <repositoryProperties size='3'>
+        <property name='artifact.folder' value='true'/>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/features/org.eclipse.cdt.debug.gdbjtag_7.0.0.201009241320/'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/features/org.eclipse.cdt.debug.gdbjtag_7.0.0.201009241320'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.cdt.codan.ui' version='1.0.0.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='83107'/>
+        <property name='download.size' value='83107'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.codan.ui_1.0.0.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.codan.ui_1.0.0.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.cdt.debug.ui.memory.memorybrowser' version='1.2.0.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='44528'/>
+        <property name='download.size' value='44528'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.debug.ui.memory.memorybrowser_1.2.0.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.debug.ui.memory.memorybrowser_1.2.0.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.cdt.debug.edc.ui' version='1.0.0.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='212590'/>
+        <property name='download.size' value='212590'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.debug.edc.ui_1.0.0.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.debug.edc.ui_1.0.0.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.cdt.managedbuilder.ui' version='7.0.0.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='380018'/>
+        <property name='download.size' value='380018'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.managedbuilder.ui_7.0.0.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.managedbuilder.ui_7.0.0.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.cdt.launch' version='6.1.0.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='207705'/>
+        <property name='download.size' value='207705'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.launch_6.1.0.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.launch_6.1.0.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.cdt.examples.dsf' version='2.1.0.201009241320'>
+      <properties size='3'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='4096'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+      <repositoryProperties size='3'>
+        <property name='artifact.folder' value='true'/>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/features/org.eclipse.cdt.examples.dsf_2.1.0.201009241320/'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/features/org.eclipse.cdt.examples.dsf_2.1.0.201009241320'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.tm.tcf' version='0.3.0.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='23932'/>
+        <property name='download.size' value='23932'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.tm.tcf_0.3.0.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.tm.tcf_0.3.0.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.cdt.gdb' version='7.0.0.201009241320'>
+      <properties size='3'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='4096'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+      <repositoryProperties size='3'>
+        <property name='artifact.folder' value='true'/>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/features/org.eclipse.cdt.gdb_7.0.0.201009241320/'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/features/org.eclipse.cdt.gdb_7.0.0.201009241320'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.tm.tcf.feature' version='0.3.0.201009241320'>
+      <properties size='3'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='4096'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+      <repositoryProperties size='3'>
+        <property name='artifact.folder' value='true'/>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/features/org.eclipse.tm.tcf.feature_0.3.0.201009241320/'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/features/org.eclipse.tm.tcf.feature_0.3.0.201009241320'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.cdt.debug.edc.windows' version='1.0.0.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='318609'/>
+        <property name='download.size' value='318609'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.debug.edc.windows_1.0.0.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.debug.edc.windows_1.0.0.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.cdt.gnu.dsf' version='2.1.0.201009241320'>
+      <properties size='3'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='4096'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+      <repositoryProperties size='3'>
+        <property name='artifact.folder' value='true'/>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/features/org.eclipse.cdt.gnu.dsf_2.1.0.201009241320/'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/features/org.eclipse.cdt.gnu.dsf_2.1.0.201009241320'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.linuxtools.cdt.autotools' version='2.0.1.201102251838'>
+      <properties size='3'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='4096'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+      <repositoryProperties size='3'>
+        <property name='artifact.folder' value='true'/>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/features/org.eclipse.linuxtools.cdt.autotools_2.0.1.201102251838/'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/features/org.eclipse.linuxtools.cdt.autotools_2.0.1.201102251838'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.cdt.debug.edc.doc.user' version='1.0.0.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='48914'/>
+        <property name='download.size' value='48914'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.debug.edc.doc.user_1.0.0.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.debug.edc.doc.user_1.0.0.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.cdt.examples.dsf.pda.ui' version='2.1.0.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='46741'/>
+        <property name='download.size' value='46741'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.examples.dsf.pda.ui_2.1.0.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.examples.dsf.pda.ui_2.1.0.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.tm.tcf.cdt.ui' version='0.3.0.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='12212'/>
+        <property name='download.size' value='12212'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.tm.tcf.cdt.ui_0.3.0.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.tm.tcf.cdt.ui_0.3.0.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.cdt.core.linux.x86_64' version='5.2.0.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='12573'/>
+        <property name='download.size' value='12573'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.core.linux.x86_64_5.2.0.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.core.linux.x86_64_5.2.0.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.cdt.debug.ui.memory' version='2.1.0.201009241320'>
+      <properties size='3'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='4096'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+      <repositoryProperties size='3'>
+        <property name='artifact.folder' value='true'/>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/features/org.eclipse.cdt.debug.ui.memory_2.1.0.201009241320/'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/features/org.eclipse.cdt.debug.ui.memory_2.1.0.201009241320'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.cdt.debug.edc.linux.x86' version='1.0.0.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='2215709'/>
+        <property name='download.size' value='2215709'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.debug.edc.linux.x86_1.0.0.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.debug.edc.linux.x86_1.0.0.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.cdt.managedbuilder.core' version='7.0.1.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='1131348'/>
+        <property name='download.size' value='1131348'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.managedbuilder.core_7.0.1.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.managedbuilder.core_7.0.1.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.cdt.dsf' version='2.1.0.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='251271'/>
+        <property name='download.size' value='251271'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.dsf_2.1.0.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.dsf_2.1.0.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.cdt.make.core' version='7.0.0.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='393167'/>
+        <property name='download.size' value='393167'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.make.core_7.0.0.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.make.core_7.0.0.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.cdt.gdb' version='7.0.0.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='9284'/>
+        <property name='download.size' value='9284'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.gdb_7.0.0.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.gdb_7.0.0.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.cdt.debug.ui' version='7.0.0.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='934079'/>
+        <property name='download.size' value='934079'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.debug.ui_7.0.0.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.debug.ui_7.0.0.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.cdt.codan.feature' version='1.0.0.201009241320'>
+      <properties size='3'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='4096'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+      <repositoryProperties size='3'>
+        <property name='artifact.folder' value='true'/>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/features/org.eclipse.cdt.codan.feature_1.0.0.201009241320/'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/features/org.eclipse.cdt.codan.feature_1.0.0.201009241320'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.linuxtools.cdt.libhover.libstdcxx' version='1.0.0.201102251838'>
+      <properties size='2'>
+        <property name='artifact.size' value='2381'/>
+        <property name='download.size' value='2381'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.linuxtools.cdt.libhover.libstdcxx_1.0.0.201102251838.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.linuxtools.cdt.libhover.libstdcxx_1.0.0.201102251838.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.cdt.gnu.build' version='7.0.0.201009241320'>
+      <properties size='3'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='4096'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+      <repositoryProperties size='3'>
+        <property name='artifact.folder' value='true'/>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/features/org.eclipse.cdt.gnu.build_7.0.0.201009241320/'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/features/org.eclipse.cdt.gnu.build_7.0.0.201009241320'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.cdt.codan.core' version='1.0.0.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='90645'/>
+        <property name='download.size' value='90645'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.codan.core_1.0.0.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.codan.core_1.0.0.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.cdt.managedbuilder.gnu.ui' version='7.0.0.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='40447'/>
+        <property name='download.size' value='40447'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.managedbuilder.gnu.ui_7.0.0.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.managedbuilder.gnu.ui_7.0.0.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.cdt.build.crossgcc' version='1.0.0.201009241320'>
+      <properties size='3'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='4096'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+      <repositoryProperties size='3'>
+        <property name='artifact.folder' value='true'/>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/features/org.eclipse.cdt.build.crossgcc_1.0.0.201009241320/'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/features/org.eclipse.cdt.build.crossgcc_1.0.0.201009241320'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.cdt.dsf.gdb.ui' version='2.1.0.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='383275'/>
+        <property name='download.size' value='383275'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.dsf.gdb.ui_2.1.0.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.dsf.gdb.ui_2.1.0.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.linuxtools.cdt.libhover' version='1.0.3.201102251838'>
+      <properties size='2'>
+        <property name='artifact.size' value='426575'/>
+        <property name='download.size' value='426575'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.linuxtools.cdt.libhover_1.0.3.201102251838.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.linuxtools.cdt.libhover_1.0.3.201102251838.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.linuxtools.cdt.autotools.core' version='1.0.1.201102251838'>
+      <properties size='2'>
+        <property name='artifact.size' value='227370'/>
+        <property name='download.size' value='227370'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.linuxtools.cdt.autotools.core_1.0.1.201102251838.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.linuxtools.cdt.autotools.core_1.0.1.201102251838.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.cdt.ui' version='5.2.1.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='4760584'/>
+        <property name='download.size' value='4760584'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.ui_5.2.1.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.ui_5.2.1.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.linuxtools.cdt.libhover.library_docs' version='1.0.1.201102251838'>
+      <properties size='2'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='4096'/>
+      </properties>
+      <repositoryProperties size='3'>
+        <property name='artifact.folder' value='true'/>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.linuxtools.cdt.libhover.library_docs_1.0.1.201102251838/'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.linuxtools.cdt.libhover.library_docs_1.0.1.201102251838'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.cdt.core' version='5.2.1.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='4174833'/>
+        <property name='download.size' value='4174833'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.core_5.2.1.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.core_5.2.1.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.cdt.codan.ui.cxx' version='1.0.0.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='9926'/>
+        <property name='download.size' value='9926'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.codan.ui.cxx_1.0.0.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.codan.ui.cxx_1.0.0.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.cdt' version='7.0.1.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='71820'/>
+        <property name='download.size' value='71820'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt_7.0.1.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt_7.0.1.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.cdt.debug.gdbjtag.ui' version='7.0.0.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='67702'/>
+        <property name='download.size' value='67702'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.debug.gdbjtag.ui_7.0.0.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.debug.gdbjtag.ui_7.0.0.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.cdt.debug.gdbjtag' version='7.0.0.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='5880'/>
+        <property name='download.size' value='5880'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.debug.gdbjtag_7.0.0.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.debug.gdbjtag_7.0.0.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.cdt.platform' version='7.0.1.201009241320'>
+      <properties size='3'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='4096'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+      <repositoryProperties size='3'>
+        <property name='artifact.folder' value='true'/>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/features/org.eclipse.cdt.platform_7.0.1.201009241320/'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/features/org.eclipse.cdt.platform_7.0.1.201009241320'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.cdt.debug.ui.memory.traditional' version='1.2.0.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='120327'/>
+        <property name='download.size' value='120327'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.debug.ui.memory.traditional_1.2.0.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.debug.ui.memory.traditional_1.2.0.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.cdt.make.ui' version='7.0.0.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='421918'/>
+        <property name='download.size' value='421918'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.make.ui_7.0.0.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.make.ui_7.0.0.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.cdt.gnu.debug' version='7.0.1.201009241320'>
+      <properties size='3'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='4096'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+      <repositoryProperties size='3'>
+        <property name='artifact.folder' value='true'/>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/features/org.eclipse.cdt.gnu.debug_7.0.1.201009241320/'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/features/org.eclipse.cdt.gnu.debug_7.0.1.201009241320'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.cdt.util' version='5.1.0.201009241320'>
+      <properties size='3'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='4096'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+      <repositoryProperties size='3'>
+        <property name='artifact.folder' value='true'/>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/features/org.eclipse.cdt.util_5.1.0.201009241320/'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/features/org.eclipse.cdt.util_5.1.0.201009241320'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.cdt.dsf.ui' version='2.1.1.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='1146919'/>
+        <property name='download.size' value='1146919'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.dsf.ui_2.1.1.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.dsf.ui_2.1.1.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.cdt.examples.dsf.pda' version='2.1.0.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='230226'/>
+        <property name='download.size' value='230226'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.examples.dsf.pda_2.1.0.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.examples.dsf.pda_2.1.0.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.linuxtools.cdt.libhover' version='0.2.0.201102251838'>
+      <properties size='3'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='4096'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+      <repositoryProperties size='3'>
+        <property name='artifact.folder' value='true'/>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/features/org.eclipse.linuxtools.cdt.libhover_0.2.0.201102251838/'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/features/org.eclipse.linuxtools.cdt.libhover_0.2.0.201102251838'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.cdt.debug.mi.core' version='7.0.1.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='509160'/>
+        <property name='download.size' value='509160'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.debug.mi.core_7.0.1.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.debug.mi.core_7.0.1.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.cdt.core.linux' version='5.2.0.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='4415'/>
+        <property name='download.size' value='4415'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.core.linux_5.2.0.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.core.linux_5.2.0.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.cdt.build.crossgcc' version='1.0.0.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='15356'/>
+        <property name='download.size' value='15356'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.build.crossgcc_1.0.0.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.build.crossgcc_1.0.0.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.cdt.p2' version='1.0.0.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='16882'/>
+        <property name='download.size' value='16882'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.p2_1.0.0.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.p2_1.0.0.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.cdt.debug.edc.windows.ui' version='1.0.0.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='7141'/>
+        <property name='download.size' value='7141'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.debug.edc.windows.ui_1.0.0.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.debug.edc.windows.ui_1.0.0.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.tm.tcf.core' version='0.3.0.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='409938'/>
+        <property name='download.size' value='409938'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.tm.tcf.core_0.3.0.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.tm.tcf.core_0.3.0.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.cdt.debug.edc.x86' version='1.0.0.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='94666'/>
+        <property name='download.size' value='94666'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.debug.edc.x86_1.0.0.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.debug.edc.x86_1.0.0.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.cdt.debug.edc' version='1.0.0.201009241320'>
+      <properties size='3'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='4096'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+      <repositoryProperties size='3'>
+        <property name='artifact.folder' value='true'/>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/features/org.eclipse.cdt.debug.edc_1.0.0.201009241320/'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/features/org.eclipse.cdt.debug.edc_1.0.0.201009241320'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.tm.tcf.debug' version='0.3.0.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='562220'/>
+        <property name='download.size' value='562220'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.tm.tcf.debug_0.3.0.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.tm.tcf.debug_0.3.0.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.cdt.codan.checkers.ui' version='1.0.0.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='8590'/>
+        <property name='download.size' value='8590'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.codan.checkers.ui_1.0.0.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.codan.checkers.ui_1.0.0.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.cdt.debug.ui.memory.transport' version='2.1.0.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='102392'/>
+        <property name='download.size' value='102392'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.debug.ui.memory.transport_2.1.0.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.debug.ui.memory.transport_2.1.0.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.cdt.codan.checkers' version='1.0.0.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='27966'/>
+        <property name='download.size' value='27966'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.codan.checkers_1.0.0.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.codan.checkers_1.0.0.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.cdt.util' version='5.0.100.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='18785'/>
+        <property name='download.size' value='18785'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.util_5.0.100.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.util_5.0.100.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.cdt.scripting' version='1.0.0.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='534329'/>
+        <property name='download.size' value='534329'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.scripting_1.0.0.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.scripting_1.0.0.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.linuxtools.cdt.autotools' version='2.0.0.201102251838'>
+      <properties size='2'>
+        <property name='artifact.size' value='167820'/>
+        <property name='download.size' value='167820'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.linuxtools.cdt.autotools_2.0.0.201102251838.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.linuxtools.cdt.autotools_2.0.0.201102251838.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.cdt.debug.core' version='7.0.0.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='459896'/>
+        <property name='download.size' value='459896'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.debug.core_7.0.0.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.debug.core_7.0.0.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.cdt.debug.gdbjtag.core' version='7.0.0.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='68669'/>
+        <property name='download.size' value='68669'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.debug.gdbjtag.core_7.0.0.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.debug.gdbjtag.core_7.0.0.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.linuxtools.cdt.autotools.ui' version='1.0.1.201102251838'>
+      <properties size='2'>
+        <property name='artifact.size' value='655189'/>
+        <property name='download.size' value='655189'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.linuxtools.cdt.autotools.ui_1.0.1.201102251838.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.linuxtools.cdt.autotools.ui_1.0.1.201102251838.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.linuxtools.cdt.libhover.glibc' version='1.0.1.201102251838'>
+      <properties size='2'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='4096'/>
+      </properties>
+      <repositoryProperties size='3'>
+        <property name='artifact.folder' value='true'/>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.linuxtools.cdt.libhover.glibc_1.0.1.201102251838/'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.linuxtools.cdt.libhover.glibc_1.0.1.201102251838'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.cdt.dsf.gdb' version='3.0.0.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='1038977'/>
+        <property name='download.size' value='1038977'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.dsf.gdb_3.0.0.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.dsf.gdb_3.0.0.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.linuxtools.cdt.autotools_docs' version='2.0.2.201102251838'>
+      <properties size='2'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='4096'/>
+      </properties>
+      <repositoryProperties size='3'>
+        <property name='artifact.folder' value='true'/>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.linuxtools.cdt.autotools_docs_2.0.2.201102251838/'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.linuxtools.cdt.autotools_docs_2.0.2.201102251838'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.cdt.launch.remote' version='6.0.0.201009241320'>
+      <properties size='3'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='4096'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+      <repositoryProperties size='3'>
+        <property name='artifact.folder' value='true'/>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/features/org.eclipse.cdt.launch.remote_6.0.0.201009241320/'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/features/org.eclipse.cdt.launch.remote_6.0.0.201009241320'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.cdt.debug.ui.memory.search' version='1.2.0.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='50838'/>
+        <property name='download.size' value='50838'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.debug.ui.memory.search_1.2.0.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.debug.ui.memory.search_1.2.0.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.cdt' version='7.0.1.201009241320'>
+      <properties size='3'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='4096'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+      <repositoryProperties size='3'>
+        <property name='artifact.folder' value='true'/>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/features/org.eclipse.cdt_7.0.1.201009241320/'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/features/org.eclipse.cdt_7.0.1.201009241320'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.tm.tcf.rse' version='0.3.0.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='97630'/>
+        <property name='download.size' value='97630'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.tm.tcf.rse_0.3.0.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.tm.tcf.rse_0.3.0.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.cdt.debug.edc.tcf.extension' version='1.0.0.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='45697'/>
+        <property name='download.size' value='45697'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.debug.edc.tcf.extension_1.0.0.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.debug.edc.tcf.extension_1.0.0.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.cdt.gdb.ui' version='7.0.0.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='3662'/>
+        <property name='download.size' value='3662'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.gdb.ui_7.0.0.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.gdb.ui_7.0.0.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.cdt.launch.remote' version='2.2.0.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='45759'/>
+        <property name='download.size' value='45759'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.launch.remote_2.2.0.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.launch.remote_2.2.0.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.cdt.doc.user' version='5.1.0.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='11904124'/>
+        <property name='download.size' value='11904124'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.doc.user_5.1.0.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.doc.user_5.1.0.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.cdt.debug.edc' version='1.0.0.201009241320'>
+      <properties size='2'>
+        <property name='artifact.size' value='1333729'/>
+        <property name='download.size' value='1333729'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.debug.edc_1.0.0.201009241320.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/cdt/eclipse/plugins/org.eclipse.cdt.debug.edc_1.0.0.201009241320.jar'/>
+      </repositoryProperties>
+    </artifact>
+  </artifacts>
+</repository>

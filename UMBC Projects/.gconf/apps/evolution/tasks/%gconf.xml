@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="sources" mtime="1499348885" type="list" ltype="string">
+		<li type="string">
+			<stringvalue>&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;group uid=&quot;1499348884.3689.9@vmlinux&quot; name=&quot;On This Computer&quot; base_uri=&quot;local:&quot; readonly=&quot;no&quot;&gt;&lt;source uid=&quot;1499348884.3689.11@vmlinux&quot; name=&quot;Personal&quot; relative_uri=&quot;system&quot; color_spec=&quot;#BECEDD&quot;/&gt;&lt;/group&gt;
+</stringvalue>
+		</li>
+		<li type="string">
+			<stringvalue>&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;group uid=&quot;1499348884.3689.10@vmlinux&quot; name=&quot;On The Web&quot; base_uri=&quot;webcal://&quot; readonly=&quot;no&quot;/&gt;
+</stringvalue>
+		</li>
+		<li type="string">
+			<stringvalue>&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;group uid=&quot;1499348885.3689.19@vmlinux&quot; name=&quot;CalDAV&quot; base_uri=&quot;caldav://&quot; readonly=&quot;no&quot;/&gt;
+</stringvalue>
+		</li>
+	</entry>
+</gconf>

@@ -1,0 +1,17 @@
+My hand is a Full House
+Your hand is a Flush
+My hand beats yours.
+
+My hand is:
+4 of Clubs
+4 of Diamonds
+Queen of Spades
+Queen of Clubs
+Queen of Hearts
+
+Your hand is:
+4 of Spades
+7 of Spades
+8 of Spades
+Queen of Spades
+Ace of Spades

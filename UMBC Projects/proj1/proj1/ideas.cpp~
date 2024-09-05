@@ -1,0 +1,11 @@
+#include <iostream>
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+using namespace std;
+int main(){
+  
+  float num = 3.59999;
+  cout << setw(5)  << endl;
+
+}

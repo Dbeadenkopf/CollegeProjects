@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?artifactRepository version='1.1.0'?>
+<repository name='/usr/lib64/eclipse/dropins/oprofile' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1.0.0'>
+  <properties size='1'>
+    <property name='p2.timestamp' value='1465901240465'/>
+  </properties>
+  <mappings size='3'>
+    <rule filter='(&amp; (classifier=osgi.bundle))' output='${repoUrl}/plugins/${id}_${version}.jar'/>
+    <rule filter='(&amp; (classifier=binary))' output='${repoUrl}/binary/${id}_${version}'/>
+    <rule filter='(&amp; (classifier=org.eclipse.update.feature))' output='${repoUrl}/features/${id}_${version}.jar'/>
+  </mappings>
+  <artifacts size='6'>
+    <artifact classifier='osgi.bundle' id='org.eclipse.linuxtools.oprofile.launch' version='0.3.0.201008261752'>
+      <properties size='2'>
+        <property name='artifact.size' value='65369'/>
+        <property name='download.size' value='65369'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/oprofile/eclipse/plugins/org.eclipse.linuxtools.oprofile.launch_0.3.0.201008261752.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/oprofile/eclipse/plugins/org.eclipse.linuxtools.oprofile.launch_0.3.0.201008261752.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.linuxtools.oprofile.core.linux.x86_64' version='0.3.0.201008261752'>
+      <properties size='2'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='4096'/>
+      </properties>
+      <repositoryProperties size='3'>
+        <property name='artifact.folder' value='true'/>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/oprofile/eclipse/plugins/org.eclipse.linuxtools.oprofile.core.linux.x86_64_0.3.0.201008261752/'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/oprofile/eclipse/plugins/org.eclipse.linuxtools.oprofile.core.linux.x86_64_0.3.0.201008261752'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.linuxtools.oprofile.ui' version='0.3.0.201008261752'>
+      <properties size='2'>
+        <property name='artifact.size' value='37780'/>
+        <property name='download.size' value='37780'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/oprofile/eclipse/plugins/org.eclipse.linuxtools.oprofile.ui_0.3.0.201008261752.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/oprofile/eclipse/plugins/org.eclipse.linuxtools.oprofile.ui_0.3.0.201008261752.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.linuxtools.oprofile.doc' version='0.3.0.201008261752'>
+      <properties size='2'>
+        <property name='artifact.size' value='639672'/>
+        <property name='download.size' value='639672'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/oprofile/eclipse/plugins/org.eclipse.linuxtools.oprofile.doc_0.3.0.201008261752.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/oprofile/eclipse/plugins/org.eclipse.linuxtools.oprofile.doc_0.3.0.201008261752.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.linuxtools.oprofile' version='0.3.0.201008261752'>
+      <properties size='3'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='4096'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+      <repositoryProperties size='3'>
+        <property name='artifact.folder' value='true'/>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/oprofile/eclipse/features/org.eclipse.linuxtools.oprofile_0.3.0.201008261752/'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/oprofile/eclipse/features/org.eclipse.linuxtools.oprofile_0.3.0.201008261752'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.linuxtools.oprofile.core' version='0.3.0.201008261752'>
+      <properties size='2'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='4096'/>
+      </properties>
+      <repositoryProperties size='3'>
+        <property name='artifact.folder' value='true'/>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/oprofile/eclipse/plugins/org.eclipse.linuxtools.oprofile.core_0.3.0.201008261752/'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/oprofile/eclipse/plugins/org.eclipse.linuxtools.oprofile.core_0.3.0.201008261752'/>
+      </repositoryProperties>
+    </artifact>
+  </artifacts>
+</repository>

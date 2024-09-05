@@ -1,0 +1,10 @@
+ID      User              Checking                       Savings
+
+
+121         Dave                 112                      134
+
+131         Bob                  345                      5670
+
+
+                         
+121         Dave                  112                        121         Dave                  112                        121         Dave                  112                        121         Dave                  112                        121         Dave                  112                        121         Dave                  112                        121         Dave                  112                        121         Dave                  112                        121         Dave                  112                        121         Dave                  112                        

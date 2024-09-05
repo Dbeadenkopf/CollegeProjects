@@ -1,0 +1,321 @@
+
+
+
+<!DOCTYPE html> 
+<html lang="en"> 
+  <head> 
+    <meta charset="utf-8" /> 
+
+    <title>CMSC 202 - Fall 2015 - Projects</title> 
+
+    <link rel="shortcut icon" href="/courses/undergraduate/202/fall15_marron/favicon.ico" />
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall15_marron/css/style.css" />
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall15_marron/css/print.css" media="print" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script src="/courses/undergraduate/202/fall15_marron/js/jquery.cookie.js"></script>
+  </head> 
+  <body> 
+    <div id="wrapper"> 
+      <div id="header">
+	<h1><a href="/courses/undergraduate/202/fall15_marron/">CMSC 202 &mdash; 
+Fall 2015 &mdash; Prof. Marron</a></h1>
+	<div id="headerimg" class="donotprint"></div>
+	<div id="nav" class="donotprint">
+	  <ul>
+	    <li><a href="/courses/undergraduate/202/fall15_marron/">Home</a></li>
+	    <li><a href="/courses/undergraduate/202/fall15_marron/syllabus/">Syllabus</a></li>
+	    <li><a href="/courses/undergraduate/202/fall15_marron/schedule/">Schedule</a></li>
+	    <li><a href="/courses/undergraduate/202/fall15_marron/lectures/">Lectures</a></li>
+	    <li><a href="/courses/undergraduate/202/fall15_marron/labs/">Labs</a></li>
+	    <li><a href="/courses/undergraduate/202/fall15_marron/projects/">Projects</a></li>
+	    <li><a href="/courses/undergraduate/202/fall15_marron/exams/">Exams</a></li>
+	    <li><a href="/courses/undergraduate/202/fall15_marron/resources/">Resources</a></li>
+	    <li><a href="/courses/undergraduate/202/fall15_marron/faq/">FAQ</a></li>
+	    <li><a href="/courses/undergraduate/202/fall15_marron/staff/">Staff</a></li>
+	  </ul>
+	</div>
+      </div>
+      <div id="content">
+
+<!-- END HEADER -->
+
+
+
+
+<h1>Projects</h1>
+
+<h2>Project Descriptions</h2>
+<ul>
+  <li>
+    <a href="proj1.pdf">Project 1: Breaking Zendian Ciphers</a>
+  </li>
+  <li>
+    <a href="proj2.shtml">Project 2: Sets of Strings</a>
+  </li>
+  <li>
+    <a href="proj3.shtml">Project 3: Polynomials</a>
+  </li>
+  <li>
+    <a href="proj4.shtml">Project 4: Zombie Apocalypse</a>
+	(Note: due date changed to Monday, November 23, 21:00)
+  </li>
+  <li>
+    <a href="proj5.shtml">Project 5: Templated Linked List</a>
+  </li>
+</ul>
+
+<h2>Grading</h2>
+
+<p>
+  Projects will be graded according the following general criteria.
+  Detailed rubrics will be made available for each project.
+</p>
+<table>
+  <tr>
+    <th>Criteria</th>
+    <th>Weight</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>Program Build</td>
+    <td>10%</td>
+    <td>Program compiles; Makefile functions correctly</td>
+  </tr>
+  <tr>
+    <td>Basic Tests</td>
+    <td>10%</td>
+    <td>Program passes basic functional tests</td>
+  </tr>
+  <tr>
+    <td>Intermediate Tests</td>
+    <td>10%</td>
+    <td>Program passes intermediate functional tests</td>
+  <tr>
+    <td>Advanced Tests</td>
+    <td>15%</td>
+    <td>Program passes advanced functional tests</td>
+  </tr>
+  <tr>
+    <td>Program Design</td>
+    <td>45%</td>
+    <td>Good use of object-oriented design principles</td>
+  </tr>
+  <tr>
+    <td>Coding Standards</td>
+    <td>10%</td>
+    <td>Adherence to <a href="coding-standards.shtml">coding and
+    documentation standards</a></td>
+  </tr>
+</table>
+
+
+
+<h2 id="compilation">Compilation and Submission</h2>
+<p>
+  The UMBC UNIX systems run several different versions of UNIX.  The
+  systems linux1.gl.umbc.edu, linux2.gl.umbc.edu, and
+  linux3.gl.umbc.edu all run a version of UNIX called Linux.  The
+  systems solaris.gl.umbc.edu and irix.gl.umbc.edu run other versions
+  of UNIX called Solaris and Irix.
+</p>
+<p class="warn">
+  The project graders will use one of linux1, linux2, or linux3 to
+  compile and test your program.  Therefore, all projects must compile
+  and execute on linux1, linux2, or linux3.
+</p>
+
+<p>
+  If you develop your code on some other machine (for example, a
+  personal laptop or desktop), you must transfer your files to the
+  campus network file system and ensure that they can be compiled and
+  linked on the GL Linux systems.  You may need
+  to <a href="gl-access.shtml">install file transfer or terminal
+  software</a> on your computer in order to complete these steps. 
+</p>
+
+<p>
+  Projects must be submitted using
+  the <a href="submission.shtml">project submission system</a>.  The
+  process for creating and submitting your project code will be
+  covered in lectures and labs.
+</p>
+
+<h2>Late Submissions</h2>
+
+<p>
+  A project submission is "late" if <em>any</em> of the submitted
+  files are time-stamped after the due date and time.  Projects will
+  be accepted up to 48 hours late, with the following penalties:
+</p>
+<table>
+  <tr>
+    <th>Hours Late</th>
+    <th>Deduction</th>
+  </tr>
+  <tr>
+    <td>Up to 24</td>
+    <td>25%</td>
+  </tr>
+  <tr>
+    <td>24 to 48</td>
+    <td>50%</td>
+  </tr>
+  <tr>
+    <td>More than 48</td>
+    <td>100% (no points)</td>
+  </tr>
+</table>
+	  
+<p>
+  Network and computer failures are a fact of life and are outside the
+  control of your Instructors or the CSEE Department. However, they
+  are not an excuse for a project to be submitted late, nor are they a
+  reason for project deadlines to be extended, even if the outage
+  occurs on the due date. Waiting to submit your project until shortly
+  before it is due is a recipe for disaster. Project extensions will
+  not be given for such problems.
+</p>
+
+<h2 id="policy">Academic Integrity for Projects</h2>
+
+<p>
+  All projects must be completed individually. You should never, under
+  any circumstances, have a copy of someone else's assignment, either
+  on paper or electronically. Also, you should never give a copy of
+  your assignment, either on paper or electronically, to another
+  student. This also means that you cannot work on the assignment
+  together.
+</p>
+
+<p>
+  If you need help with a project, seek assistance from a CMSC 202
+  Instructor or TA, or from a tutor provided by the Learning Resource
+  Center.  Be sure to document <em>all</em> outside help received in
+  the file header comment.
+</p>
+
+<p>
+  The following is a non-exhaustive list of Academic Integrity
+  violations:
+</p>
+<ul>
+  <li>Emailing code in whole or in part</li>
+  <li>Instant Messaging code in whole or in part</li>
+  <li>
+    Posting or obtaining code in whole or in part on the web, including
+    but not limited to forums and newsgroups
+  </li> 
+  <li>
+    Not taking the appropriate measures to protect your source code, including:
+  </li>
+  <ul style="list-style-type:circle">
+    <li>Placing your code in a public directory</li>
+    <li>Failing to lock your screen when away from your computer</li>
+    <li>Allowing someone to copy code from your monitor</li>
+    <li>Giving your password to another student</li>
+  </ul>
+</ul>
+
+<p>
+  The following behaviors are <em>not</em> Academic Integrity
+  violations and are, in fact, encouraged:
+</p>
+<ul>
+  <li>Asking a fellow student how they approached a problem</li>
+  <li>Brainstorming with fellow students</li>
+  <li>Helping a fellow student locate a bug in their code</li>
+  <li>Getting help with your code from an Instructor, TA, or LRC tutor.</li>
+</ul>
+
+<p>
+  All project submissions will be checked for similarities.  If your
+  project is found to be &ldquo;substantially similar&rdquo; to that
+  of another student, or if it is determined that someone else wrote
+  your project for you, then, <em>at a minimum</em>, you and the other
+  student will receive a grade of zero for that project and a 10%
+  deduction (one letter grade) from your semester average.
+  Furthermore, all parties concerned will have their prior projects
+  re-checked. A second incident will result in a grade of
+  &lsquo;F&rsquo; for the semester.
+</p>
+
+<p>
+  Note that checking for cheating may occur at any time during the
+  semester, even after grades have been assigned. See the Acadmeic
+  Integrity portion of the <a href="../syllabus/">syllabus</a> for
+  additional information.
+</p>
+
+
+<h2>Useful Links</h2>
+
+<ul>
+  <li><a href="coding-standards.shtml">Coding Standards</a></li>
+  <li><a href="gl-access.shtml">File transfer and terminal access to
+  the GL systems</a></li>
+  <li><a href="http://userpages.umbc.edu/~dhood2/courses/misc/fall08/working-from-home/">Working
+  from Home</a> &ndash; a presentation by Dan Hood</li>
+  <!-- <li><a href="submission.shtml">Using the <code>submit</code> system -->
+  <!-- to submit your projects</a></li> -->
+  <li><a href="http://www.umbc.edu/undergrad_ed/ai/students.php">Academic
+  Integrity resources for students</a></li>
+</ul>
+
+
+
+
+<!-- BEGIN FOOTER -->
+
+      </div>
+      <div id="footer" class="donotprint">
+        <div>	
+          <a href="/courses/undergraduate/202/fall15_marron">CMSC 202 &mdash; Fall 2015</a>
+        </div>
+        <a href="/courses/undergraduate/202/fall15_marron/./">CMSC 202</a> |
+        <a href="http://www.csee.umbc.edu/">CSEE</a> |
+        <a href="http://www.umbc.edu/">UMBC</a>
+      </div>
+    </div> 
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall15_marron/js/syntaxhighlighter_3.0.83/styles/shCore.css"/>
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall15_marron/js/syntaxhighlighter_3.0.83/styles/shCoreEclipseModified.css"/>
+    <script src="/courses/undergraduate/202/fall15_marron/js/syntaxhighlighter_3.0.83/scripts/shCore.js"></script>
+    <script src="/courses/undergraduate/202/fall15_marron/js/syntaxhighlighter_3.0.83/scripts/shBrushJava.js"></script>
+    <script src="/courses/undergraduate/202/fall15_marron/js/syntaxhighlighter_3.0.83/scripts/shBrushPlain.js"></script>
+    <script>
+
+      // source code highlighting
+      $(function() {
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+      });
+
+      // Google Analytics
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-20998370-1']);
+      _gaq.push(['_trackPageview']);
+     (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+
+    </script>
+  </body> 
+</html> 
+
+L÷	      Z%ªZ%ª>i÷{Z%º   L    :https://www.csee.umbc.edu/courses/undergraduate/202/fall15_marron/projects/ necko:classified 1 strongly-framed 1 security-info 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 request-method GET response-head HTTP/1.1 200 OK
+Date: Tue, 14 Nov 2017 17:19:55 GMT
+Server: Apache
+Accept-Ranges: bytes
+Cache-Control: max-age=1
+Expires: Tue, 14 Nov 2017 17:19:56 GMT
+Content-Type: text/html
+ original-response-headers Date: Tue, 14 Nov 2017 17:19:55 GMT
+Server: Apache
+Accept-Ranges: bytes
+Cache-Control: max-age=1
+Expires: Tue, 14 Nov 2017 17:19:56 GMT
+Connection: close
+Transfer-Encoding: chunked
+Content-Type: text/html
+ uncompressed-len 0 net-response-time-onstart 13 net-response-time-onstop 15 predictor::resource-count 11 predictor::https://www.csee.umbc.edu/courses/undergraduate/202/fall15_marron/css/style.css 1,1,1510679995,4096 predictor::https://www.csee.umbc.edu/courses/undergraduate/202/fall15_marron/css/print.css 1,1,1510679995,4096 predictor::https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js 1,1,1510679995,4096 predictor::https://www.csee.umbc.edu/courses/undergraduate/202/fall15_marron/js/jquery.cookie.js 1,1,1510679995,4096 predictor::https://www.csee.umbc.edu/courses/undergraduate/202/fall15_marron/js/syntaxhighlighter_3.0.83/styles/shCore.css 1,1,1510679995,4096 predictor::https://www.csee.umbc.edu/courses/undergraduate/202/fall15_marron/js/syntaxhighlighter_3.0.83/styles/shCoreEclipseModified.css 1,1,1510679995,4096 predictor::https://www.csee.umbc.edu/courses/undergraduate/202/fall15_marron/js/syntaxhighlighter_3.0.83/scripts/shCore.js 1,1,1510679995,4096 predictor::https://www.csee.umbc.edu/courses/undergraduate/202/fall15_marron/js/syntaxhighlighter_3.0.83/scripts/shBrushJava.js 1,1,1510679995,4096 predictor::https://www.csee.umbc.edu/courses/undergraduate/202/fall15_marron/js/syntaxhighlighter_3.0.83/scripts/shBrushPlain.js 1,1,1510679995,4096 predictor::https://www.csee.umbc.edu/courses/undergraduate/202/fall15_marron/css/binary-header.png 1,1,1510679995,4096 predictor::https://ssl.google-analytics.com/ga.js 1,1,1510679995,4096   (

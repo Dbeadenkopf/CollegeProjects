@@ -1,0 +1,70 @@
+160614  6:47:43  InnoDB: Initializing buffer pool, size = 80.0M
+160614  6:47:43  InnoDB: Completed initialization of buffer pool
+InnoDB: The first specified data file ./ibdata1 did not exist:
+InnoDB: a new database to be created!
+160614  6:47:43  InnoDB: Setting file ./ibdata1 size to 10 MB
+InnoDB: Database physically writes the file full: wait...
+160614  6:47:43  InnoDB: Error: the OS said file flush did not succeed
+160614  6:47:43  InnoDB: Operating system error number 122 in a file operation.
+InnoDB: Error number 122 means 'Disk quota exceeded'.
+InnoDB: Some operating system error numbers are described at
+InnoDB: http://dev.mysql.com/doc/refman/5.1/en/operating-system-error-codes.html
+InnoDB: File operation call: 'flush'.
+InnoDB: Cannot continue operation.
+160614  6:47:43  InnoDB: Initializing buffer pool, size = 80.0M
+160614  6:47:43  InnoDB: Completed initialization of buffer pool
+InnoDB: Error: auto-extending data file ./ibdata1 is of a different size
+InnoDB: 0 pages (rounded down to MB) than specified in the .cnf file:
+InnoDB: initial 640 pages, max 0 (relevant if non-zero) pages!
+InnoDB: Could not open or create data files.
+InnoDB: If you tried to add new data files, and it failed here,
+InnoDB: you should now edit innodb_data_file_path in my.cnf back
+InnoDB: to what it was, and remove the new ibdata files InnoDB created
+InnoDB: in this failed attempt. InnoDB only wrote those files full of
+InnoDB: zeros, but did not yet use them in any way. But be careful: do not
+InnoDB: remove old data files which contain your precious data!
+160614  6:47:43 [ERROR] Plugin 'InnoDB' init function returned error.
+160614  6:47:43 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+160614  6:47:43 [ERROR] Unknown/unsupported table type: innodb
+160614  6:47:43 [ERROR] Aborting
+
+160614  6:47:43 [Note] /usr/libexec/mysqld: Shutdown complete
+
+160614  6:47:43  InnoDB: Initializing buffer pool, size = 80.0M
+160614  6:47:43  InnoDB: Completed initialization of buffer pool
+InnoDB: Error: auto-extending data file ./ibdata1 is of a different size
+InnoDB: 0 pages (rounded down to MB) than specified in the .cnf file:
+InnoDB: initial 640 pages, max 0 (relevant if non-zero) pages!
+InnoDB: Could not open or create data files.
+InnoDB: If you tried to add new data files, and it failed here,
+InnoDB: you should now edit innodb_data_file_path in my.cnf back
+InnoDB: to what it was, and remove the new ibdata files InnoDB created
+InnoDB: in this failed attempt. InnoDB only wrote those files full of
+InnoDB: zeros, but did not yet use them in any way. But be careful: do not
+InnoDB: remove old data files which contain your precious data!
+160614  6:47:43 [ERROR] Plugin 'InnoDB' init function returned error.
+160614  6:47:43 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+160614  6:47:43 [ERROR] Unknown/unsupported table type: innodb
+160614  6:47:43 [ERROR] Aborting
+
+160614  6:47:43 [Note] /usr/libexec/mysqld: Shutdown complete
+
+160614  6:47:43  InnoDB: Initializing buffer pool, size = 80.0M
+160614  6:47:43  InnoDB: Completed initialization of buffer pool
+InnoDB: Error: auto-extending data file ./ibdata1 is of a different size
+InnoDB: 0 pages (rounded down to MB) than specified in the .cnf file:
+InnoDB: initial 640 pages, max 0 (relevant if non-zero) pages!
+InnoDB: Could not open or create data files.
+InnoDB: If you tried to add new data files, and it failed here,
+InnoDB: you should now edit innodb_data_file_path in my.cnf back
+InnoDB: to what it was, and remove the new ibdata files InnoDB created
+InnoDB: in this failed attempt. InnoDB only wrote those files full of
+InnoDB: zeros, but did not yet use them in any way. But be careful: do not
+InnoDB: remove old data files which contain your precious data!
+160614  6:47:43 [ERROR] Plugin 'InnoDB' init function returned error.
+160614  6:47:43 [ERROR] Plugin 'InnoDB' registration as a STORAGE ENGINE failed.
+160614  6:47:43 [ERROR] Unknown/unsupported table type: innodb
+160614  6:47:43 [ERROR] Aborting
+
+160614  6:47:43 [Note] /usr/libexec/mysqld: Shutdown complete
+

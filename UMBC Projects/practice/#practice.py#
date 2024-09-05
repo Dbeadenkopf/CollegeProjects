@@ -1,0 +1,9 @@
+
+TAX_RATE = .06;
+
+def main():
+    total = subtotal + subtotal
+
+
+
+main()

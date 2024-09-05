@@ -1,0 +1,18 @@
+n =     4, np =    1, l_n =     4, n*l_n =          16, nln =          16
+
+      1.0000       0.5000       0.3333       0.2500 
+      0.5000       0.3333       0.2500       0.2000 
+      0.3333       0.2500       0.2000       0.1667 
+      0.2500       0.2000       0.1667       0.1429 
+   7.926082309939707e-01
+   4.519231592008052e-01
+   3.224164512575126e-01
+   2.521612228259612e-01
+number of iterations allowed    itmax =         50
+number of iterations taken         it =          7
+relative tolerance chosen         tol =   9.9999999999999998e-13
+eigenvector approximation      lambda =   1.5002142800592286e+00
+Euclidean norm of residual resnormabs =   1.3759444815445719e-07
+Euclidean norm of residual resnormrel =   9.1716530087305223e-08
+observed wall clock time in seconds   =         0.00
+

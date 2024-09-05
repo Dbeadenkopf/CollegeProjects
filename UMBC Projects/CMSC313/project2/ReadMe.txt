@@ -1,0 +1,42 @@
+Project Description
+************************************************************************
+1. Expected inputs/outputs
+************************************************************************
+project2.txt contains the expected input and output, the project takes in
+a user input string which acts as a decipher crib for the program, the crib
+is used to look at the record created and gives the output as a message
+informing the user of the total occurances in the record of their string from the
+first string encountered. 
+
+************************************************************************
+2. How to compile and use this project
+************************************************************************
+
+Compilation:
+
+        type make
+
+Execution:
+        type ./toupper
+
+************************************************************************
+3. Functionality (describe your contributions here)
+************************************************************************
+Works for all the test casses given, I coded from the read_ok all the way
+until shOut
+
+
+************************************************************************
+4. Limitations (if any)
+************************************************************************
+
+none
+
+************************************************************************
+5. Applications (your thoughts) of this project
+************************************************************************
+- My thoughts on this project are intersting. Again, complicated for myself
+- to keep track of the string taken in by the user and then comparing it to the record strings.
+- I kept getting the wrong number of occurances, I also had invalid string a bunch of times but changing
+- some logic and figuring out how to total the number of occurances to give that information back to
+- the user took me like 3 days to understand. I know pathetic........-_-

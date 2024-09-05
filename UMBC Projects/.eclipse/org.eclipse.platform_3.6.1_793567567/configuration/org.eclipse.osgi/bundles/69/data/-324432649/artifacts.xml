@@ -1,0 +1,222 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?artifactRepository version='1.1.0'?>
+<repository name='/usr/share/eclipse/dropins/dtp-connectivity' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1.0.0'>
+  <properties size='1'>
+    <property name='p2.timestamp' value='1465901237813'/>
+  </properties>
+  <mappings size='3'>
+    <rule filter='(&amp; (classifier=osgi.bundle))' output='${repoUrl}/plugins/${id}_${version}.jar'/>
+    <rule filter='(&amp; (classifier=binary))' output='${repoUrl}/binary/${id}_${version}'/>
+    <rule filter='(&amp; (classifier=org.eclipse.update.feature))' output='${repoUrl}/features/${id}_${version}.jar'/>
+  </mappings>
+  <artifacts size='20'>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.datatools.connectivity.oda.designer.feature' version='1.8.1.v200909251451'>
+      <properties size='3'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='4096'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+      <repositoryProperties size='3'>
+        <property name='artifact.folder' value='true'/>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-connectivity/eclipse/features/org.eclipse.datatools.connectivity.oda.designer.feature_1.8.1.v200909251451/'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-connectivity/eclipse/features/org.eclipse.datatools.connectivity.oda.designer.feature_1.8.1.v200909251451'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.datatools.connectivity.console.profile' version='1.0.0.v200909251451'>
+      <properties size='2'>
+        <property name='artifact.size' value='21750'/>
+        <property name='download.size' value='21750'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-connectivity/eclipse/plugins/org.eclipse.datatools.connectivity.console.profile_1.0.0.v200909251451.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-connectivity/eclipse/plugins/org.eclipse.datatools.connectivity.console.profile_1.0.0.v200909251451.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.datatools.connectivity.oda.designer.core.feature' version='1.8.1.v200909251451'>
+      <properties size='3'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='4096'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+      <repositoryProperties size='3'>
+        <property name='artifact.folder' value='true'/>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-connectivity/eclipse/features/org.eclipse.datatools.connectivity.oda.designer.core.feature_1.8.1.v200909251451/'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-connectivity/eclipse/features/org.eclipse.datatools.connectivity.oda.designer.core.feature_1.8.1.v200909251451'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.datatools.connectivity.oda.template.ui' version='3.2.1.v200909251451'>
+      <properties size='2'>
+        <property name='artifact.size' value='42403'/>
+        <property name='download.size' value='42403'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-connectivity/eclipse/plugins/org.eclipse.datatools.connectivity.oda.template.ui_3.2.1.v200909251451.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-connectivity/eclipse/plugins/org.eclipse.datatools.connectivity.oda.template.ui_3.2.1.v200909251451.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.datatools.connectivity.oda' version='3.3.1.v200909251451'>
+      <properties size='2'>
+        <property name='artifact.size' value='205517'/>
+        <property name='download.size' value='205517'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-connectivity/eclipse/plugins/org.eclipse.datatools.connectivity.oda_3.3.1.v200909251451.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-connectivity/eclipse/plugins/org.eclipse.datatools.connectivity.oda_3.3.1.v200909251451.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.datatools.connectivity.oda.profile' version='3.2.4.v200909251451'>
+      <properties size='2'>
+        <property name='artifact.size' value='25361'/>
+        <property name='download.size' value='25361'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-connectivity/eclipse/plugins/org.eclipse.datatools.connectivity.oda.profile_3.2.4.v200909251451.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-connectivity/eclipse/plugins/org.eclipse.datatools.connectivity.oda.profile_3.2.4.v200909251451.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.datatools.connectivity.sqm.core' version='1.2.1.v200909251451'>
+      <properties size='2'>
+        <property name='artifact.size' value='317046'/>
+        <property name='download.size' value='317046'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-connectivity/eclipse/plugins/org.eclipse.datatools.connectivity.sqm.core_1.2.1.v200909251451.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-connectivity/eclipse/plugins/org.eclipse.datatools.connectivity.sqm.core_1.2.1.v200909251451.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.datatools.connectivity.oda.design.ui' version='3.2.4.v200909251451'>
+      <properties size='2'>
+        <property name='artifact.size' value='171928'/>
+        <property name='download.size' value='171928'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-connectivity/eclipse/plugins/org.eclipse.datatools.connectivity.oda.design.ui_3.2.4.v200909251451.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-connectivity/eclipse/plugins/org.eclipse.datatools.connectivity.oda.design.ui_3.2.4.v200909251451.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.datatools.connectivity.oda.flatfile.ui' version='3.1.1.v200909251451'>
+      <properties size='2'>
+        <property name='artifact.size' value='49044'/>
+        <property name='download.size' value='49044'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-connectivity/eclipse/plugins/org.eclipse.datatools.connectivity.oda.flatfile.ui_3.1.1.v200909251451.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-connectivity/eclipse/plugins/org.eclipse.datatools.connectivity.oda.flatfile.ui_3.1.1.v200909251451.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.datatools.connectivity.oda.consumer' version='3.2.3.v200909251451'>
+      <properties size='2'>
+        <property name='artifact.size' value='102477'/>
+        <property name='download.size' value='102477'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-connectivity/eclipse/plugins/org.eclipse.datatools.connectivity.oda.consumer_3.2.3.v200909251451.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-connectivity/eclipse/plugins/org.eclipse.datatools.connectivity.oda.consumer_3.2.3.v200909251451.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.datatools.help' version='1.5.0.v200909251451'>
+      <properties size='2'>
+        <property name='artifact.size' value='9919'/>
+        <property name='download.size' value='9919'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-connectivity/eclipse/plugins/org.eclipse.datatools.help_1.5.0.v200909251451.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-connectivity/eclipse/plugins/org.eclipse.datatools.help_1.5.0.v200909251451.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.datatools.connectivity' version='1.2.1.v200909251451'>
+      <properties size='2'>
+        <property name='artifact.size' value='226294'/>
+        <property name='download.size' value='226294'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-connectivity/eclipse/plugins/org.eclipse.datatools.connectivity_1.2.1.v200909251451.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-connectivity/eclipse/plugins/org.eclipse.datatools.connectivity_1.2.1.v200909251451.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.datatools.connectivity.oda.design' version='3.3.1.v200909251451'>
+      <properties size='2'>
+        <property name='artifact.size' value='304719'/>
+        <property name='download.size' value='304719'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-connectivity/eclipse/plugins/org.eclipse.datatools.connectivity.oda.design_3.3.1.v200909251451.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-connectivity/eclipse/plugins/org.eclipse.datatools.connectivity.oda.design_3.3.1.v200909251451.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.datatools.connectivity.ui.dse' version='1.1.4.v200909251451'>
+      <properties size='2'>
+        <property name='artifact.size' value='69017'/>
+        <property name='download.size' value='69017'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-connectivity/eclipse/plugins/org.eclipse.datatools.connectivity.ui.dse_1.1.4.v200909251451.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-connectivity/eclipse/plugins/org.eclipse.datatools.connectivity.ui.dse_1.1.4.v200909251451.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.datatools.connectivity.ui' version='1.2.0.v200909251451'>
+      <properties size='2'>
+        <property name='artifact.size' value='518309'/>
+        <property name='download.size' value='518309'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-connectivity/eclipse/plugins/org.eclipse.datatools.connectivity.ui_1.2.0.v200909251451.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-connectivity/eclipse/plugins/org.eclipse.datatools.connectivity.ui_1.2.0.v200909251451.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.datatools.connectivity.oda.feature' version='1.8.1.v200909251451'>
+      <properties size='3'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='4096'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+      <repositoryProperties size='3'>
+        <property name='artifact.folder' value='true'/>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-connectivity/eclipse/features/org.eclipse.datatools.connectivity.oda.feature_1.8.1.v200909251451/'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-connectivity/eclipse/features/org.eclipse.datatools.connectivity.oda.feature_1.8.1.v200909251451'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.datatools.connectivity.feature' version='1.8.1.v200909251451'>
+      <properties size='3'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='4096'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+      <repositoryProperties size='3'>
+        <property name='artifact.folder' value='true'/>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-connectivity/eclipse/features/org.eclipse.datatools.connectivity.feature_1.8.1.v200909251451/'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-connectivity/eclipse/features/org.eclipse.datatools.connectivity.feature_1.8.1.v200909251451'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.datatools.connectivity.sqm.server.ui' version='1.1.100.v200909251451'>
+      <properties size='2'>
+        <property name='artifact.size' value='106279'/>
+        <property name='download.size' value='106279'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-connectivity/eclipse/plugins/org.eclipse.datatools.connectivity.sqm.server.ui_1.1.100.v200909251451.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-connectivity/eclipse/plugins/org.eclipse.datatools.connectivity.sqm.server.ui_1.1.100.v200909251451.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.datatools.connectivity.sqm.core.ui' version='1.2.0.v200909251451'>
+      <properties size='2'>
+        <property name='artifact.size' value='314024'/>
+        <property name='download.size' value='314024'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-connectivity/eclipse/plugins/org.eclipse.datatools.connectivity.sqm.core.ui_1.2.0.v200909251451.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-connectivity/eclipse/plugins/org.eclipse.datatools.connectivity.sqm.core.ui_1.2.0.v200909251451.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.datatools.connectivity.oda.flatfile' version='3.1.1.v200909251451'>
+      <properties size='2'>
+        <property name='artifact.size' value='49375'/>
+        <property name='download.size' value='49375'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-connectivity/eclipse/plugins/org.eclipse.datatools.connectivity.oda.flatfile_3.1.1.v200909251451.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-connectivity/eclipse/plugins/org.eclipse.datatools.connectivity.oda.flatfile_3.1.1.v200909251451.jar'/>
+      </repositoryProperties>
+    </artifact>
+  </artifacts>
+</repository>

@@ -1,0 +1,408 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?metadataRepository version='1.1.0'?>
+<repository name='dropins metadata repo: file:/usr/lib64/eclipse/dropins/valgrind/' type='org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository' version='1.0.0'>
+  <properties size='1'>
+    <property name='p2.timestamp' value='1465901240289'/>
+  </properties>
+  <units size='8'>
+    <unit id='org.eclipse.linuxtools.valgrind.ui.editor' version='0.6.1.201010081413'>
+      <update id='org.eclipse.linuxtools.valgrind.ui.editor' range='[0.0.0,0.6.1.201010081413)' severity='0'/>
+      <properties size='6'>
+        <property name='df_LT.Bundle-Vendor.0' value='Eclipse'/>
+        <property name='df_LT.Bundle-Name.0' value='Valgrind Editor (Incubation)'/>
+        <property name='org.eclipse.equinox.p2.name' value='%Bundle-Name.0'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%Bundle-Vendor.0'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/valgrind/eclipse/plugins/org.eclipse.linuxtools.valgrind.ui.editor_0.6.1.201010081413.jar'/>
+        <property name='file.lastModified' value='1295015437000'/>
+      </properties>
+      <provides size='6'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.linuxtools.valgrind.ui.editor' version='0.6.1.201010081413'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.linuxtools.valgrind.ui.editor' version='0.6.1.201010081413'/>
+        <provided namespace='java.package' name='org.eclipse.linuxtools.internal.valgrind.ui.editor' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.linuxtools.internal.valgrind.ui.editor.wizards' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='14'>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.ide' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.jface.text' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.jface.text.contentassist' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.jface.text.presentation' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.jface.text.reconciler' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.jface.text.rules' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.jface.text.source' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.jface.text.source.projection' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.ui.editors.text' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.ui.texteditor' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.ui.wizards.newresource' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.linuxtools.valgrind.ui.editor' version='0.6.1.201010081413'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Export-Package: org.eclipse.linuxtools.internal.valgrind.ui.editor,org.eclipse.linuxtools.internal.valgrind.ui.editor.wizards&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.core.resources,org.eclipse.ui.ide&#xA;Bundle-Activator: org.eclipse.linuxtools.internal.valgrind.ui.editor.ValgrindEditorPlugin&#xA;Bundle-Name: %Bundle-Name.0&#xA;Bundle-Version: 0.6.1.201010081413&#xA;Bundle-Vendor: %Bundle-Vendor.0&#xA;Bundle-SymbolicName: org.eclipse.linuxtools.valgrind.ui.editor;singleton:=true&#xA;Import-Package: org.eclipse.jface.text,org.eclipse.jface.text.contentassist,org.eclipse.jface.text.presentation,org.eclipse.jface.text.reconciler,org.eclipse.jface.text.rules,org.eclipse.jface.text.source,org.eclipse.jface.text.source.projection,org.eclipse.ui.editors.text,org.eclipse.ui.texteditor,org.eclipse.ui.wizards.newresource&#xA;Bundle-ActivationPolicy: lazy&#xA;Manifest-Version: 1.0&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.linuxtools.valgrind.ui' version='0.6.1.201010081413'>
+      <update id='org.eclipse.linuxtools.valgrind.ui' range='[0.0.0,0.6.1.201010081413)' severity='0'/>
+      <properties size='7'>
+        <property name='df_LT.Bundle-Vendor.0' value='Eclipse Linux Tools'/>
+        <property name='df_LT.Bundle-Name.0' value='Valgrind UI Plug-in (Incubation)'/>
+        <property name='org.eclipse.equinox.p2.name' value='%Bundle-Name.0'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%Bundle-Vendor.0'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/valgrind/eclipse/plugins/org.eclipse.linuxtools.valgrind.ui_0.6.1.201010081413.jar'/>
+        <property name='file.lastModified' value='1295015437000'/>
+      </properties>
+      <provides size='6'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.linuxtools.valgrind.ui' version='0.6.1.201010081413'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.linuxtools.valgrind.ui' version='0.6.1.201010081413'/>
+        <provided namespace='java.package' name='org.eclipse.linuxtools.internal.valgrind.ui' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.linuxtools.valgrind.ui' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='12'>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.cdt.debug.ui' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.debug.core' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.debug.core.model' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.debug.core.sourcelookup' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.debug.ui' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.debug.ui.sourcelookup' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.jface.text' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.linuxtools.internal.valgrind.core' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.linuxtools.profiling.ui' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.linuxtools.valgrind.core' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.linuxtools.valgrind.ui' version='0.6.1.201010081413'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Bundle-Name: %Bundle-Name.0&#xA;Bundle-Activator: org.eclipse.linuxtools.internal.valgrind.ui.ValgrindUIPlugin&#xA;Manifest-Version: 1.0&#xA;Bundle-Vendor: %Bundle-Vendor.0&#xA;Bundle-ActivationPolicy: lazy&#xA;Bundle-SymbolicName: org.eclipse.linuxtools.valgrind.ui;singleton:=true&#xA;Import-Package: org.eclipse.cdt.debug.ui,org.eclipse.debug.core,org.eclipse.debug.core.model,org.eclipse.debug.core.sourcelookup,org.eclipse.debug.ui,org.eclipse.debug.ui.sourcelookup,org.eclipse.jface.text,org.eclipse.linuxtools.internal.valgrind.core,org.eclipse.linuxtools.profiling.ui,org.eclipse.linuxtools.valgrind.core&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Version: 0.6.1.201010081413&#xA;Bundle-Localization: plugin&#xA;Export-Package: org.eclipse.linuxtools.internal.valgrind.ui,org.eclipse.linuxtools.valgrind.ui&#xA;Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.linuxtools.valgrind.core' version='0.6.1.201010081413'>
+      <update id='org.eclipse.linuxtools.valgrind.core' range='[0.0.0,0.6.1.201010081413)' severity='0'/>
+      <properties size='7'>
+        <property name='df_LT.Bundle-Vendor.0' value='Eclipse Linux Tools'/>
+        <property name='df_LT.Bundle-Name.0' value='Valgrind Core Plug-in (Incubation)'/>
+        <property name='org.eclipse.equinox.p2.name' value='%Bundle-Name.0'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%Bundle-Vendor.0'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/valgrind/eclipse/plugins/org.eclipse.linuxtools.valgrind.core_0.6.1.201010081413.jar'/>
+        <property name='file.lastModified' value='1295015438000'/>
+      </properties>
+      <provides size='6'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.linuxtools.valgrind.core' version='0.6.1.201010081413'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.linuxtools.valgrind.core' version='0.6.1.201010081413'/>
+        <provided namespace='java.package' name='org.eclipse.linuxtools.internal.valgrind.core' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.linuxtools.valgrind.core' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='7'>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.cdt.utils' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.cdt.utils.pty' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.cdt.utils.spawner' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.core.resources' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.debug.core' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.linuxtools.valgrind.core' version='0.6.1.201010081413'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Bundle-Name: %Bundle-Name.0&#xA;Bundle-Activator: org.eclipse.linuxtools.internal.valgrind.core.ValgrindPlugin&#xA;Manifest-Version: 1.0&#xA;Bundle-Vendor: %Bundle-Vendor.0&#xA;Bundle-ActivationPolicy: lazy&#xA;Bundle-SymbolicName: org.eclipse.linuxtools.valgrind.core;singleton:=true&#xA;Import-Package: org.eclipse.cdt.utils,org.eclipse.cdt.utils.pty,org.eclipse.cdt.utils.spawner,org.eclipse.core.resources,org.eclipse.debug.core&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Version: 0.6.1.201010081413&#xA;Bundle-Localization: plugin&#xA;Export-Package: org.eclipse.linuxtools.internal.valgrind.core,org.eclipse.linuxtools.valgrind.core&#xA;Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.linuxtools.valgrind.launch' version='0.6.1.201010081413'>
+      <update id='org.eclipse.linuxtools.valgrind.launch' range='[0.0.0,0.6.1.201010081413)' severity='0'/>
+      <properties size='7'>
+        <property name='df_LT.Bundle-Vendor.0' value='Eclipse Linux Tools'/>
+        <property name='df_LT.Bundle-Name.0' value='Valgrind Launch Plug-in (Incubation)'/>
+        <property name='org.eclipse.equinox.p2.name' value='%Bundle-Name.0'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%Bundle-Vendor.0'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/valgrind/eclipse/plugins/org.eclipse.linuxtools.valgrind.launch_0.6.1.201010081413.jar'/>
+        <property name='file.lastModified' value='1295015436000'/>
+      </properties>
+      <provides size='6'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.linuxtools.valgrind.launch' version='0.6.1.201010081413'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.linuxtools.valgrind.launch' version='0.6.1.201010081413'/>
+        <provided namespace='java.package' name='org.eclipse.linuxtools.internal.valgrind.launch' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.linuxtools.valgrind.launch' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='26'>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.cdt.core' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.cdt.core.model' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.cdt.debug.core' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.cdt.debug.core.model' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.cdt.launch' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.cdt.utils' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.core.expressions' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.core.filesystem' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.core.resources' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.core.variables' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.debug.core' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.debug.core.model' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.debug.core.sourcelookup.containers' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.debug.ui' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.debug.ui.console' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.debug.ui.sourcelookup' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.linuxtools.internal.valgrind.core' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.linuxtools.internal.valgrind.ui' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.linuxtools.profiling.launch' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.linuxtools.valgrind.core' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.linuxtools.valgrind.ui' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.ui.console' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.ui.model' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.ui.views.navigator' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.linuxtools.valgrind.launch' version='0.6.1.201010081413'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Bundle-Name: %Bundle-Name.0&#xA;Bundle-Activator: org.eclipse.linuxtools.internal.valgrind.launch.ValgrindLaunchPlugin&#xA;Manifest-Version: 1.0&#xA;Bundle-Vendor: %Bundle-Vendor.0&#xA;Bundle-ActivationPolicy: lazy&#xA;Bundle-SymbolicName: org.eclipse.linuxtools.valgrind.launch;singleton:=true&#xA;Import-Package: org.eclipse.cdt.core,org.eclipse.cdt.core.model,org.eclipse.cdt.debug.core,org.eclipse.cdt.debug.core.model,org.eclipse.cdt.launch,org.eclipse.cdt.utils,org.eclipse.core.expressions,org.eclipse.core.filesystem,org.eclipse.core.resources,org.eclipse.core.variables,org.eclipse.debug.core,org.eclipse.debug.core.model,org.eclipse.debug.core.sourcelookup.containers,org.eclipse.debug.ui,org.eclipse.debug.ui.console,org.eclipse.debug.ui.sourcelookup,org.eclipse.linuxtools.internal.valgrind.core,org.eclipse.linuxtools.internal.valgrind.ui,org.eclipse.linuxtools.profiling.launch,org.eclipse.linuxtools.valgrind.core,org.eclipse.linuxtools.valgrind.ui,org.eclipse.ui.console,org.eclipse.ui.model,org.eclipse.ui.views.navigator&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Version: 0.6.1.201010081413&#xA;Bundle-Localization: plugin&#xA;Export-Package: org.eclipse.linuxtools.internal.valgrind.launch,org.eclipse.linuxtools.valgrind.launch&#xA;Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.linuxtools.valgrind.massif' version='0.6.1.201010081413'>
+      <update id='org.eclipse.linuxtools.valgrind.massif' range='[0.0.0,0.6.1.201010081413)' severity='0'/>
+      <properties size='7'>
+        <property name='df_LT.Bundle-Vendor.0' value='Eclipse Linux Tools'/>
+        <property name='df_LT.Bundle-Name.0' value='Massif Plug-in (Incubation)'/>
+        <property name='org.eclipse.equinox.p2.name' value='%Bundle-Name.0'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%Bundle-Vendor.0'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/valgrind/eclipse/plugins/org.eclipse.linuxtools.valgrind.massif_0.6.1.201010081413.jar'/>
+        <property name='file.lastModified' value='1295015437000'/>
+      </properties>
+      <provides size='6'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.linuxtools.valgrind.massif' version='0.6.1.201010081413'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.linuxtools.valgrind.massif' version='0.6.1.201010081413'/>
+        <provided namespace='java.package' name='org.eclipse.linuxtools.internal.valgrind.massif' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.linuxtools.internal.valgrind.massif.birt' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='42'>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.birt.chart.device.swt' range='2.3.1'/>
+        <required namespace='osgi.bundle' name='org.eclipse.birt.chart.device.extension' range='2.3.1'/>
+        <required namespace='osgi.bundle' name='org.eclipse.birt.chart.engine' range='2.3.1'/>
+        <required namespace='osgi.bundle' name='org.eclipse.birt.chart.engine.extension' range='2.3.1'/>
+        <required namespace='osgi.bundle' name='org.eclipse.birt.chart.device.svg' range='2.3.1'/>
+        <required namespace='java.package' name='org.eclipse.birt.chart.device' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.birt.chart.exception' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.birt.chart.factory' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.birt.chart.model' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.birt.chart.model.attribute' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.birt.chart.model.attribute.impl' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.birt.chart.model.component' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.birt.chart.model.component.impl' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.birt.chart.model.data' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.birt.chart.model.data.impl' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.birt.chart.model.impl' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.birt.chart.model.layout' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.birt.chart.model.type' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.birt.chart.model.type.impl' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.birt.chart.util' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.birt.core.exception' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.cdt.debug.core' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.cdt.debug.ui' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.cdt.launch' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.core.resources' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.debug.core' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.debug.core.model' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.debug.core.sourcelookup' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.debug.ui' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.emf.common' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.emf.common.util' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.emf.ecore' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.jface.text' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.linuxtools.internal.valgrind.core' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.linuxtools.internal.valgrind.launch' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.linuxtools.internal.valgrind.ui' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.linuxtools.profiling.ui' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.linuxtools.valgrind.launch' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.linuxtools.valgrind.ui' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.ui' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.linuxtools.valgrind.massif' version='0.6.1.201010081413'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Bundle-Name: %Bundle-Name.0&#xA;Bundle-Activator: org.eclipse.linuxtools.internal.valgrind.massif.MassifPlugin&#xA;Manifest-Version: 1.0&#xA;Bundle-Vendor: %Bundle-Vendor.0&#xA;Bundle-ActivationPolicy: lazy&#xA;Bundle-SymbolicName: org.eclipse.linuxtools.valgrind.massif;singleton:=true&#xA;Import-Package: org.eclipse.birt.chart.device,org.eclipse.birt.chart.exception,org.eclipse.birt.chart.factory,org.eclipse.birt.chart.model,org.eclipse.birt.chart.model.attribute,org.eclipse.birt.chart.model.attribute.impl,org.eclipse.birt.chart.model.component,org.eclipse.birt.chart.model.component.impl,org.eclipse.birt.chart.model.data,org.eclipse.birt.chart.model.data.impl,org.eclipse.birt.chart.model.impl,org.eclipse.birt.chart.model.layout,org.eclipse.birt.chart.model.type,org.eclipse.birt.chart.model.type.impl,org.eclipse.birt.chart.util,org.eclipse.birt.core.exception,org.eclipse.cdt.debug.core,org.eclipse.cdt.debug.ui,org.eclipse.cdt.launch,org.eclipse.core.resources,org.eclipse.debug.core,org.eclipse.debug.core.model,org.eclipse.debug.core.sourcelookup,org.eclipse.debug.ui,org.eclipse.emf.common,org.eclipse.emf.common.util,org.eclipse.emf.ecore,org.eclipse.jface.text,org.eclipse.linuxtools.internal.valgrind.core,org.eclipse.linuxtools.internal.valgrind.launch,org.eclipse.linuxtools.internal.valgrind.ui,org.eclipse.linuxtools.profiling.ui,org.eclipse.linuxtools.valgrind.launch,org.eclipse.linuxtools.valgrind.ui,org.eclipse.ui&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Version: 0.6.1.201010081413&#xA;Bundle-Localization: plugin&#xA;Export-Package: org.eclipse.linuxtools.internal.valgrind.massif,org.eclipse.linuxtools.internal.valgrind.massif.birt;uses:=&quot;org.eclipse.swt.events,org.eclipse.swt.widgets,org.eclipse.birt.chart.model&quot;&#xA;Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.birt.chart.device.swt;bundle-version=&quot;2.3.1&quot;,org.eclipse.birt.chart.device.extension;bundle-version=&quot;2.3.1&quot;,org.eclipse.birt.chart.engine;bundle-version=&quot;2.3.1&quot;,org.eclipse.birt.chart.engine.extension;bundle-version=&quot;2.3.1&quot;,org.eclipse.birt.chart.device.svg;bundle-version=&quot;2.3.1&quot;&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.linuxtools.valgrind.cachegrind' version='0.6.1.201010081413'>
+      <update id='org.eclipse.linuxtools.valgrind.cachegrind' range='[0.0.0,0.6.1.201010081413)' severity='0'/>
+      <properties size='7'>
+        <property name='df_LT.Bundle-Vendor.0' value='Eclipse Linux Tools'/>
+        <property name='df_LT.Bundle-Name.0' value='Cachegrind Plug-in (Incubation)'/>
+        <property name='org.eclipse.equinox.p2.name' value='%Bundle-Name.0'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%Bundle-Vendor.0'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/valgrind/eclipse/plugins/org.eclipse.linuxtools.valgrind.cachegrind_0.6.1.201010081413.jar'/>
+        <property name='file.lastModified' value='1295015436000'/>
+      </properties>
+      <provides size='6'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.linuxtools.valgrind.cachegrind' version='0.6.1.201010081413'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.linuxtools.valgrind.cachegrind' version='0.6.1.201010081413'/>
+        <provided namespace='java.package' name='org.eclipse.linuxtools.internal.valgrind.cachegrind' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.linuxtools.internal.valgrind.cachegrind.model' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='18'>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.cdt.core.dom.ast' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.cdt.core.model' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.cdt.core.model.util' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.cdt.debug.core' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.cdt.launch' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.cdt.ui' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.core.resources' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.debug.core' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.debug.ui' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.jface.text' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.linuxtools.internal.valgrind.core' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.linuxtools.internal.valgrind.launch' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.linuxtools.internal.valgrind.ui' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.linuxtools.profiling.ui' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.linuxtools.valgrind.launch' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.linuxtools.valgrind.ui' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.linuxtools.valgrind.cachegrind' version='0.6.1.201010081413'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Bundle-Name: %Bundle-Name.0&#xA;Bundle-Activator: org.eclipse.linuxtools.internal.valgrind.cachegrind.CachegrindPlugin&#xA;Manifest-Version: 1.0&#xA;Bundle-Vendor: %Bundle-Vendor.0&#xA;Bundle-ActivationPolicy: lazy&#xA;Bundle-SymbolicName: org.eclipse.linuxtools.valgrind.cachegrind;singleton:=true&#xA;Import-Package: org.eclipse.cdt.core.dom.ast,org.eclipse.cdt.core.model,org.eclipse.cdt.core.model.util,org.eclipse.cdt.debug.core,org.eclipse.cdt.launch,org.eclipse.cdt.ui,org.eclipse.core.resources,org.eclipse.debug.core,org.eclipse.debug.ui,org.eclipse.jface.text,org.eclipse.linuxtools.internal.valgrind.core,org.eclipse.linuxtools.internal.valgrind.launch,org.eclipse.linuxtools.internal.valgrind.ui,org.eclipse.linuxtools.profiling.ui,org.eclipse.linuxtools.valgrind.launch,org.eclipse.linuxtools.valgrind.ui&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Version: 0.6.1.201010081413&#xA;Bundle-Localization: plugin&#xA;Export-Package: org.eclipse.linuxtools.internal.valgrind.cachegrind,org.eclipse.linuxtools.internal.valgrind.cachegrind.model&#xA;Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.linuxtools.valgrind.memcheck' version='0.6.1.201010081413'>
+      <update id='org.eclipse.linuxtools.valgrind.memcheck' range='[0.0.0,0.6.1.201010081413)' severity='0'/>
+      <properties size='7'>
+        <property name='df_LT.Bundle-Vendor.0' value='Eclipse Linux Tools'/>
+        <property name='df_LT.Bundle-Name.0' value='Memcheck Plug-in (Incubation)'/>
+        <property name='org.eclipse.equinox.p2.name' value='%Bundle-Name.0'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%Bundle-Vendor.0'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/valgrind/eclipse/plugins/org.eclipse.linuxtools.valgrind.memcheck_0.6.1.201010081413.jar'/>
+        <property name='file.lastModified' value='1295015438000'/>
+      </properties>
+      <provides size='5'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.linuxtools.valgrind.memcheck' version='0.6.1.201010081413'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.linuxtools.valgrind.memcheck' version='0.6.1.201010081413'/>
+        <provided namespace='java.package' name='org.eclipse.linuxtools.internal.valgrind.memcheck' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='18'>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.cdt.debug.core' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.cdt.launch' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.core.filesystem' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.core.resources' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.debug.core' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.debug.core.model' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.debug.ui' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.debug.ui.sourcelookup' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.jface.text' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.linuxtools.internal.valgrind.core' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.linuxtools.internal.valgrind.launch' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.linuxtools.profiling.ui' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.linuxtools.valgrind.launch' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.linuxtools.valgrind.ui' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.ui.ide' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.ui.texteditor' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.linuxtools.valgrind.memcheck' version='0.6.1.201010081413'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Bundle-Name: %Bundle-Name.0&#xA;Bundle-Activator: org.eclipse.linuxtools.internal.valgrind.memcheck.MemcheckPlugin&#xA;Manifest-Version: 1.0&#xA;Bundle-Vendor: %Bundle-Vendor.0&#xA;Bundle-ActivationPolicy: lazy&#xA;Bundle-SymbolicName: org.eclipse.linuxtools.valgrind.memcheck;singleton:=true&#xA;Import-Package: org.eclipse.cdt.debug.core,org.eclipse.cdt.launch,org.eclipse.core.filesystem,org.eclipse.core.resources,org.eclipse.debug.core,org.eclipse.debug.core.model,org.eclipse.debug.ui,org.eclipse.debug.ui.sourcelookup,org.eclipse.jface.text,org.eclipse.linuxtools.internal.valgrind.core,org.eclipse.linuxtools.internal.valgrind.launch,org.eclipse.linuxtools.profiling.ui,org.eclipse.linuxtools.valgrind.launch,org.eclipse.linuxtools.valgrind.ui,org.eclipse.ui.ide,org.eclipse.ui.texteditor&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Version: 0.6.1.201010081413&#xA;Bundle-Localization: plugin&#xA;Export-Package: org.eclipse.linuxtools.internal.valgrind.memcheck&#xA;Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.linuxtools.valgrind.doc' version='0.6.1.201010081413'>
+      <update id='org.eclipse.linuxtools.valgrind.doc' range='[0.0.0,0.6.1.201010081413)' severity='0'/>
+      <properties size='7'>
+        <property name='df_LT.Bundle-Vendor' value='Eclipse Linux Tools'/>
+        <property name='df_LT.Bundle-Name' value='Valgrind Documentation (Incubation)'/>
+        <property name='org.eclipse.equinox.p2.name' value='%Bundle-Name'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%Bundle-Vendor'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/valgrind/eclipse/plugins/org.eclipse.linuxtools.valgrind.doc_0.6.1.201010081413.jar'/>
+        <property name='file.lastModified' value='1295015438000'/>
+      </properties>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.linuxtools.valgrind.doc' version='0.6.1.201010081413'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.linuxtools.valgrind.doc' version='0.6.1.201010081413'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='2'>
+        <required namespace='osgi.bundle' name='org.apache.ant' range='1.7.0' optional='true'/>
+        <required namespace='osgi.bundle' name='org.eclipse.help' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.linuxtools.valgrind.doc' version='0.6.1.201010081413'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Require-Bundle: org.apache.ant;bundle-version=&quot;1.7.0&quot;;resolution:=optional,org.eclipse.help&#xA;Manifest-Version: 1.0&#xA;Bundle-Version: 0.6.1.201010081413&#xA;Bundle-SymbolicName: org.eclipse.linuxtools.valgrind.doc;singleton:=true&#xA;Bundle-Localization: plugin&#xA;Bundle-ActivationPolicy: lazy&#xA;Bundle-Name: %Bundle-Name&#xA;Bundle-Vendor: %Bundle-Vendor&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+  </units>
+</repository>

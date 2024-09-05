@@ -1,0 +1,4 @@
+AB=00  output = 0
+AB=01  output = 0
+AB=10  output = 0
+AB=11  output = 0

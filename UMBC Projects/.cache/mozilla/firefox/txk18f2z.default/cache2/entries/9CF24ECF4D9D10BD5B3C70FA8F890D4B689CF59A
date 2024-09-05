@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html xmlns:MadCap="http://www.madcapsoftware.com/Schemas/MadCap.xsd" lang="en-us" xml:lang="en-us" data-mc-search-type="Stem" data-mc-help-system-file-name="student_help.xml" data-mc-path-to-help-system="../" data-mc-has-content-body="True" data-mc-conditions="Default.3p" data-mc-target-type="WebHelp2" data-mc-runtime-file-type="Topic;Default" data-mc-preload-images="false" data-mc-in-preview-mode="false" data-mc-medium="non-print" data-mc-toc-path="Work in your course|Answer in the MyLab player">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Enter answers in accounting courses</title>
+        <link rel="shortcut icon" href="Resources/Images/favicon.ico" type="image/x-icon" />
+        <script>/* <![CDATA[ */
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-69430414-39', 'auto');
+ga('send', 'pageview');
+/* ]]> */</script>
+        <link href="../Skins/Default/Stylesheets/Slideshow.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Skins/Default/Stylesheets/TextEffects.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Skins/Default/Stylesheets/Topic.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Skins/Default/Stylesheets/Components/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Skins/Default/Stylesheets/Components/Tablet.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Skins/Default/Stylesheets/Components/Mobile.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Skins/Fluid/Stylesheets/foundation.5.5.0.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Skins/Fluid/Stylesheets/Styles.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Skins/Fluid/Stylesheets/Tablet.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="../Skins/Fluid/Stylesheets/Mobile.css" rel="stylesheet" data-mc-generated="True" />
+        <link href="Resources/TableStyles/invisible table.css" rel="stylesheet" />
+        <link href="Resources/Stylesheets/pearson.css" rel="stylesheet" />
+        <style>/*&lt;meta /&gt;*/
+
+.button.print-button
+{
+	-pie-background: url('../Skins/Default/Stylesheets/Images/printer.png') no-repeat center center, linear-gradient(#ffffff, #ececec);
+}
+
+.button.expand-all-button
+{
+	-pie-background: url('../Skins/Default/Stylesheets/Images/expand.png') no-repeat center center, linear-gradient(#ffffff, #ececec);
+}
+
+.button.collapse-all-button
+{
+	-pie-background: url('../Skins/Default/Stylesheets/Images/collapse.png') no-repeat center center, linear-gradient(#ffffff, #ececec);
+}
+
+.needs-pie
+{
+	behavior: url('../Resources/Scripts/PIE-no-motw.htc');
+}
+
+</style>
+        <script src="../Resources/Scripts/custom.modernizr.js">
+        </script>
+        <script src="../Resources/Scripts/jquery.min.js">
+        </script>
+        <script src="../Resources/Scripts/require.min.js">
+        </script>
+        <script src="../Resources/Scripts/require.config.js">
+        </script>
+        <script src="../Resources/Scripts/foundation.5.5.0_custom.js">
+        </script>
+        <script src="../Resources/Scripts/foundation.offcanvas.js">
+        </script>
+        <script src="../Resources/Scripts/plugins.min.js">
+        </script>
+        <script src="../Resources/Scripts/MadCapAll.js">
+        </script>
+    </head>
+    <body>
+        <div class="foundation-wrap">
+            <div class="off-canvas-wrap" data-offcanvas="">
+                <section class="inner-wrap">
+                    <nav class="tab-bar" data-mc-ignore="true">
+                        <section class="middle tab-bar-section row outer-row clearfix">
+                            <div class="relative clearfix"><a class="logo" href="welcome.htm" alt="Logo"></a>
+                                <div class="navigation-wrapper">
+                                    <ul class="navigation clearfix">
+                                        <li class="has-children"><a href="get_started_ccngx.htm">Get started</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="welcome.htm">Welcome</a>
+                                                </li>
+                                                <li><a href="register_ccngx.htm">Register as a student</a>
+                                                </li>
+                                                <li><a href="get_access_ccngx.htm">Get access to your course</a>
+                                                </li>
+                                                <li><a href="enter_your_school_id.htm">Enter your school ID</a>
+                                                </li>
+                                                <li><a href="convert_temp_access_ccngx.htm">Convert temporary access to full access</a>
+                                                </li>
+                                                <li><a href="enter_course_ccngx.htm">Enter your course</a>
+                                                </li>
+                                                <li><a href="change_section_ccngx.htm">Change to a different section</a>
+                                                </li>
+                                                <li><a href="edit_personal_information_ccngx.htm">Edit personal information</a>
+                                                </li>
+                                                <li><a href="navigate_in_your_course_ccngx.htm">Navigate in your course</a>
+                                                </li>
+                                                <li><a href="use_course_homepage.htm">Use the MyLab course home page</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-children"><a href="work_in_your_course.htm">Work in your course</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="prepare_to_work_stub.htm">Prepare to work in your course</a>
+                                                </li>
+                                                <li><a href="do_assignments.htm">Do assignments</a>
+                                                </li>
+                                                <li><a href="answer_mylab_player.htm">Answer in the MyLab player</a>
+                                                </li>
+                                                <li><a href="work_study_plan.htm">Work in the Study Plan</a>
+                                                </li>
+                                                <li><a href="view_results.htm">View your results</a>
+                                                </li>
+                                                <li><a href="use_player_with_jaws.htm">Use JAWS</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-children"><a href="use_course_tools_ccngx_stub.htm">Use course tools</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="learn_with_course_features_ccng/syllabus_ccng/syllabus_ccng.htm">Syllabus</a>
+                                                </li>
+                                                <li><a href="learn_with_course_features_ccng/etext_ccng/read_your_etext_ccng.htm">eText</a>
+                                                </li>
+                                                <li><a href="learn_with_course_features_ccng/chat_ccng/chat_ccng.htm">Chat</a>
+                                                </li>
+                                                <li><a href="learn_with_course_features_ccng/email_ccng/send_an_email_ccng.htm">Email</a>
+                                                </li>
+                                                <li><a href="learn_with_course_features_ccng/classlive_ccng/classlive_ccng.htm">ClassLive</a>
+                                                </li>
+                                                <li><a href="mediashare_ccngx.htm">MediaShare</a>
+                                                </li>
+                                                <li><a href="learn_with_course_features_ccng/discussions_ccng/discussions_ccng.htm">Discussions</a>
+                                                </li>
+                                                <li><a href="learn_with_course_features_ccng/doc_sharing_ccng/doc_sharing_ccng.htm">Document Sharing</a>
+                                                </li>
+                                                <li><a href="edit_course_communications_ccng/edit_content_ccng.htm">Edit communications</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="has-children"><a href="get_help_stub_ccngx.htm">Get help</a>
+                                            <ul class="sub-menu">
+                                                <li><a href="contact_product_support_ccngx.htm">Contact Customer Technical Support</a>
+                                                </li>
+                                                <li><a href="link_accounts_ccngx.htm">Linking your accounts</a>
+                                                </li>
+                                                <li><a href="work_outside_mlm_ccngx.htm">Work outside of MyLab / Mastering</a>
+                                                </li>
+                                                <li><a href="get_help_online_ccngx.htm">Get help online</a>
+                                                </li>
+                                                <li><a href="icons_and_conventions.htm">Icons and conventions</a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div><a class="menu-icon right-off-canvas-toggle" href="#"><span></span></a>
+                            </div>
+                        </section>
+                        <div class="nav-search row outer-row">
+                            <form class="search" action="#">
+                                <div class="search-bar search-bar-container needs-pie">
+                                    <input class="search-field needs-pie" type="search" placeholder="Search" />
+                                    <div class="search-filter-wrapper">
+                                        <div class="search-filter">
+                                            <div class="search-filter-content">
+                                                <ul>
+                                                    <li>All Files</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="search-submit-wrapper" dir="ltr">
+                                        <div class="search-submit" title="Search">
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </nav>
+                    <aside class="right-off-canvas-menu" data-mc-ignore="true">
+                        <ul class="off-canvas-list" data-mc-back-link="Back" data-mc-css-tree-node-expanded="has-submenu" data-mc-css-tree-node-collapsed="has-submenu" data-mc-css-sub-menu="right-submenu" data-mc-include-indicator="False" data-mc-include-icon="False" data-mc-include-parent-link="True" data-mc-include-back="True" data-mc-defer-expand-event="True" data-mc-expand-event="click.fndtn.offcanvas" data-mc-toc="True">
+                        </ul>
+                    </aside>
+                    <section class="main-section">
+                        <div class="row outer-row" data-mc-content-body="True">
+                            <div class="content">
+                                <div id="contentBody">
+                                    <div class="row collapse">
+                                        <div class="sideContent">
+                                            <div class="clearfix">
+                                                <div class="buttons clearfix topicToolbarProxy _Skins_toolbar_en_us" style="mc-topic-toolbar-items: ;">
+                                                    <div class="button-group-container-left">
+                                                        <button class="button needs-pie print-button" type="button" title="Print">
+                                                            <img src="../Skins/Default/Stylesheets/Images/transparent.gif" alt="print" />
+                                                        </button>
+                                                        <button class="button needs-pie expand-all-button" type="button" data-state1-class="expand-all-button" data-state2-class="collapse-all-button" data-state2-title="Collapse all" title="Expand all" data-state1-title="Expand all">
+                                                            <img src="../Skins/Default/Stylesheets/Images/transparent.gif" alt="expand all" />
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <aside>
+                                                <nav>
+                                                    <ul class="menu _Skins_stu_proxy_menu">
+                                                        <li class="has-children"><a href="answer_mylab_player.htm">Answer in the MyLab player</a>
+                                                            <ul class="sub-menu">
+                                                                <li><a href="use_player_html5.htm">Use the player</a>
+                                                                </li>
+                                                                <li><a href="use_player_flash.htm">Use the older player</a>
+                                                                </li>
+                                                                <li><a href="use_onscreen_keyboard.htm">Use the on-screen keyboard</a>
+                                                                </li>
+                                                                <li><a href="use_keyboard_shortcuts.htm">Use keyboard shortcuts</a>
+                                                                </li>
+                                                                <li><a href="use_calculator.htm">Use the calculator</a>
+                                                                </li>
+                                                                <li><a href="resize_player.htm">Resize the player</a>
+                                                                </li>
+                                                                <li><a href="show_your_work.htm">Show your work</a>
+                                                                </li>
+                                                                <li><a href="tips_using_players.htm">Tips on using players</a>
+                                                                </li>
+                                                                <li><a href="enter_answers_mxl_player.htm">Enter answers in math courses</a>
+                                                                </li>
+                                                                <li><a href="enter_answers_mel_player.htm">Enter answers in econ or business courses</a>
+                                                                </li>
+                                                                <li><a href="enter_answers_mfl_player.htm">Enter answers in finance and engineering courses</a>
+                                                                </li>
+                                                                <li class="has-children"><a href="#" class="selected">Enter answers in accounting courses</a>
+                                                                    <ul class="sub-menu">
+                                                                        <li><a href="get_help_on_question_mal.htm">Get help on a question</a>
+                                                                        </li>
+                                                                        <li><a href="use_question_data_mal.htm">Use question data</a>
+                                                                        </li>
+                                                                        <li><a href="use_math_palette_mal.htm">Use the math palette</a>
+                                                                        </li>
+                                                                    </ul>
+                                                                </li>
+                                                            </ul>
+                                                        </li>
+                                                    </ul>
+                                                </nav>
+                                            </aside>
+                                        </div>
+                                        <div class="MCBreadcrumbsBox_0"><span class="MCBreadcrumbsPrefix">You are here: </span><a class="MCBreadcrumbsLink" href="work_in_your_course.htm">Work in your course</a><span class="MCBreadcrumbsDivider"> &gt; </span><a class="MCBreadcrumbsLink" href="answer_mylab_player.htm">Answer in the MyLab player</a><span class="MCBreadcrumbsDivider"> &gt; </span><span class="MCBreadcrumbs">Enter answers in accounting courses</span>
+                                        </div>
+                                        <article>
+                                            <h1>Enter answers in accounting courses</h1>
+                                            <p>The accounting player is used for all online accounting courses, such as MyAccountingLab.</p>
+                                            <p>You can enter answers in one of the following ways:</p>
+                                            <ul>
+                                                <li value="1">Typing your answer in an empty box. 
+ For example:
+        <p><img src="images/mal_fillin.gif" title="Example of a text box with a value entered inside" alt="Example of a text box with a value entered inside" /></p><p>If your answer requires math symbols (for example, fractions), you can use the math palette to enter special mathematical 
+ formats and symbols (for example, fractions and square roots). It contains templates 
+ that help you insert your answers. In most <span class="mmtcourse">course</span>s, the math palette appears when you click inside the answer box:</p><p><img src="images/math_palette2_html5.png" alt="Image of the math palette" /></p><table role="presentation" style="border-spacing: 0px;border-spacing: 0px;margin-left: 0;margin-right: auto;width: 62.5%;mc-table-style: url('Resources/TableStyles/invisible table.css');" cellspacing="1" class="TableStyle_invisible_table"><col style="width: 8.9295%;" /><col style="width: 82.141%;" /><tr valign="top"><td style="width: 17.859%;padding-right: 10px;padding-left: 10px;border-right-style: none;border-left-style: none;border-top-style: none;border-bottom-style: none;" width="17.859%" class="TableStyle_invisible_table_Body_0_0_RowSep_ColSep"><img src="images/math_palette_mal_59x154.gif" title="Math palette showing icons used to insert templates of fractions, subscripts and superscripts, absolute values, square roots, and ordered pairs" alt="Math palette for PC or laptops showing icons used to insert templates of fractions, subscripts and superscripts, absolute values, square roots, and ordered pairs" style="width: 59;height: 154;" /></td><td style="width: 82.141%;padding-right: 10px;padding-left: 10px;border-top-style: none;border-bottom-style: none;border-right-style: none;" width="82.141%" class="TableStyle_invisible_table_Body_0_0_RowSep_ColEnd"> In the older player, click <strong>Math Symbols</strong> to the right of the work area to pop up the math palette.</td></tr></table><p>For example, if you want to insert the mixed fraction 2 1/3 into 
+ your answer, you would click this template:</p><p><img src="images/icon_mixed_fraction.gif" title="Mixed fraction template in math palette" alt="Mixed fraction template in math palette" /></p><p>In the template in your answer, you would enter 2 in the box on 
+ the left, 1 in the top box on the right, and 3 in the bottom box on the 
+ right:</p><p><img src="images/mixed_fraction.gif" title="Mixed fraction 2 1/3" alt="Mixed fraction 2 1/3" /></p></li>
+                                                <li value="2">Clicking <strong>Fill 
+ in</strong> to select the answer from a dropdown list:
+        <p><img src="images/mal_fillin_dropdown.gif" title="An example dropdown menu with a list of answer choices" alt="An example dropdown menu with a list of answer choices" class="wide" /></p><p>In many cases, the "Fill in" instruction 
+ does not appear, but you can still click the box to choose the answer 
+ from a dropdown list.</p></li>
+                                                <li value="3">Selecting an answer from a multiple-choice 
+ list:
+        <p><img src="images/mal_mult_choice.gif" title="An example of a 4-choice multiple choice answer" alt="An example of a 4-choice multiple choice answer" /></p></li>
+                                            </ul>
+                                            <p>See <a href="use_question_data_mal.htm">Use question data</a> for details on finding the data you need to answer.</p>
+                                            <p>See <a href="answer_general_ledger_questions_mal.htm">Answer general ledger questions</a> and <a href="answer_excelsim_questions.htm">Answer ExcelSim questions</a> for details on answering these types of question.</p>
+                                            <p>See <a href="use_player_with_jaws.htm">Use the  player with JAWS</a> for details on using a the JAWS screenreader with the player.</p>
+                                            <p><strong>See Also:</strong>
+                                            </p>
+                                            <p><a href="answer_mylab_player.htm">Answer in the MyLab player</a>
+                                            </p>
+                                            <p><a href="get_help_on_question_mal.htm">Get help on a question</a>
+                                            </p>
+                                            <p><a href="tips_using_players.htm">Tips on using players</a>
+                                            </p>
+                                            <p><a href="use_keyboard_shortcuts.htm">Use keyboard shortcuts</a>
+                                            </p>
+                                            <p><a href="use_math_palette_mal.htm">Use the math palette</a>
+                                            </p>
+                                            <p><a href="use_onscreen_keyboard.htm">Use the on-screen keyboard</a>
+                                            </p>
+                                            <p><a href="use_player_html5.htm">Use the player</a>
+                                            </p>
+                                            <p><a href="use_player_flash.htm">Use the older player</a>
+                                            </p>
+                                            <p>&#160;</p>
+                                            <footer>Copyright Â© <span class="default$year">2015</span> by Pearson Education, Inc. All Rights Reserved. </footer>
+                                            <br />
+                                        </article>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section><a class="exit-off-canvas"></a>
+                </section>
+            </div>
+            <script>/* <![CDATA[ */$(document).foundation();/* ]]> */</script>
+        </div>
+    </body>
+</html>CmÞîÕ      WVÝFWVÝG<‰ûÙWm‡Õ   s    :http://help.pearsoncmg.com/xl/student/ccng/Content/enter_answers_mal_player.htm?cshid=enter_answers_mal_player.htm necko:classified 1 request-method GET response-head HTTP/1.1 200 OK
+Date: Tue, 07 Jun 2016 14:42:14 GMT
+Server: Apache
+Last-Modified: Fri, 18 Dec 2015 16:26:20 GMT
+Etag: "4bfb7c4-63b9-5272e99734300"
+Accept-Ranges: bytes
+Content-Length: 25529
+X-Cnection: close
+Content-Type: text/html
+ charset windows-1252 uncompressed-len 0 predictor::resource-count 37 predictor::http://help.pearsoncmg.com/xl/student/ccng/Skins/Default/Stylesheets/Slideshow.css 1,1,1465310534,0 predictor::http://help.pearsoncmg.com/xl/student/ccng/Skins/Default/Stylesheets/TextEffects.css 1,1,1465310534,0 predictor::http://help.pearsoncmg.com/xl/student/ccng/Skins/Default/Stylesheets/Topic.css 1,1,1465310534,0 predictor::http://help.pearsoncmg.com/xl/student/ccng/Skins/Default/Stylesheets/Components/Styles.css 1,1,1465310534,0 predictor::http://help.pearsoncmg.com/xl/student/ccng/Skins/Default/Stylesheets/Components/Tablet.css 1,1,1465310534,0 predictor::http://help.pearsoncmg.com/xl/student/ccng/Skins/Default/Stylesheets/Components/Mobile.css 1,1,1465310534,0 predictor::http://help.pearsoncmg.com/xl/student/ccng/Skins/Fluid/Stylesheets/foundation.5.5.0.css 1,1,1465310534,0 predictor::http://help.pearsoncmg.com/xl/student/ccng/Skins/Fluid/Stylesheets/Styles.css 1,1,1465310534,0 predictor::http://help.pearsoncmg.com/xl/student/ccng/Skins/Fluid/Stylesheets/Tablet.css 1,1,1465310534,0 predictor::http://help.pearsoncmg.com/xl/student/ccng/Skins/Fluid/Stylesheets/Mobile.css 1,1,1465310534,0 predictor::http://help.pearsoncmg.com/xl/student/ccng/Content/Resources/TableStyles/invisible%20table.css 1,1,1465310534,0 predictor::http://help.pearsoncmg.com/xl/student/ccng/Content/Resources/Stylesheets/pearson.css 1,1,1465310534,0 predictor::http://help.pearsoncmg.com/xl/student/ccng/Resources/Scripts/custom.modernizr.js 1,1,1465310534,0 predictor::http://help.pearsoncmg.com/xl/student/ccng/Resources/Scripts/jquery.min.js 1,1,1465310534,0 predictor::http://help.pearsoncmg.com/xl/student/ccng/Resources/Scripts/require.min.js 1,1,1465310534,0 predictor::http://help.pearsoncmg.com/xl/student/ccng/Resources/Scripts/require.config.js 1,1,1465310534,0 predictor::http://help.pearsoncmg.com/xl/student/ccng/Resources/Scripts/foundation.5.5.0_custom.js 1,1,1465310534,0 predictor::http://help.pearsoncmg.com/xl/student/ccng/Resources/Scripts/foundation.offcanvas.js 1,1,1465310534,0 predictor::http://help.pearsoncmg.com/xl/student/ccng/Resources/Scripts/plugins.min.js 1,1,1465310534,0 predictor::http://help.pearsoncmg.com/xl/student/ccng/Resources/Scripts/MadCapAll.js 1,1,1465310534,0 predictor::http://help.pearsoncmg.com/xl/student/ccng/Skins/Default/Stylesheets/Images/transparent.gif 1,1,1465310534,0 predictor::http://help.pearsoncmg.com/xl/student/ccng/Content/images/mal_fillin.gif 1,1,1465310534,0 predictor::http://help.pearsoncmg.com/xl/student/ccng/Content/images/math_palette2_html5.png 1,1,1465310534,0 predictor::http://help.pearsoncmg.com/xl/student/ccng/Content/images/math_palette_mal_59x154.gif 1,1,1465310534,0 predictor::http://help.pearsoncmg.com/xl/student/ccng/Content/images/icon_mixed_fraction.gif 1,1,1465310534,0 predictor::http://help.pearsoncmg.com/xl/student/ccng/Content/images/mixed_fraction.gif 1,1,1465310534,0 predictor::http://help.pearsoncmg.com/xl/student/ccng/Content/images/mal_fillin_dropdown.gif 1,1,1465310534,0 predictor::http://help.pearsoncmg.com/xl/student/ccng/Content/images/mal_mult_choice.gif 1,1,1465310534,0 predictor::http://www.google-analytics.com/analytics.js 1,1,1465310534,0 predictor::http://www.google-analytics.com/collect?v=1&_v=j44&a=1229803324&t=pageview&_s=1&dl=http%3A%2F%2Fhelp.pearsoncmg.com%2Fxl%2Fstudent%2Fccng%2FContent%2Fenter_answers_mal_player.htm%3Fcshid%3Denter_answers_mal_player.htm&ul=en-us&de=UTF-8&dt=Enter%20answers%20in%20accounting%20courses&sd=24-bit&sr=1024x768&vp=600x600&je=1&fl=11.2%20r202&_u=AACAAEABI~&jid=&cid=1032157356.1465308712&tid=UA-69430414-39&z=1767083211 1,1,1465310534,0 predictor::http://help.pearsoncmg.com/xl/student/ccng/Skins/Fluid/Stylesheets/Images/stu.png 1,1,1465310534,0 predictor::http://help.pearsoncmg.com/xl/student/ccng/Skins/Fluid/Stylesheets/Images/Menu.png 1,1,1465310534,0 predictor::http://help.pearsoncmg.com/xl/student/ccng/Skins/Fluid/Stylesheets/Images/SearchIcon.png 1,1,1465310534,0 predictor::http://help.pearsoncmg.com/xl/student/ccng/Data/Breakpoints.js?t=635860338568137047 1,1,1465310534,0 predictor::http://help.pearsoncmg.com/xl/student/ccng/Data/Language.js?t=635860338568137047 1,1,1465310534,0 predictor::http://help.pearsoncmg.com/xl/student/ccng/Data/Toc.js?t=635860338568137047 1,1,1465310534,0 predictor::http://help.pearsoncmg.com/xl/student/ccng/Data/Toc_Chunk0.js?t=635860338568137047 1,1,1465310534,0   c¹

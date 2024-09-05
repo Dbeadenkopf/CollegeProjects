@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?artifactRepository version='1.1.0'?>
+<repository name='/usr/lib64/eclipse/dropins/changelog' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1.0.0'>
+  <properties size='1'>
+    <property name='p2.timestamp' value='1465901240382'/>
+  </properties>
+  <mappings size='3'>
+    <rule filter='(&amp; (classifier=osgi.bundle))' output='${repoUrl}/plugins/${id}_${version}.jar'/>
+    <rule filter='(&amp; (classifier=binary))' output='${repoUrl}/binary/${id}_${version}'/>
+    <rule filter='(&amp; (classifier=org.eclipse.update.feature))' output='${repoUrl}/features/${id}_${version}.jar'/>
+  </mappings>
+  <artifacts size='5'>
+    <artifact classifier='osgi.bundle' id='org.eclipse.linuxtools.changelog.doc' version='2.7.0.201101131545'>
+      <properties size='2'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='4096'/>
+      </properties>
+      <repositoryProperties size='3'>
+        <property name='artifact.folder' value='true'/>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/changelog/eclipse/plugins/org.eclipse.linuxtools.changelog.doc_2.7.0.201101131545/'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/changelog/eclipse/plugins/org.eclipse.linuxtools.changelog.doc_2.7.0.201101131545'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.linuxtools.changelog.cparser' version='2.7.0.201101131545'>
+      <properties size='2'>
+        <property name='artifact.size' value='5768'/>
+        <property name='download.size' value='5768'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/changelog/eclipse/plugins/org.eclipse.linuxtools.changelog.cparser_2.7.0.201101131545.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/changelog/eclipse/plugins/org.eclipse.linuxtools.changelog.cparser_2.7.0.201101131545.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.linuxtools.changelog' version='2.7.0.201101131545'>
+      <properties size='3'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='4096'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+      <repositoryProperties size='3'>
+        <property name='artifact.folder' value='true'/>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/changelog/eclipse/features/org.eclipse.linuxtools.changelog_2.7.0.201101131545/'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/changelog/eclipse/features/org.eclipse.linuxtools.changelog_2.7.0.201101131545'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.linuxtools.changelog.parsers.java' version='2.7.0.201101131545'>
+      <properties size='2'>
+        <property name='artifact.size' value='4800'/>
+        <property name='download.size' value='4800'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/changelog/eclipse/plugins/org.eclipse.linuxtools.changelog.parsers.java_2.7.0.201101131545.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/changelog/eclipse/plugins/org.eclipse.linuxtools.changelog.parsers.java_2.7.0.201101131545.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.linuxtools.changelog.core' version='2.7.0.201101131545'>
+      <properties size='2'>
+        <property name='artifact.size' value='100541'/>
+        <property name='download.size' value='100541'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/changelog/eclipse/plugins/org.eclipse.linuxtools.changelog.core_2.7.0.201101131545.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/changelog/eclipse/plugins/org.eclipse.linuxtools.changelog.core_2.7.0.201101131545.jar'/>
+      </repositoryProperties>
+    </artifact>
+  </artifacts>
+</repository>

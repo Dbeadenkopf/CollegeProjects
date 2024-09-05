@@ -1,0 +1,400 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?artifactRepository version='1.1.0'?>
+<repository name='/usr/share/eclipse/dropins/dtp-sqldevtools' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1.0.0'>
+  <properties size='1'>
+    <property name='p2.timestamp' value='1465901239105'/>
+  </properties>
+  <mappings size='3'>
+    <rule filter='(&amp; (classifier=osgi.bundle))' output='${repoUrl}/plugins/${id}_${version}.jar'/>
+    <rule filter='(&amp; (classifier=binary))' output='${repoUrl}/binary/${id}_${version}'/>
+    <rule filter='(&amp; (classifier=org.eclipse.update.feature))' output='${repoUrl}/features/${id}_${version}.jar'/>
+  </mappings>
+  <artifacts size='37'>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.datatools.sqldevtools.sqlbuilder.feature' version='1.8.1.v200909251451'>
+      <properties size='3'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='4096'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+      <repositoryProperties size='3'>
+        <property name='artifact.folder' value='true'/>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/features/org.eclipse.datatools.sqldevtools.sqlbuilder.feature_1.8.1.v200909251451/'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/features/org.eclipse.datatools.sqldevtools.sqlbuilder.feature_1.8.1.v200909251451'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.datatools.sqldevtools.results.feature' version='1.8.1.v200909251451'>
+      <properties size='3'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='4096'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+      <repositoryProperties size='3'>
+        <property name='artifact.folder' value='true'/>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/features/org.eclipse.datatools.sqldevtools.results.feature_1.8.1.v200909251451/'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/features/org.eclipse.datatools.sqldevtools.results.feature_1.8.1.v200909251451'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.datatools.sqltools.routineeditor.ui' version='1.0.1.v200909251451'>
+      <properties size='2'>
+        <property name='artifact.size' value='147600'/>
+        <property name='download.size' value='147600'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.routineeditor.ui_1.0.1.v200909251451.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.routineeditor.ui_1.0.1.v200909251451.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.datatools.sqltools.sqlscrapbook' version='1.0.1.v200909251451'>
+      <properties size='2'>
+        <property name='artifact.size' value='123936'/>
+        <property name='download.size' value='123936'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.sqlscrapbook_1.0.1.v200909251451.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.sqlscrapbook_1.0.1.v200909251451.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.datatools.sqltools.parsers.sql.query' version='1.2.0.v200909251451'>
+      <properties size='2'>
+        <property name='artifact.size' value='299932'/>
+        <property name='download.size' value='299932'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.parsers.sql.query_1.2.0.v200909251451.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.parsers.sql.query_1.2.0.v200909251451.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.datatools.sqltools.data.core' version='1.2.0.v200909251451'>
+      <properties size='2'>
+        <property name='artifact.size' value='69973'/>
+        <property name='download.size' value='69973'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.data.core_1.2.0.v200909251451.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.data.core_1.2.0.v200909251451.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.datatools.sqltools.parsers.sql.lexer' version='1.0.1.v200909251451'>
+      <properties size='2'>
+        <property name='artifact.size' value='132039'/>
+        <property name='download.size' value='132039'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.parsers.sql.lexer_1.0.1.v200909251451.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.parsers.sql.lexer_1.0.1.v200909251451.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.datatools.sqltools.result.ui' version='1.1.0.v200909251451'>
+      <properties size='2'>
+        <property name='artifact.size' value='344303'/>
+        <property name='download.size' value='344303'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.result.ui_1.1.0.v200909251451.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.result.ui_1.1.0.v200909251451.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.datatools.sqldevtools.ddl.feature' version='1.8.1.v200909251451'>
+      <properties size='3'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='4096'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+      <repositoryProperties size='3'>
+        <property name='artifact.folder' value='true'/>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/features/org.eclipse.datatools.sqldevtools.ddl.feature_1.8.1.v200909251451/'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/features/org.eclipse.datatools.sqldevtools.ddl.feature_1.8.1.v200909251451'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.datatools.sqltools.schemaobjecteditor.ui.pages' version='1.1.0.200810071'>
+      <properties size='2'>
+        <property name='artifact.size' value='60786'/>
+        <property name='download.size' value='60786'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.schemaobjecteditor.ui.pages_1.1.0.200810071.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.schemaobjecteditor.ui.pages_1.1.0.200810071.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.datatools.sqltools.ddlgen.ui' version='1.0.1.v200909251451'>
+      <properties size='2'>
+        <property name='artifact.size' value='70619'/>
+        <property name='download.size' value='70619'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.ddlgen.ui_1.0.1.v200909251451.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.ddlgen.ui_1.0.1.v200909251451.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.datatools.sqltools.schemaobjecteditor' version='1.1.0.v200909251451'>
+      <properties size='2'>
+        <property name='artifact.size' value='13161'/>
+        <property name='download.size' value='13161'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.schemaobjecteditor_1.1.0.v200909251451.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.schemaobjecteditor_1.1.0.v200909251451.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.datatools.sqltools.tabledataeditor' version='1.0.1.v200909251451'>
+      <properties size='2'>
+        <property name='artifact.size' value='25835'/>
+        <property name='download.size' value='25835'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.tabledataeditor_1.0.1.v200909251451.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.tabledataeditor_1.0.1.v200909251451.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.datatools.sqltools.parsers.sql.xml.query' version='1.0.0.v200909251451'>
+      <properties size='2'>
+        <property name='artifact.size' value='266140'/>
+        <property name='download.size' value='266140'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.parsers.sql.xml.query_1.0.0.v200909251451.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.parsers.sql.xml.query_1.0.0.v200909251451.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.datatools.sqltools.sqleditor' version='1.0.1.v200909251451'>
+      <properties size='2'>
+        <property name='artifact.size' value='429805'/>
+        <property name='download.size' value='429805'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.sqleditor_1.0.1.v200909251451.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.sqleditor_1.0.1.v200909251451.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.datatools.sqltools.plan' version='1.0.0.v200909251451'>
+      <properties size='2'>
+        <property name='artifact.size' value='114317'/>
+        <property name='download.size' value='114317'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.plan_1.0.0.v200909251451.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.plan_1.0.0.v200909251451.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.datatools.sqltools.sql' version='1.0.0.v200909251451'>
+      <properties size='2'>
+        <property name='artifact.size' value='76482'/>
+        <property name='download.size' value='76482'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.sql_1.0.0.v200909251451.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.sql_1.0.0.v200909251451.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.datatools.sqldevtools.data.feature' version='1.8.1.v200909251451'>
+      <properties size='3'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='4096'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+      <repositoryProperties size='3'>
+        <property name='artifact.folder' value='true'/>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/features/org.eclipse.datatools.sqldevtools.data.feature_1.8.1.v200909251451/'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/features/org.eclipse.datatools.sqldevtools.data.feature_1.8.1.v200909251451'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.datatools.sqltools.sqlbuilder' version='1.0.3.v200909251451'>
+      <properties size='2'>
+        <property name='artifact.size' value='1017859'/>
+        <property name='download.size' value='1017859'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.sqlbuilder_1.0.3.v200909251451.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.sqlbuilder_1.0.3.v200909251451.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.datatools.sqltools.editor.core.ui' version='1.0.0.v200909251451'>
+      <properties size='2'>
+        <property name='artifact.size' value='36563'/>
+        <property name='download.size' value='36563'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.editor.core.ui_1.0.0.v200909251451.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.editor.core.ui_1.0.0.v200909251451.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.datatools.connectivity.db.generic' version='1.0.1.v200909251451'>
+      <properties size='2'>
+        <property name='artifact.size' value='8810'/>
+        <property name='download.size' value='8810'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.connectivity.db.generic_1.0.1.v200909251451.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.connectivity.db.generic_1.0.1.v200909251451.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='net.sourceforge.lpg.lpgjavaruntime' version='1.1.0.v200803061910'>
+      <properties size='2'>
+        <property name='artifact.size' value='77855'/>
+        <property name='download.size' value='77855'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/net.sourceforge.lpg.lpgjavaruntime_1.1.0.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/net.sourceforge.lpg.lpgjavaruntime_1.1.0.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.datatools.sqldevtools.feature' version='1.8.1.v200909251451'>
+      <properties size='3'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='4096'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+      <repositoryProperties size='3'>
+        <property name='artifact.folder' value='true'/>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/features/org.eclipse.datatools.sqldevtools.feature_1.8.1.v200909251451/'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/features/org.eclipse.datatools.sqldevtools.feature_1.8.1.v200909251451'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.datatools.sqltools.schemaobjecteditor.ui' version='1.1.1.200810071'>
+      <properties size='2'>
+        <property name='artifact.size' value='213940'/>
+        <property name='download.size' value='213940'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.schemaobjecteditor.ui_1.1.1.200810071.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.schemaobjecteditor.ui_1.1.1.200810071.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.datatools.sqltools.debugger.core.ui' version='1.0.0.v200909251451'>
+      <properties size='2'>
+        <property name='artifact.size' value='68740'/>
+        <property name='download.size' value='68740'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.debugger.core.ui_1.0.0.v200909251451.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.debugger.core.ui_1.0.0.v200909251451.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.datatools.sqltools.editor.core' version='1.0.0.v200909251451'>
+      <properties size='2'>
+        <property name='artifact.size' value='167648'/>
+        <property name='download.size' value='167648'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.editor.core_1.0.0.v200909251451.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.editor.core_1.0.0.v200909251451.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.datatools.sqltools.debugger.core' version='1.0.1.v200909251451'>
+      <properties size='2'>
+        <property name='artifact.size' value='43949'/>
+        <property name='download.size' value='43949'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.debugger.core_1.0.1.v200909251451.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.debugger.core_1.0.1.v200909251451.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.datatools.sqltools.parsers.sql' version='1.0.2.v200909251451'>
+      <properties size='2'>
+        <property name='artifact.size' value='44223'/>
+        <property name='download.size' value='44223'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.parsers.sql_1.0.2.v200909251451.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.parsers.sql_1.0.2.v200909251451.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.datatools.sqltools.db.generic' version='1.0.0.v200909251451'>
+      <properties size='2'>
+        <property name='artifact.size' value='125742'/>
+        <property name='download.size' value='125742'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.db.generic_1.0.0.v200909251451.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.db.generic_1.0.0.v200909251451.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.datatools.sqldevtools.schemaobjecteditor.feature' version='1.8.1.v200909251451'>
+      <properties size='3'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='4096'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+      <repositoryProperties size='3'>
+        <property name='artifact.folder' value='true'/>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/features/org.eclipse.datatools.sqldevtools.schemaobjecteditor.feature_1.8.1.v200909251451/'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/features/org.eclipse.datatools.sqldevtools.schemaobjecteditor.feature_1.8.1.v200909251451'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.datatools.sqltools.common.ui' version='1.0.0.v200909251451'>
+      <properties size='2'>
+        <property name='artifact.size' value='208501'/>
+        <property name='download.size' value='208501'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.common.ui_1.0.0.v200909251451.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.common.ui_1.0.0.v200909251451.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.datatools.sqltools.routineeditor' version='1.0.0.v200909251451'>
+      <properties size='2'>
+        <property name='artifact.size' value='39595'/>
+        <property name='download.size' value='39595'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.routineeditor_1.0.0.v200909251451.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.routineeditor_1.0.0.v200909251451.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.datatools.sqltools.data.ui' version='1.2.0.v200909251451'>
+      <properties size='2'>
+        <property name='artifact.size' value='108145'/>
+        <property name='download.size' value='108145'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.data.ui_1.2.0.v200909251451.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.data.ui_1.2.0.v200909251451.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.datatools.sqltools.result' version='1.1.0.v200909251451'>
+      <properties size='2'>
+        <property name='artifact.size' value='83258'/>
+        <property name='download.size' value='83258'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.result_1.1.0.v200909251451.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.result_1.1.0.v200909251451.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.datatools.sqldevtools.ddlgen.feature' version='1.8.1.v200909251451'>
+      <properties size='3'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='4096'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+      <repositoryProperties size='3'>
+        <property name='artifact.folder' value='true'/>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/features/org.eclipse.datatools.sqldevtools.ddlgen.feature_1.8.1.v200909251451/'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/features/org.eclipse.datatools.sqldevtools.ddlgen.feature_1.8.1.v200909251451'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.datatools.sqldevtools.parsers.feature' version='1.8.1.v200909251451'>
+      <properties size='3'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='4096'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+      <repositoryProperties size='3'>
+        <property name='artifact.folder' value='true'/>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/features/org.eclipse.datatools.sqldevtools.parsers.feature_1.8.1.v200909251451/'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/features/org.eclipse.datatools.sqldevtools.parsers.feature_1.8.1.v200909251451'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.datatools.sqltools.sql.ui' version='1.0.0.v200909251451'>
+      <properties size='2'>
+        <property name='artifact.size' value='21286'/>
+        <property name='download.size' value='21286'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.sql.ui_1.0.0.v200909251451.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-sqldevtools/eclipse/plugins/org.eclipse.datatools.sqltools.sql.ui_1.0.0.v200909251451.jar'/>
+      </repositoryProperties>
+    </artifact>
+  </artifacts>
+</repository>

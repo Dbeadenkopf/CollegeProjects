@@ -1,0 +1,3 @@
+# This file is created by ibus-daemon, please do not modify it
+IBUS_ADDRESS=unix:abstract=/tmp/dbus-FYgIEROm,guid=d03ae04747458a65e76d9000552545d1
+IBUS_DAEMON_PID=8184

@@ -1,0 +1,8 @@
+# DO NOT EDIT -- automatically generated options file -- DO NOT EDIT!!!
+return {
+  user-toolbar-list {}
+  toolbar-Windows-WaveWindow {
+  usual
+  position -pos 3
+}
+}

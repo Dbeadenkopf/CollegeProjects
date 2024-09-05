@@ -1,0 +1,14 @@
+80           Slowbro    7946   95  5
+95           Onix    1867   35  1
+5           Onix    2478   58  1
+80           Slowbro    5941   95  5
+41           Zubat    1623   40  1
+95           Onix    1472   35  1
+19           Rattata    1052   30  1
+24           Arbok    3017   60  4
+80           Slowbro    4326   95  5
+41           Zubat    1053   40  1
+52           Meowth    1166   40  1
+80           Slowbro    3756   95  5
+34           Nidoking    3541   81  5
+80           Slowbro    3566   95  5

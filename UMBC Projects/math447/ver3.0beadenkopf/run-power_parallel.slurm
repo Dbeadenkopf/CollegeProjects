@@ -1,0 +1,14 @@
+#!/bin/bash
+#SBATCH --job-name=power
+#SBATCH --output=slurm.out
+#SBATCH --error=slurm.err
+#SBATCH --partition=develop
+#SBATCH --qos=short
+#SBATCH --nodes=1
+#SBATCH --ntasks-per-node=1
+#SBATCH --time=00:05:00
+#SBATCH --mem=MaxMemPerNode
+#SBATCH --exclusive
+
+srun ./power     4 1.0e-12 50
+

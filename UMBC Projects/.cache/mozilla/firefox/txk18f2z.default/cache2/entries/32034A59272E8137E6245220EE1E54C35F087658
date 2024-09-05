@@ -1,0 +1,1363 @@
+var json = '';
+var bookListTO='';
+var feedbackResponse ='';
+var feedbackResponseJson ='';
+var feedbackTopic = '';
+var feedbackResource = '';
+var topicid="";
+var topic="";
+var language_id = "";
+var user = "";
+var book = "";
+var page = "";
+
+var lname="";
+var lpage="";
+var ltopic="";
+var lmessage="";
+var choose="";
+var feedbackTitle="";
+var feedbackThanksMessage="";
+var feedbacksubmitbutton="";	 
+
+var counter = 0;
+
+function displayBookshelf() {
+		var images = $('#wrapper img'), total = images.length, count = 0,perc=0;
+		images.load( function() {
+			count = count + 1;
+			perc=count/total;
+			$("#status").animate( { width: perc }, 500);
+			if (count >= total) {
+				$('#loading-overlay').hide();
+			}
+		});
+}
+
+function displayEmptyBookshelf() {
+
+	$('#loading-overlay').hide();
+
+}
+
+function parseFeedbackResponse() {
+
+	try
+	{
+		feedbackResponse = jQuery.parseJSON(feedbackResponseJson);
+	}
+	catch(e)
+	{	
+		alert(e);	
+	}  
+	
+	
+	var feedbacktopiclist = '';	
+	var feedbackresourcelist = '';	
+	var feedback_topic = '';	
+	var feedback_resource = '';	
+	var topic_id = '';	
+	var topic_name = '';
+	
+	feedbacktopiclist = feedbackResponse.feedback.feedbacktopics.feedbacktopic;
+	
+	for ( var cnt = 0; cnt < feedbacktopiclist.length; cnt += 1) {
+		feedback_topic = feedbacktopiclist[cnt];
+		
+		topic_id = feedback_topic.topicid;
+		
+		topicid+=topic_id+",";
+		
+		topic_name = feedback_topic.name;
+		
+		topic+=topic_name+",";
+		
+	}	
+	
+	feedbackresourcelist = feedbackResponse.feedback.feedbackresources.feedbackresource;
+	
+	for ( var count = 0; count < feedbackresourcelist.length; count += 1) {
+		
+		feedback_resource = feedbackresourcelist[count];
+		
+		if(feedback_resource.key == 'name')
+		{
+			lname = feedback_resource.value;
+		}
+		else if(feedback_resource.key == 'page')
+		{
+			lpage = feedback_resource.value;
+		}
+		else if(feedback_resource.key == 'topic')
+		{
+			ltopic = feedback_resource.value;
+		}
+		else if(feedback_resource.key == 'message')
+		{
+			lmessage = feedback_resource.value;
+		}
+		else if(feedback_resource.key == 'choose_topic')
+		{
+			choose = feedback_resource.value;
+		}
+		else if(feedback_resource.key == 'feedback')
+		{
+			feedbackTitle = feedback_resource.value;
+		}
+		else if(feedback_resource.key == 'feedback_thank')
+		{
+			feedbackThanksMessage = feedback_resource.value;
+		}
+		else if(feedback_resource.key == 'submit_feedback')
+		{
+			feedbacksubmitbutton = feedback_resource.value;
+		}
+	}
+}
+
+function parseResult(view) {
+	var arr = '';
+	bookListTO = jQuery.parseJSON(json);
+	if (bookListTO.book.length == 0)
+	{
+		displayEmptyBookshelf();
+	}
+	var book = "";
+	var title = "";
+	var imageid = "";
+	var source = "";
+	var bookID = "";
+	var bookedition = "";
+	var isExpiringWithinWarningPeriod = "";
+	var expirationDate = "";
+	var myTable = '';
+	var divid = '';
+	var n = 0;
+	var error = "this.src='/ebook/flex/assets/images/covernotfound.jpg';";
+	var tdclass = "bookColumn";
+	var mouseover = "imageOver";
+	var mouseout = "imageOut";
+	var imagedivclass = "";
+	var titledivclass = "";
+	var image = "thumbnail";
+	var titleid = "title";
+	var authorlist = "";
+	var author = "";
+	var authorshort = "";
+	var imgclass = "";
+	var dir = $('#direction').val();
+	var expiring = $('#expiring').val();//Rajiv: http://jira.pearsoncmg.com/browse/ETEXT-1701
+	var expired = $('#expired').val();
+	var renew = $('#renew').val();
+	var lockedForPublishing=$('#lockedForPublishing').val();
+	var appserverURL="";
+	var languageID = $('#languageid').val();
+	var scenario = $('#scenario').val(); //scenario in number
+	var isipad = $('#isipad').val();
+	var smsUserID = $('#smsUserID').val();
+	var userDateUpdate=$('#userDateUpdate').val();
+	var userBookDateUpdate="";
+	var userBookScenarioDateUpdate="";
+	var sessionID = $('#sessionID').val();	 
+	var platform = $('#platform').val();
+	var divsToHide='';
+	var subscriptionURL='';
+	var purchaseType=''; // Added by Amit for ETEXT-2549 fix on 06/04/2013
+	var disableText='';
+	var statusID='';
+	var showExpiredBooksStatus =$('#showExpiredBooksStatus').val();
+	var fromLoginPage=$('#fromLoginPage').val();
+	//create table
+	myTable += "<div id='bookshelf' dir='" + dir + "' >";
+	myTable += "<ul width='100%' id='bookShelftable' class='bookShelftable' >";
+		if (dir == 'ltr') {
+			imagedivclass = "imageDiv";
+			titledivclass = "titleDiv";
+		}
+		if (dir == 'rtl') {
+			imagedivclass = "imageDivArabic";
+			titledivclass = "titleDivArabic";
+		}
+		//Get list of books from server
+		arr=bookListTO.book;
+		
+		//interate each book to create the bookshelf		
+		for ( var allBooks = 0; allBooks < arr.length; allBooks += 1) 
+		{
+			book = arr[allBooks];
+			author = '';
+			if (book != null) 
+			{
+				//Get title as per limit of the title field
+				title = fixImageDetails(book.title, 50);				
+				//Get Book ID
+				bookID = book.bookID;
+				//Get image ID for image tag
+				imageid = image + bookID;
+				//Get book edition
+				bookedition = book.bookEditionNumber;
+				//Get the isExpiringWithinWarningPeriod
+				isExpiringWithinWarningPeriod = book.isExpiringWithinWarningPeriod;
+				//Get the expirationDate
+				expirationDate = book.expirationDate;
+				//Get subscription URL
+				subscriptionURL=book.subscriptionURL;
+				//Get purchase Type
+				purchaseType=book.purchaseType;
+				//Get Author list
+				authorlist = book.authorList;
+				//Get Book Server URL 
+				appserverURL=book.appserverURL;
+				//Get Thumbnail image path
+				//Raunak : changed for ETEXT-3531 on 17/09/2015 
+				if(window.location.protocol === "https:")
+				{
+					source = appserverURL.replace(/^http?:\/\//, 'https://')+"/ebookassets/ebook" + book.globalBookID+ book.thumbnailArt;
+				}
+				else
+				{
+			        source = appserverURL+"/ebookassets/ebook" + book.globalBookID+ book.thumbnailArt;
+				}
+				//present status of book
+				statusID=book.statusID;
+				//Get UserInfo last modified date time
+				//userDateUpdate=book.userDateUpdate;
+				//Get User book last modified date time
+				userBookDateUpdate=book.userBookLastModifiedDate;
+				//Get User book scenario last modified date time
+				userBookScenarioDateUpdate=book.userBookScenarioLastModifiedDate;
+				// Commented by HA on April 14, 2014 as this is no longer used now
+				/*
+				var openBookParameter="\"" + appserverURL+"\","+
+										"\"" + bookID+"\","+
+										"\"" + languageID+"\","+
+										"\"" + scenario+"\","+
+										"\"" + sessionID+"\","+
+										"\"" + isipad+"\","+
+										"\"" + smsUserID+"\","+
+										"\"" + userDateUpdate+"\","+
+										"\"" + userBookDateUpdate+"\","+
+										"\"" + userBookScenarioDateUpdate+"\","+
+										"\"" + fromLoginPage+"\","+
+										"\"" + platform+"\""	;
+				*/
+				//for escaping characters(',")
+				var titleWithEscape=title.replace (/"/g, '&#8220;').replace (/'/g, '&#8216;');
+				
+				if(authorlist!=undefined)
+				{
+					for ( var n = 0; n < authorlist.length; n++) 
+					{
+						author += authorlist[n].firstName + " "
+								+ authorlist[n].lastName + ",";
+					}
+					authorshort = fixImageDetails(author, 50);
+				}
+				else
+				{
+					authorshort='';
+				}
+				
+				if (book.isExpired == 'false' && statusID==4) 
+				{
+					imgclass = "image";
+					myTable += "<li class='" + tdclass + "' title=\""+titleWithEscape+"\" onmouseover='javascript:" + mouseover + "(\""
+							+ bookID + "\");' onmouseout='javascript:"
+							+ mouseout + "(\"" + bookID
+							+ "\");' >";
+
+					myTable += "<div class='" + imagedivclass + " openbook' tabindex='"
+							+ allBooks + "'"
+							+ "data-appserverURL='"+appserverURL+ "'"
+							+ "data-bookID='"+bookID+ "'"
+							+ "data-languageID='"+languageID+ "'"
+							+ "data-scenario='"+scenario+ "'"
+							+ "data-sessionID='"+sessionID+ "'"
+							+ "data-isipad='"+isipad+ "'"
+							+ "data-smsUserID='"+smsUserID+ "'"
+							+ "data-userDateUpdate='"+userDateUpdate+ "'"
+							+ "data-userBookDateUpdate='"+userBookDateUpdate+ "'"
+							+ "data-userBookScenarioDateUpdate='"+userBookScenarioDateUpdate+ "'"
+							+ "data-fromLoginPage='"+fromLoginPage+ "'"
+							+ "data-platform='"+platform+ "'"
+							+" onFocus='javascript:" + mouseover
+							+ "(\"" + bookID
+							+ "\");' onBlur='javascript:" + mouseout + "(\""
+							+ bookID + "\");'>";
+
+					myTable += "<img class='" + imgclass + "' alt=\""+titleWithEscape+"\" id='" + imageid + "' src='" + source
+							+ "' onerror=\"" + error + "\" />";
+					myTable += "</div>";
+					myTable += "<div class='" + titledivclass + "'>";
+					if (title.length < 25)
+					{
+						myTable += "<div style='height:1.25em;overflow:hidden;'>";
+					}
+					else
+					{
+						myTable += "<div style='height:2.5em;overflow:hidden;'>";
+					}
+					myTable += "<strong class='openbook' style='cursor:pointer;' id='" + titleid + bookID + "'"
+									+ "data-appserverURL='"+appserverURL+ "'"
+									+ "data-bookID='"+bookID+ "'"
+									+ "data-languageID='"+languageID+ "'"
+									+ "data-scenario='"+scenario+ "'"
+									+ "data-sessionID='"+sessionID+ "'"
+									+ "data-isipad='"+isipad+ "'"
+									+ "data-smsUserID='"+smsUserID+ "'"
+									+ "data-userDateUpdate='"+userDateUpdate+ "'"
+									+ "data-userBookDateUpdate='"+userBookDateUpdate+ "'"
+									+ "data-userBookScenarioDateUpdate='"+userBookScenarioDateUpdate+ "'"
+									+ "data-fromLoginPage='"+fromLoginPage+ "'"
+									+ "data-platform='"+platform+ "'"			
+									+ ">"
+								+ title + "</strong>";
+					myTable += "</div>";
+					if (bookedition != undefined) 
+					{
+						myTable += "<div>";
+						myTable += "<strong>" + bookedition + "</strong>";
+						myTable += "</div>";
+					}					
+					myTable += "<label title='" + author + "'>" + authorshort+ "</label>";
+					//Rajiv: http://jira.pearsoncmg.com/browse/ETEXT-1396
+					if (isExpiringWithinWarningPeriod != undefined && isExpiringWithinWarningPeriod=='true') 
+					{
+						myTable += "<div>";
+						//myTable += "<strong>" + "Expires on "+expirationDate+ "</strong>";
+						myTable += "<strong>" + expiring.format(expirationDate)+ "</strong>";
+						myTable += "</div>";
+						// if purchase type =2 then it take URL
+						// if purchase type =3 then it take productID 
+						if(purchaseType == '2' || purchaseType == '3')
+						{
+							if(subscriptionURL != undefined)
+							{
+								myTable += "<div>";
+								myTable += "<a href='" + book.subscriptionURL
+								+ "'><span class='renew'>" + renew
+								+ "</span></a>";
+								myTable += "</div>";
+							}
+						}
+					}					
+					myTable += "</div>";
+					myTable += "</li>";
+
+				}
+				if (book.isExpired == 'true' && statusID==4) 
+				{
+					imgclass = "hideImage";
+					tdclasshide=tdclass+"hide";
+					myTable += "<li class='" + tdclasshide + "' title=\""+titleWithEscape+"\" style='cursor:default;'>";
+
+					myTable += "<div class='" + imagedivclass + "'>";
+					myTable += "<img class='" + imgclass + "' alt=\""+titleWithEscape+"\" id='" + imageid + "' src='" + source
+							+ "' onerror=\"" + error + "\" />";
+					myTable += "</div>";
+					myTable += "<div class='" + titledivclass + "Expired'>";
+					if (title.length < 25)
+					{
+						myTable += "<div style='height:1.25em;overflow:hidden;'>";
+					}
+					else
+					{
+						myTable += "<div style='height:2.5em;overflow:hidden;'>";
+					}
+					myTable += "<strong style='cursor:pointer;' id='" + titleid + bookID + "' >"
+							+ title + "</strong>";
+					myTable += "</div>";
+					if (bookedition != undefined) {
+						myTable += "<div>";
+						myTable += "<strong>" + bookedition + "</strong>";
+						myTable += "</div>";
+					}					
+					myTable += "<label style='cursor:default;' title='"
+							+ author + "'>" + authorshort + "</label>";
+					myTable += "<div>";
+					myTable += "<span class='expired'>" + expired + "</span>";
+					myTable += "</div>";
+					
+					// if purchase type =2 then it take URL
+					// if purchase type =3 then it take productID 
+					if(purchaseType == '2' || purchaseType == '3')
+					{
+						//Check if subscription URL is configured or not. If not configured then do not add renew subscription link
+						if(subscriptionURL != undefined)
+						{
+							myTable += "<div>";
+							myTable += "<a href='" + book.subscriptionURL
+							+ "'><span class='renew'>" + renew
+							+ "</span></a>";
+							myTable += "</div>";
+						}
+					}
+					myTable += "</div>";
+					myTable += "</li>";
+
+				}
+				//locked for publishing
+				if(statusID==6)
+				{
+
+					imgclass = "hideImage";
+					myTable += "<li class='" + tdclass + "' title=\""+titleWithEscape+"\" style='cursor:default;'>";
+
+					myTable += "<div class='" + imagedivclass + "'>";
+					myTable += "<img class='" + imgclass + "' alt=\""+titleWithEscape+"\" id='" + imageid + "' src='" + source
+							+ "' onerror=\"" + error + "\" />";
+					myTable += "</div>";
+					myTable += "<div class='" + titledivclass + "Expired'>";
+					if (title.length < 25)
+					{
+						myTable += "<div style='height:1.25em;overflow:hidden;'>";
+					}
+					else
+					{
+						myTable += "<div style='height:2.5em;overflow:hidden;'>";
+					}
+					myTable += "<strong id='" + titleid + bookID + "' >"
+							+ title + "</strong>";
+					myTable += "</div>";
+					if (bookedition != undefined) 
+					{
+						myTable += "<div>";
+						myTable += "<strong>" + bookedition + "</strong>";
+						myTable += "</div>";
+					}
+					myTable += "<label style='cursor:default;' title='"+ author + "'>" + authorshort + "</label>";
+					//Rajiv: http://jira.pearsoncmg.com/browse/ETEXT-1396
+					if (isExpiringWithinWarningPeriod != undefined && isExpiringWithinWarningPeriod=='true') 
+					{
+						myTable += "<div>";
+						//myTable += "<strong>" + "Expires on "+expirationDate+ "</strong>";
+						myTable += "<strong>" + expiring.format(expirationDate)+ "</strong>";
+						myTable += "</div>";
+					}
+					
+					myTable += "<div>";
+					myTable += "<span class='expired'>" + lockedForPublishing + "</span>";
+					myTable += "</div>";
+					
+					//Check if subscription URL is configured or not. If not configured then do not add renew subscription link
+					myTable += "</div>";
+					myTable += "</li>";
+				}
+			}
+			
+	}
+		myTable += "</ul></div>";
+
+		$("#wrapper").append(myTable);
+		$(".openbook").click(openBookHandler);
+	
+	//setWidthOfElements();
+	displayBookshelf();
+	//set show/hide status
+	if ( showExpiredBooksStatus =='Y')
+	{
+		//in this case show expired book
+		$('#hide').show();
+		$('#show').hide();
+		$(".bookColumnhide").show();
+	}
+	else
+	{
+		//in this case hide expired book
+		$('#hide').hide();
+		$('#show').show();
+		$(".bookColumnhide").hide();
+	}
+}
+
+
+// Created by HA to fix Double click issues ETEXT-3136 and ETEXT-3138
+function openBookHandler(e){
+    e.preventDefault();
+//    console.log("a");
+    $(this).unbind('click');
+    
+    openBook($(this).attr('data-appserverURL'), 
+    		$(this).attr('data-bookID'),
+    		$(this).attr('data-languageID'),
+    		$(this).attr('data-scenario'),
+    		$(this).attr('data-sessionID'),
+    		$(this).attr('data-isipad'),
+    		$(this).attr('data-smsUserID'),
+    		$(this).attr('data-userDateUpdate'),
+    		$(this).attr('data-userBookDateUpdate'),
+    		$(this).attr('data-userBookScenarioDateUpdate'),
+    		$(this).attr('data-fromLoginPage'),
+    		$(this).attr('data-platform'));    		
+//    setTimeout(function(){$(".openbook").click(openBookHandler);}, 500);
+}
+
+function resizeBookShelfContentHeight(elementID) {
+	element = document.getElementById(elementID);
+	var height = 0;
+	var body = window.document.body;
+	if (window.innerHeight) {
+		height = window.innerHeight;
+	} else if (body.parentElement.clientHeight) {
+		height = body.parentElement.clientHeight;
+	} else if (body && body.clientHeight) {
+		height = body.clientHeight;
+	}
+	var calHeight = height - element.offsetTop - 22; //15- for footer
+	//element.style.height = ((height - element.offsetTop-element.offsetBottom) + "px");
+	element.style.height = calHeight + "px";
+}
+function loadBooks() {
+		ajaxFunction();
+}
+$(window).resize( function() {
+	if($('#wrapper').size())	
+		resizeBookShelfContentHeight('wrapper');
+});
+
+function fixImageDetails(sText, sWidth) {
+	var sLen = sText.length;
+	var nText = "";
+	var fullText = sText;
+	if (sWidth < sLen) {
+		nText = sText.substring(0, sWidth) + '...';
+	} else {
+		nText = sText;
+		if (nText.substring(nText.length - 1, nText.length) == ',') {
+			nText = sText.substring(0, sText.length - 1);
+		}
+	}
+	return (nText);
+}
+function imageOver(id) {
+	$('#thumbnail' + id).removeClass('image').addClass('shadow');
+	$('#title' + id).css('text-decoration', 'underline');
+}
+function imageOut(id) {
+	$('#thumbnail' + id).removeClass('shadow').addClass('image');
+	$('#title' + id).css('text-decoration', 'none');
+}
+
+function hide(id) 
+{
+	var showExpiredBook;
+	var method;
+
+	if (id == 'hide') {
+		$('#hide').hide();
+		$('#show').show();
+		$(".bookColumnhide").hide();
+		showExpiredBook = "N";
+		method = "save";
+	}
+	if (id == 'show') {
+		$('#hide').show();
+		$('#show').hide();
+		$(".bookColumnhide").show();
+		showExpiredBook = "Y";
+		method = "save";
+	}
+	ajaxFunctionForShowHideExpiredBook(showExpiredBook, method);
+}
+
+function ajaxFunctionForShowHideExpiredBook(showExpiredBook, method) 
+{
+	if (xmlhttp) 
+	{
+		var randomnumber = Math.floor(Math.random()*1000);
+		var userID = $('#userID').val();		
+		var scenarioID = $('#scenario').val();	//scenario in number	 
+		xmlhttp.open("POST", "/ebook/showhideexpiredbooks", false); //getname will be the servlet name	
+		xmlhttp.onreadystatechange = handleServerResponseForShowHideExpiredBook;
+		xmlhttp.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+		var queryString = "userID=" + userID + "&scenarioID=" + scenarioID + "&showExpiredBook=" + showExpiredBook + "&method=" + method+ "&randomnumber=" + randomnumber;		
+		xmlhttp.send(queryString);
+	}	
+}
+
+
+function handleServerResponseForShowHideExpiredBook() {
+	if (xmlhttp.readyState == 4) {
+
+		if (xmlhttp.status == 200) {
+			//alert(xmlhttp.responseText);
+			json = xmlhttp.responseText;
+		} else {
+			alert("Error during AJAX call. Please try again");
+		}
+	}
+}
+/**
+ * This method is used to launch the book from federated bookshelf. It launch the book as per book server URL.
+ * @param appserverURL
+ * @param bookID
+ * @param userID
+ * @param languageid
+ * @param sessionID
+ * @param scenario
+ * @param invokeType
+ * @param isipad
+ * @param smsUserID
+ * @param uid
+ * @param ubd
+ * @param ubsd
+ * @returns {Boolean}
+ */
+function openBook(appserverURL, 
+				  bookID, 
+				  languageID,
+				  scenario, //this should be in number for example 1, 8, 12 etc
+				  sessionID,
+				  isipad,
+				  smsUserID,  
+				  userDateUpdate, 
+				  userBookDateUpdate, 
+				  userBookScenarioDateUpdate,fromLoginPage, 
+				  platform) 
+{
+	//set this parameter to avoid session kill
+	validNavigation=true;
+	var secureCookieValue = $('#secureCookieValue').val();
+	
+	// Added by Amit on 8/21/2012 for ETEXT-1527
+	var rumbaLogin = $('#rumbaLogin').val();
+	var etextURLParam = "";
+	var etextURL = "";
+	//Mohit : changes for ETEXT-3503
+	if(window.location.protocol === "https:")
+	{
+		etextURL= appserverURL.replace(/^http?:\/\//, 'https://')+"/ebook/launcheText.do?";
+	}
+	else
+	{
+		etextURL = appserverURL+"/ebook/launcheText.do?";
+	}
+	//Mohit end changes		
+	var scenarioid = "scenario" + scenario;
+	$(window).unbind('resize');
+	
+	etextURLParam += "values=launchedfrombookshelf::Y::bookID::" + bookID + 				 
+				"::languageid::" + languageID + 
+				"::sessionID::"+ sessionID + "::scenario::" + scenario + 
+				"::launchState::"+ "goToEBook" + "::invokeType::lms"+
+				"::scenarioid::" + scenarioid + "::smsUserID::"+smsUserID+"::fromloginpage::"+fromLoginPage;
+	
+		if(platform != undefined)
+		{
+			etextURLParam=etextURLParam+"::platform::"+platform;
+		}	
+	
+		if(userDateUpdate != undefined)
+		{
+			etextURLParam=etextURLParam+"::uid::"+userDateUpdate;
+		}
+		
+		if(userBookDateUpdate != undefined)
+		{
+			etextURLParam=etextURLParam+"::ubd::"+userBookDateUpdate;
+		}
+		
+		if(userBookScenarioDateUpdate != undefined)
+		{
+			etextURLParam=etextURLParam+"::ubsd::"+userBookScenarioDateUpdate;
+		}
+		
+		// Added by Amit on 8/21/2012 for ETEXT-1527
+		if (rumbaLogin != undefined && rumbaLogin !='')
+		{
+			etextURLParam=etextURLParam+"::rumbaLogin::"+rumbaLogin;
+		}
+		
+		var hasKey = hex_md5(etextURLParam+secureCookieValue);
+		
+		etextURL  = etextURL + etextURLParam +"::hsid::"+hasKey;
+		
+	//launch book in same window
+	window.location.href = etextURL;
+	return true;
+
+}
+//ETEXT:2240 - commented by Pranjali as help links are available from resource sheets 
+/*function openHelpLink(link, viewerHelpID) {
+	
+
+		url = link.split("en")[0];
+		if (viewerHelpID == 1) {
+			url = url + "en/6-20/";
+			//url = url+"en/cg-k-2/default.htm";
+		}
+		// Standard English
+		if (viewerHelpID == 15) {
+			url = url + "en/6-20/";
+			//url = url+"en/cg-k-2/default.htm";
+		}
+	
+		// Standard Spanish
+		if (viewerHelpID == 16) {
+			url = url + "es/6-20/";
+			//url = url+"en/cg-k-2/default.htm";
+		}
+	
+		// Standard Italian
+		if (viewerHelpID == 17) {
+			url = url + "it/6-20/";
+			//url = url+"en/cg-k-2/default.htm";
+		}
+	
+		// Standard French
+		if (viewerHelpID == 18) {
+			url = url + "fr/6-20/";
+			//url = url+"en/cg-k-2/default.htm";
+		}
+	
+		// Standard German
+		if (viewerHelpID == 19) {
+			url = url + "de/6-20/";
+			//url = url+"en/cg-k-2/default.htm";
+		}
+	
+		// Standard Dutch
+		if (viewerHelpID == 20) {
+			url = url + "nl/6-20/";
+			//url = url+"en/cg-k-2/default.htm";
+		}
+	
+		// Standard Portuguese
+		if (viewerHelpID == 21) {
+			url = url + "pt-br/6-20/";
+			//url = url+"en/cg-k-2/default.htm";
+		}
+	
+		// Standard Japanese
+		if (viewerHelpID == 22) {
+			url = url + "ja/6-20/";
+			//url = url+"en/cg-k-2/default.htm";
+		}
+		// Standard Swedish
+		if (viewerHelpID == 23) {
+			url = url + "sv/6-20/";
+			//url = url+"en/cg-k-2/default.htm";
+		}
+		// Standard  Chinese
+		if (viewerHelpID == 24) {
+			url = url + "zh-cn/6-20/";
+			//url = url+"en/cg-k-2/default.htm";
+		}
+		// Standard  Korean
+		if (viewerHelpID == 35) {
+			url = url + "ko/6-20/";
+			//url = url+"en/cg-k-2/default.htm";
+		}
+		// Standard  Turkish
+		if (viewerHelpID == 36) {
+			url = url + "tr/6-20/";
+	
+		}
+		// Standard  Norwegian
+		if (viewerHelpID == 37) {
+			url = url + "no/6-20/";
+	
+		}
+	
+		// Standard  Traditional Mandarin
+		if (viewerHelpID == 38) {
+			url = url + "zh-tw/6-20/";
+		}
+		//Standard British English
+		if (viewerHelpID == 39) {
+			url = url + "en-gb/6-20/"; //For Standard
+		}
+		//Standard Arabic
+		if (viewerHelpID == 41) {
+			url = url + "ar-ar/6-20/"; //For Standard
+		}
+	
+		// Elementary  English
+		if (viewerHelpID == 25) {
+			url = url + "en/elementary/";
+			//url = url+"en/cg-k-2/default.htm";
+		}
+		// Elementary  Spanish
+		if (viewerHelpID == 26) {
+			url = url + "es/elementary/";
+			//url = url+"en/cg-k-2/default.htm";
+		}
+		// Elementary  Italian
+		if (viewerHelpID == 27) {
+			url = url + "it/elementary/";
+			//url = url+"en/cg-k-2/default.htm";
+		}
+		// Elementary  French
+		if (viewerHelpID == 28) {
+			url = url + "fr/elementary/";
+			//url = url+"en/cg-k-2/default.htm";
+		}
+		// Elementary  German
+		if (viewerHelpID == 29) {
+			url = url + "de/elementary/";
+			//url = url+"en/cg-k-2/default.htm";
+		}
+		// Elementary  Dutch
+		if (viewerHelpID == 30) {
+			url = url + "nl/elementary/";
+			//url = url+"en/cg-k-2/default.htm";
+		}
+	
+		// Elementary  Portuguese
+		if (viewerHelpID == 31) {
+			url = url + "pt-br/elementary/";
+			//url = url+"en/cg-k-2/default.htm";
+		}
+		// Elementary  Japanese
+		if (viewerHelpID == 32) {
+			url = url + "ja/elementary/";
+			//url = url+"en/cg-k-2/default.htm";
+		}
+		// Elementary  Swedish
+		if (viewerHelpID == 33) {
+			url = url + "sv/elementary/";
+			//url = url+"en/cg-k-2/default.htm";
+		}
+		// Elementary  Chinese
+		if (viewerHelpID == 34) {
+			url = url + "zh-cn/elementary/";
+			//url = url+"en/cg-k-2/default.htm";
+		}
+		//Elementary British English
+		if (viewerHelpID == 40) {
+			url = url + "en-gb/elementary/"; //For Elementary
+		}
+		//Elementary Arabic
+		else if (viewerHelpID == 42) {
+			url = url + "ar-ar/elementary/"; //For Elementary
+		}
+	
+	openHelp(url, "HelpWindow");
+	
+}*/
+/**
+ *On everyclick of help file; it opens a new window. 
+ *Ideally it should open only one window even after multiple clicks of user
+ */	
+
+var helpWindow;
+function openHelp (url, name)
+{
+	if(url == "" || url == null){
+		url="http://help.pearsoncmg.com/etext/viewer4/en/6-20/";
+	}
+  if (helpWindow != undefined)
+  {
+	  if(!helpWindow.closed && helpWindow.focus)
+	  {
+		  helpWindow.location.href= url;
+		  helpWindow.focus();
+	  }
+	  else
+	  {
+		  helpWindow = window.open(url,name);
+	  }
+  }
+  else
+  {
+	  helpWindow = window.open(url,name);
+  }
+}
+
+
+function logout(smsUserID, platform, languageid, scenario, invokeType,pageid,fromLoginPage, rumbaLogin) 
+{	
+	//get sessionID
+	var sessionID = $('#sessionID').val();
+	//Create the logout URL
+	var logoutURL="/ebook/ebookLogout.do?";
+	
+	//Check for scenario
+	if(scenario != undefined && scenario !='')
+	{
+		logoutURL+="scenario="+scenario;
+	}
+	if(fromLoginPage != undefined && fromLoginPage !='')
+	{
+		logoutURL+="&fromloginpage="+fromLoginPage;
+	}
+	//Check for sessionID
+	if(sessionID != undefined && sessionID !='')
+	{
+		logoutURL+="&sessionID="+sessionID;
+	}
+	
+	//Check for scenario
+	if(invokeType != undefined && invokeType !='')
+	{
+		logoutURL+="&invokeType="+invokeType;
+	}
+	//In S16 standalone i.e. schoolLogin.do  RUMBA session is not getting killed- It will be always YES
+	if (rumbaLogin != undefined && rumbaLogin !='')
+	{
+		logoutURL+="&rumbaLogin="+rumbaLogin;
+	}
+	//Check for platform
+	if(platform != undefined && platform != '')
+	{
+		logoutURL+="&platform="+platform;	
+	}
+	//Check for langauge id
+	if(languageid != undefined && languageid!='')
+	{
+		logoutURL+="&languageid="+languageid;	
+	}
+	
+	
+	//Check for user ID
+	if(smsUserID != undefined && smsUserID !='')
+	{
+		logoutURL+="&smsUserID="+smsUserID;
+	}
+	
+	//Set logut URL
+	document.bookShelfForm.action = logoutURL;
+	//submit the logout URL		
+	document.bookShelfForm.submit();
+	
+}
+
+function submitFeedback(feedbackThanksMessage) {      
+
+  if(xmlhttp) { 
+  
+	var message =  document.getElementById('feedbackMessage').value;		
+	
+	var topic=document.getElementById('topic').value;
+	
+	if(	message != "" && message != 'undefined' && message != null && topic != 0)
+	{
+		var trimmedMessage = $.trim(message);
+		
+		if(trimmedMessage != "")
+		{
+			xmlhttp.open("POST","/ebook/savefeedback",false); //getname will be the servlet name
+	
+			xmlhttp.onreadystatechange  = handleFeedbackResponse;   
+			
+			xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded'); 	
+		   
+		   	if(page == "" || page == 'undefined' || page == null)
+		   	{
+		   		xmlhttp.send("userId=" + user 
+					+ "&topic=" + topic 
+					+ "&message=" + trimmedMessage
+					+ "&bookid=" + book
+					);
+		   	}
+		 	else
+		 	{
+		 		xmlhttp.send("userId=" + user 
+					+ "&topic=" + topic 
+					+ "&message=" + trimmedMessage
+					+ "&bookid=" + book
+					+ "&page=" + page
+					);
+		 	}
+		}			  	
+	}
+    
+  }
+
+}
+
+function handleFeedbackResponse() {
+	if (xmlhttp.readyState == 4) {
+
+         
+
+     if(xmlhttp.status == 200) {
+		
+		$("#feedbackDiv").append($("#TB_ajaxContent").children());
+		$("#page").val("");
+		$("#topic").val("0");
+		$("#feedbackMessage").val("");
+		
+		if(language_id == 19)
+		{
+			document.getElementById("TB_ajaxContent").style.direction = "rtl";
+		}
+		
+		document.getElementById('TB_ajaxContent').innerHTML=feedbackThanksMessage;		
+		
+        }
+
+     else {
+
+        alert("Error during AJAX call. Please try again");
+
+     }
+
+   }
+}
+
+function openFeedback(firstname, lastname, userid, bookid, languageid, pagenumber) {	
+	
+	//alert("openFeedback alert !! firstname:" +firstname +"lastname:" + lastname+ "userid:"+ userid +"bookid:" +bookid +"languageid" + languageid);
+	//alert("#" +document.getElementById("feedbackMessage"));
+	
+	language_id = languageid;		
+	
+	if(language_id == 19)
+	{
+		document.getElementById("feedbackMessage").style.textalign = "right";
+		document.getElementById("feedbacktable").style.direction = "rtl";  
+	}
+	else
+	{
+		document.getElementById("feedbackMessage").style.textalign = "left";
+		document.getElementById("feedbacktable").style.direction = "ltr";
+	}
+	
+	$('#TB_ajaxContent.TB_modal').css({height:"300px"});
+	
+	var xmlhttp = new getXMLObject();
+	
+	xmlhttp.open("POST","/ebook/getfeedbacktopic",false); //getname will be the servlet name
+	
+	xmlhttp.onreadystatechange  = function () {
+	
+	if (xmlhttp.readyState == 4) {
+
+         
+
+     if(xmlhttp.status == 200) {
+		
+			feedbackResponseJson = xmlhttp.responseText;   		
+		 			
+            parseFeedbackResponse();
+         
+        }
+
+     else {
+
+        alert("Error during AJAX call. Please try again");
+
+     }
+
+   	}
+	
+	}   
+	
+	xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+   
+    xmlhttp.send("languageid=" + languageid); 	
+    
+    document.getElementById("submitbutton").value = feedbacksubmitbutton;
+	
+	user = userid;
+	
+	book = bookid;
+	
+	page = pagenumber;
+	
+	var label = lname + "," + lpage + "," + ltopic + "," + lmessage;
+	var name = firstname + " " + lastname;
+    var layoutDirection = (language_id == 19) ? "rtl" : "ltr"; // [Jason Hanson] New param that tells thickbox.js to draw the title bar "rtl" or "lrt". Default is "ltr"
+	var feedbackurl = "#TB_inline?height=350&width=400&name="
+			+ name
+			+ "&topicname="
+			+ topic
+			+ "&topicID="
+			+ topicid
+			+ "&userid="
+			+ user
+			+ "&bookid="
+			+ book
+			+ "&label="
+			+ label
+			+ "&choose="
+			+ choose
+			+ "&inlineId=feedbackDiv&modal=true&pagenumber="
+            + pagenumber
+            + "&layoutDirection="
+            + layoutDirection;
+	
+	//Added by Pranjali for ETEXT-2664 and ETEXT-2582		
+	tb_show_bookshelf(feedbackTitle, feedbackurl);
+	
+	//Pracheta: Logic to display feedback pop up removed from thickbox.js and added here
+	renderFeedback(feedbackTitle, feedbackurl, language_id);	
+	
+	var browser =  browserCheck();
+
+	if (browser == 'true'){
+
+	document.getElementById("feedbackDiv").style.top = "20%";
+
+	}
+
+}
+
+function renderFeedback (feedbackTitle, feedbackurl, language_id)
+{
+    /*
+    // [Jason Hanson] This logic is not performed in thickbox.js by you sending along a query string param of languageDirection="rtl" or languageDirection="ltr"
+	if(language_id == 19)
+	{
+		$("#TB_window").prepend("<div id='TB_title'><div id='TB_ajaxWindowTitle' style='float: right;'>" + feedbackTitle + "</div><div id='TB_closeAjaxWindow' style='float: left;'><a href='#' id='TB_closeWindowButton'><strong>x</strong></a></div></div>");
+	}
+	else
+	{
+		$("#TB_window").prepend("<div id='TB_title'><div id='TB_ajaxWindowTitle' style='float: left;'>" + feedbackTitle + "</div><div id='TB_closeAjaxWindow''><a href='#' id='TB_closeWindowButton'><strong>x</strong></a></div></div>");
+	}
+	*/
+
+    // [Jason Hanson] Note that style float is not set here anymore. Also, it is not set in the CSS. Only set in thickbox.js now
+    $("#TB_window").prepend("<div id='TB_title'><div id='TB_ajaxWindowTitle'>" + feedbackTitle + "</div><div id='TB_closeAjaxWindow''><a href='#' id='TB_closeWindowButton'><strong>x</strong></a></div></div>");
+
+    //alert("# feedback url"+feedbackurl);
+    var queryString = feedbackurl.replace(/^[^\?]+\??/, '');
+    
+	populateFeedbackResources(queryString);
+   
+    $("#TB_closeWindowButton").click(tb_remove);
+}
+
+function populateFeedbackResources (queryString) {
+
+//alert("queryString"+ queryString);
+	var params = tb_parseQuery(queryString);
+    var name = params['name'];
+    var topicid = params['topicID'];
+    var topic = params['topicname'];
+    var user = params['userid'];
+    var bookid = params['bookid'];
+    var label = params['label'];
+    var choose = params['choose'];  
+   	var pagenumber = params['pagenumber'];
+    
+    topicid = topicid.substring(0, topicid.length - 1);
+    topic = topic.substring(0, topic.length - 1);   
+    var arrlabel = new Array();
+    arrlabel = label.split(",");
+    var arrtopic = new Array();
+    arrtopic = topic.split(",");
+    var arrtopicid = new Array();
+    arrtopicid = topicid.split(",");    
+    
+    document.getElementById("name").innerHTML = name;    
+    
+    document.getElementById("lname").innerHTML = arrlabel[0] + ":";
+    if(bookid != 0)
+    {
+    	document.getElementById("lpage").innerHTML = arrlabel[1] + "#:";
+    	document.getElementById("page").value = pagenumber;
+    }    
+    document.getElementById("ltopic").innerHTML = arrlabel[2] + ":";
+    document.getElementById("lmessage").innerHTML = arrlabel[3] + ":";
+    
+    if (counter == 0)
+    {   
+    	counter++;
+    	
+    	var select = document.getElementById("topic");
+	    var optn = "";
+	    optn = document.createElement("OPTION");
+	    optn.text = choose;
+	    optn.value = "0";
+	    select.options.add(optn);
+	    for (var i = 0; i < arrtopic.length; i++) {
+	        optn = document.createElement("OPTION");
+	        optn.text = arrtopic[i];
+	        optn.value = arrtopicid[i];
+	        select.options.add(optn);
+	    }
+    
+    }
+//    $('#TB_ajaxContent.TB_modal').css({height:"300px"});
+    $("#TB_load").remove();
+    $("#TB_window").css({display:"block"});
+
+}
+
+function getXMLObject() //XML OBJECT
+{
+	var xmlHttp = false;
+	try {
+		xmlHttp = new ActiveXObject("Msxml2.XMLHTTP") // For Old Microsoft Browsers
+	} catch (e) {
+		try {
+			xmlHttp = new ActiveXObject("Microsoft.XMLHTTP") // For Microsoft IE 6.0+
+		} catch (e2) {
+			xmlHttp = false // No Browser accepts the XMLHTTP Object then false
+		}
+	}
+	if (!xmlHttp && typeof XMLHttpRequest != 'undefined') {
+		xmlHttp = new XMLHttpRequest(); //For Mozilla, Opera Browsers
+	}
+	return xmlHttp; // Mandatory Statement returning the ajax object created
+}
+
+var xmlhttp = new getXMLObject(); //xmlhttp holds the ajax object
+
+function ajaxFunction() {
+	if (xmlhttp) {
+		var userID = $('#userID').val();		
+		var scenario = $('#scenario').val();		
+		var language = $('#languageid').val();
+		xmlhttp.open("POST", "/ebook/getbookshelf", false); //getname will be the servlet name	
+		xmlhttp.onreadystatechange = handleServerResponse;
+		xmlhttp.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+		var queryString = "userid=" + userID + "&scenario=" + scenario + "&languageid=" + language;
+		//alert("queryString: "+ queryString );
+		xmlhttp.send(queryString);
+	}	
+	
+}
+
+function handleServerResponse() {
+	if (xmlhttp.readyState == 4) {
+
+		if (xmlhttp.status == 200) {
+			json = xmlhttp.responseText;
+			parseResult('show');
+		} else {
+			alert("Error during AJAX call. Please try again");
+		}
+	}
+}
+
+
+function browserCheck() {
+
+    var nVer = navigator.appVersion;
+
+    var nAgt = navigator.userAgent;
+
+    var browserName = navigator.appName;
+
+    var fullVersion = '' + parseFloat(navigator.appVersion);
+
+    var majorVersion = parseInt(navigator.appVersion, 10);
+
+    var nameOffset, verOffset, ix;
+
+
+
+    // In Opera, the true version is after "Opera" or after "Version"
+
+    if ((verOffset = nAgt.indexOf("Opera")) != -1) {
+
+          browserName = "Opera";
+
+          fullVersion = nAgt.substring(verOffset + 6);
+
+          if ((verOffset = nAgt.indexOf("Version")) != -1)
+
+                fullVersion = nAgt.substring(verOffset + 8);
+
+    }
+
+    // In MSIE, the true version is after "MSIE" in userAgent
+
+    else if ((verOffset = nAgt.indexOf("MSIE")) != -1) {
+
+          browserName = "Microsoft Internet Explorer";
+
+          return 'true';
+
+          fullVersion = nAgt.substring(verOffset + 5);
+
+    }
+
+    // In Chrome, the true version is after "Chrome"
+
+    else if ((verOffset = nAgt.indexOf("Chrome")) != -1) {
+
+          browserName = "Chrome";
+
+          fullVersion = nAgt.substring(verOffset + 7);
+
+    }
+
+    // In Safari, the true version is after "Safari" or after "Version"
+
+    else if ((verOffset = nAgt.indexOf("Safari")) != -1) {
+
+          browserName = "Safari";
+
+          fullVersion = nAgt.substring(verOffset + 7);
+
+          if ((verOffset = nAgt.indexOf("Version")) != -1)
+
+                fullVersion = nAgt.substring(verOffset + 8);
+
+    }
+
+    // In Firefox, the true version is after "Firefox"
+
+    else if ((verOffset = nAgt.indexOf("Firefox")) != -1) {
+
+          browserName = "Firefox";
+
+          fullVersion = nAgt.substring(verOffset + 8);
+
+    }
+
+    // In most other browsers, "name/version" is at the end of userAgent
+
+    else if ((nameOffset = nAgt.lastIndexOf(' ') + 1) < (verOffset = nAgt
+
+                .lastIndexOf('/'))) {
+
+          browserName = nAgt.substring(nameOffset, verOffset);
+
+          fullVersion = nAgt.substring(verOffset + 1);
+
+          if (browserName.toLowerCase() == browserName.toUpperCase()) {
+
+                browserName = navigator.appName;
+
+          }
+
+    }
+
+    // trim the fullVersion string at semicolon/space if present
+
+    if ((ix = fullVersion.indexOf(";")) != -1)
+
+          fullVersion = fullVersion.substring(0, ix);
+
+    if ((ix = fullVersion.indexOf(" ")) != -1)
+
+          fullVersion = fullVersion.substring(0, ix);
+
+
+    majorVersion = parseInt('' + fullVersion, 10);
+
+    if (isNaN(majorVersion)) {
+
+          fullVersion = '' + parseFloat(navigator.appVersion);
+
+          majorVersion = parseInt(navigator.appVersion, 10);
+
+    }
+
+    //document.write('' + 'Browser name  = ' + browserName + '<br>'
+
+    //          + 'Full version  = ' + fullVersion + '<br>' + 'Major version = '
+
+    //          + majorVersion + '<br>' + 'navigator.appName = '
+
+    //          + navigator.appName + '<br>' + 'navigator.userAgent = '
+
+    //          + navigator.userAgent + '<br>')
+
+} 
+
+
+jSA÷/      WVÝPWVÝP<‰þlWbv€   I    :https://view.ebookplus.pearsoncmg.com/ebook/javascript/bookShelf_4.14.js necko:classified 1 security-info FnhllAKWRHGAlo+ESXykKAAAAAAAAAAAwAAAAAAAAEaphjojH6pBabDSgSnsfLHeAAQAAgAAAAAAAAAAAAAAAAAAAAAB4vFIJp5wRkeyPxAQ9RJGKPqbqVvKO0mKuIl8ec8o/uhmCjImkVxP+7sgiYWmMt8FvcOXmlQiTNWFiWlrbpbqgwAAAAAAAAhfMIIIWzCCB0OgAwIBAgIRAL1zMhGh29ipMJTT780D1gQwDQYJKoZIhvcNAQELBQAwgZYxCzAJBgNVBAYTAkdCMRswGQYDVQQIExJHcmVhdGVyIE1hbmNoZXN0ZXIxEDAOBgNVBAcTB1NhbGZvcmQxGjAYBgNVBAoTEUNPTU9ETyBDQSBMaW1pdGVkMTwwOgYDVQQDEzNDT01PRE8gUlNBIE9yZ2FuaXphdGlvbiBWYWxpZGF0aW9uIFNlY3VyZSBTZXJ2ZXIgQ0EwHhcNMTQxMDE1MDAwMDAwWhcNMTcwNjMwMjM1OTU5WjCBwTELMAkGA1UEBhMCVVMxDjAMBgNVBBETBTA3Njc1MQswCQYDVQQIEwJOSjETMBEGA1UEBxMKT2xkIFRhcHBhbjEaMBgGA1UECRMRMjAwIE9sZCBUYXBwYW4gUmQxIDAeBgNVBAoTF1BlYXJzb24gRWR1Y2F0aW9uLCBJbmMuMR8wHQYDVQQLExZVbmlmaWVkIENvbW11bmljYXRpb25zMSEwHwYDVQQDExhlYm9va3BsdXMucGVhcnNvbmNtZy5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDhK6liBN8NJsz1UDL0HlpwOxxpBOozgKgR5sFY2DbtjPhrL8uCr/kMZI4GlL6iwUS+qRYFDfZnEOrTBRKBzrY04W0f37zRkfr1BlfPSS6oeLTIOlbub+R+1SdAhpHD19kUQuvaDySk8IMWyNV1GzqUre1eFx1+YuBh3ym66gmj1zMlqSMT0S8E+bvpIMuU6Li4waaEcj6KBjqjNsDwZu/H9SkSo0UIS4WjNjVGL5tuEMs5vbxl9BeEvb7tneV5neGiaIUZ+318Nw8hbA676qafHYgd5TBOBf/UkGO2kGuO45fqd5klvrVyr+GZPklvEAz/8ax0iIHeT1Edv7uNNvPnAgMBAAGjggR1MIIEcTAfBgNVHSMEGDAWgBSa8yvaz61Pti+7KkhIKhK3G0LBJDAdBgNVHQ4EFgQUHTDjUkH2GjE44t0HyztdQccxv5EwDgYDVR0PAQH/BAQDAgWgMAwGA1UdEwEB/wQCMAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMFAGA1UdIARJMEcwOwYMKwYBBAGyMQECAQMEMCswKQYIKwYBBQUHAgEWHWh0dHBzOi8vc2VjdXJlLmNvbW9kby5jb20vQ1BTMAgGBmeBDAECAjBaBgNVHR8EUzBRME+gTaBLhklodHRwOi8vY3JsLmNvbW9kb2NhLmNvbS9DT01PRE9SU0FPcmdhbml6YXRpb25WYWxpZGF0aW9uU2VjdXJlU2VydmVyQ0EuY3JsMIGLBggrBgEFBQcBAQR/MH0wVQYIKwYBBQUHMAKGSWh0dHA6Ly9jcnQuY29tb2RvY2EuY29tL0NPTU9ET1JTQU9yZ2FuaXphdGlvblZhbGlkYXRpb25TZWN1cmVTZXJ2ZXJDQS5jcnQwJAYIKwYBBQUHMAGGGGh0dHA6Ly9vY3NwLmNvbW9kb2NhLmNvbTCCArQGA1UdEQSCAqswggKnghhlYm9va3BsdXMucGVhcnNvbmNtZy5jb22CImxpdmUucHBlMS5lYm9va3BsdXMucGVhcnNvbmNtZy5jb22CImxpdmUucHBlMi5lYm9va3BsdXMucGVhcnNvbmNtZy5jb22CImxpdmUucHBlMy5lYm9va3BsdXMucGVhcnNvbmNtZy5jb22CLnJ1bWJhLmJvb2tzaGVsZi5jZXJ0MS5lYm9va3BsdXMucGVhcnNvbmNtZy5jb22CKHJ1bWJhLmJvb2tzaGVsZi5lYm9va3BsdXMucGVhcnNvbmNtZy5jb22CLXJ1bWJhLmJvb2tzaGVsZi5wcGUxLmVib29rcGx1cy5wZWFyc29uY21nLmNvbYIsc21zLmJvb2tzaGVsZi5jZXJ0MS5lYm9va3BsdXMucGVhcnNvbmNtZy5jb22CJnNtcy5ib29rc2hlbGYuZWJvb2twbHVzLnBlYXJzb25jbWcuY29tgitzbXMuYm9va3NoZWxmLnBwZTEuZWJvb2twbHVzLnBlYXJzb25jbWcuY29tgiJ2aWV3LmNlcnQxLmVib29rcGNsLnBlYXJzb25jbWcuY29tgiN2aWV3LmNlcnQxLmVib29rcGx1cy5wZWFyc29uY21nLmNvbYIjdmlldy5jZXJ0Mi5lYm9va3BsdXMucGVhcnNvbmNtZy5jb22CI3ZpZXcuY2VydDMuZWJvb2twbHVzLnBlYXJzb25jbWcuY29tgh12aWV3LmVib29rcGx1cy5wZWFyc29uY21nLmNvbYIfdmlldy5ldGV4dC5ob21lMS5wZWFyc29uY21nLmNvbYIfdmlldy5ldGV4dC5ob21lMi5wZWFyc29uY21nLmNvbYIfdmlldy5ldGV4dC5ob21lMy5wZWFyc29uY21nLmNvbTANBgkqhkiG9w0BAQsFAAOCAQEAk3RkRCtHKdHs4/4L2zqZO/HIOHhLH8Z547bTEAi5wEE7qAaq9UFhZptP8xzcyGxK4Okt1pRnoiaHmeY4v7usqMmfd454TKVLVvvVYR3PlJJ7n85hfaWLmrZUc6Dhs5rNgnTgZPnb5jXusuYYE/En9kZj7TqAYaVpnB45/dwZ/RpysISQhikQ67gyjVZKRidNxHd9BiArGm39hJCNnnxYSv1TRwk2Oa6HlLqG24hyKPfdQnJA7CxiEZyTzbxrLMd006imjpe6zjLb48x0aT/5gJdCL/4SwPCKb2aNpwRPxVLpHYjP+oGnrAb0l5xPEuCQxNMzBWIzuO7ljOplP42TQwA1AAMAAAAAAQEAAA== request-method GET response-head HTTP/1.1 200 OK
+Accept-Ranges: bytes
+Etag: W/"38728-1457694440000"
+Last-Modified: Fri, 11 Mar 2016 11:07:20 GMT
+Content-Type: text/javascript
+Content-Length: 38728
+Date: Tue, 07 Jun 2016 14:19:42 GMT
+Server: Prod
+ uncompressed-len 0   —H

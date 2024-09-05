@@ -1,0 +1,212 @@
+Original cards:
+Queen of Spades
+Jack of Clubs
+Queen of Clubs
+8 of Diamonds
+Queen of Diamonds
+2 of Clubs
+Queen of Hearts
+
+
+Current pick: Three of a Kind
+2 of Clubs
+8 of Diamonds
+Queen of Clubs
+Queen of Diamonds
+Queen of Hearts
+
+*** Better hand found!
+New best hand: Three of a Kind
+2 of Clubs
+8 of Diamonds
+Queen of Clubs
+Queen of Diamonds
+Queen of Hearts
+
+Current pick: One Pair
+2 of Clubs
+8 of Diamonds
+Jack of Clubs
+Queen of Diamonds
+Queen of Hearts
+
+Current pick: Three of a Kind
+2 of Clubs
+Jack of Clubs
+Queen of Clubs
+Queen of Diamonds
+Queen of Hearts
+
+*** Better hand found!
+New best hand: Three of a Kind
+2 of Clubs
+Jack of Clubs
+Queen of Clubs
+Queen of Diamonds
+Queen of Hearts
+
+Current pick: One Pair
+2 of Clubs
+8 of Diamonds
+Jack of Clubs
+Queen of Clubs
+Queen of Hearts
+
+Current pick: Three of a Kind
+8 of Diamonds
+Jack of Clubs
+Queen of Clubs
+Queen of Diamonds
+Queen of Hearts
+
+*** Better hand found!
+New best hand: Three of a Kind
+8 of Diamonds
+Jack of Clubs
+Queen of Clubs
+Queen of Diamonds
+Queen of Hearts
+
+Current pick: One Pair
+2 of Clubs
+8 of Diamonds
+Jack of Clubs
+Queen of Clubs
+Queen of Diamonds
+
+Current pick: Three of a Kind
+2 of Clubs
+8 of Diamonds
+Queen of Spades
+Queen of Diamonds
+Queen of Hearts
+
+Current pick: Four of a Kind
+2 of Clubs
+Queen of Spades
+Queen of Clubs
+Queen of Diamonds
+Queen of Hearts
+
+*** Better hand found!
+New best hand: Four of a Kind
+2 of Clubs
+Queen of Spades
+Queen of Clubs
+Queen of Diamonds
+Queen of Hearts
+
+Current pick: Three of a Kind
+2 of Clubs
+8 of Diamonds
+Queen of Spades
+Queen of Clubs
+Queen of Hearts
+
+Current pick: Four of a Kind
+8 of Diamonds
+Queen of Spades
+Queen of Clubs
+Queen of Diamonds
+Queen of Hearts
+
+*** Better hand found!
+New best hand: Four of a Kind
+8 of Diamonds
+Queen of Spades
+Queen of Clubs
+Queen of Diamonds
+Queen of Hearts
+
+Current pick: Three of a Kind
+2 of Clubs
+8 of Diamonds
+Queen of Spades
+Queen of Clubs
+Queen of Diamonds
+
+Current pick: Three of a Kind
+2 of Clubs
+Jack of Clubs
+Queen of Spades
+Queen of Diamonds
+Queen of Hearts
+
+Current pick: One Pair
+2 of Clubs
+8 of Diamonds
+Jack of Clubs
+Queen of Spades
+Queen of Hearts
+
+Current pick: Three of a Kind
+8 of Diamonds
+Jack of Clubs
+Queen of Spades
+Queen of Diamonds
+Queen of Hearts
+
+Current pick: One Pair
+2 of Clubs
+8 of Diamonds
+Jack of Clubs
+Queen of Spades
+Queen of Diamonds
+
+Current pick: Three of a Kind
+2 of Clubs
+Jack of Clubs
+Queen of Spades
+Queen of Clubs
+Queen of Hearts
+
+Current pick: Four of a Kind
+Jack of Clubs
+Queen of Spades
+Queen of Clubs
+Queen of Diamonds
+Queen of Hearts
+
+*** Better hand found!
+New best hand: Four of a Kind
+Jack of Clubs
+Queen of Spades
+Queen of Clubs
+Queen of Diamonds
+Queen of Hearts
+
+Current pick: Three of a Kind
+2 of Clubs
+Jack of Clubs
+Queen of Spades
+Queen of Clubs
+Queen of Diamonds
+
+Current pick: Three of a Kind
+8 of Diamonds
+Jack of Clubs
+Queen of Spades
+Queen of Clubs
+Queen of Hearts
+
+Current pick: One Pair
+2 of Clubs
+8 of Diamonds
+Jack of Clubs
+Queen of Spades
+Queen of Clubs
+
+Current pick: Three of a Kind
+8 of Diamonds
+Jack of Clubs
+Queen of Spades
+Queen of Clubs
+Queen of Diamonds
+
+*** Best five-card hand ***
+Four of a Kind
+Jack of Clubs
+Queen of Spades
+Queen of Clubs
+Queen of Diamonds
+Queen of Hearts

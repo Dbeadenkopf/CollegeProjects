@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="sources" mtime="1499348885" type="list" ltype="string">
+		<li type="string">
+			<stringvalue>&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;group uid=&quot;1499348885.3689.12@vmlinux&quot; name=&quot;On This Computer&quot; base_uri=&quot;local:&quot; readonly=&quot;no&quot;&gt;&lt;source uid=&quot;1499348885.3689.14@vmlinux&quot; name=&quot;Personal&quot; relative_uri=&quot;system&quot;&gt;&lt;properties&gt;&lt;property name=&quot;completion&quot; value=&quot;true&quot;/&gt;&lt;/properties&gt;&lt;/source&gt;&lt;/group&gt;
+</stringvalue>
+		</li>
+		<li type="string">
+			<stringvalue>&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;group uid=&quot;1499348885.3689.13@vmlinux&quot; name=&quot;On LDAP Servers&quot; base_uri=&quot;ldap://&quot; readonly=&quot;no&quot;/&gt;
+</stringvalue>
+		</li>
+		<li type="string">
+			<stringvalue>&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;group uid=&quot;1499348885.3689.15@vmlinux&quot; name=&quot;WebDAV&quot; base_uri=&quot;webdav://&quot; readonly=&quot;no&quot;/&gt;
+</stringvalue>
+		</li>
+		<li type="string">
+			<stringvalue>&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;group uid=&quot;1499348885.3689.17@vmlinux&quot; name=&quot;Google&quot; base_uri=&quot;google://&quot; readonly=&quot;no&quot;/&gt;
+</stringvalue>
+		</li>
+	</entry>
+</gconf>

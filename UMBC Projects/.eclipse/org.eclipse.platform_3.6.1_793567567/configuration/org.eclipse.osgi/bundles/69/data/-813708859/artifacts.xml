@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?artifactRepository version='1.1.0'?>
+<repository name='/usr/lib64/eclipse/dropins/mylyn-java' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1.0.0'>
+  <properties size='1'>
+    <property name='p2.timestamp' value='1465901240230'/>
+  </properties>
+  <mappings size='3'>
+    <rule filter='(&amp; (classifier=osgi.bundle))' output='${repoUrl}/plugins/${id}_${version}.jar'/>
+    <rule filter='(&amp; (classifier=binary))' output='${repoUrl}/binary/${id}_${version}'/>
+    <rule filter='(&amp; (classifier=org.eclipse.update.feature))' output='${repoUrl}/features/${id}_${version}.jar'/>
+  </mappings>
+  <artifacts size='5'>
+    <artifact classifier='osgi.bundle' id='org.eclipse.mylyn.java.ui' version='3.4.0.v20100916-0100-e3x'>
+      <properties size='2'>
+        <property name='artifact.size' value='140900'/>
+        <property name='download.size' value='140900'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/mylyn-java/eclipse/plugins/org.eclipse.mylyn.java.ui_3.4.0.v20100916-0100-e3x.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/mylyn-java/eclipse/plugins/org.eclipse.mylyn.java.ui_3.4.0.v20100916-0100-e3x.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.mylyn.java.tasks' version='3.4.0.v20100916-0100-e3x'>
+      <properties size='2'>
+        <property name='artifact.size' value='14217'/>
+        <property name='download.size' value='14217'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/mylyn-java/eclipse/plugins/org.eclipse.mylyn.java.tasks_3.4.0.v20100916-0100-e3x.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/mylyn-java/eclipse/plugins/org.eclipse.mylyn.java.tasks_3.4.0.v20100916-0100-e3x.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.mylyn.ide.ant' version='3.4.0.v20100916-0100-e3x'>
+      <properties size='2'>
+        <property name='artifact.size' value='18591'/>
+        <property name='download.size' value='18591'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/mylyn-java/eclipse/plugins/org.eclipse.mylyn.ide.ant_3.4.0.v20100916-0100-e3x.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/mylyn-java/eclipse/plugins/org.eclipse.mylyn.ide.ant_3.4.0.v20100916-0100-e3x.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.mylyn.ide.ui' version='3.4.0.v20100916-0100-e3x'>
+      <properties size='2'>
+        <property name='artifact.size' value='27643'/>
+        <property name='download.size' value='27643'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/mylyn-java/eclipse/plugins/org.eclipse.mylyn.ide.ui_3.4.0.v20100916-0100-e3x.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/mylyn-java/eclipse/plugins/org.eclipse.mylyn.ide.ui_3.4.0.v20100916-0100-e3x.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.mylyn.java_feature' version='3.4.2.v20100916-0100-e3x'>
+      <properties size='3'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='4096'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+      <repositoryProperties size='3'>
+        <property name='artifact.folder' value='true'/>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/mylyn-java/eclipse/features/org.eclipse.mylyn.java_feature_3.4.2.v20100916-0100-e3x/'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/mylyn-java/eclipse/features/org.eclipse.mylyn.java_feature_3.4.2.v20100916-0100-e3x'/>
+      </repositoryProperties>
+    </artifact>
+  </artifacts>
+</repository>

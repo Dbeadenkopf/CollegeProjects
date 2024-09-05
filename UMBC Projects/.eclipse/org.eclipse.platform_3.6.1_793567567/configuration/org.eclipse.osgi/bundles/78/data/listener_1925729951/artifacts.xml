@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?artifactRepository version='1.1.0'?>
+<repository name='artifact listener dropins' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1'>
+  <properties size='3'>
+    <property name='p2.system' value='true'/>
+    <property name='p2.timestamp' value='1465901243466'/>
+    <property name='dropin.artifactRepositories' value='file:/usr/share/eclipse/dropins/rpm-editor/|file:/usr/share/eclipse/dropins/dtp-enablement/|file:/usr/share/eclipse/dropins/dtp-connectivity/|file:/usr/share/eclipse/dropins/emf/|file:/usr/share/eclipse/dropins/dtp-modelbase/|file:/usr/share/eclipse/dropins/subclipse-clientadapter/|file:/usr/share/eclipse/dropins/birt/|file:/usr/share/eclipse/dropins/dtp-sqldevtools/|file:/usr/share/eclipse/dropins/subclipse/|file:/usr/share/eclipse/dropins/gef/|file:/usr/share/eclipse/dropins/svnkit/|file:/usr/share/eclipse/dropins/rse/|file:/usr/share/eclipse/dropins/subclipse-clientadapter-svnkit/|file:/usr/share/eclipse/dropins/subclipse-clientadapter-javahl/|file:/usr/lib64/eclipse/dropins/mylyn-java/|file:/usr/lib64/eclipse/dropins/valgrind/|file:/usr/lib64/eclipse/dropins/changelog/|file:/usr/lib64/eclipse/dropins/oprofile/|file:/usr/lib64/eclipse/dropins/mylyn/|file:/usr/lib64/eclipse/dropins/jdt/|file:/usr/lib64/eclipse/dropins/callgraph/|file:/usr/lib64/eclipse/dropins/linuxprofilingframework/|file:/usr/lib64/eclipse/dropins/cdt/|file:/usr/lib64/eclipse/dropins/sdk/'/>
+  </properties>
+  <mappings size='3'>
+    <rule filter='(&amp; (classifier=osgi.bundle))' output='${repoUrl}/plugins/${id}_${version}.jar'/>
+    <rule filter='(&amp; (classifier=binary))' output='${repoUrl}/binary/${id}_${version}'/>
+    <rule filter='(&amp; (classifier=org.eclipse.update.feature))' output='${repoUrl}/features/${id}_${version}.jar'/>
+  </mappings>
+  <artifacts size='0'/>
+</repository>

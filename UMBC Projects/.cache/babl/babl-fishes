@@ -1,0 +1,15 @@
+#0.1.56 BABL_PATH_LENGTH=4 BABL_TOLERANCE=0.000005
+Y' u8
+Y u16
+	pixels=0 cost=45 error=0.000000
+	/usr/lib64/babl-0.1/sse4-int8.so 0: Y' u8 to Y' float
+	/usr/lib64/babl-0.1/sse2-float.so 0: Y' float to Y float
+	/usr/lib64/babl-0.1/simple.so 0: Y float to Y u16
+----
+Y u16
+Y' u8
+	pixels=0 cost=52 error=0.000000
+	/usr/lib64/babl-0.1/simple.so 0: Y u16 to Y float
+	/usr/lib64/babl-0.1/sse2-float.so 0: Y float to Y' float
+	/usr/lib64/babl-0.1/sse2-int8.so 0: Y' float to Y' u8
+----

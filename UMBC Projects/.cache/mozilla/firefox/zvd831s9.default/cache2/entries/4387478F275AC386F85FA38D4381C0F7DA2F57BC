@@ -1,0 +1,463 @@
+
+
+
+<!DOCTYPE html> 
+<html lang="en"> 
+  <head> 
+    <meta charset="utf-8" /> 
+
+    <title>CMSC 202 - Fall 2015 - Project 3</title> 
+
+    <link rel="shortcut icon" href="/courses/undergraduate/202/fall15_marron/favicon.ico" />
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall15_marron/css/style.css" />
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall15_marron/css/print.css" media="print" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script src="/courses/undergraduate/202/fall15_marron/js/jquery.cookie.js"></script>
+  </head> 
+  <body> 
+    <div id="wrapper"> 
+      <div id="header">
+	<h1><a href="/courses/undergraduate/202/fall15_marron/">CMSC 202 &mdash; 
+Fall 2015 &mdash; Prof. Marron</a></h1>
+	<div id="headerimg" class="donotprint"></div>
+	<div id="nav" class="donotprint">
+	  <ul>
+	    <li><a href="/courses/undergraduate/202/fall15_marron/">Home</a></li>
+	    <li><a href="/courses/undergraduate/202/fall15_marron/syllabus/">Syllabus</a></li>
+	    <li><a href="/courses/undergraduate/202/fall15_marron/schedule/">Schedule</a></li>
+	    <li><a href="/courses/undergraduate/202/fall15_marron/lectures/">Lectures</a></li>
+	    <li><a href="/courses/undergraduate/202/fall15_marron/labs/">Labs</a></li>
+	    <li><a href="/courses/undergraduate/202/fall15_marron/projects/">Projects</a></li>
+	    <li><a href="/courses/undergraduate/202/fall15_marron/exams/">Exams</a></li>
+	    <li><a href="/courses/undergraduate/202/fall15_marron/resources/">Resources</a></li>
+	    <li><a href="/courses/undergraduate/202/fall15_marron/faq/">FAQ</a></li>
+	    <li><a href="/courses/undergraduate/202/fall15_marron/staff/">Staff</a></li>
+	  </ul>
+	</div>
+      </div>
+      <div id="content">
+
+<!-- END HEADER -->
+
+
+
+
+<h1>Project 3</h1>
+
+<h2>Due: Thursday, October 29, 2015 9:00PM</h2>
+
+<p>
+<hr>
+
+<h4>Objectives</h4>
+
+<ol>
+  <li>Practice using C++ class syntax</li>
+  <li>Practice using C++ dynamic memory</li>
+  <li>Practice using linked lists</li>
+</ol>
+
+<P><HR>
+<h4>Background</h4>
+
+<p>
+  For this project, you will implement member functions of a
+  C++ <kbd>Polynomial</kbd> class that stores univariate polynomials
+  in linked lists.  You will also complete the implementation of
+  the <kbd>Node</kbd> class which describes linked list node.  You
+  will use C++ dynamic memory (<kbd>new</kbd> and <kbd>delete</kbd>)
+  to allocate and destory nodes in the linked lists.
+</p>
+
+<p>
+  Polynomials are of fundamental importance in mathemtics as even very
+  complex functions can often be approximated by polynomials.  In
+  addition, multi-precision numbers can be represented by
+  polynomials. For example, the 192-bit number
+</p>
+<pre>
+  1985008943614989521094070429257356021098061753208738173457
+</pre>
+<p>
+  is represented by the quadratic polynomial
+</p>
+<pre>
+  5833416998877842037 x^2 + 4432272967969985261 x + 10368951529917665809
+</pre>
+<p>
+  with x equal to 2<sup>64</sup>.  Each coefficient of the polynomial
+  requires at most 64 bits of storage, so this representation allows
+  us to store and manipulate very large numbers on a computer with a
+  64-bit word size.  This is especially useful for public key
+  cryptographic algorithms which typically require arithmetic
+  computations with large integers.
+</p>
+<p>
+  In addition to storing polynomials in linked lists, you will
+  implement functions to add, subtract, and mutiply polynomials; to
+  determine the degree of a polynomial; and to evaluate a polynomial
+  for a given value of <em>x</em>.  Lastly, you will overload the
+  insertion operator (<kbd><<</kbd>) to display a polynomial and the
+  assignment operator (<kbd>=</kbd>) to make a deep copy of
+  a <kbd>Polynomial</kbd> object.
+</p>
+
+
+<P><HR>
+<h4>Assignment</h4>
+
+<p>
+  Your assignment is to implement the member functions of the
+  classes <kbd>Polynomial</kbd> and <kbd>Node</kbd>, defined
+  below. A <kbd>Polynomial</kbd> object has a single
+  variable, <kbd>m_head</kbd>, which is a pointer to the first node in
+  the linked list.  Your linked list implementation must be
+  space-efficient, only storing what is necessary to represent the
+  polynomial.  The first node of a linked list must be a "dummy" node;
+  the code will be cleaner and easier to write if you can assume that
+  there is always at least one node in the linked list.
+</p>
+<p>
+  You must implement polynomial addition and subtraction
+  (the <kbd>add()</kbd> and <kbd>subtract()</kbd> functions)
+  efficiently, making a single pass through the linked lists of the
+  two operands.  Implementation of the remaining functions is fairly
+  straight-forward.
+</p>
+<hr>
+<xmp>
+#ifndef POLYNOMIAL_H
+#define POLYNOMIAL_H
+
+#include <iostream>
+#include "Node.h"
+
+using namespace std;
+
+class Polynomial {
+
+ public:
+
+  // Do not change the member function prototypes for
+  // any public member function.
+
+  // See documentation in Project 3 description.
+
+  Polynomial();
+  Polynomial(const Polynomial& p);
+  ~Polynomial();
+
+  void insertMonomial(long coeff, unsigned int deg);
+
+  Polynomial add(const Polynomial& p) const;
+  Polynomial subtract(const Polynomial& p) const;
+  Polynomial multiply(const Polynomial& p) const;
+
+  Polynomial modulo(const Polynomial& p) const;  // Extra Credit
+
+  unsigned int degree() const;
+  long evaluate(long x) const;
+
+  Polynomial& operator=(const Polynomial& p);
+  friend ostream& operator<<(ostream& sout, const Polynomial& p);
+
+ private:
+
+  // Do not change the declaration of m_head
+
+  Node *m_head;
+
+  // Declarations for Additional private member functions
+  // may be added below. Fully document these.
+
+};
+
+#endif
+</xmp>
+<hr>
+
+
+<P>
+Here are the requirements for the <kbd>Polynomial</kbd> member functions:
+</P>
+<ul>
+  <p>
+    <li>
+      <kbd>Polynomial();</kbd></br> The default constructor should set
+      up the host object as an empty linked list, containing only a
+      "dummy" node.
+    </li>
+    <li>
+      <kbd>Polynomial(const Polynomial& p);</kbd></br> The copy
+      constructor creates a new <kbd>Polynomial</kbd> object from an
+      existing one; it must make a "deep" copy.
+    </li>
+    <li>
+      <kbd>~Polynomial();</kbd></br> The destructor must
+      delete <em>all</em> the nodes of the linked list in
+      a <kbd>Polynomial</kbd> object.
+    </li>
+    <li>
+      <kbd>void insertMonomial(long coeff, unsigned int deg);</kbd></br> The
+      function inserts the monomial (<em>coeff</em> x<sup>deg</sup>)
+      into the linked list of the host object.  If a monomial of the
+      given degree is already present, it prints a warning message and
+      leaves the host object unchanged.
+    </li>
+    <li>
+      <kbd>Polynomial add(const Polynomial& p) const;</kbd></br> The
+      function returns the mathematical sum of the host object
+      and <kbd>p</kbd>.  The implementation must be efficient,
+      requiring only a single pass through each linked list.
+    </li>
+    <li>
+      <kbd>Polynomial subract(const Polynomial& p) const;</kbd></br>
+      The function returns the mathematical difference of the host
+      object and <kbd>p</kbd> (<kbd>host</kbd> - <kbd>p</kbd>).  The
+      implemenation must be efficieint (see <kbd>add()</kbd>, above).
+    </li>
+    <li>
+      <kbd>Polynomial multiply(const Polynomial& p) const;</kbd></br>
+      The functions returns the mathematical product of the host
+      polynomial and <kbd>p</kbd>.
+    </li>
+    <li>
+      <kbd>unsigned int degree() const;</kbd></br> The function returns the
+      degree (highest power of <em>x</em>) of the host object.
+    </li>
+    <li>
+      <kbd>long evaluate(long x) const;</kbd></br> The function
+      evaluates the polynomial for the given value of <em>x</em>.
+    </li>
+    <li>
+      <kbd>Polynomial& operator=(const Polynomial& p);</kbd></br> The
+      overloaded assignment operator performs a "deep copy"
+      of <em>p</em>.
+    </li>
+    <li>
+      <kbd>friend ostream& operator<<(ostream& sout, const Polynomial&
+      p);</kbd></br> The overloaded insertion operator can be used to display a
+      <kbd>Polynomial</kbd> object in standard mathematical notation.
+      See the test output for a sample of acceptable output.
+    </li>
+    <li>
+      <strong>Extra Credit:</strong> <kbd>Polynomial modulo(const
+      Polynomial& p) const;</kbd></br> The function returns the
+      remainder when dividing the host polynomial by <em>p</em>.
+    </li>
+</ul>
+<hr>
+
+<xmp>
+#ifndef NODE_H
+#define NODE_H
+
+using namespace std;
+
+// Do not change any part of this file
+
+// See documentation in Project 3 description.
+
+class Node {
+
+ public:
+
+  Node();
+  Node(long coeff, unsigned int deg);
+  
+  long m_coefficient;
+  unsigned int m_degree;
+  Node *m_next;
+};
+
+#endif
+</xmp>
+<hr>
+
+<p>
+  The <kbd>Node</kbd> class has two constructors, but no other
+  functions.  The variable <kbd>m_coefficient</kbd> stores the
+  coefficient of a monomial and <kbd>m_degree</kbd> stores the degree
+  (power of <em>x</em>) of a monomial; <kbd>m_next</kbd> is a pointer
+  to the next node in the linked list.
+</p>
+<p> 
+  Here are the requirements for the <kbd>Node</kbd> member functions:
+</p>
+<ul>
+  <li>
+    <kbd>Node();</kbd></br> The default constructor
+    initializes <kbd>m_next</kbd> to <kbd>NULL</kbd>.
+  </li>
+  <li>
+    <kbd>Node(long coeff, unsigned int deg);</kbd></br> The construtor
+    initializes <kbd>m_ceofficient</kbd>
+    to <kbd>coeff</kbd>, <kbd>m_degree</kbd> to <kbd>deg</kbd>,
+    and <kbd>m_next</kbd> to <kbd>NULL</kbd>.
+  </li>
+</ul>
+
+<hr>
+<h4>Implementation Issues</h4>
+
+<p>
+Here are some issues to consider and pitfalls to avoid. (You should read
+these before coding!)
+</p>
+
+<ul>
+  <li>
+    <b>Reminder:</b> do not develop your programs in the submission
+    directories. Develop your programs in some other location in GL or
+    on your own computer. The files that you have in the submission
+    directory should not be your only copy of your code.
+  </li>
+  <li>
+    Your linked list implementation must be space-efficient, so you
+    should not store any terms with coefficient zero.  In particular,
+    the zero polynomial is represented by a linked list
+    having <em>only</em> the dummy node.
+  </li>
+  <li>
+    It is a good idea to store the terms of your polynomial in order
+    of <em>decreasing degree</em>.  Standard mathematical notation
+    writes polynomials in this order; storing the terms in the same
+    order makes the implementation of the overloaded insertion
+    operator easier.  Also, in this case the degree of the polynomial
+    is just the degree of the first non-dummy node in the linked list.
+  </li>
+  <li>
+    The variables of the <kbd>Node</kbd> class are all public, so they
+    can be accessed from within the <kbd>Polynomial</kbd> class
+    without the need for accessors or mutators.
+  </li>
+  <li> The header files <kbd>Polynomial.h</kbd> and <kbd>Node.h</kbd>
+    and a test program <kbd>test.cpp</kbd> and sample
+    output <kbd>test.out</kbd> can be copied to your working directory
+    on GL:
+<xmp> cp /afs/umbc.edu/users/c/m/cmarron/pub/cmsc202/proj3.zip .
+ unzip proj3.zip
+</xmp>
+    You should put your implementations of the <kbd>Polynomial</kbd>
+    and <kbd>Node</kbd> member functions in the
+    files <kbd>Polynomial.cpp</kbd> and <kbd>Node.cpp</kbd>,
+    respectively.  You should not have a <kbd>main()</kbd> function
+    in <kbd>Polynomial.cpp</kbd> or <kbd>Node.cpp</kbd>;
+    any <kbd>main()</kbd> functions should be in separate test or
+    driver files.
+  </li>
+  <li> On GL, you can compile the test program with your
+    implementation with one command, like this:
+<XMP>   linux3% g++ -Wall -g test.cpp Polynomial.cpp Node.cpp
+</XMP>
+    or separately, like this:
+<XMP>   linux3% g++ -Wall -g -c Node.cpp
+   linux3% g++ -Wall -g -c Polynomial.cpp
+   linux3% g++ -Wall -g -c test.cpp
+   linux3% g++ -g test.o Polynomial.o Node.o
+</XMP>
+</ul>
+
+<hr>
+<h4>Submitting your program</h4>
+<p>
+You should submit these files to the <kbd>proj3</kbd> subdirectory:
+</p>
+<ul>
+  <li>
+    <kbd>Polynomial.h</kbd> The only change from the provided file
+    should be the addition of private member function prototypes, if
+    used.
+  </li>
+  <li> 
+    <kbd>Polynomial.cpp</kbd> This should contain your implementations
+    of all of the <kbd>Polynomial</kbd> member functions. This file
+    should <b>not</b> include a <kbd>main()</kbd> function.
+  </li>
+  <li>
+    <kbd>Node.cpp</kbd> This should contain your implementations of
+    all the <kbd>Node</kbd> member functions.  This file
+    should <b>not</b> include a <kbd>main()</kbd> function.
+  </li>
+  <li> 
+    <kbd>mytest.cpp</kbd> A main program that exercises the
+    <em>working</em> parts of your submission. This is where you tell
+    us what works. If you could not get some member function to work,
+    don't test it here. We will test all functions with other programs.
+  </li>
+</ul>
+
+<p>
+  If you followed the directions for setting up the shared directories,
+  then you can copy your code to the submission directory with:
+<xmp>   cp Polynomial.h Polynomial.cpp Node.cpp mytest.cpp  ~/cs202proj/proj3/
+</xmp>
+</p>
+
+<p>
+  You can check that your program compiles and runs in
+  the <kbd>proj3</kbd> directory, but please clean up
+  any <kbd>.o</kbd> and executable files.  Again, do not develop your
+  code in this directory; you need to keep the main copy of your
+  program elsewhere.
+</p>
+
+
+
+
+<!-- BEGIN FOOTER -->
+
+      </div>
+      <div id="footer" class="donotprint">
+        <div>	
+          <a href="/courses/undergraduate/202/fall15_marron">CMSC 202 &mdash; Fall 2015</a>
+        </div>
+        <a href="/courses/undergraduate/202/fall15_marron/./">CMSC 202</a> |
+        <a href="http://www.csee.umbc.edu/">CSEE</a> |
+        <a href="http://www.umbc.edu/">UMBC</a>
+      </div>
+    </div> 
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall15_marron/js/syntaxhighlighter_3.0.83/styles/shCore.css"/>
+    <link rel="stylesheet" href="/courses/undergraduate/202/fall15_marron/js/syntaxhighlighter_3.0.83/styles/shCoreEclipseModified.css"/>
+    <script src="/courses/undergraduate/202/fall15_marron/js/syntaxhighlighter_3.0.83/scripts/shCore.js"></script>
+    <script src="/courses/undergraduate/202/fall15_marron/js/syntaxhighlighter_3.0.83/scripts/shBrushJava.js"></script>
+    <script src="/courses/undergraduate/202/fall15_marron/js/syntaxhighlighter_3.0.83/scripts/shBrushPlain.js"></script>
+    <script>
+
+      // source code highlighting
+      $(function() {
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
+      });
+
+      // Google Analytics
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-20998370-1']);
+      _gaq.push(['_trackPageview']);
+     (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+     })();
+
+    </script>
+  </body> 
+</html> 
+
+
+#èåÈ˘      Z%ºZ&ÿ>i÷|Z%Ω   W    :https://www.csee.umbc.edu/courses/undergraduate/202/fall15_marron/projects/proj3.shtml necko:classified 1 strongly-framed 1 security-info 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 request-method GET response-head HTTP/1.1 200 OK
+Date: Tue, 14 Nov 2017 17:19:56 GMT
+Server: Apache
+Accept-Ranges: bytes
+Cache-Control: max-age=1
+Expires: Tue, 14 Nov 2017 17:19:57 GMT
+Content-Type: text/html
+ original-response-headers Date: Tue, 14 Nov 2017 17:19:56 GMT
+Server: Apache
+Accept-Ranges: bytes
+Cache-Control: max-age=1
+Expires: Tue, 14 Nov 2017 17:19:57 GMT
+Connection: close
+Transfer-Encoding: chunked
+Content-Type: text/html
+ uncompressed-len 0 net-response-time-onstart 19 net-response-time-onstop 22 predictor::resource-count 11 predictor::https://www.csee.umbc.edu/courses/undergraduate/202/fall15_marron/css/style.css 1,1,1510679996,12288 predictor::https://www.csee.umbc.edu/courses/undergraduate/202/fall15_marron/css/print.css 1,1,1510679996,12288 predictor::https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js 1,1,1510679996,12288 predictor::https://www.csee.umbc.edu/courses/undergraduate/202/fall15_marron/js/jquery.cookie.js 1,1,1510679996,12288 predictor::https://www.csee.umbc.edu/courses/undergraduate/202/fall15_marron/js/syntaxhighlighter_3.0.83/styles/shCore.css 1,1,1510679996,12288 predictor::https://www.csee.umbc.edu/courses/undergraduate/202/fall15_marron/js/syntaxhighlighter_3.0.83/styles/shCoreEclipseModified.css 1,1,1510679996,12288 predictor::https://www.csee.umbc.edu/courses/undergraduate/202/fall15_marron/js/syntaxhighlighter_3.0.83/scripts/shCore.js 1,1,1510679996,12288 predictor::https://www.csee.umbc.edu/courses/undergraduate/202/fall15_marron/js/syntaxhighlighter_3.0.83/scripts/shBrushJava.js 1,1,1510679996,12288 predictor::https://www.csee.umbc.edu/courses/undergraduate/202/fall15_marron/js/syntaxhighlighter_3.0.83/scripts/shBrushPlain.js 1,1,1510679996,12288 predictor::https://www.csee.umbc.edu/courses/undergraduate/202/fall15_marron/css/binary-header.png 1,1,1510679996,12288 predictor::https://ssl.google-analytics.com/ga.js 1,1,1510679996,12288   :¿

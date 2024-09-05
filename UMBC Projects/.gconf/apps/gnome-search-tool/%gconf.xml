@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="default_window_maximized" mtime="1499370042" type="bool" value="false"/>
+	<entry name="default_window_height" mtime="1499370042" type="int" value="350"/>
+	<entry name="default_window_width" mtime="1499370042" type="int" value="554"/>
+	<entry name="look_in_folder" mtime="1499370028" type="string">
+		<stringvalue>/afs/umbc.edu/users/b/e/beadenk1/home</stringvalue>
+	</entry>
+</gconf>

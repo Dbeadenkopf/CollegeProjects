@@ -1,0 +1,48 @@
+Important:
+	To know the the rules of the hands and the winning hands
+	
+suits dont matter
+
+4 of a kind:
+ 
+Normal kind:
+      4 queens with a 10, 10 is better than a kind
+
+3 of a kind:
+  10 3 pair 10s beat 9 3 parir even if 10 has 2 aces its goes boh of the hand
+
+Poker ranks:
+      all are mutaly exclusive
+      no full house flush
+      there will be combinations that can combine together like straight flush
+      or roayl straight flush which does nto excist
+     
+notes:
+	nothing to chang in card class 
+	points() is an accesor function
+	points() in whihc aces are always 14
+	cSuit value
+	typeDef and cSuit = (new type)
+	ex cSuit mSuit so mSuit is of type cSuit
+	typedef unsigned int cPoints;
+	now cPoints m_points  
+	bool m_valid -> determines wther hand is valid
+	pRank m_rank -> computes rank like full house, straight flush
+
+
+function notes:
+	 isTwoPair();
+	 ** sort hand by point value first 
+	 9_ 9_ j_ j_ k_
+	 !check if 99 and jj are the same or different
+	 9 9= 9 10   k k 
+	 2 9 9 j j
+	 need to do 3 different checks
+	 numbers of checks will be in number patter 2-2-1
+	 comparison Function
+	 ** can just compare the hands
+	 hard part ** comparing the other 2 hands and deciding whiich one is bigger          
+
+	 no cehcking for duplicate hands
+	 two strait flushes, 
+	 comparing 5 cards in the array that was created

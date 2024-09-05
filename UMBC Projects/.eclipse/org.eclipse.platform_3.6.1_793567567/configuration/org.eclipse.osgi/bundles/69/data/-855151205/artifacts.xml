@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?artifactRepository version='1.1.0'?>
+<repository name='/usr/share/eclipse/dropins/gef' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1.0.0'>
+  <properties size='1'>
+    <property name='p2.timestamp' value='1465901239326'/>
+  </properties>
+  <mappings size='3'>
+    <rule filter='(&amp; (classifier=osgi.bundle))' output='${repoUrl}/plugins/${id}_${version}.jar'/>
+    <rule filter='(&amp; (classifier=binary))' output='${repoUrl}/binary/${id}_${version}'/>
+    <rule filter='(&amp; (classifier=org.eclipse.update.feature))' output='${repoUrl}/features/${id}_${version}.jar'/>
+  </mappings>
+  <artifacts size='7'>
+    <artifact classifier='osgi.bundle' id='org.eclipse.gef' version='3.6.1.v20100913-2020'>
+      <properties size='2'>
+        <property name='artifact.size' value='791156'/>
+        <property name='download.size' value='791156'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/gef/eclipse/plugins/org.eclipse.gef_3.6.1.v20100913-2020.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/gef/eclipse/plugins/org.eclipse.gef_3.6.1.v20100913-2020.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.zest.core' version='1.2.0.v20100913-2020'>
+      <properties size='2'>
+        <property name='artifact.size' value='133436'/>
+        <property name='download.size' value='133436'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/gef/eclipse/plugins/org.eclipse.zest.core_1.2.0.v20100913-2020.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/gef/eclipse/plugins/org.eclipse.zest.core_1.2.0.v20100913-2020.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.zest.layouts' version='1.1.0.v20100913-2020'>
+      <properties size='2'>
+        <property name='artifact.size' value='119222'/>
+        <property name='download.size' value='119222'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/gef/eclipse/plugins/org.eclipse.zest.layouts_1.1.0.v20100913-2020.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/gef/eclipse/plugins/org.eclipse.zest.layouts_1.1.0.v20100913-2020.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.draw2d' version='3.6.1.v20100913-2020'>
+      <properties size='3'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='4096'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+      <repositoryProperties size='3'>
+        <property name='artifact.folder' value='true'/>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/gef/eclipse/features/org.eclipse.draw2d_3.6.1.v20100913-2020/'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/gef/eclipse/features/org.eclipse.draw2d_3.6.1.v20100913-2020'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.zest' version='1.2.0.v20100913-2020'>
+      <properties size='3'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='4096'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+      <repositoryProperties size='3'>
+        <property name='artifact.folder' value='true'/>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/gef/eclipse/features/org.eclipse.zest_1.2.0.v20100913-2020/'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/gef/eclipse/features/org.eclipse.zest_1.2.0.v20100913-2020'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.gef' version='3.6.1.v20100913-2020'>
+      <properties size='3'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='4096'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+      <repositoryProperties size='3'>
+        <property name='artifact.folder' value='true'/>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/gef/eclipse/features/org.eclipse.gef_3.6.1.v20100913-2020/'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/gef/eclipse/features/org.eclipse.gef_3.6.1.v20100913-2020'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.draw2d' version='3.6.1.v20100913-2020'>
+      <properties size='2'>
+        <property name='artifact.size' value='532143'/>
+        <property name='download.size' value='532143'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/share/eclipse/dropins/gef/eclipse/plugins/org.eclipse.draw2d_3.6.1.v20100913-2020.jar'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/gef/eclipse/plugins/org.eclipse.draw2d_3.6.1.v20100913-2020.jar'/>
+      </repositoryProperties>
+    </artifact>
+  </artifacts>
+</repository>

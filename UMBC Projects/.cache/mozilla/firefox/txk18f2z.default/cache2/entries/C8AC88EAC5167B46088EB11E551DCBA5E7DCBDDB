@@ -1,0 +1,996 @@
+
+
+// JavaScript Document
+// author: kevin.mackett@pearson.com
+// updated: 2 April 2012 - MAL LTI tool launch - RC2
+// TODO- clean up and document- all is working.
+
+var enableDebugMode = false;
+
+// options: mml, econ, acct, om, fw
+var handler_urnXLproduct = "acct";
+
+
+//Constants//
+
+var versionNumber = "RC1 - XL: product set to: " + handler_urnXLproduct + " \n LTI MLP palceholder \n Kevin.Mackett@pearson.com \n";
+
+var XLTargetVarInfo = "targetId";
+var XLChapterVarInfo = "chapterId";
+
+var XLmediaTypeVarInfo = "media";
+
+var XLModeVarInfo = "mode";
+var XLUnitModeVarInfo = "unit";
+var XLUnitIdVarInfo = "unitId";
+
+var XLeTextVarInfo = "ebook";
+var XLeTextPageVarInfo = "page";
+
+var XLeTextStartPageVarInfo = "pstart";
+var XLeTextEndPageVarInfo = "pend";
+
+var XLSectionVarInfo = "sId";
+// this changed so keeping old value just in case
+//var XLSectionVarInfo = "sectionId";
+
+//Added for GENERIC style links for MLP
+var genericMediaUrlVarInfo ="genericmediaurl";
+
+// Prod LTI subsystem
+var sitename = "http://lti.next.ecollege.com";
+
+var outBoundJSONStart = "{'handler_urn':'pearson/$ClientString$_" + handler_urnXLproduct + "_xl/slink/x-pearson-$ClientString$_" + handler_urnXLproduct + "_xl'";
+
+// window location- needed fgor LTI
+var currentURLPath = this.location.pathname;
+
+// when opened in same frame, launches XL excercises in new window
+var pagelink = "frame";
+var XLpagelinkVarInfo = "pagelink";
+
+
+/*////////////////////////////////////////////////////////////////////////////
+setWindowLocationUrlProtocol(url, protocolLength)
+*/////////////////////////////////////////////////////////////////////////////
+/*
+	Function: setWindowLocationUrlProtocol
+	
+	update given url protocol to window location protocol
+	
+	Parameters: 
+	url - url to be updated as window location url
+	protocolLength - length of the url protocol
+*/
+function setWindowLocationUrlProtocol(url, protocolLength) {
+	var newUrl;
+	if (window.location.protocol == "https:") {
+		newUrl = "https:" + url.substring(protocolLength, url.length);
+	}else{
+		newUrl = url;
+	}
+	
+	return newUrl;
+}
+
+
+/*////////////////////////////////////////////////////////////////////////////
+getSiteUrl()
+*/////////////////////////////////////////////////////////////////////////////
+/*
+	Function: getSiteUrl
+	
+	get the tool provider url
+	
+	Parameters:
+*/
+function getSiteUrl() {
+	return setWindowLocationUrlProtocol(sitename, 5);
+}
+
+
+/*////////////////////////////////////////////////////////////////////////////
+openXLSameWindow( p_targetID, p_chapterID, p_sectionID )
+*/////////////////////////////////////////////////////////////////////////////
+/*
+	Function: openXLSameWindow
+	
+	Opens content in the same window, linking to Pearson content on the XL server.
+	
+	Parameters: 
+	p_targetID - A string -the keyword that identifies the Pearson content to link to e.g. 'multimedia'.
+	p_chapterID -  [optional] integer value - the chapter number for linked content.
+	p_sectionID - [optional] integer value - the section number for linked content.
+*/
+function openXLSameWindow( p_targetID, p_chapterID, p_sectionID, p_filterMediaType )
+{ 
+	// CONSTRUCT THE FINAL OUTBOUND LINK
+	// ---------------------------------
+	
+	var outboundJSON =  outBoundJSONStart;
+	
+	
+	// APPEND REQUIRED FUNCTION PARAMS TO FINAL OUTBOUND LINK
+	// ------------------------------------------------------
+	
+	if ( p_targetID == null ) {
+		alert ( "openXLSameWindow() is being called without required target ID parameter" );
+	}
+	
+	else {
+		// Generate the outbound link
+		outboundJSON += ",'";
+		outboundJSON += XLTargetVarInfo;
+		outboundJSON += "':'";
+		outboundJSON += p_targetID;
+		outboundJSON += "'";
+		
+		// tell XL SSO is being launched in-frame
+		outboundJSON += ",'";
+		outboundJSON += XLpagelinkVarInfo;
+		outboundJSON += "':'";
+		outboundJSON += pagelink;
+		outboundJSON += "'";
+	}
+	    
+	// APPEND OPTIONAL FUNCTION PARAMS TO FINAL OUTBOUND LINK
+	// ------------------------------------------------------
+	    
+	// APPEND OPTIONAL FUNCTION PARAMS TO FINAL OUTBOUND LINK
+	// ------------------------------------------------------
+	    
+	if ( p_chapterID != null && p_chapterID != 'all') {
+		
+		outboundJSON += ",'";
+		outboundJSON += XLChapterVarInfo;
+		outboundJSON += "':'";
+		outboundJSON += p_chapterID;
+		outboundJSON += "'";
+		
+		
+	}
+	    
+	if ( p_sectionID != null && p_sectionID != 'all') {
+		outboundJSON += ",'";
+		outboundJSON += XLSectionVarInfo;
+		outboundJSON += "':'";
+		outboundJSON += p_sectionID;
+		outboundJSON += "'";
+		
+	}
+	
+	if ( p_filterMediaType != null && p_filterMediaType != 'all' ) {
+		outboundJSON += ",'";
+		outboundJSON += XLmediaTypeVarInfo;
+		outboundJSON += "':'";
+		outboundJSON += p_filterMediaType;
+		outboundJSON += "'";
+		
+	}
+	
+	    
+	// NAVIGATE TO FINAL OUTBOUND LINK
+	// -------------------------------
+	        
+	// close the JSON
+	var finalOutboundJSON = outboundJSON + "}";
+	
+      var finalOutboundURL = getSiteUrl() + '/default/Launch.ed?path=' + currentURLPath + '&json='+finalOutboundJSON;
+      
+      if ( enableDebugMode ) {
+  		alert( 'enableDebugMode \n'+versionNumber+'\n generated URL from openXLNewWindow() : \n' + finalOutboundURL );
+  	}
+	  location.replace( finalOutboundURL );        
+}
+
+
+/*////////////////////////////////////////////////////////////////////////////
+openXLNewWindow(  p_targetID, p_chapterID, p_sectionID)
+*/////////////////////////////////////////////////////////////////////////////
+/*
+	Function: openXLNewWindow
+	
+	Opens a new window, linking to Pearson content on the XL server.
+	
+	Parameters: 
+		p_targetID - A string - the keyword that identifies the Pearson content to link to e.g. 'assignedhomework' or 'assignedtests'.
+		p_chapterID -  [optional] integer value - the chapter number for linked content.
+		p_sectionID - [optional] integer value - the section number for linked content.
+*/
+function openXLNewWindow( p_targetID, p_chapterID, p_sectionID, p_filterMediaType )
+{
+
+	
+		// CONSTRUCT THE FINAL OUTBOUND LINK
+		// ---------------------------------
+		
+		var outboundJSON =  outBoundJSONStart;
+		
+		
+		// APPEND REQUIRED FUNCTION PARAMS TO FINAL OUTBOUND LINK
+		// ------------------------------------------------------
+		
+		if ( p_targetID == null ){
+			alert ( "openXLSameWindow() is being called without required target ID parameter" );
+		}
+		
+		else {
+			// Generate the outbound link
+			outboundJSON += ",'";
+			outboundJSON += XLTargetVarInfo;
+			outboundJSON += "':'";
+			outboundJSON += p_targetID;
+			outboundJSON += "'";
+		}
+		    
+		// APPEND OPTIONAL FUNCTION PARAMS TO FINAL OUTBOUND LINK
+		// ------------------------------------------------------
+		    
+		// APPEND OPTIONAL FUNCTION PARAMS TO FINAL OUTBOUND LINK
+	// ------------------------------------------------------
+	    
+	if ( p_chapterID != null && p_chapterID != 'all') {
+		
+		outboundJSON += ",'";
+		outboundJSON += XLChapterVarInfo;
+		outboundJSON += "':'";
+		outboundJSON += p_chapterID;
+		outboundJSON += "'";
+		
+		
+	}
+	    
+	if ( p_sectionID != null && p_sectionID != 'all') {
+		outboundJSON += ",'";
+		outboundJSON += XLSectionVarInfo;
+		outboundJSON += "':'";
+		outboundJSON += p_sectionID;
+		outboundJSON += "'";
+		
+	}
+	
+	if ( p_filterMediaType != null && p_filterMediaType != 'all' ) {
+		outboundJSON += ",'";
+		outboundJSON += XLmediaTypeVarInfo;
+		outboundJSON += "':'";
+		outboundJSON += p_filterMediaType;
+		outboundJSON += "'";
+		
+	}
+		
+		    
+		// NAVIGATE TO FINAL OUTBOUND LINK
+		// -------------------------------
+		        
+		// close the JSON
+		var finalOutboundJSON = outboundJSON + "}";
+	    
+		var finalOutboundURL = getSiteUrl() + "/default/Launch.ed?path=" +currentURLPath + "&json="+finalOutboundJSON;
+	
+	    
+	    if ( enableDebugMode ) {
+			alert( 'enableDebugMode \n'+versionNumber+'\n generated URL from openXLNewWindow() : \n' + finalOutboundURL );
+		}
+		// NAVIGATE TO FINAL OUTBOUND LINK
+		// -------------------------------
+		var popupWindow = window.open( finalOutboundURL, "PearsonMyLab" );
+		popupWindow.focus();
+	
+}
+
+
+// new methods to allow MLP to use the unit moded of XL.  This is not used in MMND courses to date.
+function openXLUnitSameWindow( p_targetID, p_unitID ){
+ 
+	// CONSTRUCT THE FINAL OUTBOUND LINK
+	// ---------------------------------
+	
+	var outboundJSON =  outBoundJSONStart;
+	
+	
+	// APPEND REQUIRED FUNCTION PARAMS TO FINAL OUTBOUND LINK
+	// ------------------------------------------------------
+	
+	if ( p_targetID == null ) {
+		alert ( "openXLSameWindow() is being called without required target ID parameter" );
+	}
+	
+	else {
+		// Generate the outbound link
+		outboundJSON += ",'";
+		outboundJSON += XLTargetVarInfo;
+		outboundJSON += "':'";
+		outboundJSON += p_targetID;
+		outboundJSON += "'";
+		
+		outboundJSON += ",'";
+		outboundJSON += XLUnitIdVarInfo;
+		outboundJSON += "':'";
+		outboundJSON += p_unitID;
+		outboundJSON += "'";
+		
+		outboundJSON += ",'";
+		outboundJSON += XLModeVarInfo;
+		outboundJSON += "':'";
+		outboundJSON += XLUnitModeVarInfo;
+		outboundJSON += "'";
+	
+	// tell XL the SSO is being launched in the same window
+		outboundJSON += ",'";
+		outboundJSON += XLpagelinkVarInfo;
+		outboundJSON += "':'";
+		outboundJSON += pagelink;
+		outboundJSON += "'";
+	
+	}	    
+	// NAVIGATE TO FINAL OUTBOUND LINK
+	// -------------------------------
+	        
+	// close the JSON
+	var finalOutboundJSON = outboundJSON + "}";
+	
+      var finalOutboundURL = getSiteUrl() + '/default/Launch.ed?path=' + currentURLPath + '&json='+finalOutboundJSON;
+      
+      if ( enableDebugMode ) {
+  		alert( 'enableDebugMode \n'+versionNumber+'\n generated URL from openXLUnitSameWindow() : \n' + finalOutboundURL );
+  	}
+	  location.replace( finalOutboundURL );        
+    
+}
+
+
+function openXLUnitNewWindow( p_targetID, p_unitID ){
+ 
+	// CONSTRUCT THE FINAL OUTBOUND LINK
+	// ---------------------------------
+	
+	var outboundJSON =  outBoundJSONStart;
+	
+	
+	// APPEND REQUIRED FUNCTION PARAMS TO FINAL OUTBOUND LINK
+	// ------------------------------------------------------
+	
+	if ( p_targetID == null ) {
+		alert ( "openXLSameWindow() is being called without required target ID parameter" );
+	}
+	
+	else {
+		// Generate the outbound link
+		outboundJSON += ",'";
+		outboundJSON += XLTargetVarInfo;
+		outboundJSON += "':'";
+		outboundJSON += p_targetID;
+		outboundJSON += "'";
+		
+		outboundJSON += ",'";
+		outboundJSON += XLUnitIdVarInfo;
+		outboundJSON += "':'";
+		outboundJSON += p_unitID;
+		outboundJSON += "'";
+		
+		outboundJSON += ",'";
+		outboundJSON += XLModeVarInfo;
+		outboundJSON += "':'";
+		outboundJSON += XLUnitModeVarInfo;
+		outboundJSON += "'";
+	
+	}	    
+	// NAVIGATE TO FINAL OUTBOUND LINK
+		// -------------------------------
+		        
+		// close the JSON
+		var finalOutboundJSON = outboundJSON + "}";
+	    
+		var finalOutboundURL = getSiteUrl() + "/default/Launch.ed?path=" +currentURLPath + "&json="+finalOutboundJSON;
+	
+	    
+	    if ( enableDebugMode ) {
+			alert( 'enableDebugMode \n'+versionNumber+'\n generated URL from openXLUnitNewWindow() : \n' + finalOutboundURL );
+		}
+		// NAVIGATE TO FINAL OUTBOUND LINK
+		// -------------------------------
+		var popupWindow = window.open( finalOutboundURL, "PearsonMyLab" );
+		popupWindow.focus();
+}
+
+
+/*////////////////////////////////////////////////////////////////////////////
+openXLGenericTPINewWindow( p_targetURL, p_windowWidth, p_windowHeight )
+	generic new sized window from standard URL
+	requires link with http://- can be original links with char code or
+	links copied from Course compass
+*/////////////////////////////////////////////////////////////////////////////
+/*
+	Function: openXLGenericTPINewWindow
+	
+	Opens a new window, linking to Pearson content from the XL server.
+	
+	Parameters: 
+	p_targetURL - A string - the url to open.  Bounces off of the Excel server and goes directly to the Pearson server.
+	p_windowWidth - [optional] integer value - the window width in pixels of the new window that is to be opened.
+	p_windowHeight - [optional] integer value - the window height in pixels of the new window that is to be opened.
+*/
+function openXLGenericTPINewWindow( p_targetURL, p_windowWidth, p_windowHeight ){
+	// CONSTRUCT THE FINAL OUTBOUND LINK & WINDOW FEATURE PARAMS
+	// ---------------------------------------------------------
+	
+	//convert special characters in source URL
+	var cleanedTargetUrl = escape( p_targetURL );
+		
+	// Generate the outbound link
+	var outboundJSON =  outBoundJSONStart;
+		
+	outboundJSON += ",'";
+	outboundJSON += genericMediaUrlVarInfo;
+	outboundJSON += "':'";
+	outboundJSON += cleanedTargetUrl;
+	outboundJSON += "'";
+		
+	// close the JSON
+	var finalOutboundJSON = outboundJSON + "}";
+
+	var finalOutboundURL = getSiteUrl() + "/default/Launch.ed?path=" +currentURLPath + "&json="+finalOutboundJSON;
+	
+	// APPEND OPTIONAL FUNCTION PARAMS TO WINDOW FEATURE PARAMS
+	// --------------------------------------------------------
+	
+	var windowFeatureParams = "toolbar=no, location=no, directories=no, status=yes, menubar=no, scrollbars=yes, resizable=yes";
+	
+	if ( p_windowWidth != null ) {
+		windowFeatureParams += ", width=" + p_windowWidth;
+	}
+	    
+	if ( p_windowHeight != null ) {
+		windowFeatureParams += ", height=" + p_windowHeight;
+	}
+	
+	
+	// NAVIGATE TO FINAL OUTBOUND LINK
+	// -------------------------------
+	if ( enableDebugMode ) {
+  		alert( 'enableDebugMode \n'+versionNumber+'\n generated URL: \n' + finalOutboundURL );
+  	}
+  	
+	var popupWindow = window.open( finalOutboundURL, "PearsonMMLLaunch",  windowFeatureParams );
+	popupWindow.focus();
+
+}
+
+/*////////////////////////////////////////////////////////////////////////////
+openXLGenericTPISameWindow( p_targetURL, p_windowWidth, p_windowHeight )
+	Opens Pearson content in the same window, linking to Pearson content from the XL server.
+*/////////////////////////////////////////////////////////////////////////////
+/*
+	Function: openXLGenericTPISameWindow
+	
+	Opens Pearson content in the same window, linking to Pearson content from the XL server.
+	
+	Parameters: 
+	p_targetURL - A string - the url to open.  Bounces off of the Excel server and goes to the Pearson server.
+*/
+function openXLGenericTPISameWindow( p_targetURL ){
+// CONSTRUCT THE FINAL OUTBOUND LINK & WINDOW FEATURE PARAMS
+	// ---------------------------------------------------------
+
+		
+	//convert special characters in source URL
+	var cleanedTargetUrl = escape( p_targetURL );
+		
+	// Generate the outbound link
+	var outboundJSON =  outBoundJSONStart;
+		
+	outboundJSON += ",'";
+	outboundJSON += genericMediaUrlVarInfo;
+	outboundJSON += "':'";
+	outboundJSON += cleanedTargetUrl;
+	outboundJSON += "'";
+		
+	// close the JSON
+	var finalOutboundJSON = outboundJSON + "}";
+
+	var finalOutboundURL = getSiteUrl() + "/default/Launch.ed?path=" +currentURLPath + "&json="+finalOutboundJSON;
+	
+	
+	// NAVIGATE TO FINAL OUTBOUND LINK
+	// -------------------------------
+	// Open the content in the same window 
+		
+	if ( enableDebugMode ) {
+  		alert( 'enableDebugMode \n'+versionNumber+'\n generated URL: \n' + finalOutboundURL );
+  	}
+	window.open( finalOutboundURL, "_self" );
+
+}
+
+
+// 
+
+function openEtextNew( p_eTextStartPage , p_eTextEndPage ){
+	
+//var XLeTextStartPageVarInfo = "pstart";
+//var XLeTextEndPageVarInfo = "pend";
+	
+	
+	var outboundJSON =  outBoundJSONStart;
+	
+	
+	// APPEND REQUIRED FUNCTION PARAMS TO FINAL OUTBOUND LINK
+	// ------------------------------------------------------
+	
+	// Generate the outbound link
+	outboundJSON += ",'";
+	outboundJSON += XLTargetVarInfo;
+	outboundJSON += "':'";
+	outboundJSON += XLeTextVarInfo;
+	outboundJSON += "'";
+
+	    
+	// APPEND OPTIONAL FUNCTION PARAMS TO FINAL OUTBOUND LINK
+	// ------------------------------------------------------
+	
+	// if the course developer has passed a page range, launch sso with rage parameters
+	if ( p_eTextEndPage != null ) {
+		outboundJSON += ",'";
+		outboundJSON += XLeTextStartPageVarInfo;
+		outboundJSON += "':'";
+		outboundJSON += p_eTextStartPage;
+		outboundJSON += "'";
+		
+		
+		outboundJSON += ",'";
+		outboundJSON += XLeTextEndPageVarInfo;
+		outboundJSON += "':'";
+		outboundJSON += p_eTextEndPage;
+		outboundJSON += "'";
+		
+	}
+	
+	// If the course producer only passed a single value, the paremeter is differnt
+	else if ( p_eTextStartPage != null ) {
+		
+		outboundJSON += ",'";
+		outboundJSON += XLeTextPageVarInfo;
+		outboundJSON += "':'";
+		outboundJSON += p_eTextStartPage;
+		outboundJSON += "'";	
+	}
+	
+	else{
+		if ( enableDebugMode ) {
+  			alert( 'enableDebugMode \n'+versionNumber+'\n openEtextNew( p_eTextStartPage , p_eTextEndPage ) requires at lease a single page parameter' );
+  		}
+	}
+	
+	
+	    
+	// NAVIGATE TO FINAL OUTBOUND LINK
+	// -------------------------------
+	        
+	// close the JSON
+	var finalOutboundJSON = outboundJSON + "}";
+	
+
+    var finalOutboundURL = getSiteUrl() + "/default/Launch.ed?path=" +currentURLPath + "&json="+finalOutboundJSON;
+	
+	    
+	    if ( enableDebugMode ) {
+			alert( 'enableDebugMode \n'+versionNumber+'\n generated URL from openXLNewWindow() : \n' + finalOutboundURL );
+		}
+		// NAVIGATE TO FINAL OUTBOUND LINK
+		// -------------------------------
+		var popupWindow = window.open( finalOutboundURL, "eText" );
+		popupWindow.focus();        
+}
+
+	
+	
+// I planned on rolling this into one funciton but the X and Y cordinate linking complicated things.
+// This functiuon is currenlty exactly the same as the openEtextNew since I had already added page range code to it.
+//TODO: rework the eText functions when X/Y data is goign to be used.
+	
+function openEtextPageRangeNew( p_eTextStartPage , p_eTextEndPage ){
+	
+//var XLeTextStartPageVarInfo = "pstart";
+//var XLeTextEndPageVarInfo = "pend";
+	
+	
+	var outboundJSON =  outBoundJSONStart;
+	
+	
+	// APPEND REQUIRED FUNCTION PARAMS TO FINAL OUTBOUND LINK
+	// ------------------------------------------------------
+	
+	// Generate the outbound link
+	outboundJSON += ",'";
+	outboundJSON += XLTargetVarInfo;
+	outboundJSON += "':'";
+	outboundJSON += XLeTextVarInfo;
+	outboundJSON += "'";
+
+	    
+	// APPEND OPTIONAL FUNCTION PARAMS TO FINAL OUTBOUND LINK
+	// ------------------------------------------------------
+	
+	// if the course developer has passed a page range, launch sso with rage parameters
+	if ( p_eTextEndPage != null ) {
+		outboundJSON += ",'";
+		outboundJSON += XLeTextStartPageVarInfo;
+		outboundJSON += "':'";
+		outboundJSON += p_eTextStartPage;
+		outboundJSON += "'";
+		
+		
+		outboundJSON += ",'";
+		outboundJSON += XLeTextEndPageVarInfo;
+		outboundJSON += "':'";
+		outboundJSON += p_eTextEndPage;
+		outboundJSON += "'";
+		
+	}
+	
+	// If the course producer only passed a single value, the paremeter is differnt
+	else if ( p_eTextStartPage != null ) {
+		
+		outboundJSON += ",'";
+		outboundJSON += XLeTextPageVarInfo;
+		outboundJSON += "':'";
+		outboundJSON += p_eTextStartPage;
+		outboundJSON += "'";	
+	}
+	
+	else{
+		if ( enableDebugMode ) {
+  			alert( 'enableDebugMode \n'+versionNumber+'\n openEtextNew( p_eTextStartPage , p_eTextEndPage ) requires at lease a single page parameter' );
+  		}
+	}
+	
+	
+	    
+	// NAVIGATE TO FINAL OUTBOUND LINK
+	// -------------------------------
+	        
+	// close the JSON
+	var finalOutboundJSON = outboundJSON + "}";
+	
+
+    var finalOutboundURL = getSiteUrl() + "/default/Launch.ed?path=" +currentURLPath + "&json="+finalOutboundJSON;
+	
+	    
+	    if ( enableDebugMode ) {
+			alert( 'enableDebugMode \n'+versionNumber+'\n generated URL from openXLNewWindow() : \n' + finalOutboundURL );
+		}
+		// NAVIGATE TO FINAL OUTBOUND LINK
+		// -------------------------------
+		var popupWindow = window.open( finalOutboundURL, "eText" );
+		popupWindow.focus();        
+}
+	
+	
+//Math specific video launch code
+
+/*////////////////////////////////////////////////////////////////////////////
+openQuicktimeVideoNewWindow( p_targetURL, [p_windowWidth], [p_windowHeight] )
+	revised version of original method- works with same parameters
+	QuickTime Video does not require TPI SSO
+*/////////////////////////////////////////////////////////////////////////////	
+/*
+	Function: openQuicktimeVideoNewWindow
+	
+	Opens a new window, linking to Pearson video content on another server.
+	
+	Parameters: 
+	p_targetURL - A string - the url to open.  Bounces off of the Excel server and goes directly to the Pearson server.
+	p_windowWidth - [optional] integer value - the window width in pixels of the new window that is to be opened.
+	p_windowHeight - [optional] integer value - the window height in pixels of the new window that is to be opened.
+*/
+function openQuicktimeVideoNewWindow( p_targetURL, p_windowWidth, p_windowHeight )
+{
+	var linkURL;
+	var windowWidth=320;
+	// note that height is set to include ClosedCaptioning info- it will look big.
+	var windowHeight=350;
+	
+	// CHECK REQUIRED PARAMS
+	// ---------------------
+	
+	if ( p_targetURL == null ) {
+		alert( "openQuicktimeVideoNewWindow()  version number "+versionNumber+" called without the required linkURL parameter" );
+	}
+	
+	else
+	{
+		linkURL = p_targetURL;    
+	}
+	
+	// CHECK OPTIONAL PARAMS
+	// ---------------------
+	 
+	if ( p_windowWidth )
+	{
+		windowWidth = p_windowWidth;
+	}
+	
+	if ( p_windowHeight )
+	{
+		windowHeight = p_windowHeight;
+	}
+	
+	// GENERATE FINAL OUTBOUND SSO LINK
+	// --------------------------------
+	
+	newWindowqt = window.open("", "", "toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no, resizable=yes, width=" + windowWidth + ", height=" + windowHeight + ";");
+	newWindowqt.document.write('<html><head><title>quicktimemovie<\/title><\/head><body bgcolor="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0"><embed src="' + linkURL + '" width="100%" height="100%" bgcolor="000000" pluginspage="https://www.apple.com/quicktime/download/" autoplay="true" controller="true" scale="aspect"></embed><\/body><\/html>');
+}
+
+// new video function from Math team
+function openVideoWindow(mName, mW, mH){
+	if (mW == null){
+		mW = 340;
+	}
+	if (mH == null){
+		mH = 380;
+	}
+	
+	window.open("https://media.pearsoncmg.com/cmg/pmmg_mml_shared/flash_video_player/player.html?"+mName, "VideoWindow", "toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no, resizable=yes, width=" + mW + ", height=" + mH + ";");
+}
+
+// placeholder for new video player currently points to old video player as new player isn't done yet
+function openVideoWindowPlayerTwo(mName, mW, mH){
+	if (mW == null){
+		mW = 333;
+	}
+	if (mH == null){
+		mH = 318;
+	}
+	
+	window.open("//media.pearsoncmg.com/cmg/pmmg_mml_shared/flash_video_player/vid_player.html?"+mName, "VideoWindow", "toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no, resizable=yes, width=" + mW + ", height=" + mH + ";");
+
+}
+
+/****************************************************************************
+Used for Oppening XLSpecific Assesments
+*****************************************************************************/
+
+var XLspecificAssignmentVarInfo = "specificassignment";
+var pagelinkPopUp = "popup";
+var XLHistoryVarInfo = "historyId";
+
+/*////////////////////////////////////////////////////////////////////////////
+openXLSpecificAssignmentSameWindow( p_historyID )
+*/
+////////////////////////////////////////////////////////////////////////////
+/*
+Function: openXLSpecificAssignmentSameWindow
+        
+Opens content in the new window, linking to Pearson content on the XL server.
+        
+Parameters: 
+p_historyID - A string -the keyword that identifies the Pearson content to link to e.g. 'multimedia'.
+        
+*/
+function openXLSpecificAssignmentSameWindow(p_historyID) {
+
+
+    // CONSTRUCT THE FINAL OUTBOUND LINK
+    // ---------------------------------
+
+    var outboundJSON = outBoundJSONStart;
+
+
+    // APPEND REQUIRED FUNCTION PARAMS TO FINAL OUTBOUND LINK
+    // ------------------------------------------------------
+
+    if (p_historyID == null) {
+        alert("openXLSpecificAssignmentSameWindow() was called without required history ID parameter");
+    }
+
+    else {
+
+        // Generate the outbound link
+        outboundJSON += ",'";
+        outboundJSON += XLTargetVarInfo;
+        outboundJSON += "':'";
+        outboundJSON += XLspecificAssignmentVarInfo;
+        outboundJSON += "'";
+
+        // Generate the outbound link
+        outboundJSON += ",'";
+        outboundJSON += XLHistoryVarInfo;
+        outboundJSON += "':'";
+        outboundJSON += p_historyID;
+        outboundJSON += "'";
+
+        // tell XL SSO is being launched in a popup
+        outboundJSON += ",'";
+        outboundJSON += XLpagelinkVarInfo;
+        outboundJSON += "':'";
+        outboundJSON += pagelink;
+        outboundJSON += "'";
+    }
+
+
+
+
+    // NAVIGATE TO FINAL OUTBOUND LINK
+    // -------------------------------
+
+    // close the JSON
+    var finalOutboundJSON = outboundJSON + "}";
+
+    var finalOutboundURL = getSiteUrl() + "/default/Launch.ed?path=" + currentURLPath + "&json=" + finalOutboundJSON;
+
+
+    if (enableDebugMode) {
+        alert('enableDebugMode \n' + versionNumber + '\n generated URL from openXLSpecificAssignmentSameWindow() : \n' + finalOutboundURL);
+    }
+    // NAVIGATE TO FINAL OUTBOUND LINK
+    // -------------------------------
+    location.replace(finalOutboundURL); 
+}
+
+
+/*////////////////////////////////////////////////////////////////////////////
+openXLSpecificAssignmentNewWindow( p_historyID )
+*/////////////////////////////////////////////////////////////////////////////
+/*
+        Function: openXLSpecificAssignmentNewWindow
+        
+        Opens content in the new window, linking to Pearson content on the XL server.
+        
+        Parameters: 
+        p_historyID - A string -the keyword that identifies the Pearson content to link to e.g. 'multimedia'.
+        
+*/
+function openXLSpecificAssignmentNewWindow(p_historyID)
+{
+
+        
+                // CONSTRUCT THE FINAL OUTBOUND LINK
+                // ---------------------------------
+                
+                var outboundJSON =  outBoundJSONStart;
+                
+                
+                // APPEND REQUIRED FUNCTION PARAMS TO FINAL OUTBOUND LINK
+                // ------------------------------------------------------
+                
+                if ( p_historyID == null ){
+                    alert("openXLSpecificAssignmentNewWindow() was called without required history ID parameter");
+                }
+
+                else {
+
+                    // Generate the outbound link
+                    outboundJSON += ",'";
+                    outboundJSON += XLTargetVarInfo;
+                    outboundJSON += "':'";
+                    outboundJSON += XLspecificAssignmentVarInfo;
+                    outboundJSON += "'";
+
+                        // Generate the outbound link
+                        outboundJSON += ",'";
+                        outboundJSON += XLHistoryVarInfo;
+                        outboundJSON += "':'";
+                        outboundJSON += p_historyID;
+                        outboundJSON += "'";
+                        
+                        // tell XL SSO is being launched in a popup
+                        outboundJSON += ",'";
+                        outboundJSON += XLpagelinkVarInfo;
+                        outboundJSON += "':'";
+                        outboundJSON += pagelinkPopUp;
+                        outboundJSON += "'";
+                }                   
+
+                    
+                
+                    
+                // NAVIGATE TO FINAL OUTBOUND LINK
+                // -------------------------------
+                        
+                // close the JSON
+                var finalOutboundJSON = outboundJSON + "}";
+                
+                var finalOutboundURL = getSiteUrl() + "/default/Launch.ed?path=" +currentURLPath + "&json="+finalOutboundJSON;
+        
+            
+            if ( enableDebugMode ) {
+                alert('enableDebugMode \n' + versionNumber + '\n generated URL from openXLSpecificAssignmentNewWindow() : \n' + finalOutboundURL);
+                }
+                // NAVIGATE TO FINAL OUTBOUND LINK
+                // -------------------------------
+                var popupWindow = window.open( finalOutboundURL, "PearsonMyLab" );
+                popupWindow.focus();
+        
+}
+
+// new API - passthrough to older functions for now
+
+// openEtextNew() implimented in main code
+
+function openXLNew( p_targetID, p_chapterID, p_sectionID, p_filterMediaType ){
+	
+	openXLNewWindow( p_targetID, p_chapterID, p_sectionID, p_filterMediaType );
+}
+
+function openXLSame( p_targetID, p_chapterID, p_sectionID, p_filterMediaType ){
+	
+	openXLSameWindow( p_targetID, p_chapterID, p_sectionID, p_filterMediaType );
+}
+
+//new methods for unit mode in MLP
+function openXLUnitNew( p_targetID, p_unitID ){	
+	openXLUnitNewWindow( p_targetID, p_unitID );
+}
+
+function openXLUnitSame( p_targetID, p_unitID ){	
+	openXLUnitSameWindow( p_targetID, p_unitID );
+}
+//new methods for unit mode in MLP- old method names allowed too
+function openXLAssignedModeNewWindow( p_targetID, p_unitID ){	
+	openXLUnitNewWindow( p_targetID, p_unitID );
+}
+function openXLAssignedModeSameWindow( p_targetID, p_unitID ){	
+	openXLUnitSameWindow( p_targetID, p_unitID );
+}
+
+
+function openProtectedUrlNew( p_targetURL, p_windowWidth, p_windowHeight ){
+	openXLGenericTPINewWindow( p_targetURL, p_windowWidth, p_windowHeight );
+}
+function openProtectedUrlSame( p_targetURL ){
+	openXLGenericTPISameWindow( p_targetURL );
+}
+
+function openProtectedURLNew( p_targetURL, p_windowWidth, p_windowHeight ){
+	openXLGenericTPINewWindow( p_targetURL, p_windowWidth, p_windowHeight );
+}
+function openProtectedURLSame( p_targetURL ){
+	openXLGenericTPISameWindow( p_targetURL );
+}
+
+
+//  legacy function names- pass the parameters to the new one
+
+function openEbookPlusXLPassthroughAllPages( p_eTextPage)
+{
+	openEtextNew( p_eTextPage );
+}
+
+
+function openPearsonMyLabNewWindow( p_targetID, p_chapterID, p_sectionID )
+{
+	
+	openXLNewWindow( p_targetID, p_chapterID, p_sectionID );
+}
+
+
+function openPearsonMyLabSameWindow( p_targetID, p_chapterID, p_sectionID )
+{
+	
+	openXLSameWindow( p_targetID, p_chapterID, p_sectionID );
+	
+}
+
+/*********** Wrapper Functions Used for Oppening XLSpecific Assesments *****************/
+
+function openXLSpecificAssignmentNew(p_historyID) {
+
+    openXLSpecificAssignmentNewWindow(p_historyID);
+}
+
+function openXLSpecificAssignmentSame(p_historyID) {
+
+    openXLSpecificAssignmentSameWindow(p_historyID);
+}
+
+/***************************************************************************************/2/“u      WVØWVØ<‰ú¨W`=   5    :http://tpi-scripts.pearsoncmg.com/XL/myAcctLabLTI.js necko:classified 1 request-method GET response-head HTTP/1.1 200 OK
+Date: Tue, 07 Jun 2016 14:19:38 GMT
+Server: Apache
+Last-Modified: Mon, 28 Mar 2016 08:01:21 GMT
+Etag: "4c21fee-7a21-52f1751761640"
+Accept-Ranges: bytes
+Content-Length: 31265
+X-Cnection: close
+Content-Type: application/x-javascript
+ uncompressed-len 0   z!

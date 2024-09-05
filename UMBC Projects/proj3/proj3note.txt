@@ -1,0 +1,60 @@
+all functions are passed by reference
+
+delete the dummer header, and then delete the node and that node will delte the next 
+
+keep calling node destructors (to destroy or create destruction of train)?
+
+destructor should leave the pointer alone
+
+freee the nodes with one pointer
+
+no recursivley calling node class destructer to delete itself
+
+Train Carts:
+      sleeping cart is the hardest one
+
+      only add one car at a time to the train
+
+      if (train has no cars, 
+
+      How to check for dining card:
+      if something makes train invalid then can`t add
+
+      add the car, and see if it becomes invalid
+
+      if funtion will say, hey if adding this dining car will make train 
+      ex: adding a dining car and then theres no sleeping car which would be invalid	
+      if and only if means both ways
+
+
+      if you have a sleeping car, someone can have a meal or be brought a meal
+
+      train has a dining car only if it has a dining car
+
+      but for a sleeping car, a check for aa dining car should be done in order for there to be a sleeping car
+
+      ask to put in a sleeping car, it will make train invalid
+
+      train statining dispatcher will not let a train go to see if its
+      invalid
+
+      remove fails if there isnt what is being request for by the remove function
+
+
+      important step*
+      remove the first car
+      overloading operator will be very imporant in this linked list
+      
+      trains output operator:
+       overloading operator for printing the train will use the overloading operator for
+       printing the car
+       
+
+       if 2 train cars:
+       cout << tear1 << tcar2
+       (operat first)
+       	       (then tcar2 goes out);
+			
+       
+       void* pointer:
+       ptr->m_data; in constructor could help

@@ -1,0 +1,193 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?metadataRepository version='1.1.0'?>
+<repository name='dropins metadata repo: file:/usr/lib64/eclipse/dropins/callgraph/' type='org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository' version='1.0.0'>
+  <properties size='1'>
+    <property name='p2.timestamp' value='1465901241004'/>
+  </properties>
+  <units size='4'>
+    <unit id='org.eclipse.linuxtools.callgraph.core' version='0.0.1.201101140942'>
+      <update id='org.eclipse.linuxtools.callgraph.core' range='[0.0.0,0.0.1.201101140942)' severity='0'/>
+      <properties size='7'>
+        <property name='df_LT.Bundle-Vendor' value='Eclipse Linux Tools'/>
+        <property name='df_LT.Bundle-Name' value='Callgraph Core (Incubation)'/>
+        <property name='org.eclipse.equinox.p2.name' value='%Bundle-Name'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%Bundle-Vendor'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/callgraph/eclipse/plugins/org.eclipse.linuxtools.callgraph.core_0.0.1.201101140942.jar'/>
+        <property name='file.lastModified' value='1295016179000'/>
+      </properties>
+      <provides size='5'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.linuxtools.callgraph.core' version='0.0.1.201101140942'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.linuxtools.callgraph.core' version='0.0.1.201101140942'/>
+        <provided namespace='java.package' name='org.eclipse.linuxtools.callgraph.core' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='8'>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.cdt.core.model' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.debug.ui.sourcelookup' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.jface.text' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.linuxtools.profiling.ui' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.ui' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.ui.console' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.linuxtools.callgraph.core' version='0.0.1.201101140942'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-RequiredExecutionEnvironment: JavaSE-1.6&#xA;Bundle-Name: %Bundle-Name&#xA;Bundle-Activator: org.eclipse.linuxtools.callgraph.core.CallgraphCorePlugin&#xA;Manifest-Version: 1.0&#xA;Bundle-Vendor: %Bundle-Vendor&#xA;Bundle-ActivationPolicy: lazy&#xA;Bundle-SymbolicName: org.eclipse.linuxtools.callgraph.core;singleton:=true&#xA;Import-Package: org.eclipse.cdt.core.model,org.eclipse.debug.ui.sourcelookup,org.eclipse.jface.text,org.eclipse.linuxtools.profiling.ui,org.eclipse.ui,org.eclipse.ui.console&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Version: 0.0.1.201101140942&#xA;Bundle-Localization: plugin&#xA;Export-Package: org.eclipse.linuxtools.callgraph.core&#xA;Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.linuxtools.callgraph' version='0.0.1.201101140942'>
+      <update id='org.eclipse.linuxtools.callgraph' range='[0.0.0,0.0.1.201101140942)' severity='0'/>
+      <properties size='7'>
+        <property name='df_LT.Bundle-Vendor' value='Eclipse Linux Tools'/>
+        <property name='df_LT.Bundle-Name' value='Callgraph Graphing (Incubation)'/>
+        <property name='org.eclipse.equinox.p2.name' value='%Bundle-Name'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%Bundle-Vendor'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/callgraph/eclipse/plugins/org.eclipse.linuxtools.callgraph_0.0.1.201101140942.jar'/>
+        <property name='file.lastModified' value='1295016179000'/>
+      </properties>
+      <provides size='6'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.linuxtools.callgraph' version='0.0.1.201101140942'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.linuxtools.callgraph' version='0.0.1.201101140942'/>
+        <provided namespace='java.package' name='org.eclipse.linuxtools.callgraph' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.linuxtools.callgraph.graphlisteners' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='11'>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.draw2d' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.zest.layouts' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.cdt.core.model' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.jface.text' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.linuxtools.callgraph.core' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.ui.texteditor' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.zest.core.widgets' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.zest.layouts' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.zest.layouts.algorithms' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.linuxtools.callgraph' version='0.0.1.201101140942'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-RequiredExecutionEnvironment: JavaSE-1.6&#xA;Bundle-Name: %Bundle-Name&#xA;Bundle-Activator: org.eclipse.linuxtools.callgraph.CallgraphPlugin&#xA;Manifest-Version: 1.0&#xA;Bundle-Vendor: %Bundle-Vendor&#xA;Bundle-ActivationPolicy: lazy&#xA;Bundle-SymbolicName: org.eclipse.linuxtools.callgraph;singleton:=true&#xA;Import-Package: org.eclipse.cdt.core.model,org.eclipse.jface.text,org.eclipse.linuxtools.callgraph.core,org.eclipse.ui.texteditor,org.eclipse.zest.core.widgets,org.eclipse.zest.layouts,org.eclipse.zest.layouts.algorithms&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Version: 0.0.1.201101140942&#xA;Bundle-Localization: plugin&#xA;Export-Package: org.eclipse.linuxtools.callgraph,org.eclipse.linuxtools.callgraph.graphlisteners&#xA;Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.draw2d,org.eclipse.zest.layouts&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.linuxtools.callgraph.launch' version='0.0.1.201101140942'>
+      <update id='org.eclipse.linuxtools.callgraph.launch' range='[0.0.0,0.0.1.201101140942)' severity='0'/>
+      <properties size='7'>
+        <property name='df_LT.Bundle-Vendor' value='Eclipse Linux Tools'/>
+        <property name='df_LT.Bundle-Name' value='Callgraph Launch (Incubation)'/>
+        <property name='org.eclipse.equinox.p2.name' value='%Bundle-Name'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%Bundle-Vendor'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/callgraph/eclipse/plugins/org.eclipse.linuxtools.callgraph.launch_0.0.1.201101140942.jar'/>
+        <property name='file.lastModified' value='1295016179000'/>
+      </properties>
+      <provides size='5'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.linuxtools.callgraph.launch' version='0.0.1.201101140942'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.linuxtools.callgraph.launch' version='0.0.1.201101140942'/>
+        <provided namespace='java.package' name='org.eclipse.linuxtools.callgraph.launch' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='18'>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.debug.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.draw2d' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.cdt.core' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.cdt.core.model' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.cdt.debug.core' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.cdt.launch' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.core.resources' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.debug.core' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.debug.ui' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.jface.text' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.linuxtools.callgraph.core' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.linuxtools.profiling.launch' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.ui' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.ui.console' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.ui.model' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.ui.views.navigator' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.linuxtools.callgraph.launch' version='0.0.1.201101140942'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-RequiredExecutionEnvironment: JavaSE-1.6&#xA;Bundle-Name: %Bundle-Name&#xA;Bundle-Activator: org.eclipse.linuxtools.callgraph.launch.CallgraphLaunchPlugin&#xA;Manifest-Version: 1.0&#xA;Bundle-Vendor: %Bundle-Vendor&#xA;Bundle-ActivationPolicy: lazy&#xA;Bundle-SymbolicName: org.eclipse.linuxtools.callgraph.launch;singleton:=true&#xA;Import-Package: org.eclipse.cdt.core.model,org.eclipse.cdt.debug.core,org.eclipse.cdt.launch,org.eclipse.core.resources,org.eclipse.debug.core,org.eclipse.debug.ui,org.eclipse.jface.text,org.eclipse.linuxtools.callgraph.core,org.eclipse.linuxtools.profiling.launch,org.eclipse.ui,org.eclipse.ui.console,org.eclipse.ui.model,org.eclipse.ui.views.navigator&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Version: 0.0.1.201101140942&#xA;Bundle-Localization: plugin&#xA;Export-Package: org.eclipse.linuxtools.callgraph.launch&#xA;Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.debug.ui,org.eclipse.draw2d,org.eclipse.cdt.core&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.linuxtools.profiling.launch' version='0.6.1.201101131641'>
+      <update id='org.eclipse.linuxtools.profiling.launch' range='[0.0.0,0.6.1.201101131641)' severity='0'/>
+      <properties size='7'>
+        <property name='df_LT.Bundle-Vendor.0' value='Eclipse Linux Tools'/>
+        <property name='df_LT.Bundle-Name.0' value='Profiling Launch Plug-in (Incubation)'/>
+        <property name='org.eclipse.equinox.p2.name' value='%Bundle-Name.0'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%Bundle-Vendor.0'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/callgraph/eclipse/plugins/org.eclipse.linuxtools.profiling.launch_0.6.1.201101131641.jar'/>
+        <property name='file.lastModified' value='1295016179000'/>
+      </properties>
+      <provides size='6'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.linuxtools.profiling.launch' version='0.6.1.201101131641'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.linuxtools.profiling.launch' version='0.6.1.201101131641'/>
+        <provided namespace='java.package' name='org.eclipse.linuxtools.internal.profiling.launch' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.linuxtools.profiling.launch' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='17'>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.cdt.core' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.cdt.core.model' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.cdt.debug.core' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.cdt.launch' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.cdt.launch.ui' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.cdt.ui' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.cdt.utils.pty' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.cdt.utils.spawner' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.core.resources' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.debug.core' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.debug.core.model' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.debug.ui' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.debug.ui.sourcelookup' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.jface.text' range='0.0.0'/>
+        <required namespace='java.package' name='org.eclipse.ui.console' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.linuxtools.profiling.launch' version='0.6.1.201101131641'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Bundle-Name: %Bundle-Name.0&#xA;Bundle-Activator: org.eclipse.linuxtools.internal.profiling.launch.ProfileLaunchPlugin&#xA;Manifest-Version: 1.0&#xA;Bundle-Vendor: %Bundle-Vendor.0&#xA;Bundle-ActivationPolicy: lazy&#xA;Bundle-SymbolicName: org.eclipse.linuxtools.profiling.launch;singleton:=true&#xA;Import-Package: org.eclipse.cdt.core.model,org.eclipse.cdt.debug.core,org.eclipse.cdt.launch,org.eclipse.cdt.launch.ui,org.eclipse.cdt.ui,org.eclipse.cdt.utils.pty,org.eclipse.cdt.utils.spawner,org.eclipse.core.resources,org.eclipse.debug.core,org.eclipse.debug.core.model,org.eclipse.debug.ui,org.eclipse.debug.ui.sourcelookup,org.eclipse.jface.text,org.eclipse.ui.console&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-Version: 0.6.1.201101131641&#xA;Bundle-Localization: plugin&#xA;Export-Package: org.eclipse.linuxtools.internal.profiling.launch,org.eclipse.linuxtools.profiling.launch&#xA;Require-Bundle: org.eclipse.ui,org.eclipse.core.runtime,org.eclipse.cdt.core&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+  </units>
+</repository>

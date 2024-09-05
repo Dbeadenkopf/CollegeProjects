@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?artifactRepository version='1.1.0'?>
+<repository name='/usr/lib64/eclipse/dropins/callgraph' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1.0.0'>
+  <properties size='1'>
+    <property name='p2.timestamp' value='1465901241023'/>
+  </properties>
+  <mappings size='3'>
+    <rule filter='(&amp; (classifier=osgi.bundle))' output='${repoUrl}/plugins/${id}_${version}.jar'/>
+    <rule filter='(&amp; (classifier=binary))' output='${repoUrl}/binary/${id}_${version}'/>
+    <rule filter='(&amp; (classifier=org.eclipse.update.feature))' output='${repoUrl}/features/${id}_${version}.jar'/>
+  </mappings>
+  <artifacts size='4'>
+    <artifact classifier='osgi.bundle' id='org.eclipse.linuxtools.callgraph.core' version='0.0.1.201101140942'>
+      <properties size='2'>
+        <property name='artifact.size' value='54982'/>
+        <property name='download.size' value='54982'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/callgraph/eclipse/plugins/org.eclipse.linuxtools.callgraph.core_0.0.1.201101140942.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/callgraph/eclipse/plugins/org.eclipse.linuxtools.callgraph.core_0.0.1.201101140942.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.linuxtools.profiling.launch' version='0.6.1.201101131641'>
+      <properties size='2'>
+        <property name='artifact.size' value='16930'/>
+        <property name='download.size' value='16930'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/callgraph/eclipse/plugins/org.eclipse.linuxtools.profiling.launch_0.6.1.201101131641.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/callgraph/eclipse/plugins/org.eclipse.linuxtools.profiling.launch_0.6.1.201101131641.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.linuxtools.callgraph.launch' version='0.0.1.201101140942'>
+      <properties size='2'>
+        <property name='artifact.size' value='83857'/>
+        <property name='download.size' value='83857'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/callgraph/eclipse/plugins/org.eclipse.linuxtools.callgraph.launch_0.0.1.201101140942.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/callgraph/eclipse/plugins/org.eclipse.linuxtools.callgraph.launch_0.0.1.201101140942.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.linuxtools.callgraph' version='0.0.1.201101140942'>
+      <properties size='2'>
+        <property name='artifact.size' value='99171'/>
+        <property name='download.size' value='99171'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/callgraph/eclipse/plugins/org.eclipse.linuxtools.callgraph_0.0.1.201101140942.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/callgraph/eclipse/plugins/org.eclipse.linuxtools.callgraph_0.0.1.201101140942.jar'/>
+      </repositoryProperties>
+    </artifact>
+  </artifacts>
+</repository>

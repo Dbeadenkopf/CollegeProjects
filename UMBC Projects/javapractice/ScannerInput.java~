@@ -1,0 +1,18 @@
+import java.util.Scanner;
+
+
+class ScannerInput{
+
+
+    public static void main(String[] args){
+	Scanner input = new Scanner(System.in);
+	String s1 = input.nextLine();
+	System.out.println(s1);
+    }
+
+
+
+
+
+
+}

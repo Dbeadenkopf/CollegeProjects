@@ -1,0 +1,16 @@
+shape_driver: shape_driver.o Shape.o Rectangle.o Triangle.o
+	      g++ -Wall -o shape_driver shape_driver.o Shape.o Rectangle.o Triangle.o 
+
+shape_driver.o: shape_driver.cpp Shape.h 
+		g++ -Wall -ansi -c shape_driver.cpp 
+
+Shape.o: Shape.cpp Shape.h 
+	 g++ -Wall -ansi -c Shape.cpp 
+
+Rectangle.o: Rectangle.cpp Rectangle.h
+	     g++ -Wall -ansi -c Rectangle.cpp
+
+
+
+Traingle.o: Triangle.cpp Triangle.h
+	    g++ -Wall -ansi -c Triangle.cpp

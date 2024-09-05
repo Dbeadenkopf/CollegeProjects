@@ -1,0 +1,366 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?artifactRepository version='1.1.0'?>
+<repository name='/usr/lib64/eclipse/dropins/mylyn' type='org.eclipse.equinox.p2.artifact.repository.simpleRepository' version='1.0.0'>
+  <properties size='1'>
+    <property name='p2.timestamp' value='1465901240815'/>
+  </properties>
+  <mappings size='3'>
+    <rule filter='(&amp; (classifier=osgi.bundle))' output='${repoUrl}/plugins/${id}_${version}.jar'/>
+    <rule filter='(&amp; (classifier=binary))' output='${repoUrl}/binary/${id}_${version}'/>
+    <rule filter='(&amp; (classifier=org.eclipse.update.feature))' output='${repoUrl}/features/${id}_${version}.jar'/>
+  </mappings>
+  <artifacts size='34'>
+    <artifact classifier='osgi.bundle' id='org.eclipse.mylyn.commons.xmlrpc' version='3.4.0.v20100916-0100-e3x'>
+      <properties size='2'>
+        <property name='artifact.size' value='28241'/>
+        <property name='download.size' value='28241'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.eclipse.mylyn.commons.xmlrpc_3.4.0.v20100916-0100-e3x.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.eclipse.mylyn.commons.xmlrpc_3.4.0.v20100916-0100-e3x.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.mylyn.ide.ui' version='3.4.0.v20100916-0100-e3x'>
+      <properties size='2'>
+        <property name='artifact.size' value='27643'/>
+        <property name='download.size' value='27643'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.eclipse.mylyn.ide.ui_3.4.0.v20100916-0100-e3x.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.eclipse.mylyn.ide.ui_3.4.0.v20100916-0100-e3x.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.mylyn.team.cvs' version='3.4.1.v20100916-0100-e3x'>
+      <properties size='2'>
+        <property name='artifact.size' value='14107'/>
+        <property name='download.size' value='14107'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.eclipse.mylyn.team.cvs_3.4.1.v20100916-0100-e3x.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.eclipse.mylyn.team.cvs_3.4.1.v20100916-0100-e3x.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.mylyn.context.ui' version='3.4.1.v20100916-0100-e3x'>
+      <properties size='2'>
+        <property name='artifact.size' value='210092'/>
+        <property name='download.size' value='210092'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.eclipse.mylyn.context.ui_3.4.1.v20100916-0100-e3x.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.eclipse.mylyn.context.ui_3.4.1.v20100916-0100-e3x.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.mylyn.team_feature' version='3.4.2.v20100916-0100-e3x'>
+      <properties size='3'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='4096'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+      <repositoryProperties size='3'>
+        <property name='artifact.folder' value='true'/>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/mylyn/eclipse/features/org.eclipse.mylyn.team_feature_3.4.2.v20100916-0100-e3x/'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/mylyn/eclipse/features/org.eclipse.mylyn.team_feature_3.4.2.v20100916-0100-e3x'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.apache.ws.commons.util' version='1.0.0.qualifier'>
+      <properties size='2'>
+        <property name='artifact.size' value='32060'/>
+        <property name='download.size' value='32060'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.apache.ws.commons.util_1.0.0.v20080530-1550.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.apache.ws.commons.util_1.0.0.v20080530-1550.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.mylyn.commons' version='3.4.2.v20100916-0100-e3x'>
+      <properties size='3'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='4096'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+      <repositoryProperties size='3'>
+        <property name='artifact.folder' value='true'/>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/mylyn/eclipse/features/org.eclipse.mylyn.commons_3.4.2.v20100916-0100-e3x/'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/mylyn/eclipse/features/org.eclipse.mylyn.commons_3.4.2.v20100916-0100-e3x'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.apache.commons.logging' version='1.0.4.v20080605-1930'>
+      <properties size='2'>
+        <property name='artifact.size' value='25442'/>
+        <property name='download.size' value='25442'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.apache.commons.logging.api_1.0.4.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.apache.commons.logging.api_1.0.4.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.mylyn.commons.net' version='3.4.1.v20100916-0100-e3x'>
+      <properties size='2'>
+        <property name='artifact.size' value='61693'/>
+        <property name='download.size' value='61693'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.eclipse.mylyn.commons.net_3.4.1.v20100916-0100-e3x.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.eclipse.mylyn.commons.net_3.4.1.v20100916-0100-e3x.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.mylyn.context_feature' version='3.4.2.v20100916-0100-e3x'>
+      <properties size='3'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='4096'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+      <repositoryProperties size='3'>
+        <property name='artifact.folder' value='true'/>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/mylyn/eclipse/features/org.eclipse.mylyn.context_feature_3.4.2.v20100916-0100-e3x/'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/mylyn/eclipse/features/org.eclipse.mylyn.context_feature_3.4.2.v20100916-0100-e3x'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.mylyn.resources.ui' version='3.4.1.v20100916-0100-e3x'>
+      <properties size='2'>
+        <property name='artifact.size' value='56230'/>
+        <property name='download.size' value='56230'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.eclipse.mylyn.resources.ui_3.4.1.v20100916-0100-e3x.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.eclipse.mylyn.resources.ui_3.4.1.v20100916-0100-e3x.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.apache.xmlrpc' version='3.0.0.qualifier'>
+      <properties size='2'>
+        <property name='artifact.size' value='42443'/>
+        <property name='download.size' value='42443'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.apache.xmlrpc.client_3.0.0.v20080530-1550.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.apache.xmlrpc.client_3.0.0.v20080530-1550.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.mylyn.team.ui' version='3.4.2.v20100916-0100-e3x'>
+      <properties size='2'>
+        <property name='artifact.size' value='98762'/>
+        <property name='download.size' value='98762'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.eclipse.mylyn.team.ui_3.4.2.v20100916-0100-e3x.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.eclipse.mylyn.team.ui_3.4.2.v20100916-0100-e3x.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.mylyn.tasks.bugs' version='3.4.1.v20100916-0100-e3x'>
+      <properties size='2'>
+        <property name='artifact.size' value='77840'/>
+        <property name='download.size' value='77840'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.eclipse.mylyn.tasks.bugs_3.4.1.v20100916-0100-e3x.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.eclipse.mylyn.tasks.bugs_3.4.1.v20100916-0100-e3x.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.mylyn_feature' version='3.4.2.v20100916-0100-e3x'>
+      <properties size='3'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='4096'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+      <repositoryProperties size='3'>
+        <property name='artifact.folder' value='true'/>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/mylyn/eclipse/features/org.eclipse.mylyn_feature_3.4.2.v20100916-0100-e3x/'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/mylyn/eclipse/features/org.eclipse.mylyn_feature_3.4.2.v20100916-0100-e3x'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.mylyn.discovery.core' version='3.4.0.v20100916-0100-e3x'>
+      <properties size='2'>
+        <property name='artifact.size' value='71950'/>
+        <property name='download.size' value='71950'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.eclipse.mylyn.discovery.core_3.4.0.v20100916-0100-e3x.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.eclipse.mylyn.discovery.core_3.4.0.v20100916-0100-e3x.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.mylyn.monitor.core' version='3.4.0.v20100916-0100-e3x'>
+      <properties size='2'>
+        <property name='artifact.size' value='30574'/>
+        <property name='download.size' value='30574'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.eclipse.mylyn.monitor.core_3.4.0.v20100916-0100-e3x.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.eclipse.mylyn.monitor.core_3.4.0.v20100916-0100-e3x.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.mylyn.monitor.ui' version='3.4.0.v20100916-0100-e3x'>
+      <properties size='2'>
+        <property name='artifact.size' value='42130'/>
+        <property name='download.size' value='42130'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.eclipse.mylyn.monitor.ui_3.4.0.v20100916-0100-e3x.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.eclipse.mylyn.monitor.ui_3.4.0.v20100916-0100-e3x.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.mylyn.bugzilla.core' version='3.4.2.v20100916-0100-e3x'>
+      <properties size='2'>
+        <property name='artifact.size' value='208415'/>
+        <property name='download.size' value='208415'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.eclipse.mylyn.bugzilla.core_3.4.2.v20100916-0100-e3x.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.eclipse.mylyn.bugzilla.core_3.4.2.v20100916-0100-e3x.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.mylyn.bugzilla.ide' version='3.4.0.v20100916-0100-e3x'>
+      <properties size='2'>
+        <property name='artifact.size' value='8084'/>
+        <property name='download.size' value='8084'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.eclipse.mylyn.bugzilla.ide_3.4.0.v20100916-0100-e3x.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.eclipse.mylyn.bugzilla.ide_3.4.0.v20100916-0100-e3x.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.mylyn' version='3.4.0.v20100916-0100-e3x'>
+      <properties size='2'>
+        <property name='artifact.size' value='3812'/>
+        <property name='download.size' value='3812'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.eclipse.mylyn_3.4.0.v20100916-0100-e3x.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.eclipse.mylyn_3.4.0.v20100916-0100-e3x.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.apache.commons.lang' version='2.3.0.v200803061910'>
+      <properties size='2'>
+        <property name='artifact.size' value='261223'/>
+        <property name='download.size' value='261223'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.apache.commons.lang_2.4.0.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.apache.commons.lang_2.4.0.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.mylyn.context.core' version='3.4.1.v20100916-0100-e3x'>
+      <properties size='2'>
+        <property name='artifact.size' value='101687'/>
+        <property name='download.size' value='101687'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.eclipse.mylyn.context.core_3.4.1.v20100916-0100-e3x.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.eclipse.mylyn.context.core_3.4.1.v20100916-0100-e3x.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.mylyn.help.ui' version='3.4.1.v20100916-0100-e3x'>
+      <properties size='2'>
+        <property name='artifact.size' value='2096110'/>
+        <property name='download.size' value='2096110'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.eclipse.mylyn.help.ui_3.4.1.v20100916-0100-e3x.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.eclipse.mylyn.help.ui_3.4.1.v20100916-0100-e3x.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.mylyn.discovery.ui' version='3.4.0.v20100916-0100-e3x'>
+      <properties size='2'>
+        <property name='artifact.size' value='91730'/>
+        <property name='download.size' value='91730'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.eclipse.mylyn.discovery.ui_3.4.0.v20100916-0100-e3x.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.eclipse.mylyn.discovery.ui_3.4.0.v20100916-0100-e3x.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.mylyn.commons.ui' version='3.4.0.v20100916-0100-e3x'>
+      <properties size='2'>
+        <property name='artifact.size' value='375618'/>
+        <property name='download.size' value='375618'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.eclipse.mylyn.commons.ui_3.4.0.v20100916-0100-e3x.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.eclipse.mylyn.commons.ui_3.4.0.v20100916-0100-e3x.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.apache.xmlrpc.common' version='3.0.0.qualifier'>
+      <properties size='2'>
+        <property name='artifact.size' value='96971'/>
+        <property name='download.size' value='96971'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/xmlrpc3-common.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/xmlrpc3-common.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.mylyn.tasks.core' version='3.4.1.v20100916-0100-e3x'>
+      <properties size='2'>
+        <property name='artifact.size' value='350291'/>
+        <property name='download.size' value='350291'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.eclipse.mylyn.tasks.core_3.4.1.v20100916-0100-e3x.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.eclipse.mylyn.tasks.core_3.4.1.v20100916-0100-e3x.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.mylyn.tasks.ui' version='3.4.2.v20100916-0100-e3x'>
+      <properties size='2'>
+        <property name='artifact.size' value='1549161'/>
+        <property name='download.size' value='1549161'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.eclipse.mylyn.tasks.ui_3.4.2.v20100916-0100-e3x.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.eclipse.mylyn.tasks.ui_3.4.2.v20100916-0100-e3x.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.mylyn.tasks.search' version='3.4.0.v20100916-0100-e3x'>
+      <properties size='2'>
+        <property name='artifact.size' value='58804'/>
+        <property name='download.size' value='58804'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.eclipse.mylyn.tasks.search_3.4.0.v20100916-0100-e3x.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.eclipse.mylyn.tasks.search_3.4.0.v20100916-0100-e3x.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.mylyn.bugzilla.ui' version='3.4.2.v20100916-0100-e3x'>
+      <properties size='2'>
+        <property name='artifact.size' value='188833'/>
+        <property name='download.size' value='188833'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.eclipse.mylyn.bugzilla.ui_3.4.2.v20100916-0100-e3x.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.eclipse.mylyn.bugzilla.ui_3.4.2.v20100916-0100-e3x.jar'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.mylyn.bugzilla_feature' version='3.4.2.v20100916-0100-e3x'>
+      <properties size='3'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='4096'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+      <repositoryProperties size='3'>
+        <property name='artifact.folder' value='true'/>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/mylyn/eclipse/features/org.eclipse.mylyn.bugzilla_feature_3.4.2.v20100916-0100-e3x/'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/mylyn/eclipse/features/org.eclipse.mylyn.bugzilla_feature_3.4.2.v20100916-0100-e3x'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='org.eclipse.update.feature' id='org.eclipse.mylyn.ide_feature' version='3.4.2.v20100916-0100-e3x'>
+      <properties size='3'>
+        <property name='artifact.size' value='4096'/>
+        <property name='download.size' value='4096'/>
+        <property name='download.contentType' value='application/zip'/>
+      </properties>
+      <repositoryProperties size='3'>
+        <property name='artifact.folder' value='true'/>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/mylyn/eclipse/features/org.eclipse.mylyn.ide_feature_3.4.2.v20100916-0100-e3x/'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/mylyn/eclipse/features/org.eclipse.mylyn.ide_feature_3.4.2.v20100916-0100-e3x'/>
+      </repositoryProperties>
+    </artifact>
+    <artifact classifier='osgi.bundle' id='org.eclipse.mylyn.commons.core' version='3.4.0.v20100916-0100-e3x'>
+      <properties size='2'>
+        <property name='artifact.size' value='19771'/>
+        <property name='download.size' value='19771'/>
+      </properties>
+      <repositoryProperties size='2'>
+        <property name='artifact.reference' value='file:/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.eclipse.mylyn.commons.core_3.4.0.v20100916-0100-e3x.jar'/>
+        <property name='file.name' value='/usr/lib64/eclipse/dropins/mylyn/eclipse/plugins/org.eclipse.mylyn.commons.core_3.4.0.v20100916-0100-e3x.jar'/>
+      </repositoryProperties>
+    </artifact>
+  </artifacts>
+</repository>

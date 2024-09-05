@@ -1,0 +1,24 @@
+Could not start database server! 
+executable: "/usr/libexec/mysqld" 
+arguments: ("--defaults-file=/afs/umbc.edu/users/b/e/beadenk1/home/.local/share/akonadi//mysql.conf", "--datadir=/afs/umbc.edu/users/b/e/beadenk1/home/.local/share/akonadi/db_data/", "--socket=/tmp/akonadi-beadenk1.RJcw3a/mysql.socket") 
+process error: "No such file or directory" 
+"[
+0: akonadiserver(_Z11akBacktracev+0x39) [0x40ae29]
+1: akonadiserver() [0x40b36a]
+2: /lib64/libc.so.6() [0x371f8326a0]
+3: /lib64/libc.so.6(gsignal+0x35) [0x371f832625]
+4: /lib64/libc.so.6(abort+0x175) [0x371f833e05]
+5: /usr/lib64/libQtCore.so.4(_Z17qt_message_output9QtMsgTypePKc+0x74) [0x372b069ce4]
+6: akonadiserver(_ZN15FileDebugStream9writeDataEPKcx+0xa8) [0x40bf08]
+7: /usr/lib64/libQtCore.so.4(_ZN9QIODevice5writeEPKcx+0x77) [0x372b0f15b7]
+8: /usr/lib64/libQtCore.so.4() [0x372b1025d9]
+9: /usr/lib64/libQtCore.so.4(_ZN11QTextStreamD1Ev+0x39) [0x372b103619]
+10: akonadiserver(_ZN6QDebugD1Ev+0x49) [0x406c49]
+11: /usr/lib64/libakonadiprivate.so.1(_ZN7Akonadi13AkonadiServer20startDatabaseProcessEv+0xf7f) [0x372245794f]
+12: /usr/lib64/libakonadiprivate.so.1(_ZN7Akonadi13AkonadiServerC1EP7QObject+0x69) [0x372245a4c9]
+13: /usr/lib64/libakonadiprivate.so.1(_ZN7Akonadi13AkonadiServer8instanceEv+0x4a) [0x372245b77a]
+14: akonadiserver(main+0x429) [0x406089]
+15: /lib64/libc.so.6(__libc_start_main+0xfd) [0x371f81ed5d]
+16: akonadiserver() [0x405b69]
+]
+" 

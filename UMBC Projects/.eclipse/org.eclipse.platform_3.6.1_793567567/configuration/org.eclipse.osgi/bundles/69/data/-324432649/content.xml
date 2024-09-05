@@ -1,0 +1,1031 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?metadataRepository version='1.1.0'?>
+<repository name='dropins metadata repo: file:/usr/share/eclipse/dropins/dtp-connectivity/' type='org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository' version='1.0.0'>
+  <properties size='1'>
+    <property name='p2.timestamp' value='1465901237759'/>
+  </properties>
+  <references size='2'>
+    <repository uri='http://download.eclipse.org/datatools/updates' url='http://download.eclipse.org/datatools/updates' type='0' options='0'/>
+    <repository uri='http://download.eclipse.org/datatools/updates' url='http://download.eclipse.org/datatools/updates' type='1' options='0'/>
+  </references>
+  <units size='24'>
+    <unit id='org.eclipse.datatools.connectivity.oda.feature.feature.jar' version='1.8.1.v200909251451'>
+      <properties size='10'>
+        <property name='org.eclipse.equinox.p2.name' value='%featureName'/>
+        <property name='org.eclipse.equinox.p2.description' value='%description'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.update.feature.plugin' value='org.eclipse.datatools.connectivity.oda'/>
+        <property name='df_LT.featureName' value='Data Tools Platform Open Data Access Runtime'/>
+        <property name='df_LT.providerName' value='Eclipse Data Tools Platform'/>
+        <property name='df_LT.description' value='Binaries for Data Tools Platform Open Data Access Runtime'/>
+        <property name='df_LT.license' value='Eclipse Foundation Software User Agreement&#xA;April 14, 2010&#xA;&#xA;Usage Of Content&#xA;&#xA;THE ECLIPSE FOUNDATION MAKES AVAILABLE SOFTWARE, DOCUMENTATION, INFORMATION AND/OR&#xA;OTHER MATERIALS FOR OPEN SOURCE PROJECTS (COLLECTIVELY &quot;CONTENT&quot;).&#xA;USE OF THE CONTENT IS GOVERNED BY THE TERMS AND CONDITIONS OF THIS&#xA;AGREEMENT AND/OR THE TERMS AND CONDITIONS OF LICENSE AGREEMENTS OR&#xA;NOTICES INDICATED OR REFERENCED BELOW.  BY USING THE CONTENT, YOU&#xA;AGREE THAT YOUR USE OF THE CONTENT IS GOVERNED BY THIS AGREEMENT&#xA;AND/OR THE TERMS AND CONDITIONS OF ANY APPLICABLE LICENSE AGREEMENTS&#xA;OR NOTICES INDICATED OR REFERENCED BELOW.  IF YOU DO NOT AGREE TO THE&#xA;TERMS AND CONDITIONS OF THIS AGREEMENT AND THE TERMS AND CONDITIONS&#xA;OF ANY APPLICABLE LICENSE AGREEMENTS OR NOTICES INDICATED OR REFERENCED&#xA;BELOW, THEN YOU MAY NOT USE THE CONTENT.&#xA;&#xA;Applicable Licenses&#xA;&#xA;Unless otherwise indicated, all Content made available by the&#xA;Eclipse Foundation is provided to you under the terms and conditions of&#xA;the Eclipse Public License Version 1.0 (&quot;EPL&quot;). A copy of the EPL is&#xA;provided with this Content and is also available at http://www.eclipse.org/legal/epl-v10.html.&#xA;For purposes of the EPL, &quot;Program&quot; will mean the Content.&#xA;&#xA;Content includes, but is not limited to, source code, object code,&#xA;documentation and other files maintained in the Eclipse Foundation source code&#xA;repository (&quot;Repository&quot;) in software modules (&quot;Modules&quot;) and made available&#xA;as downloadable archives (&quot;Downloads&quot;).&#xA;&#xA;- Content may be structured and packaged into modules to facilitate delivering,&#xA;extending, and upgrading the Content. Typical modules may include plug-ins (&quot;Plug-ins&quot;),&#xA;plug-in fragments (&quot;Fragments&quot;), and features (&quot;Features&quot;).&#xA;- Each Plug-in or Fragment may be packaged as a sub-directory or JAR (Java(TM) ARchive)&#xA;in a directory named &quot;plugins&quot;.&#xA;- A Feature is a bundle of one or more Plug-ins and/or Fragments and associated material.&#xA;Each Feature may be packaged as a sub-directory in a directory named &quot;features&quot;.&#xA;Within a Feature, files named &quot;feature.xml&quot; may contain a list of the names and version&#xA;numbers of the Plug-ins and/or Fragments associated with that Feature.&#xA;- Features may also include other Features (&quot;Included Features&quot;). Within a Feature, files&#xA;named &quot;feature.xml&quot; may contain a list of the names and version numbers of Included Features.&#xA;&#xA;The terms and conditions governing Plug-ins and Fragments should be&#xA;contained in files named &quot;about.html&quot; (&quot;Abouts&quot;). The terms and&#xA;conditions governing Features and Included Features should be contained&#xA;in files named &quot;license.html&quot; (&quot;Feature Licenses&quot;). Abouts and Feature&#xA;Licenses may be located in any directory of a Download or Module&#xA;including, but not limited to the following locations:&#xA;&#xA;- The top-level (root) directory&#xA;- Plug-in and Fragment directories&#xA;- Inside Plug-ins and Fragments packaged as JARs&#xA;- Sub-directories of the directory named &quot;src&quot; of certain Plug-ins&#xA;- Feature directories&#xA;&#xA;Note: if a Feature made available by the Eclipse Foundation is installed using the&#xA;Provisioning Technology (as defined below), you must agree to a license (&quot;Feature &#xA;Update License&quot;) during the installation process. If the Feature contains&#xA;Included Features, the Feature Update License should either provide you&#xA;with the terms and conditions governing the Included Features or inform&#xA;you where you can locate them. Feature Update Licenses may be found in&#xA;the &quot;license&quot; property of files named &quot;feature.properties&quot; found within a Feature.&#xA;Such Abouts, Feature Licenses, and Feature Update Licenses contain the&#xA;terms and conditions (or references to such terms and conditions) that&#xA;govern your use of the associated Content in that directory.&#xA;&#xA;THE ABOUTS, FEATURE LICENSES, AND FEATURE UPDATE LICENSES MAY REFER&#xA;TO THE EPL OR OTHER LICENSE AGREEMENTS, NOTICES OR TERMS AND CONDITIONS.&#xA;SOME OF THESE OTHER LICENSE AGREEMENTS MAY INCLUDE (BUT ARE NOT LIMITED TO):&#xA;&#xA;- Common Public License Version 1.0 (available at http://www.eclipse.org/legal/cpl-v10.html)&#xA;- Apache Software License 1.1 (available at http://www.apache.org/licenses/LICENSE)&#xA;- Apache Software License 2.0 (available at http://www.apache.org/licenses/LICENSE-2.0)&#xA;- Metro Link Public License 1.00 (available at http://www.opengroup.org/openmotif/supporters/metrolink/license.html)&#xA;- Mozilla Public License Version 1.1 (available at http://www.mozilla.org/MPL/MPL-1.1.html)&#xA;&#xA;IT IS YOUR OBLIGATION TO READ AND ACCEPT ALL SUCH TERMS AND CONDITIONS PRIOR&#xA;TO USE OF THE CONTENT. If no About, Feature License, or Feature Update License&#xA;is provided, please contact the Eclipse Foundation to determine what terms and conditions&#xA;govern that particular Content.&#xA;&#xA;&#xA;Use of Provisioning Technology&#xA;&#xA;The Eclipse Foundation makes available provisioning software, examples of which include,&#xA;but are not limited to, p2 and the Eclipse Update Manager (&quot;Provisioning Technology&quot;) for&#xA;the purpose of allowing users to install software, documentation, information and/or&#xA;other materials (collectively &quot;Installable Software&quot;). This capability is provided with&#xA;the intent of allowing such users to install, extend and update Eclipse-based products.&#xA;Information about packaging Installable Software is available at&#xA;http://eclipse.org/equinox/p2/repository_packaging.html (&quot;Specification&quot;).&#xA;&#xA;You may use Provisioning Technology to allow other parties to install Installable Software.&#xA;You shall be responsible for enabling the applicable license agreements relating to the&#xA;Installable Software to be presented to, and accepted by, the users of the Provisioning Technology&#xA;in accordance with the Specification. By using Provisioning Technology in such a manner and&#xA;making it available in accordance with the Specification, you further acknowledge your&#xA;agreement to, and the acquisition of all necessary rights to permit the following:&#xA;&#xA;1. A series of actions may occur (&quot;Provisioning Process&quot;) in which a user may execute&#xA;the Provisioning Technology on a machine (&quot;Target Machine&quot;) with the intent of installing,&#xA;extending or updating the functionality of an Eclipse-based product.&#xA;2. During the Provisioning Process, the Provisioning Technology may cause third party&#xA;Installable Software or a portion thereof to be accessed and copied to the Target Machine.&#xA;3. Pursuant to the Specification, you will provide to the user the terms and conditions that&#xA;govern the use of the Installable Software (&quot;Installable Software Agreement&quot;) and such&#xA;Installable Software Agreement shall be accessed from the Target Machine in accordance&#xA;with the Specification. Such Installable Software Agreement must inform the user of the&#xA;terms and conditions that govern the Installable Software and must solicit acceptance by&#xA;the end user in the manner prescribed in such Installable Software Agreement. Upon such&#xA;indication of agreement by the user, the provisioning Technology will complete installation&#xA;of the Installable Software.&#xA;&#xA;Cryptography&#xA;&#xA;Content may contain encryption software. The country in which you are&#xA;currently may have restrictions on the import, possession, and use,&#xA;and/or re-export to another country, of encryption software. BEFORE&#xA;using any encryption software, please check the country&apos;s laws,&#xA;regulations and policies concerning the import, possession, or use, and&#xA;re-export of encryption software, to see if this is permitted.&#xA;&#xA;Java and all Java-based trademarks are trademarks of Oracle Corporation in the United States, other countries, or both.&#xA;'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-connectivity/eclipse/features/org.eclipse.datatools.connectivity.oda.feature_1.8.1.v200909251451'/>
+        <property name='file.lastModified' value='1406152436000'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.connectivity.oda.feature.feature.jar' version='1.8.1.v200909251451'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='feature' version='1.0.0'/>
+        <provided namespace='org.eclipse.update.feature' name='org.eclipse.datatools.connectivity.oda.feature' version='1.8.1.v200909251451'/>
+      </provides>
+      <filter>
+        (org.eclipse.update.install.features=true)
+      </filter>
+      <artifacts size='1'>
+        <artifact classifier='org.eclipse.update.feature' id='org.eclipse.datatools.connectivity.oda.feature' version='1.8.1.v200909251451'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='zipped'>
+            true
+          </instruction>
+        </instructions>
+      </touchpointData>
+      <licenses size='1'>
+        <license uri='%25licenseURL' url='%25licenseURL'>
+          %license
+        </license>
+      </licenses>
+    </unit>
+    <unit id='org.eclipse.datatools.connectivity.oda.design.ui' version='3.2.4.v200909251451'>
+      <update id='org.eclipse.datatools.connectivity.oda.design.ui' range='[0.0.0,3.2.4.v200909251451)' severity='0'/>
+      <properties size='7'>
+        <property name='df_LT.providerName' value='Eclipse Data Tools Platform'/>
+        <property name='df_LT.plugin.name' value='DTP ODA Designer UI Framework Plug-in'/>
+        <property name='org.eclipse.equinox.p2.name' value='%plugin.name'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-connectivity/eclipse/plugins/org.eclipse.datatools.connectivity.oda.design.ui_3.2.4.v200909251451.jar'/>
+        <property name='file.lastModified' value='1294937952000'/>
+      </properties>
+      <provides size='12'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.connectivity.oda.design.ui' version='3.2.4.v200909251451'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.datatools.connectivity.oda.design.ui' version='3.2.4.v200909251451'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.oda.design.internal.ui' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.oda.design.internal.ui.profile.db' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.oda.design.ui.designsession' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.oda.design.ui.manifest' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.oda.design.ui.nls' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.oda.design.ui.pages.impl' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.oda.design.ui.profile.db.wizards' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.oda.design.ui.wizards' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='9'>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='[3.3.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='[3.3.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.datatools.connectivity.ui' range='[1.1.6,2.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.datatools.connectivity.oda' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.datatools.connectivity.oda.profile' range='[3.2.2,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.datatools.connectivity.oda.design' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.datatools.connectivity.oda.consumer' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.navigator' range='[3.3.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.datatools.help' range='[1.5.0,2.0.0)'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.datatools.connectivity.oda.design.ui' version='3.2.4.v200909251451'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-Vendor: %providerName&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Require-Bundle: org.eclipse.core.runtime;bundle-version=&quot;[3.3.0,4.0.0)&quot;,org.eclipse.ui;bundle-version=&quot;[3.3.0,4.0.0)&quot;,org.eclipse.datatools.connectivity.ui;bundle-version=&quot;[1.1.6,2.0.0)&quot;;visibility:=reexport,org.eclipse.datatools.connectivity.oda;bundle-version=&quot;[3.2.0,4.0.0)&quot;;visibility:=reexport,org.eclipse.datatools.connectivity.oda.profile;bundle-version=&quot;[3.2.2,4.0.0)&quot;;visibility:=reexport,org.eclipse.datatools.connectivity.oda.design;bundle-version=&quot;[3.2.0,4.0.0)&quot;;visibility:=reexport,org.eclipse.datatools.connectivity.oda.consumer;bundle-version=&quot;[3.2.0,4.0.0)&quot;,org.eclipse.ui.navigator;bundle-version=&quot;[3.3.0,4.0.0)&quot;,org.eclipse.datatools.help;bundle-version=&quot;[1.5.0,2.0.0)&quot;;visibility:=reexport&#xA;Bundle-Name: %plugin.name&#xA;Bundle-Localization: plugin&#xA;Bundle-ActivationPolicy: lazy&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: org.eclipse.datatools.connectivity.oda.design.ui; singleton:=true&#xA;Bundle-Version: 3.2.4.v200909251451&#xA;Export-Package: org.eclipse.datatools.connectivity.oda.design.internal.ui,org.eclipse.datatools.connectivity.oda.design.internal.ui.profile.db;x-internal:=true,org.eclipse.datatools.connectivity.oda.design.ui.designsession,org.eclipse.datatools.connectivity.oda.design.ui.manifest,org.eclipse.datatools.connectivity.oda.design.ui.nls;x-friends:=&quot;org.eclipse.datatools.connectivity.oda.flatfile.ui,org.eclipse.datatools.enablement.oda.xml.ui,org.eclipse.datatools.enablement.oda.ws.ui&quot;,org.eclipse.datatools.connectivity.oda.design.ui.pages.impl,org.eclipse.datatools.connectivity.oda.design.ui.profile.db.wizards,org.eclipse.datatools.connectivity.oda.design.ui.wizards&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.datatools.connectivity.ui' version='1.2.0.v200909251451'>
+      <update id='org.eclipse.datatools.connectivity.ui' range='[0.0.0,1.2.0.v200909251451)' severity='0'/>
+      <properties size='7'>
+        <property name='df_LT.Plugin.ProviderName' value='Eclipse Data Tools Platform'/>
+        <property name='df_LT.Plugin.Name' value='Data Tools Platform Connectivity UI Plug-in'/>
+        <property name='org.eclipse.equinox.p2.name' value='%Plugin.Name'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%Plugin.ProviderName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-connectivity/eclipse/plugins/org.eclipse.datatools.connectivity.ui_1.2.0.v200909251451.jar'/>
+        <property name='file.lastModified' value='1294937952000'/>
+      </properties>
+      <provides size='15'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.connectivity.ui' version='1.2.0.v200909251451'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.datatools.connectivity.ui' version='1.2.0.v200909251451'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.internal.ui' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.internal.ui.dialogs' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.internal.ui.drivers' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.internal.ui.preferences' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.internal.ui.refactoring' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.internal.ui.wizards' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.ui' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.ui.actions' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.ui.navigator' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.ui.navigator.actions' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.ui.wizards' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='13'>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='[3.4.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.views' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.datatools.connectivity' range='[1.1.0,1.5.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.navigator' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.expressions' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='com.ibm.icu' range='[3.4.0,5.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ltk.core.refactoring' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.datatools.help' range='[1.0.0,2.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.help' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.datatools.connectivity.sqm.core' range='[1.0.1,2.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.datatools.modelbase.sql' range='[1.0.0,2.0.0)'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.datatools.connectivity.ui' version='1.2.0.v200909251451'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Bundle-Name: %Plugin.Name&#xA;Bundle-Activator: org.eclipse.datatools.connectivity.internal.ui.ConnectivityUIPlugin&#xA;Manifest-Version: 1.0&#xA;Bundle-Vendor: %Plugin.ProviderName&#xA;Bundle-ActivationPolicy: lazy&#xA;Bundle-SymbolicName: org.eclipse.datatools.connectivity.ui; singleton:=true&#xA;Bundle-ManifestVersion: 2&#xA;Eclipse-LazyStart: true&#xA;Bundle-Version: 1.2.0.v200909251451&#xA;Bundle-Localization: plugin&#xA;Export-Package: org.eclipse.datatools.connectivity.internal.ui,org.eclipse.datatools.connectivity.internal.ui.dialogs,org.eclipse.datatools.connectivity.internal.ui.drivers,org.eclipse.datatools.connectivity.internal.ui.preferences,org.eclipse.datatools.connectivity.internal.ui.refactoring,org.eclipse.datatools.connectivity.internal.ui.wizards,org.eclipse.datatools.connectivity.ui,org.eclipse.datatools.connectivity.ui.actions,org.eclipse.datatools.connectivity.ui.navigator,org.eclipse.datatools.connectivity.ui.navigator.actions,org.eclipse.datatools.connectivity.ui.wizards&#xA;Require-Bundle: org.eclipse.core.runtime;bundle-version=&quot;[3.2.0,4.0.0)&quot;,org.eclipse.core.resources;bundle-version=&quot;[3.2.0,4.0.0)&quot;,org.eclipse.ui;bundle-version=&quot;[3.4.0,4.0.0)&quot;,org.eclipse.ui.views;bundle-version=&quot;[3.2.0,4.0.0)&quot;,org.eclipse.datatools.connectivity;bundle-version=&quot;[1.1.0,1.5.0)&quot;,org.eclipse.ui.navigator;bundle-version=&quot;[3.2.0,4.0.0)&quot;,org.eclipse.core.expressions;bundle-version=&quot;[3.2.0,4.0.0)&quot;,com.ibm.icu;bundle-version=&quot;[3.4.0,5.0.0)&quot;,org.eclipse.ltk.core.refactoring;bundle-version=&quot;[3.2.0,4.0.0)&quot;,org.eclipse.datatools.help;bundle-version=&quot;[1.0.0,2.0.0)&quot;,org.eclipse.help;bundle-version=&quot;[3.2.0,4.0.0)&quot;;visibility:=reexport,org.eclipse.datatools.connectivity.sqm.core;bundle-version=&quot;[1.0.1,2.0.0)&quot;,org.eclipse.datatools.modelbase.sql;bundle-version=&quot;[1.0.0,2.0.0)&quot;&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.datatools.connectivity.sqm.core' version='1.2.1.v200909251451'>
+      <update id='org.eclipse.datatools.connectivity.sqm.core' range='[0.0.0,1.2.1.v200909251451)' severity='0'/>
+      <properties size='7'>
+        <property name='df_LT.providerName' value='Eclipse Data Tools Platform'/>
+        <property name='df_LT.pluginName' value='Eclipse Data Tools Platform SQM Core Plug-in'/>
+        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-connectivity/eclipse/plugins/org.eclipse.datatools.connectivity.sqm.core_1.2.1.v200909251451.jar'/>
+        <property name='file.lastModified' value='1294937952000'/>
+      </properties>
+      <provides size='22'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.connectivity.sqm.core' version='1.2.1.v200909251451'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.datatools.connectivity.sqm.core' version='1.2.1.v200909251451'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.core' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.core.connection' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.core.containment' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.core.definition' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.core.mappings' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.core.rte' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.core.rte.fe' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.core.rte.jdbc' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.core.util' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.internal.core' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.internal.core.connection' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.internal.core.containment' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.internal.core.definition' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.internal.core.resources' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.internal.core.rte' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.internal.core.rte.fe' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.internal.core.util' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.loader' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='8'>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.emf.ecore.change' range='[2.2.0,3.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.emf.ecore.xmi' range='[2.2.0,3.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.datatools.modelbase.sql' range='[0.9.0,1.5.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.datatools.modelbase.dbdefinition' range='[0.9.0,1.5.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.datatools.connectivity' range='[0.9.1,1.5.0)'/>
+        <required namespace='osgi.bundle' name='com.ibm.icu' range='[3.4.0,5.0.0)'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.datatools.connectivity.sqm.core' version='1.2.1.v200909251451'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Bundle-Name: %pluginName&#xA;Bundle-Activator: org.eclipse.datatools.connectivity.sqm.internal.core.RDBCorePlugin&#xA;Manifest-Version: 1.0&#xA;Bundle-Vendor: %providerName&#xA;Bundle-ActivationPolicy: lazy&#xA;Bundle-SymbolicName: org.eclipse.datatools.connectivity.sqm.core; singleton:=true&#xA;Bundle-ManifestVersion: 2&#xA;Eclipse-LazyStart: true&#xA;Bundle-Version: 1.2.1.v200909251451&#xA;Bundle-Localization: plugin&#xA;Export-Package: org.eclipse.datatools.connectivity.sqm.core,org.eclipse.datatools.connectivity.sqm.core.connection,org.eclipse.datatools.connectivity.sqm.core.containment,org.eclipse.datatools.connectivity.sqm.core.definition,org.eclipse.datatools.connectivity.sqm.core.mappings,org.eclipse.datatools.connectivity.sqm.core.rte,org.eclipse.datatools.connectivity.sqm.core.rte.fe,org.eclipse.datatools.connectivity.sqm.core.rte.jdbc,org.eclipse.datatools.connectivity.sqm.core.util,org.eclipse.datatools.connectivity.sqm.internal.core,org.eclipse.datatools.connectivity.sqm.internal.core.connection,org.eclipse.datatools.connectivity.sqm.internal.core.containment,org.eclipse.datatools.connectivity.sqm.internal.core.definition,org.eclipse.datatools.connectivity.sqm.internal.core.resources,org.eclipse.datatools.connectivity.sqm.internal.core.rte,org.eclipse.datatools.connectivity.sqm.internal.core.rte.fe,org.eclipse.datatools.connectivity.sqm.internal.core.util,org.eclipse.datatools.connectivity.sqm.loader&#xA;Require-Bundle: org.eclipse.core.resources;bundle-version=&quot;[3.2.0,4.0.0)&quot;,org.eclipse.emf.ecore.change;bundle-version=&quot;[2.2.0,3.0.0)&quot;,org.eclipse.emf.ecore.xmi;bundle-version=&quot;[2.2.0,3.0.0)&quot;,org.eclipse.core.runtime;bundle-version=&quot;[3.2.0,4.0.0)&quot;,org.eclipse.datatools.modelbase.sql;bundle-version=&quot;[0.9.0,1.5.0)&quot;,org.eclipse.datatools.modelbase.dbdefinition;bundle-version=&quot;[0.9.0,1.5.0)&quot;,org.eclipse.datatools.connectivity;bundle-version=&quot;[0.9.1,1.5.0)&quot;,com.ibm.icu;bundle-version=&quot;[3.4.0,5.0.0)&quot;&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.datatools.connectivity.oda.feature.feature.group' version='1.8.1.v200909251451' singleton='false'>
+      <update id='org.eclipse.datatools.connectivity.oda.feature.feature.group' range='[0.0.0,1.8.1.v200909251451)' severity='0'/>
+      <properties size='10'>
+        <property name='org.eclipse.equinox.p2.name' value='%featureName'/>
+        <property name='org.eclipse.equinox.p2.description' value='%description'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.type.group' value='true'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-connectivity/eclipse/features/org.eclipse.datatools.connectivity.oda.feature_1.8.1.v200909251451'/>
+        <property name='file.lastModified' value='1406152436000'/>
+        <property name='df_LT.featureName' value='Data Tools Platform Open Data Access Runtime'/>
+        <property name='df_LT.providerName' value='Eclipse Data Tools Platform'/>
+        <property name='df_LT.description' value='Binaries for Data Tools Platform Open Data Access Runtime'/>
+        <property name='df_LT.license' value='Eclipse Foundation Software User Agreement&#xA;April 14, 2010&#xA;&#xA;Usage Of Content&#xA;&#xA;THE ECLIPSE FOUNDATION MAKES AVAILABLE SOFTWARE, DOCUMENTATION, INFORMATION AND/OR&#xA;OTHER MATERIALS FOR OPEN SOURCE PROJECTS (COLLECTIVELY &quot;CONTENT&quot;).&#xA;USE OF THE CONTENT IS GOVERNED BY THE TERMS AND CONDITIONS OF THIS&#xA;AGREEMENT AND/OR THE TERMS AND CONDITIONS OF LICENSE AGREEMENTS OR&#xA;NOTICES INDICATED OR REFERENCED BELOW.  BY USING THE CONTENT, YOU&#xA;AGREE THAT YOUR USE OF THE CONTENT IS GOVERNED BY THIS AGREEMENT&#xA;AND/OR THE TERMS AND CONDITIONS OF ANY APPLICABLE LICENSE AGREEMENTS&#xA;OR NOTICES INDICATED OR REFERENCED BELOW.  IF YOU DO NOT AGREE TO THE&#xA;TERMS AND CONDITIONS OF THIS AGREEMENT AND THE TERMS AND CONDITIONS&#xA;OF ANY APPLICABLE LICENSE AGREEMENTS OR NOTICES INDICATED OR REFERENCED&#xA;BELOW, THEN YOU MAY NOT USE THE CONTENT.&#xA;&#xA;Applicable Licenses&#xA;&#xA;Unless otherwise indicated, all Content made available by the&#xA;Eclipse Foundation is provided to you under the terms and conditions of&#xA;the Eclipse Public License Version 1.0 (&quot;EPL&quot;). A copy of the EPL is&#xA;provided with this Content and is also available at http://www.eclipse.org/legal/epl-v10.html.&#xA;For purposes of the EPL, &quot;Program&quot; will mean the Content.&#xA;&#xA;Content includes, but is not limited to, source code, object code,&#xA;documentation and other files maintained in the Eclipse Foundation source code&#xA;repository (&quot;Repository&quot;) in software modules (&quot;Modules&quot;) and made available&#xA;as downloadable archives (&quot;Downloads&quot;).&#xA;&#xA;- Content may be structured and packaged into modules to facilitate delivering,&#xA;extending, and upgrading the Content. Typical modules may include plug-ins (&quot;Plug-ins&quot;),&#xA;plug-in fragments (&quot;Fragments&quot;), and features (&quot;Features&quot;).&#xA;- Each Plug-in or Fragment may be packaged as a sub-directory or JAR (Java(TM) ARchive)&#xA;in a directory named &quot;plugins&quot;.&#xA;- A Feature is a bundle of one or more Plug-ins and/or Fragments and associated material.&#xA;Each Feature may be packaged as a sub-directory in a directory named &quot;features&quot;.&#xA;Within a Feature, files named &quot;feature.xml&quot; may contain a list of the names and version&#xA;numbers of the Plug-ins and/or Fragments associated with that Feature.&#xA;- Features may also include other Features (&quot;Included Features&quot;). Within a Feature, files&#xA;named &quot;feature.xml&quot; may contain a list of the names and version numbers of Included Features.&#xA;&#xA;The terms and conditions governing Plug-ins and Fragments should be&#xA;contained in files named &quot;about.html&quot; (&quot;Abouts&quot;). The terms and&#xA;conditions governing Features and Included Features should be contained&#xA;in files named &quot;license.html&quot; (&quot;Feature Licenses&quot;). Abouts and Feature&#xA;Licenses may be located in any directory of a Download or Module&#xA;including, but not limited to the following locations:&#xA;&#xA;- The top-level (root) directory&#xA;- Plug-in and Fragment directories&#xA;- Inside Plug-ins and Fragments packaged as JARs&#xA;- Sub-directories of the directory named &quot;src&quot; of certain Plug-ins&#xA;- Feature directories&#xA;&#xA;Note: if a Feature made available by the Eclipse Foundation is installed using the&#xA;Provisioning Technology (as defined below), you must agree to a license (&quot;Feature &#xA;Update License&quot;) during the installation process. If the Feature contains&#xA;Included Features, the Feature Update License should either provide you&#xA;with the terms and conditions governing the Included Features or inform&#xA;you where you can locate them. Feature Update Licenses may be found in&#xA;the &quot;license&quot; property of files named &quot;feature.properties&quot; found within a Feature.&#xA;Such Abouts, Feature Licenses, and Feature Update Licenses contain the&#xA;terms and conditions (or references to such terms and conditions) that&#xA;govern your use of the associated Content in that directory.&#xA;&#xA;THE ABOUTS, FEATURE LICENSES, AND FEATURE UPDATE LICENSES MAY REFER&#xA;TO THE EPL OR OTHER LICENSE AGREEMENTS, NOTICES OR TERMS AND CONDITIONS.&#xA;SOME OF THESE OTHER LICENSE AGREEMENTS MAY INCLUDE (BUT ARE NOT LIMITED TO):&#xA;&#xA;- Common Public License Version 1.0 (available at http://www.eclipse.org/legal/cpl-v10.html)&#xA;- Apache Software License 1.1 (available at http://www.apache.org/licenses/LICENSE)&#xA;- Apache Software License 2.0 (available at http://www.apache.org/licenses/LICENSE-2.0)&#xA;- Metro Link Public License 1.00 (available at http://www.opengroup.org/openmotif/supporters/metrolink/license.html)&#xA;- Mozilla Public License Version 1.1 (available at http://www.mozilla.org/MPL/MPL-1.1.html)&#xA;&#xA;IT IS YOUR OBLIGATION TO READ AND ACCEPT ALL SUCH TERMS AND CONDITIONS PRIOR&#xA;TO USE OF THE CONTENT. If no About, Feature License, or Feature Update License&#xA;is provided, please contact the Eclipse Foundation to determine what terms and conditions&#xA;govern that particular Content.&#xA;&#xA;&#xA;Use of Provisioning Technology&#xA;&#xA;The Eclipse Foundation makes available provisioning software, examples of which include,&#xA;but are not limited to, p2 and the Eclipse Update Manager (&quot;Provisioning Technology&quot;) for&#xA;the purpose of allowing users to install software, documentation, information and/or&#xA;other materials (collectively &quot;Installable Software&quot;). This capability is provided with&#xA;the intent of allowing such users to install, extend and update Eclipse-based products.&#xA;Information about packaging Installable Software is available at&#xA;http://eclipse.org/equinox/p2/repository_packaging.html (&quot;Specification&quot;).&#xA;&#xA;You may use Provisioning Technology to allow other parties to install Installable Software.&#xA;You shall be responsible for enabling the applicable license agreements relating to the&#xA;Installable Software to be presented to, and accepted by, the users of the Provisioning Technology&#xA;in accordance with the Specification. By using Provisioning Technology in such a manner and&#xA;making it available in accordance with the Specification, you further acknowledge your&#xA;agreement to, and the acquisition of all necessary rights to permit the following:&#xA;&#xA;1. A series of actions may occur (&quot;Provisioning Process&quot;) in which a user may execute&#xA;the Provisioning Technology on a machine (&quot;Target Machine&quot;) with the intent of installing,&#xA;extending or updating the functionality of an Eclipse-based product.&#xA;2. During the Provisioning Process, the Provisioning Technology may cause third party&#xA;Installable Software or a portion thereof to be accessed and copied to the Target Machine.&#xA;3. Pursuant to the Specification, you will provide to the user the terms and conditions that&#xA;govern the use of the Installable Software (&quot;Installable Software Agreement&quot;) and such&#xA;Installable Software Agreement shall be accessed from the Target Machine in accordance&#xA;with the Specification. Such Installable Software Agreement must inform the user of the&#xA;terms and conditions that govern the Installable Software and must solicit acceptance by&#xA;the end user in the manner prescribed in such Installable Software Agreement. Upon such&#xA;indication of agreement by the user, the provisioning Technology will complete installation&#xA;of the Installable Software.&#xA;&#xA;Cryptography&#xA;&#xA;Content may contain encryption software. The country in which you are&#xA;currently may have restrictions on the import, possession, and use,&#xA;and/or re-export to another country, of encryption software. BEFORE&#xA;using any encryption software, please check the country&apos;s laws,&#xA;regulations and policies concerning the import, possession, or use, and&#xA;re-export of encryption software, to see if this is permitted.&#xA;&#xA;Java and all Java-based trademarks are trademarks of Oracle Corporation in the United States, other countries, or both.&#xA;'/>
+      </properties>
+      <provides size='2'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.connectivity.oda.feature.feature.group' version='1.8.1.v200909251451'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='7'>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.connectivity.oda.consumer' range='[3.2.3.v200909251451,3.2.3.v200909251451]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.connectivity.oda.design' range='[3.3.1.v200909251451,3.3.1.v200909251451]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.connectivity.oda.flatfile' range='[3.1.1.v200909251451,3.1.1.v200909251451]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.connectivity.oda.profile' range='[3.2.4.v200909251451,3.2.4.v200909251451]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.connectivity.oda' range='[3.3.1.v200909251451,3.3.1.v200909251451]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.connectivity' range='[1.2.1.v200909251451,1.2.1.v200909251451]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.connectivity.oda.feature.feature.jar' range='[1.8.1.v200909251451,1.8.1.v200909251451]'>
+          <filter>
+            (org.eclipse.update.install.features=true)
+          </filter>
+        </required>
+      </requires>
+      <touchpoint id='null' version='0.0.0'/>
+      <licenses size='1'>
+        <license uri='%25licenseURL' url='%25licenseURL'>
+          %license
+        </license>
+      </licenses>
+    </unit>
+    <unit id='org.eclipse.datatools.connectivity.oda.designer.feature.feature.jar' version='1.8.1.v200909251451'>
+      <properties size='10'>
+        <property name='org.eclipse.equinox.p2.name' value='%featureName'/>
+        <property name='org.eclipse.equinox.p2.description' value='%description'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.update.feature.plugin' value='org.eclipse.datatools.connectivity.oda.design.ui'/>
+        <property name='df_LT.featureName' value='Data Tools Platform Open Data Access Designer'/>
+        <property name='df_LT.providerName' value='Eclipse.org'/>
+        <property name='df_LT.description' value='Binaries Data Tools Platform Open Data Access Designer'/>
+        <property name='df_LT.license' value='Eclipse Foundation Software User Agreement&#xA;April 14, 2010&#xA;&#xA;Usage Of Content&#xA;&#xA;THE ECLIPSE FOUNDATION MAKES AVAILABLE SOFTWARE, DOCUMENTATION, INFORMATION AND/OR&#xA;OTHER MATERIALS FOR OPEN SOURCE PROJECTS (COLLECTIVELY &quot;CONTENT&quot;).&#xA;USE OF THE CONTENT IS GOVERNED BY THE TERMS AND CONDITIONS OF THIS&#xA;AGREEMENT AND/OR THE TERMS AND CONDITIONS OF LICENSE AGREEMENTS OR&#xA;NOTICES INDICATED OR REFERENCED BELOW.  BY USING THE CONTENT, YOU&#xA;AGREE THAT YOUR USE OF THE CONTENT IS GOVERNED BY THIS AGREEMENT&#xA;AND/OR THE TERMS AND CONDITIONS OF ANY APPLICABLE LICENSE AGREEMENTS&#xA;OR NOTICES INDICATED OR REFERENCED BELOW.  IF YOU DO NOT AGREE TO THE&#xA;TERMS AND CONDITIONS OF THIS AGREEMENT AND THE TERMS AND CONDITIONS&#xA;OF ANY APPLICABLE LICENSE AGREEMENTS OR NOTICES INDICATED OR REFERENCED&#xA;BELOW, THEN YOU MAY NOT USE THE CONTENT.&#xA;&#xA;Applicable Licenses&#xA;&#xA;Unless otherwise indicated, all Content made available by the&#xA;Eclipse Foundation is provided to you under the terms and conditions of&#xA;the Eclipse Public License Version 1.0 (&quot;EPL&quot;). A copy of the EPL is&#xA;provided with this Content and is also available at http://www.eclipse.org/legal/epl-v10.html.&#xA;For purposes of the EPL, &quot;Program&quot; will mean the Content.&#xA;&#xA;Content includes, but is not limited to, source code, object code,&#xA;documentation and other files maintained in the Eclipse Foundation source code&#xA;repository (&quot;Repository&quot;) in software modules (&quot;Modules&quot;) and made available&#xA;as downloadable archives (&quot;Downloads&quot;).&#xA;&#xA;- Content may be structured and packaged into modules to facilitate delivering,&#xA;extending, and upgrading the Content. Typical modules may include plug-ins (&quot;Plug-ins&quot;),&#xA;plug-in fragments (&quot;Fragments&quot;), and features (&quot;Features&quot;).&#xA;- Each Plug-in or Fragment may be packaged as a sub-directory or JAR (Java(TM) ARchive)&#xA;in a directory named &quot;plugins&quot;.&#xA;- A Feature is a bundle of one or more Plug-ins and/or Fragments and associated material.&#xA;Each Feature may be packaged as a sub-directory in a directory named &quot;features&quot;.&#xA;Within a Feature, files named &quot;feature.xml&quot; may contain a list of the names and version&#xA;numbers of the Plug-ins and/or Fragments associated with that Feature.&#xA;- Features may also include other Features (&quot;Included Features&quot;). Within a Feature, files&#xA;named &quot;feature.xml&quot; may contain a list of the names and version numbers of Included Features.&#xA;&#xA;The terms and conditions governing Plug-ins and Fragments should be&#xA;contained in files named &quot;about.html&quot; (&quot;Abouts&quot;). The terms and&#xA;conditions governing Features and Included Features should be contained&#xA;in files named &quot;license.html&quot; (&quot;Feature Licenses&quot;). Abouts and Feature&#xA;Licenses may be located in any directory of a Download or Module&#xA;including, but not limited to the following locations:&#xA;&#xA;- The top-level (root) directory&#xA;- Plug-in and Fragment directories&#xA;- Inside Plug-ins and Fragments packaged as JARs&#xA;- Sub-directories of the directory named &quot;src&quot; of certain Plug-ins&#xA;- Feature directories&#xA;&#xA;Note: if a Feature made available by the Eclipse Foundation is installed using the&#xA;Provisioning Technology (as defined below), you must agree to a license (&quot;Feature &#xA;Update License&quot;) during the installation process. If the Feature contains&#xA;Included Features, the Feature Update License should either provide you&#xA;with the terms and conditions governing the Included Features or inform&#xA;you where you can locate them. Feature Update Licenses may be found in&#xA;the &quot;license&quot; property of files named &quot;feature.properties&quot; found within a Feature.&#xA;Such Abouts, Feature Licenses, and Feature Update Licenses contain the&#xA;terms and conditions (or references to such terms and conditions) that&#xA;govern your use of the associated Content in that directory.&#xA;&#xA;THE ABOUTS, FEATURE LICENSES, AND FEATURE UPDATE LICENSES MAY REFER&#xA;TO THE EPL OR OTHER LICENSE AGREEMENTS, NOTICES OR TERMS AND CONDITIONS.&#xA;SOME OF THESE OTHER LICENSE AGREEMENTS MAY INCLUDE (BUT ARE NOT LIMITED TO):&#xA;&#xA;- Common Public License Version 1.0 (available at http://www.eclipse.org/legal/cpl-v10.html)&#xA;- Apache Software License 1.1 (available at http://www.apache.org/licenses/LICENSE)&#xA;- Apache Software License 2.0 (available at http://www.apache.org/licenses/LICENSE-2.0)&#xA;- Metro Link Public License 1.00 (available at http://www.opengroup.org/openmotif/supporters/metrolink/license.html)&#xA;- Mozilla Public License Version 1.1 (available at http://www.mozilla.org/MPL/MPL-1.1.html)&#xA;&#xA;IT IS YOUR OBLIGATION TO READ AND ACCEPT ALL SUCH TERMS AND CONDITIONS PRIOR&#xA;TO USE OF THE CONTENT. If no About, Feature License, or Feature Update License&#xA;is provided, please contact the Eclipse Foundation to determine what terms and conditions&#xA;govern that particular Content.&#xA;&#xA;&#xA;Use of Provisioning Technology&#xA;&#xA;The Eclipse Foundation makes available provisioning software, examples of which include,&#xA;but are not limited to, p2 and the Eclipse Update Manager (&quot;Provisioning Technology&quot;) for&#xA;the purpose of allowing users to install software, documentation, information and/or&#xA;other materials (collectively &quot;Installable Software&quot;). This capability is provided with&#xA;the intent of allowing such users to install, extend and update Eclipse-based products.&#xA;Information about packaging Installable Software is available at&#xA;http://eclipse.org/equinox/p2/repository_packaging.html (&quot;Specification&quot;).&#xA;&#xA;You may use Provisioning Technology to allow other parties to install Installable Software.&#xA;You shall be responsible for enabling the applicable license agreements relating to the&#xA;Installable Software to be presented to, and accepted by, the users of the Provisioning Technology&#xA;in accordance with the Specification. By using Provisioning Technology in such a manner and&#xA;making it available in accordance with the Specification, you further acknowledge your&#xA;agreement to, and the acquisition of all necessary rights to permit the following:&#xA;&#xA;1. A series of actions may occur (&quot;Provisioning Process&quot;) in which a user may execute&#xA;the Provisioning Technology on a machine (&quot;Target Machine&quot;) with the intent of installing,&#xA;extending or updating the functionality of an Eclipse-based product.&#xA;2. During the Provisioning Process, the Provisioning Technology may cause third party&#xA;Installable Software or a portion thereof to be accessed and copied to the Target Machine.&#xA;3. Pursuant to the Specification, you will provide to the user the terms and conditions that&#xA;govern the use of the Installable Software (&quot;Installable Software Agreement&quot;) and such&#xA;Installable Software Agreement shall be accessed from the Target Machine in accordance&#xA;with the Specification. Such Installable Software Agreement must inform the user of the&#xA;terms and conditions that govern the Installable Software and must solicit acceptance by&#xA;the end user in the manner prescribed in such Installable Software Agreement. Upon such&#xA;indication of agreement by the user, the provisioning Technology will complete installation&#xA;of the Installable Software.&#xA;&#xA;Cryptography&#xA;&#xA;Content may contain encryption software. The country in which you are&#xA;currently may have restrictions on the import, possession, and use,&#xA;and/or re-export to another country, of encryption software. BEFORE&#xA;using any encryption software, please check the country&apos;s laws,&#xA;regulations and policies concerning the import, possession, or use, and&#xA;re-export of encryption software, to see if this is permitted.&#xA;&#xA;Java and all Java-based trademarks are trademarks of Oracle Corporation in the United States, other countries, or both.&#xA;'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-connectivity/eclipse/features/org.eclipse.datatools.connectivity.oda.designer.feature_1.8.1.v200909251451'/>
+        <property name='file.lastModified' value='1406152436000'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.connectivity.oda.designer.feature.feature.jar' version='1.8.1.v200909251451'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='feature' version='1.0.0'/>
+        <provided namespace='org.eclipse.update.feature' name='org.eclipse.datatools.connectivity.oda.designer.feature' version='1.8.1.v200909251451'/>
+      </provides>
+      <filter>
+        (org.eclipse.update.install.features=true)
+      </filter>
+      <artifacts size='1'>
+        <artifact classifier='org.eclipse.update.feature' id='org.eclipse.datatools.connectivity.oda.designer.feature' version='1.8.1.v200909251451'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='zipped'>
+            true
+          </instruction>
+        </instructions>
+      </touchpointData>
+      <licenses size='1'>
+        <license uri='%25licenseURL' url='%25licenseURL'>
+          %license
+        </license>
+      </licenses>
+    </unit>
+    <unit id='org.eclipse.datatools.connectivity.oda.template.ui' version='3.2.1.v200909251451'>
+      <update id='org.eclipse.datatools.connectivity.oda.template.ui' range='[0.0.0,3.2.1.v200909251451)' severity='0'/>
+      <properties size='6'>
+        <property name='df_LT.plugin.name' value='DTP ODA New Plug-in Template Wizard'/>
+        <property name='org.eclipse.equinox.p2.name' value='%plugin.name'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Eclipse Data Tools Platform'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-connectivity/eclipse/plugins/org.eclipse.datatools.connectivity.oda.template.ui_3.2.1.v200909251451.jar'/>
+        <property name='file.lastModified' value='1294937951000'/>
+      </properties>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.connectivity.oda.template.ui' version='3.2.1.v200909251451'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.datatools.connectivity.oda.template.ui' version='3.2.1.v200909251451'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='4'>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='[3.4.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='[3.4.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='[3.4.0,4.0.0)' optional='true'/>
+        <required namespace='osgi.bundle' name='org.eclipse.pde.ui' range='[3.4.0,4.0.0)'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.datatools.connectivity.oda.template.ui' version='3.2.1.v200909251451'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Bundle-Localization: plugin&#xA;Require-Bundle: org.eclipse.ui;bundle-version=&quot;[3.4.0,4.0.0)&quot;,org.eclipse.core.runtime;bundle-version=&quot;[3.4.0,4.0.0)&quot;,org.eclipse.core.resources;bundle-version=&quot;[3.4.0,4.0.0)&quot;;resolution:=optional,org.eclipse.pde.ui;bundle-version=&quot;[3.4.0,4.0.0)&quot;&#xA;Bundle-Activator: org.eclipse.datatools.connectivity.oda.template.ui.plugin.Activator&#xA;Bundle-Name: %plugin.name&#xA;Bundle-Version: 3.2.1.v200909251451&#xA;Bundle-Vendor: Eclipse Data Tools Platform&#xA;Bundle-SymbolicName: org.eclipse.datatools.connectivity.oda.template.ui;singleton:=true&#xA;Bundle-ActivationPolicy: lazy&#xA;Manifest-Version: 1.0&#xA;Eclipse-LazyStart: true&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.datatools.connectivity.oda.flatfile' version='3.1.1.v200909251451'>
+      <update id='org.eclipse.datatools.connectivity.oda.flatfile' range='[0.0.0,3.1.1.v200909251451)' severity='0'/>
+      <properties size='6'>
+        <property name='df_LT.plugin.name' value='Eclipse Data Tools Platform Flat File ODA Runtime Driver'/>
+        <property name='org.eclipse.equinox.p2.name' value='%plugin.name'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Eclipse Data Tools Platform'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-connectivity/eclipse/plugins/org.eclipse.datatools.connectivity.oda.flatfile_3.1.1.v200909251451.jar'/>
+        <property name='file.lastModified' value='1294937952000'/>
+      </properties>
+      <provides size='8'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.connectivity.oda.flatfile' version='3.1.1.v200909251451'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.datatools.connectivity.oda.flatfile' version='3.1.1.v200909251451'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.oda.flatfile' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.oda.flatfile.util' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.oda.flatfile.util.querytextutil' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.oda.flatfile.plugin' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='3'>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.datatools.connectivity.oda' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.datatools.connectivity.oda.profile' range='[3.0.7,4.0.0)' optional='true'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.datatools.connectivity.oda.flatfile' version='3.1.1.v200909251451'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Bundle-Name: %plugin.name&#xA;Bundle-Activator: org.eclipse.datatools.connectivity.oda.flatfile.plugin.FlatfilePlugin&#xA;Manifest-Version: 1.0&#xA;Bundle-Vendor: Eclipse Data Tools Platform&#xA;Bundle-ActivationPolicy: lazy&#xA;Bundle-SymbolicName: org.eclipse.datatools.connectivity.oda.flatfile; singleton:=true&#xA;Bundle-ManifestVersion: 2&#xA;Eclipse-LazyStart: true&#xA;Bundle-Version: 3.1.1.v200909251451&#xA;Bundle-Localization: plugin&#xA;Export-Package: org.eclipse.datatools.connectivity.oda.flatfile,org.eclipse.datatools.connectivity.oda.flatfile.util;x-friends:=&quot;org.eclipse.datatools.connectivity.oda.flatfile.tests&quot;,org.eclipse.datatools.connectivity.oda.flatfile.util.querytextutil;x-friends:=&quot;org.eclipse.datatools.connectivity.oda.flatfile.ui&quot;,org.eclipse.datatools.connectivity.oda.flatfile.plugin&#xA;Require-Bundle: org.eclipse.core.runtime;bundle-version=&quot;[3.2.0,4.0.0)&quot;,org.eclipse.datatools.connectivity.oda;bundle-version=&quot;[3.2.0,4.0.0)&quot;,org.eclipse.datatools.connectivity.oda.profile;bundle-version=&quot;[3.0.7,4.0.0)&quot;;resolution:=optional&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.datatools.connectivity.feature.feature.group' version='1.8.1.v200909251451' singleton='false'>
+      <update id='org.eclipse.datatools.connectivity.feature.feature.group' range='[0.0.0,1.8.1.v200909251451)' severity='0'/>
+      <properties size='10'>
+        <property name='org.eclipse.equinox.p2.name' value='%featureName'/>
+        <property name='org.eclipse.equinox.p2.description' value='%description'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.type.group' value='true'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-connectivity/eclipse/features/org.eclipse.datatools.connectivity.feature_1.8.1.v200909251451'/>
+        <property name='file.lastModified' value='1406152436000'/>
+        <property name='df_LT.featureName' value='Data Tools Platform Connectivity'/>
+        <property name='df_LT.providerName' value='Eclipse Data Tools Platform'/>
+        <property name='df_LT.description' value='Driver and connection management, Open Data Access (ODA) and the Data Source Explorer (DSE)'/>
+        <property name='df_LT.license' value='Eclipse Foundation Software User Agreement&#xA;April 14, 2010&#xA;&#xA;Usage Of Content&#xA;&#xA;THE ECLIPSE FOUNDATION MAKES AVAILABLE SOFTWARE, DOCUMENTATION, INFORMATION AND/OR&#xA;OTHER MATERIALS FOR OPEN SOURCE PROJECTS (COLLECTIVELY &quot;CONTENT&quot;).&#xA;USE OF THE CONTENT IS GOVERNED BY THE TERMS AND CONDITIONS OF THIS&#xA;AGREEMENT AND/OR THE TERMS AND CONDITIONS OF LICENSE AGREEMENTS OR&#xA;NOTICES INDICATED OR REFERENCED BELOW.  BY USING THE CONTENT, YOU&#xA;AGREE THAT YOUR USE OF THE CONTENT IS GOVERNED BY THIS AGREEMENT&#xA;AND/OR THE TERMS AND CONDITIONS OF ANY APPLICABLE LICENSE AGREEMENTS&#xA;OR NOTICES INDICATED OR REFERENCED BELOW.  IF YOU DO NOT AGREE TO THE&#xA;TERMS AND CONDITIONS OF THIS AGREEMENT AND THE TERMS AND CONDITIONS&#xA;OF ANY APPLICABLE LICENSE AGREEMENTS OR NOTICES INDICATED OR REFERENCED&#xA;BELOW, THEN YOU MAY NOT USE THE CONTENT.&#xA;&#xA;Applicable Licenses&#xA;&#xA;Unless otherwise indicated, all Content made available by the&#xA;Eclipse Foundation is provided to you under the terms and conditions of&#xA;the Eclipse Public License Version 1.0 (&quot;EPL&quot;). A copy of the EPL is&#xA;provided with this Content and is also available at http://www.eclipse.org/legal/epl-v10.html.&#xA;For purposes of the EPL, &quot;Program&quot; will mean the Content.&#xA;&#xA;Content includes, but is not limited to, source code, object code,&#xA;documentation and other files maintained in the Eclipse Foundation source code&#xA;repository (&quot;Repository&quot;) in software modules (&quot;Modules&quot;) and made available&#xA;as downloadable archives (&quot;Downloads&quot;).&#xA;&#xA;- Content may be structured and packaged into modules to facilitate delivering,&#xA;extending, and upgrading the Content. Typical modules may include plug-ins (&quot;Plug-ins&quot;),&#xA;plug-in fragments (&quot;Fragments&quot;), and features (&quot;Features&quot;).&#xA;- Each Plug-in or Fragment may be packaged as a sub-directory or JAR (Java(TM) ARchive)&#xA;in a directory named &quot;plugins&quot;.&#xA;- A Feature is a bundle of one or more Plug-ins and/or Fragments and associated material.&#xA;Each Feature may be packaged as a sub-directory in a directory named &quot;features&quot;.&#xA;Within a Feature, files named &quot;feature.xml&quot; may contain a list of the names and version&#xA;numbers of the Plug-ins and/or Fragments associated with that Feature.&#xA;- Features may also include other Features (&quot;Included Features&quot;). Within a Feature, files&#xA;named &quot;feature.xml&quot; may contain a list of the names and version numbers of Included Features.&#xA;&#xA;The terms and conditions governing Plug-ins and Fragments should be&#xA;contained in files named &quot;about.html&quot; (&quot;Abouts&quot;). The terms and&#xA;conditions governing Features and Included Features should be contained&#xA;in files named &quot;license.html&quot; (&quot;Feature Licenses&quot;). Abouts and Feature&#xA;Licenses may be located in any directory of a Download or Module&#xA;including, but not limited to the following locations:&#xA;&#xA;- The top-level (root) directory&#xA;- Plug-in and Fragment directories&#xA;- Inside Plug-ins and Fragments packaged as JARs&#xA;- Sub-directories of the directory named &quot;src&quot; of certain Plug-ins&#xA;- Feature directories&#xA;&#xA;Note: if a Feature made available by the Eclipse Foundation is installed using the&#xA;Provisioning Technology (as defined below), you must agree to a license (&quot;Feature &#xA;Update License&quot;) during the installation process. If the Feature contains&#xA;Included Features, the Feature Update License should either provide you&#xA;with the terms and conditions governing the Included Features or inform&#xA;you where you can locate them. Feature Update Licenses may be found in&#xA;the &quot;license&quot; property of files named &quot;feature.properties&quot; found within a Feature.&#xA;Such Abouts, Feature Licenses, and Feature Update Licenses contain the&#xA;terms and conditions (or references to such terms and conditions) that&#xA;govern your use of the associated Content in that directory.&#xA;&#xA;THE ABOUTS, FEATURE LICENSES, AND FEATURE UPDATE LICENSES MAY REFER&#xA;TO THE EPL OR OTHER LICENSE AGREEMENTS, NOTICES OR TERMS AND CONDITIONS.&#xA;SOME OF THESE OTHER LICENSE AGREEMENTS MAY INCLUDE (BUT ARE NOT LIMITED TO):&#xA;&#xA;- Common Public License Version 1.0 (available at http://www.eclipse.org/legal/cpl-v10.html)&#xA;- Apache Software License 1.1 (available at http://www.apache.org/licenses/LICENSE)&#xA;- Apache Software License 2.0 (available at http://www.apache.org/licenses/LICENSE-2.0)&#xA;- Metro Link Public License 1.00 (available at http://www.opengroup.org/openmotif/supporters/metrolink/license.html)&#xA;- Mozilla Public License Version 1.1 (available at http://www.mozilla.org/MPL/MPL-1.1.html)&#xA;&#xA;IT IS YOUR OBLIGATION TO READ AND ACCEPT ALL SUCH TERMS AND CONDITIONS PRIOR&#xA;TO USE OF THE CONTENT. If no About, Feature License, or Feature Update License&#xA;is provided, please contact the Eclipse Foundation to determine what terms and conditions&#xA;govern that particular Content.&#xA;&#xA;&#xA;Use of Provisioning Technology&#xA;&#xA;The Eclipse Foundation makes available provisioning software, examples of which include,&#xA;but are not limited to, p2 and the Eclipse Update Manager (&quot;Provisioning Technology&quot;) for&#xA;the purpose of allowing users to install software, documentation, information and/or&#xA;other materials (collectively &quot;Installable Software&quot;). This capability is provided with&#xA;the intent of allowing such users to install, extend and update Eclipse-based products.&#xA;Information about packaging Installable Software is available at&#xA;http://eclipse.org/equinox/p2/repository_packaging.html (&quot;Specification&quot;).&#xA;&#xA;You may use Provisioning Technology to allow other parties to install Installable Software.&#xA;You shall be responsible for enabling the applicable license agreements relating to the&#xA;Installable Software to be presented to, and accepted by, the users of the Provisioning Technology&#xA;in accordance with the Specification. By using Provisioning Technology in such a manner and&#xA;making it available in accordance with the Specification, you further acknowledge your&#xA;agreement to, and the acquisition of all necessary rights to permit the following:&#xA;&#xA;1. A series of actions may occur (&quot;Provisioning Process&quot;) in which a user may execute&#xA;the Provisioning Technology on a machine (&quot;Target Machine&quot;) with the intent of installing,&#xA;extending or updating the functionality of an Eclipse-based product.&#xA;2. During the Provisioning Process, the Provisioning Technology may cause third party&#xA;Installable Software or a portion thereof to be accessed and copied to the Target Machine.&#xA;3. Pursuant to the Specification, you will provide to the user the terms and conditions that&#xA;govern the use of the Installable Software (&quot;Installable Software Agreement&quot;) and such&#xA;Installable Software Agreement shall be accessed from the Target Machine in accordance&#xA;with the Specification. Such Installable Software Agreement must inform the user of the&#xA;terms and conditions that govern the Installable Software and must solicit acceptance by&#xA;the end user in the manner prescribed in such Installable Software Agreement. Upon such&#xA;indication of agreement by the user, the provisioning Technology will complete installation&#xA;of the Installable Software.&#xA;&#xA;Cryptography&#xA;&#xA;Content may contain encryption software. The country in which you are&#xA;currently may have restrictions on the import, possession, and use,&#xA;and/or re-export to another country, of encryption software. BEFORE&#xA;using any encryption software, please check the country&apos;s laws,&#xA;regulations and policies concerning the import, possession, or use, and&#xA;re-export of encryption software, to see if this is permitted.&#xA;&#xA;Java and all Java-based trademarks are trademarks of Oracle Corporation in the United States, other countries, or both.&#xA;'/>
+      </properties>
+      <provides size='2'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.connectivity.feature.feature.group' version='1.8.1.v200909251451'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='13'>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.connectivity.oda.feature.feature.group' range='[1.8.1.v200909251451,1.8.1.v200909251451]' optional='true'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.connectivity.oda.designer.feature.feature.group' range='[1.8.1.v200909251451,1.8.1.v200909251451]' optional='true'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.connectivity.oda.designer.core.feature.feature.group' range='[1.8.1.v200909251451,1.8.1.v200909251451]' optional='true'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.modelbase.feature.feature.group' range='1.8.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.connectivity.sqm.core.ui' range='[1.2.0.v200909251451,1.2.0.v200909251451]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.connectivity.sqm.core' range='[1.2.1.v200909251451,1.2.1.v200909251451]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.connectivity.sqm.server.ui' range='[1.1.100.v200909251451,1.1.100.v200909251451]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.connectivity.ui.dse' range='[1.1.4.v200909251451,1.1.4.v200909251451]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.connectivity.ui' range='[1.2.0.v200909251451,1.2.0.v200909251451]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.connectivity' range='[1.2.1.v200909251451,1.2.1.v200909251451]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.help' range='[1.5.0.v200909251451,1.5.0.v200909251451]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.connectivity.console.profile' range='[1.0.0.v200909251451,1.0.0.v200909251451]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.connectivity.feature.feature.jar' range='[1.8.1.v200909251451,1.8.1.v200909251451]'>
+          <filter>
+            (org.eclipse.update.install.features=true)
+          </filter>
+        </required>
+      </requires>
+      <touchpoint id='null' version='0.0.0'/>
+      <licenses size='1'>
+        <license uri='%25licenseURL' url='%25licenseURL'>
+          %license
+        </license>
+      </licenses>
+    </unit>
+    <unit id='org.eclipse.datatools.connectivity.sqm.server.ui' version='1.1.100.v200909251451'>
+      <update id='org.eclipse.datatools.connectivity.sqm.server.ui' range='[0.0.0,1.1.100.v200909251451)' severity='0'/>
+      <properties size='7'>
+        <property name='df_LT.providerName' value='Eclipse Data Tools Platform'/>
+        <property name='df_LT.pluginName' value='Eclipse Data Tools Platform Server UI Plug-in'/>
+        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-connectivity/eclipse/plugins/org.eclipse.datatools.connectivity.sqm.server.ui_1.1.100.v200909251451.jar'/>
+        <property name='file.lastModified' value='1294937951000'/>
+      </properties>
+      <provides size='25'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.connectivity.sqm.server.ui' version='1.1.100.v200909251451'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.datatools.connectivity.sqm.server.ui' version='1.1.100.v200909251451'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.server.internal.ui' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.server.internal.ui.dialogs' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.server.internal.ui.explorer.actions.popup' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.server.internal.ui.explorer.content' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.server.internal.ui.explorer.layout' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.server.internal.ui.explorer.loading' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.server.internal.ui.explorer.providers' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.server.internal.ui.explorer.providers.bookmark' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.server.internal.ui.explorer.providers.content.impl' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.server.internal.ui.explorer.providers.content.layout' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.server.internal.ui.explorer.providers.content.layout.hierar' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.server.internal.ui.explorer.providers.content.layout.vnode' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.server.internal.ui.explorer.providers.decorators' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.server.internal.ui.explorer.providers.label' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.server.internal.ui.icons' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.server.internal.ui.l10n' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.server.internal.ui.layout' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.server.internal.ui.services' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.server.internal.ui.util' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.server.internal.ui.util.logging' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.server.internal.ui.util.resources' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='14'>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.ide' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.datatools.modelbase.sql.edit' range='[0.9.0,1.5.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.datatools.connectivity.sqm.core' range='[0.9.1,1.5.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.datatools.connectivity.sqm.core.ui' range='[0.9.1,1.5.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.datatools.modelbase.dbdefinition' range='[0.9.0,1.5.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.datatools.connectivity' range='[0.9.1,1.5.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.datatools.connectivity.ui' range='[0.9.1,1.5.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.navigator' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='com.ibm.icu' range='[3.4.0,5.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.views' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.emf.edit.ui' range='[2.2.0,3.0.0)'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.datatools.connectivity.sqm.server.ui' version='1.1.100.v200909251451'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Bundle-Name: %pluginName&#xA;Bundle-Activator: org.eclipse.datatools.connectivity.sqm.server.internal.ui.ServerUIPlugin&#xA;Manifest-Version: 1.0&#xA;Bundle-Vendor: %providerName&#xA;Bundle-ActivationPolicy: lazy&#xA;Bundle-SymbolicName: org.eclipse.datatools.connectivity.sqm.server.ui; singleton:=true&#xA;Bundle-ManifestVersion: 2&#xA;Eclipse-LazyStart: true&#xA;Bundle-Version: 1.1.100.v200909251451&#xA;Bundle-Localization: plugin&#xA;Export-Package: org.eclipse.datatools.connectivity.sqm.server.internal.ui,org.eclipse.datatools.connectivity.sqm.server.internal.ui.dialogs,org.eclipse.datatools.connectivity.sqm.server.internal.ui.explorer.actions.popup,org.eclipse.datatools.connectivity.sqm.server.internal.ui.explorer.content,org.eclipse.datatools.connectivity.sqm.server.internal.ui.explorer.layout,org.eclipse.datatools.connectivity.sqm.server.internal.ui.explorer.loading,org.eclipse.datatools.connectivity.sqm.server.internal.ui.explorer.providers,org.eclipse.datatools.connectivity.sqm.server.internal.ui.explorer.providers.bookmark,org.eclipse.datatools.connectivity.sqm.server.internal.ui.explorer.providers.content.impl,org.eclipse.datatools.connectivity.sqm.server.internal.ui.explorer.providers.content.layout,org.eclipse.datatools.connectivity.sqm.server.internal.ui.explorer.providers.content.layout.hierar,org.eclipse.datatools.connectivity.sqm.server.internal.ui.explorer.providers.content.layout.vnode,org.eclipse.datatools.connectivity.sqm.server.internal.ui.explorer.providers.decorators,org.eclipse.datatools.connectivity.sqm.server.internal.ui.explorer.providers.label,org.eclipse.datatools.connectivity.sqm.server.internal.ui.icons,org.eclipse.datatools.connectivity.sqm.server.internal.ui.l10n,org.eclipse.datatools.connectivity.sqm.server.internal.ui.layout,org.eclipse.datatools.connectivity.sqm.server.internal.ui.services,org.eclipse.datatools.connectivity.sqm.server.internal.ui.util,org.eclipse.datatools.connectivity.sqm.server.internal.ui.util.logging,org.eclipse.datatools.connectivity.sqm.server.internal.ui.util.resources&#xA;Require-Bundle: org.eclipse.core.runtime;bundle-version=&quot;[3.2.0,4.0.0)&quot;,org.eclipse.core.resources;bundle-version=&quot;[3.2.0,4.0.0)&quot;,org.eclipse.ui.ide;bundle-version=&quot;[3.2.0,4.0.0)&quot;,org.eclipse.ui;bundle-version=&quot;[3.2.0,4.0.0)&quot;,org.eclipse.datatools.modelbase.sql.edit;bundle-version=&quot;[0.9.0,1.5.0)&quot;,org.eclipse.datatools.connectivity.sqm.core;bundle-version=&quot;[0.9.1,1.5.0)&quot;,org.eclipse.datatools.connectivity.sqm.core.ui;bundle-version=&quot;[0.9.1,1.5.0)&quot;,org.eclipse.datatools.modelbase.dbdefinition;bundle-version=&quot;[0.9.0,1.5.0)&quot;,org.eclipse.datatools.connectivity;bundle-version=&quot;[0.9.1,1.5.0)&quot;,org.eclipse.datatools.connectivity.ui;bundle-version=&quot;[0.9.1,1.5.0)&quot;,org.eclipse.ui.navigator;bundle-version=&quot;[3.2.0,4.0.0)&quot;,com.ibm.icu;bundle-version=&quot;[3.4.0,5.0.0)&quot;,org.eclipse.ui.views;bundle-version=&quot;[3.2.0,4.0.0)&quot;,org.eclipse.emf.edit.ui;bundle-version=&quot;[2.2.0,3.0.0)&quot;&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.datatools.connectivity.oda.designer.core.feature.feature.jar' version='1.8.1.v200909251451'>
+      <properties size='10'>
+        <property name='org.eclipse.equinox.p2.name' value='%featureName'/>
+        <property name='org.eclipse.equinox.p2.description' value='%description'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.update.feature.plugin' value='org.eclipse.datatools.connectivity.oda.design.ui'/>
+        <property name='df_LT.featureName' value='Data Tools Platform Open Data Access Designer Core'/>
+        <property name='df_LT.providerName' value='Eclipse.org'/>
+        <property name='df_LT.description' value='Binaries Data Tools Platform Open Data Access Designer'/>
+        <property name='df_LT.license' value='Eclipse Foundation Software User Agreement&#xA;April 14, 2010&#xA;&#xA;Usage Of Content&#xA;&#xA;THE ECLIPSE FOUNDATION MAKES AVAILABLE SOFTWARE, DOCUMENTATION, INFORMATION AND/OR&#xA;OTHER MATERIALS FOR OPEN SOURCE PROJECTS (COLLECTIVELY &quot;CONTENT&quot;).&#xA;USE OF THE CONTENT IS GOVERNED BY THE TERMS AND CONDITIONS OF THIS&#xA;AGREEMENT AND/OR THE TERMS AND CONDITIONS OF LICENSE AGREEMENTS OR&#xA;NOTICES INDICATED OR REFERENCED BELOW.  BY USING THE CONTENT, YOU&#xA;AGREE THAT YOUR USE OF THE CONTENT IS GOVERNED BY THIS AGREEMENT&#xA;AND/OR THE TERMS AND CONDITIONS OF ANY APPLICABLE LICENSE AGREEMENTS&#xA;OR NOTICES INDICATED OR REFERENCED BELOW.  IF YOU DO NOT AGREE TO THE&#xA;TERMS AND CONDITIONS OF THIS AGREEMENT AND THE TERMS AND CONDITIONS&#xA;OF ANY APPLICABLE LICENSE AGREEMENTS OR NOTICES INDICATED OR REFERENCED&#xA;BELOW, THEN YOU MAY NOT USE THE CONTENT.&#xA;&#xA;Applicable Licenses&#xA;&#xA;Unless otherwise indicated, all Content made available by the&#xA;Eclipse Foundation is provided to you under the terms and conditions of&#xA;the Eclipse Public License Version 1.0 (&quot;EPL&quot;). A copy of the EPL is&#xA;provided with this Content and is also available at http://www.eclipse.org/legal/epl-v10.html.&#xA;For purposes of the EPL, &quot;Program&quot; will mean the Content.&#xA;&#xA;Content includes, but is not limited to, source code, object code,&#xA;documentation and other files maintained in the Eclipse Foundation source code&#xA;repository (&quot;Repository&quot;) in software modules (&quot;Modules&quot;) and made available&#xA;as downloadable archives (&quot;Downloads&quot;).&#xA;&#xA;- Content may be structured and packaged into modules to facilitate delivering,&#xA;extending, and upgrading the Content. Typical modules may include plug-ins (&quot;Plug-ins&quot;),&#xA;plug-in fragments (&quot;Fragments&quot;), and features (&quot;Features&quot;).&#xA;- Each Plug-in or Fragment may be packaged as a sub-directory or JAR (Java(TM) ARchive)&#xA;in a directory named &quot;plugins&quot;.&#xA;- A Feature is a bundle of one or more Plug-ins and/or Fragments and associated material.&#xA;Each Feature may be packaged as a sub-directory in a directory named &quot;features&quot;.&#xA;Within a Feature, files named &quot;feature.xml&quot; may contain a list of the names and version&#xA;numbers of the Plug-ins and/or Fragments associated with that Feature.&#xA;- Features may also include other Features (&quot;Included Features&quot;). Within a Feature, files&#xA;named &quot;feature.xml&quot; may contain a list of the names and version numbers of Included Features.&#xA;&#xA;The terms and conditions governing Plug-ins and Fragments should be&#xA;contained in files named &quot;about.html&quot; (&quot;Abouts&quot;). The terms and&#xA;conditions governing Features and Included Features should be contained&#xA;in files named &quot;license.html&quot; (&quot;Feature Licenses&quot;). Abouts and Feature&#xA;Licenses may be located in any directory of a Download or Module&#xA;including, but not limited to the following locations:&#xA;&#xA;- The top-level (root) directory&#xA;- Plug-in and Fragment directories&#xA;- Inside Plug-ins and Fragments packaged as JARs&#xA;- Sub-directories of the directory named &quot;src&quot; of certain Plug-ins&#xA;- Feature directories&#xA;&#xA;Note: if a Feature made available by the Eclipse Foundation is installed using the&#xA;Provisioning Technology (as defined below), you must agree to a license (&quot;Feature &#xA;Update License&quot;) during the installation process. If the Feature contains&#xA;Included Features, the Feature Update License should either provide you&#xA;with the terms and conditions governing the Included Features or inform&#xA;you where you can locate them. Feature Update Licenses may be found in&#xA;the &quot;license&quot; property of files named &quot;feature.properties&quot; found within a Feature.&#xA;Such Abouts, Feature Licenses, and Feature Update Licenses contain the&#xA;terms and conditions (or references to such terms and conditions) that&#xA;govern your use of the associated Content in that directory.&#xA;&#xA;THE ABOUTS, FEATURE LICENSES, AND FEATURE UPDATE LICENSES MAY REFER&#xA;TO THE EPL OR OTHER LICENSE AGREEMENTS, NOTICES OR TERMS AND CONDITIONS.&#xA;SOME OF THESE OTHER LICENSE AGREEMENTS MAY INCLUDE (BUT ARE NOT LIMITED TO):&#xA;&#xA;- Common Public License Version 1.0 (available at http://www.eclipse.org/legal/cpl-v10.html)&#xA;- Apache Software License 1.1 (available at http://www.apache.org/licenses/LICENSE)&#xA;- Apache Software License 2.0 (available at http://www.apache.org/licenses/LICENSE-2.0)&#xA;- Metro Link Public License 1.00 (available at http://www.opengroup.org/openmotif/supporters/metrolink/license.html)&#xA;- Mozilla Public License Version 1.1 (available at http://www.mozilla.org/MPL/MPL-1.1.html)&#xA;&#xA;IT IS YOUR OBLIGATION TO READ AND ACCEPT ALL SUCH TERMS AND CONDITIONS PRIOR&#xA;TO USE OF THE CONTENT. If no About, Feature License, or Feature Update License&#xA;is provided, please contact the Eclipse Foundation to determine what terms and conditions&#xA;govern that particular Content.&#xA;&#xA;&#xA;Use of Provisioning Technology&#xA;&#xA;The Eclipse Foundation makes available provisioning software, examples of which include,&#xA;but are not limited to, p2 and the Eclipse Update Manager (&quot;Provisioning Technology&quot;) for&#xA;the purpose of allowing users to install software, documentation, information and/or&#xA;other materials (collectively &quot;Installable Software&quot;). This capability is provided with&#xA;the intent of allowing such users to install, extend and update Eclipse-based products.&#xA;Information about packaging Installable Software is available at&#xA;http://eclipse.org/equinox/p2/repository_packaging.html (&quot;Specification&quot;).&#xA;&#xA;You may use Provisioning Technology to allow other parties to install Installable Software.&#xA;You shall be responsible for enabling the applicable license agreements relating to the&#xA;Installable Software to be presented to, and accepted by, the users of the Provisioning Technology&#xA;in accordance with the Specification. By using Provisioning Technology in such a manner and&#xA;making it available in accordance with the Specification, you further acknowledge your&#xA;agreement to, and the acquisition of all necessary rights to permit the following:&#xA;&#xA;1. A series of actions may occur (&quot;Provisioning Process&quot;) in which a user may execute&#xA;the Provisioning Technology on a machine (&quot;Target Machine&quot;) with the intent of installing,&#xA;extending or updating the functionality of an Eclipse-based product.&#xA;2. During the Provisioning Process, the Provisioning Technology may cause third party&#xA;Installable Software or a portion thereof to be accessed and copied to the Target Machine.&#xA;3. Pursuant to the Specification, you will provide to the user the terms and conditions that&#xA;govern the use of the Installable Software (&quot;Installable Software Agreement&quot;) and such&#xA;Installable Software Agreement shall be accessed from the Target Machine in accordance&#xA;with the Specification. Such Installable Software Agreement must inform the user of the&#xA;terms and conditions that govern the Installable Software and must solicit acceptance by&#xA;the end user in the manner prescribed in such Installable Software Agreement. Upon such&#xA;indication of agreement by the user, the provisioning Technology will complete installation&#xA;of the Installable Software.&#xA;&#xA;Cryptography&#xA;&#xA;Content may contain encryption software. The country in which you are&#xA;currently may have restrictions on the import, possession, and use,&#xA;and/or re-export to another country, of encryption software. BEFORE&#xA;using any encryption software, please check the country&apos;s laws,&#xA;regulations and policies concerning the import, possession, or use, and&#xA;re-export of encryption software, to see if this is permitted.&#xA;&#xA;Java and all Java-based trademarks are trademarks of Oracle Corporation in the United States, other countries, or both.&#xA;'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-connectivity/eclipse/features/org.eclipse.datatools.connectivity.oda.designer.core.feature_1.8.1.v200909251451'/>
+        <property name='file.lastModified' value='1406152436000'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.connectivity.oda.designer.core.feature.feature.jar' version='1.8.1.v200909251451'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='feature' version='1.0.0'/>
+        <provided namespace='org.eclipse.update.feature' name='org.eclipse.datatools.connectivity.oda.designer.core.feature' version='1.8.1.v200909251451'/>
+      </provides>
+      <filter>
+        (org.eclipse.update.install.features=true)
+      </filter>
+      <artifacts size='1'>
+        <artifact classifier='org.eclipse.update.feature' id='org.eclipse.datatools.connectivity.oda.designer.core.feature' version='1.8.1.v200909251451'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='zipped'>
+            true
+          </instruction>
+        </instructions>
+      </touchpointData>
+      <licenses size='1'>
+        <license uri='%25licenseURL' url='%25licenseURL'>
+          %license
+        </license>
+      </licenses>
+    </unit>
+    <unit id='org.eclipse.datatools.connectivity.oda.consumer' version='3.2.3.v200909251451'>
+      <update id='org.eclipse.datatools.connectivity.oda.consumer' range='[0.0.0,3.2.3.v200909251451)' severity='0'/>
+      <properties size='4'>
+        <property name='org.eclipse.equinox.p2.name' value='DTP ODA Consumer Helper Component Plug-in'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Eclipse Data Tools Platform'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-connectivity/eclipse/plugins/org.eclipse.datatools.connectivity.oda.consumer_3.2.3.v200909251451.jar'/>
+        <property name='file.lastModified' value='1294937949000'/>
+      </properties>
+      <provides size='7'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.connectivity.oda.consumer' version='3.2.3.v200909251451'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.datatools.connectivity.oda.consumer' version='3.2.3.v200909251451'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.oda.consumer.helper' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.oda.consumer.nls' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.oda.consumer.services' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.oda.consumer.services.impl' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='2'>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.datatools.connectivity.oda' range='[3.2.0,4.0.0)'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.datatools.connectivity.oda.consumer' version='3.2.3.v200909251451'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Export-Package: org.eclipse.datatools.connectivity.oda.consumer.helper,org.eclipse.datatools.connectivity.oda.consumer.nls;x-friends:=&quot;org.eclipse.datatools.connectivity.oda.consumer.tests&quot;,org.eclipse.datatools.connectivity.oda.consumer.services,org.eclipse.datatools.connectivity.oda.consumer.services.impl&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Require-Bundle: org.eclipse.core.runtime;bundle-version=&quot;[3.2.0,4.0.0)&quot;,org.eclipse.datatools.connectivity.oda;bundle-version=&quot;[3.2.0,4.0.0)&quot;;visibility:=reexport&#xA;Bundle-Activator: org.eclipse.datatools.connectivity.oda.consumer.helper.OdaConsumerPlugin&#xA;Bundle-Name: DTP ODA Consumer Helper Component Plug-in&#xA;Bundle-Version: 3.2.3.v200909251451&#xA;Bundle-Vendor: Eclipse Data Tools Platform&#xA;Bundle-SymbolicName: org.eclipse.datatools.connectivity.oda.consumer;singleton:=true&#xA;Bundle-ActivationPolicy: lazy&#xA;Manifest-Version: 1.0&#xA;Eclipse-LazyStart: true&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.datatools.connectivity.oda.flatfile.ui' version='3.1.1.v200909251451'>
+      <update id='org.eclipse.datatools.connectivity.oda.flatfile.ui' range='[0.0.0,3.1.1.v200909251451)' severity='0'/>
+      <properties size='6'>
+        <property name='df_LT.plugin.name' value='Eclipse Data Tools Platform Flat File ODA Designer'/>
+        <property name='org.eclipse.equinox.p2.name' value='%plugin.name'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Eclipse Data Tools Platform'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-connectivity/eclipse/plugins/org.eclipse.datatools.connectivity.oda.flatfile.ui_3.1.1.v200909251451.jar'/>
+        <property name='file.lastModified' value='1294937952000'/>
+      </properties>
+      <provides size='6'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.connectivity.oda.flatfile.ui' version='3.1.1.v200909251451'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.datatools.connectivity.oda.flatfile.ui' version='3.1.1.v200909251451'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.oda.flatfile.ui' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.oda.flatfile.ui.wizards' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='4'>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.datatools.connectivity.oda.design.ui' range='[3.0.6,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.datatools.connectivity.oda.flatfile' range='[3.0.6,4.0.0)'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.datatools.connectivity.oda.flatfile.ui' version='3.1.1.v200909251451'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Bundle-Name: %plugin.name&#xA;Bundle-Activator: org.eclipse.datatools.connectivity.oda.flatfile.ui.FlatFileUIPlugin&#xA;Manifest-Version: 1.0&#xA;Bundle-Vendor: Eclipse Data Tools Platform&#xA;Bundle-ActivationPolicy: lazy&#xA;Bundle-SymbolicName: org.eclipse.datatools.connectivity.oda.flatfile.ui; singleton:=true&#xA;Bundle-ManifestVersion: 2&#xA;Eclipse-LazyStart: true&#xA;Bundle-Version: 3.1.1.v200909251451&#xA;Bundle-Localization: plugin&#xA;Export-Package: org.eclipse.datatools.connectivity.oda.flatfile.ui,org.eclipse.datatools.connectivity.oda.flatfile.ui.wizards&#xA;Require-Bundle: org.eclipse.core.runtime;bundle-version=&quot;[3.2.0,4.0.0)&quot;,org.eclipse.ui;bundle-version=&quot;[3.2.0,4.0.0)&quot;,org.eclipse.datatools.connectivity.oda.design.ui;bundle-version=&quot;[3.0.6,4.0.0)&quot;,org.eclipse.datatools.connectivity.oda.flatfile;bundle-version=&quot;[3.0.6,4.0.0)&quot;&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.datatools.help' version='1.5.0.v200909251451'>
+      <update id='org.eclipse.datatools.help' range='[0.0.0,1.5.0.v200909251451)' severity='0'/>
+      <properties size='7'>
+        <property name='df_LT.ProviderName' value='Eclipse Data Tools Platform'/>
+        <property name='df_LT.PluginName' value='Data Tools Platform Help Utilities'/>
+        <property name='org.eclipse.equinox.p2.name' value='%PluginName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%ProviderName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-connectivity/eclipse/plugins/org.eclipse.datatools.help_1.5.0.v200909251451.jar'/>
+        <property name='file.lastModified' value='1294937950000'/>
+      </properties>
+      <provides size='5'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.help' version='1.5.0.v200909251451'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.datatools.help' version='1.5.0.v200909251451'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.help' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='3'>
+        <required namespace='osgi.bundle' name='org.eclipse.help' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='0.0.0'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.datatools.help' version='1.5.0.v200909251451'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-Vendor: %ProviderName&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Bundle-ClassPath: .&#xA;Require-Bundle: org.eclipse.help;visibility:=reexport,org.eclipse.core.runtime,org.eclipse.ui&#xA;Bundle-Name: %PluginName&#xA;Bundle-Localization: plugin&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: org.eclipse.datatools.help; singleton:=true&#xA;Bundle-Version: 1.5.0.v200909251451&#xA;Export-Package: org.eclipse.datatools.help&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.datatools.connectivity.oda.designer.feature.feature.group' version='1.8.1.v200909251451' singleton='false'>
+      <update id='org.eclipse.datatools.connectivity.oda.designer.feature.feature.group' range='[0.0.0,1.8.1.v200909251451)' severity='0'/>
+      <properties size='10'>
+        <property name='org.eclipse.equinox.p2.name' value='%featureName'/>
+        <property name='org.eclipse.equinox.p2.description' value='%description'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.type.group' value='true'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-connectivity/eclipse/features/org.eclipse.datatools.connectivity.oda.designer.feature_1.8.1.v200909251451'/>
+        <property name='file.lastModified' value='1406152436000'/>
+        <property name='df_LT.featureName' value='Data Tools Platform Open Data Access Designer'/>
+        <property name='df_LT.providerName' value='Eclipse.org'/>
+        <property name='df_LT.description' value='Binaries Data Tools Platform Open Data Access Designer'/>
+        <property name='df_LT.license' value='Eclipse Foundation Software User Agreement&#xA;April 14, 2010&#xA;&#xA;Usage Of Content&#xA;&#xA;THE ECLIPSE FOUNDATION MAKES AVAILABLE SOFTWARE, DOCUMENTATION, INFORMATION AND/OR&#xA;OTHER MATERIALS FOR OPEN SOURCE PROJECTS (COLLECTIVELY &quot;CONTENT&quot;).&#xA;USE OF THE CONTENT IS GOVERNED BY THE TERMS AND CONDITIONS OF THIS&#xA;AGREEMENT AND/OR THE TERMS AND CONDITIONS OF LICENSE AGREEMENTS OR&#xA;NOTICES INDICATED OR REFERENCED BELOW.  BY USING THE CONTENT, YOU&#xA;AGREE THAT YOUR USE OF THE CONTENT IS GOVERNED BY THIS AGREEMENT&#xA;AND/OR THE TERMS AND CONDITIONS OF ANY APPLICABLE LICENSE AGREEMENTS&#xA;OR NOTICES INDICATED OR REFERENCED BELOW.  IF YOU DO NOT AGREE TO THE&#xA;TERMS AND CONDITIONS OF THIS AGREEMENT AND THE TERMS AND CONDITIONS&#xA;OF ANY APPLICABLE LICENSE AGREEMENTS OR NOTICES INDICATED OR REFERENCED&#xA;BELOW, THEN YOU MAY NOT USE THE CONTENT.&#xA;&#xA;Applicable Licenses&#xA;&#xA;Unless otherwise indicated, all Content made available by the&#xA;Eclipse Foundation is provided to you under the terms and conditions of&#xA;the Eclipse Public License Version 1.0 (&quot;EPL&quot;). A copy of the EPL is&#xA;provided with this Content and is also available at http://www.eclipse.org/legal/epl-v10.html.&#xA;For purposes of the EPL, &quot;Program&quot; will mean the Content.&#xA;&#xA;Content includes, but is not limited to, source code, object code,&#xA;documentation and other files maintained in the Eclipse Foundation source code&#xA;repository (&quot;Repository&quot;) in software modules (&quot;Modules&quot;) and made available&#xA;as downloadable archives (&quot;Downloads&quot;).&#xA;&#xA;- Content may be structured and packaged into modules to facilitate delivering,&#xA;extending, and upgrading the Content. Typical modules may include plug-ins (&quot;Plug-ins&quot;),&#xA;plug-in fragments (&quot;Fragments&quot;), and features (&quot;Features&quot;).&#xA;- Each Plug-in or Fragment may be packaged as a sub-directory or JAR (Java(TM) ARchive)&#xA;in a directory named &quot;plugins&quot;.&#xA;- A Feature is a bundle of one or more Plug-ins and/or Fragments and associated material.&#xA;Each Feature may be packaged as a sub-directory in a directory named &quot;features&quot;.&#xA;Within a Feature, files named &quot;feature.xml&quot; may contain a list of the names and version&#xA;numbers of the Plug-ins and/or Fragments associated with that Feature.&#xA;- Features may also include other Features (&quot;Included Features&quot;). Within a Feature, files&#xA;named &quot;feature.xml&quot; may contain a list of the names and version numbers of Included Features.&#xA;&#xA;The terms and conditions governing Plug-ins and Fragments should be&#xA;contained in files named &quot;about.html&quot; (&quot;Abouts&quot;). The terms and&#xA;conditions governing Features and Included Features should be contained&#xA;in files named &quot;license.html&quot; (&quot;Feature Licenses&quot;). Abouts and Feature&#xA;Licenses may be located in any directory of a Download or Module&#xA;including, but not limited to the following locations:&#xA;&#xA;- The top-level (root) directory&#xA;- Plug-in and Fragment directories&#xA;- Inside Plug-ins and Fragments packaged as JARs&#xA;- Sub-directories of the directory named &quot;src&quot; of certain Plug-ins&#xA;- Feature directories&#xA;&#xA;Note: if a Feature made available by the Eclipse Foundation is installed using the&#xA;Provisioning Technology (as defined below), you must agree to a license (&quot;Feature &#xA;Update License&quot;) during the installation process. If the Feature contains&#xA;Included Features, the Feature Update License should either provide you&#xA;with the terms and conditions governing the Included Features or inform&#xA;you where you can locate them. Feature Update Licenses may be found in&#xA;the &quot;license&quot; property of files named &quot;feature.properties&quot; found within a Feature.&#xA;Such Abouts, Feature Licenses, and Feature Update Licenses contain the&#xA;terms and conditions (or references to such terms and conditions) that&#xA;govern your use of the associated Content in that directory.&#xA;&#xA;THE ABOUTS, FEATURE LICENSES, AND FEATURE UPDATE LICENSES MAY REFER&#xA;TO THE EPL OR OTHER LICENSE AGREEMENTS, NOTICES OR TERMS AND CONDITIONS.&#xA;SOME OF THESE OTHER LICENSE AGREEMENTS MAY INCLUDE (BUT ARE NOT LIMITED TO):&#xA;&#xA;- Common Public License Version 1.0 (available at http://www.eclipse.org/legal/cpl-v10.html)&#xA;- Apache Software License 1.1 (available at http://www.apache.org/licenses/LICENSE)&#xA;- Apache Software License 2.0 (available at http://www.apache.org/licenses/LICENSE-2.0)&#xA;- Metro Link Public License 1.00 (available at http://www.opengroup.org/openmotif/supporters/metrolink/license.html)&#xA;- Mozilla Public License Version 1.1 (available at http://www.mozilla.org/MPL/MPL-1.1.html)&#xA;&#xA;IT IS YOUR OBLIGATION TO READ AND ACCEPT ALL SUCH TERMS AND CONDITIONS PRIOR&#xA;TO USE OF THE CONTENT. If no About, Feature License, or Feature Update License&#xA;is provided, please contact the Eclipse Foundation to determine what terms and conditions&#xA;govern that particular Content.&#xA;&#xA;&#xA;Use of Provisioning Technology&#xA;&#xA;The Eclipse Foundation makes available provisioning software, examples of which include,&#xA;but are not limited to, p2 and the Eclipse Update Manager (&quot;Provisioning Technology&quot;) for&#xA;the purpose of allowing users to install software, documentation, information and/or&#xA;other materials (collectively &quot;Installable Software&quot;). This capability is provided with&#xA;the intent of allowing such users to install, extend and update Eclipse-based products.&#xA;Information about packaging Installable Software is available at&#xA;http://eclipse.org/equinox/p2/repository_packaging.html (&quot;Specification&quot;).&#xA;&#xA;You may use Provisioning Technology to allow other parties to install Installable Software.&#xA;You shall be responsible for enabling the applicable license agreements relating to the&#xA;Installable Software to be presented to, and accepted by, the users of the Provisioning Technology&#xA;in accordance with the Specification. By using Provisioning Technology in such a manner and&#xA;making it available in accordance with the Specification, you further acknowledge your&#xA;agreement to, and the acquisition of all necessary rights to permit the following:&#xA;&#xA;1. A series of actions may occur (&quot;Provisioning Process&quot;) in which a user may execute&#xA;the Provisioning Technology on a machine (&quot;Target Machine&quot;) with the intent of installing,&#xA;extending or updating the functionality of an Eclipse-based product.&#xA;2. During the Provisioning Process, the Provisioning Technology may cause third party&#xA;Installable Software or a portion thereof to be accessed and copied to the Target Machine.&#xA;3. Pursuant to the Specification, you will provide to the user the terms and conditions that&#xA;govern the use of the Installable Software (&quot;Installable Software Agreement&quot;) and such&#xA;Installable Software Agreement shall be accessed from the Target Machine in accordance&#xA;with the Specification. Such Installable Software Agreement must inform the user of the&#xA;terms and conditions that govern the Installable Software and must solicit acceptance by&#xA;the end user in the manner prescribed in such Installable Software Agreement. Upon such&#xA;indication of agreement by the user, the provisioning Technology will complete installation&#xA;of the Installable Software.&#xA;&#xA;Cryptography&#xA;&#xA;Content may contain encryption software. The country in which you are&#xA;currently may have restrictions on the import, possession, and use,&#xA;and/or re-export to another country, of encryption software. BEFORE&#xA;using any encryption software, please check the country&apos;s laws,&#xA;regulations and policies concerning the import, possession, or use, and&#xA;re-export of encryption software, to see if this is permitted.&#xA;&#xA;Java and all Java-based trademarks are trademarks of Oracle Corporation in the United States, other countries, or both.&#xA;'/>
+      </properties>
+      <provides size='2'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.connectivity.oda.designer.feature.feature.group' version='1.8.1.v200909251451'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='4'>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.pde.feature.group' range='3.4.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.connectivity.oda.designer.core.feature.feature.group' range='1.8.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.connectivity.oda.template.ui' range='[3.2.1.v200909251451,3.2.1.v200909251451]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.connectivity.oda.designer.feature.feature.jar' range='[1.8.1.v200909251451,1.8.1.v200909251451]'>
+          <filter>
+            (org.eclipse.update.install.features=true)
+          </filter>
+        </required>
+      </requires>
+      <touchpoint id='null' version='0.0.0'/>
+      <licenses size='1'>
+        <license uri='%25licenseURL' url='%25licenseURL'>
+          %license
+        </license>
+      </licenses>
+    </unit>
+    <unit id='org.eclipse.datatools.connectivity' version='1.2.1.v200909251451'>
+      <update id='org.eclipse.datatools.connectivity' range='[0.0.0,1.2.1.v200909251451)' severity='0'/>
+      <properties size='7'>
+        <property name='df_LT.Plugin.ProviderName' value='Eclipse Data Tools Platform'/>
+        <property name='df_LT.Plugin.Name' value='Data Tools Platform Connectivity Plug-in'/>
+        <property name='org.eclipse.equinox.p2.name' value='%Plugin.Name'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%Plugin.ProviderName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-connectivity/eclipse/plugins/org.eclipse.datatools.connectivity_1.2.1.v200909251451.jar'/>
+        <property name='file.lastModified' value='1294937949000'/>
+      </properties>
+      <provides size='12'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.connectivity' version='1.2.1.v200909251451'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.datatools.connectivity' version='1.2.1.v200909251451'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.drivers' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.drivers.jdbc' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.drivers.models' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.exceptions' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.internal' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.internal.repository' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.internal.security' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='3'>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='com.ibm.icu' range='[3.4.0,5.0.0)'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.datatools.connectivity' version='1.2.1.v200909251451'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Bundle-Name: %Plugin.Name&#xA;Bundle-Activator: org.eclipse.datatools.connectivity.internal.ConnectivityPlugin&#xA;Manifest-Version: 1.0&#xA;Bundle-Vendor: %Plugin.ProviderName&#xA;Bundle-ActivationPolicy: lazy&#xA;Bundle-SymbolicName: org.eclipse.datatools.connectivity; singleton:=true&#xA;Bundle-ManifestVersion: 2&#xA;Eclipse-LazyStart: true&#xA;Bundle-Version: 1.2.1.v200909251451&#xA;Bundle-Localization: plugin&#xA;Export-Package: org.eclipse.datatools.connectivity,org.eclipse.datatools.connectivity.drivers,org.eclipse.datatools.connectivity.drivers.jdbc,org.eclipse.datatools.connectivity.drivers.models,org.eclipse.datatools.connectivity.exceptions,org.eclipse.datatools.connectivity.internal,org.eclipse.datatools.connectivity.internal.repository,org.eclipse.datatools.connectivity.internal.security&#xA;Require-Bundle: org.eclipse.core.runtime;bundle-version=&quot;[3.2.0,4.0.0)&quot;,org.eclipse.core.resources;bundle-version=&quot;[3.2.0,4.0.0)&quot;,com.ibm.icu;bundle-version=&quot;[3.4.0,5.0.0)&quot;&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.datatools.connectivity.oda.profile' version='3.2.4.v200909251451'>
+      <update id='org.eclipse.datatools.connectivity.oda.profile' range='[0.0.0,3.2.4.v200909251451)' severity='0'/>
+      <properties size='6'>
+        <property name='df_LT.plugin.name' value='DTP ODA Connection Profile Framework Plug-in'/>
+        <property name='org.eclipse.equinox.p2.name' value='%plugin.name'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Eclipse Data Tools Platform'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-connectivity/eclipse/plugins/org.eclipse.datatools.connectivity.oda.profile_3.2.4.v200909251451.jar'/>
+        <property name='file.lastModified' value='1294937949000'/>
+      </properties>
+      <provides size='6'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.connectivity.oda.profile' version='3.2.4.v200909251451'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.datatools.connectivity.oda.profile' version='3.2.4.v200909251451'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.oda.profile' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.oda.profile.internal' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='3'>
+        <required namespace='osgi.bundle' name='org.eclipse.datatools.connectivity' range='[1.1.3,2.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.datatools.connectivity.oda.consumer' range='[3.2.3,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='[3.2.0,4.0.0)'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.datatools.connectivity.oda.profile' version='3.2.4.v200909251451'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Export-Package: org.eclipse.datatools.connectivity.oda.profile,org.eclipse.datatools.connectivity.oda.profile.internal;x-friends:=&quot;org.eclipse.datatools.connectivity.oda.design.ui,org.eclipse.birt.report.data.oda.jdbc.dbprofile&quot;&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Bundle-Localization: plugin&#xA;Require-Bundle: org.eclipse.datatools.connectivity;bundle-version=&quot;[1.1.3,2.0.0)&quot;;visibility:=reexport,org.eclipse.datatools.connectivity.oda.consumer;bundle-version=&quot;[3.2.3,4.0.0)&quot;,org.eclipse.core.runtime;bundle-version=&quot;[3.2.0,4.0.0)&quot;&#xA;Bundle-Activator: org.eclipse.datatools.connectivity.oda.profile.OdaProfilePlugin&#xA;Bundle-Name: %plugin.name&#xA;Bundle-Version: 3.2.4.v200909251451&#xA;Bundle-Vendor: Eclipse Data Tools Platform&#xA;Bundle-SymbolicName: org.eclipse.datatools.connectivity.oda.profile;singleton:=true&#xA;Bundle-ActivationPolicy: lazy&#xA;Manifest-Version: 1.0&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.datatools.connectivity.oda.designer.core.feature.feature.group' version='1.8.1.v200909251451' singleton='false'>
+      <update id='org.eclipse.datatools.connectivity.oda.designer.core.feature.feature.group' range='[0.0.0,1.8.1.v200909251451)' severity='0'/>
+      <properties size='10'>
+        <property name='org.eclipse.equinox.p2.name' value='%featureName'/>
+        <property name='org.eclipse.equinox.p2.description' value='%description'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.type.group' value='true'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-connectivity/eclipse/features/org.eclipse.datatools.connectivity.oda.designer.core.feature_1.8.1.v200909251451'/>
+        <property name='file.lastModified' value='1406152436000'/>
+        <property name='df_LT.featureName' value='Data Tools Platform Open Data Access Designer Core'/>
+        <property name='df_LT.providerName' value='Eclipse.org'/>
+        <property name='df_LT.description' value='Binaries Data Tools Platform Open Data Access Designer'/>
+        <property name='df_LT.license' value='Eclipse Foundation Software User Agreement&#xA;April 14, 2010&#xA;&#xA;Usage Of Content&#xA;&#xA;THE ECLIPSE FOUNDATION MAKES AVAILABLE SOFTWARE, DOCUMENTATION, INFORMATION AND/OR&#xA;OTHER MATERIALS FOR OPEN SOURCE PROJECTS (COLLECTIVELY &quot;CONTENT&quot;).&#xA;USE OF THE CONTENT IS GOVERNED BY THE TERMS AND CONDITIONS OF THIS&#xA;AGREEMENT AND/OR THE TERMS AND CONDITIONS OF LICENSE AGREEMENTS OR&#xA;NOTICES INDICATED OR REFERENCED BELOW.  BY USING THE CONTENT, YOU&#xA;AGREE THAT YOUR USE OF THE CONTENT IS GOVERNED BY THIS AGREEMENT&#xA;AND/OR THE TERMS AND CONDITIONS OF ANY APPLICABLE LICENSE AGREEMENTS&#xA;OR NOTICES INDICATED OR REFERENCED BELOW.  IF YOU DO NOT AGREE TO THE&#xA;TERMS AND CONDITIONS OF THIS AGREEMENT AND THE TERMS AND CONDITIONS&#xA;OF ANY APPLICABLE LICENSE AGREEMENTS OR NOTICES INDICATED OR REFERENCED&#xA;BELOW, THEN YOU MAY NOT USE THE CONTENT.&#xA;&#xA;Applicable Licenses&#xA;&#xA;Unless otherwise indicated, all Content made available by the&#xA;Eclipse Foundation is provided to you under the terms and conditions of&#xA;the Eclipse Public License Version 1.0 (&quot;EPL&quot;). A copy of the EPL is&#xA;provided with this Content and is also available at http://www.eclipse.org/legal/epl-v10.html.&#xA;For purposes of the EPL, &quot;Program&quot; will mean the Content.&#xA;&#xA;Content includes, but is not limited to, source code, object code,&#xA;documentation and other files maintained in the Eclipse Foundation source code&#xA;repository (&quot;Repository&quot;) in software modules (&quot;Modules&quot;) and made available&#xA;as downloadable archives (&quot;Downloads&quot;).&#xA;&#xA;- Content may be structured and packaged into modules to facilitate delivering,&#xA;extending, and upgrading the Content. Typical modules may include plug-ins (&quot;Plug-ins&quot;),&#xA;plug-in fragments (&quot;Fragments&quot;), and features (&quot;Features&quot;).&#xA;- Each Plug-in or Fragment may be packaged as a sub-directory or JAR (Java(TM) ARchive)&#xA;in a directory named &quot;plugins&quot;.&#xA;- A Feature is a bundle of one or more Plug-ins and/or Fragments and associated material.&#xA;Each Feature may be packaged as a sub-directory in a directory named &quot;features&quot;.&#xA;Within a Feature, files named &quot;feature.xml&quot; may contain a list of the names and version&#xA;numbers of the Plug-ins and/or Fragments associated with that Feature.&#xA;- Features may also include other Features (&quot;Included Features&quot;). Within a Feature, files&#xA;named &quot;feature.xml&quot; may contain a list of the names and version numbers of Included Features.&#xA;&#xA;The terms and conditions governing Plug-ins and Fragments should be&#xA;contained in files named &quot;about.html&quot; (&quot;Abouts&quot;). The terms and&#xA;conditions governing Features and Included Features should be contained&#xA;in files named &quot;license.html&quot; (&quot;Feature Licenses&quot;). Abouts and Feature&#xA;Licenses may be located in any directory of a Download or Module&#xA;including, but not limited to the following locations:&#xA;&#xA;- The top-level (root) directory&#xA;- Plug-in and Fragment directories&#xA;- Inside Plug-ins and Fragments packaged as JARs&#xA;- Sub-directories of the directory named &quot;src&quot; of certain Plug-ins&#xA;- Feature directories&#xA;&#xA;Note: if a Feature made available by the Eclipse Foundation is installed using the&#xA;Provisioning Technology (as defined below), you must agree to a license (&quot;Feature &#xA;Update License&quot;) during the installation process. If the Feature contains&#xA;Included Features, the Feature Update License should either provide you&#xA;with the terms and conditions governing the Included Features or inform&#xA;you where you can locate them. Feature Update Licenses may be found in&#xA;the &quot;license&quot; property of files named &quot;feature.properties&quot; found within a Feature.&#xA;Such Abouts, Feature Licenses, and Feature Update Licenses contain the&#xA;terms and conditions (or references to such terms and conditions) that&#xA;govern your use of the associated Content in that directory.&#xA;&#xA;THE ABOUTS, FEATURE LICENSES, AND FEATURE UPDATE LICENSES MAY REFER&#xA;TO THE EPL OR OTHER LICENSE AGREEMENTS, NOTICES OR TERMS AND CONDITIONS.&#xA;SOME OF THESE OTHER LICENSE AGREEMENTS MAY INCLUDE (BUT ARE NOT LIMITED TO):&#xA;&#xA;- Common Public License Version 1.0 (available at http://www.eclipse.org/legal/cpl-v10.html)&#xA;- Apache Software License 1.1 (available at http://www.apache.org/licenses/LICENSE)&#xA;- Apache Software License 2.0 (available at http://www.apache.org/licenses/LICENSE-2.0)&#xA;- Metro Link Public License 1.00 (available at http://www.opengroup.org/openmotif/supporters/metrolink/license.html)&#xA;- Mozilla Public License Version 1.1 (available at http://www.mozilla.org/MPL/MPL-1.1.html)&#xA;&#xA;IT IS YOUR OBLIGATION TO READ AND ACCEPT ALL SUCH TERMS AND CONDITIONS PRIOR&#xA;TO USE OF THE CONTENT. If no About, Feature License, or Feature Update License&#xA;is provided, please contact the Eclipse Foundation to determine what terms and conditions&#xA;govern that particular Content.&#xA;&#xA;&#xA;Use of Provisioning Technology&#xA;&#xA;The Eclipse Foundation makes available provisioning software, examples of which include,&#xA;but are not limited to, p2 and the Eclipse Update Manager (&quot;Provisioning Technology&quot;) for&#xA;the purpose of allowing users to install software, documentation, information and/or&#xA;other materials (collectively &quot;Installable Software&quot;). This capability is provided with&#xA;the intent of allowing such users to install, extend and update Eclipse-based products.&#xA;Information about packaging Installable Software is available at&#xA;http://eclipse.org/equinox/p2/repository_packaging.html (&quot;Specification&quot;).&#xA;&#xA;You may use Provisioning Technology to allow other parties to install Installable Software.&#xA;You shall be responsible for enabling the applicable license agreements relating to the&#xA;Installable Software to be presented to, and accepted by, the users of the Provisioning Technology&#xA;in accordance with the Specification. By using Provisioning Technology in such a manner and&#xA;making it available in accordance with the Specification, you further acknowledge your&#xA;agreement to, and the acquisition of all necessary rights to permit the following:&#xA;&#xA;1. A series of actions may occur (&quot;Provisioning Process&quot;) in which a user may execute&#xA;the Provisioning Technology on a machine (&quot;Target Machine&quot;) with the intent of installing,&#xA;extending or updating the functionality of an Eclipse-based product.&#xA;2. During the Provisioning Process, the Provisioning Technology may cause third party&#xA;Installable Software or a portion thereof to be accessed and copied to the Target Machine.&#xA;3. Pursuant to the Specification, you will provide to the user the terms and conditions that&#xA;govern the use of the Installable Software (&quot;Installable Software Agreement&quot;) and such&#xA;Installable Software Agreement shall be accessed from the Target Machine in accordance&#xA;with the Specification. Such Installable Software Agreement must inform the user of the&#xA;terms and conditions that govern the Installable Software and must solicit acceptance by&#xA;the end user in the manner prescribed in such Installable Software Agreement. Upon such&#xA;indication of agreement by the user, the provisioning Technology will complete installation&#xA;of the Installable Software.&#xA;&#xA;Cryptography&#xA;&#xA;Content may contain encryption software. The country in which you are&#xA;currently may have restrictions on the import, possession, and use,&#xA;and/or re-export to another country, of encryption software. BEFORE&#xA;using any encryption software, please check the country&apos;s laws,&#xA;regulations and policies concerning the import, possession, or use, and&#xA;re-export of encryption software, to see if this is permitted.&#xA;&#xA;Java and all Java-based trademarks are trademarks of Oracle Corporation in the United States, other countries, or both.&#xA;'/>
+      </properties>
+      <provides size='2'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.connectivity.oda.designer.core.feature.feature.group' version='1.8.1.v200909251451'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='11'>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.emf.feature.group' range='2.4.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.connectivity.oda.feature.feature.group' range='1.8.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.doc.user.feature.group' range='1.8.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.modelbase.feature.feature.group' range='1.8.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.connectivity.oda.design.ui' range='[3.2.4.v200909251451,3.2.4.v200909251451]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.connectivity.oda.flatfile.ui' range='[3.1.1.v200909251451,3.1.1.v200909251451]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.connectivity.ui.dse' range='[1.1.4.v200909251451,1.1.4.v200909251451]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.connectivity.ui' range='[1.2.0.v200909251451,1.2.0.v200909251451]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.connectivity.sqm.core' range='[1.2.1.v200909251451,1.2.1.v200909251451]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.help' range='[1.5.0.v200909251451,1.5.0.v200909251451]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.connectivity.oda.designer.core.feature.feature.jar' range='[1.8.1.v200909251451,1.8.1.v200909251451]'>
+          <filter>
+            (org.eclipse.update.install.features=true)
+          </filter>
+        </required>
+      </requires>
+      <touchpoint id='null' version='0.0.0'/>
+      <licenses size='1'>
+        <license uri='%25licenseURL' url='%25licenseURL'>
+          %license
+        </license>
+      </licenses>
+    </unit>
+    <unit id='org.eclipse.datatools.connectivity.console.profile' version='1.0.0.v200909251451'>
+      <update id='org.eclipse.datatools.connectivity.console.profile' range='[0.0.0,1.0.0.v200909251451)' severity='0'/>
+      <properties size='6'>
+        <property name='df_LT.plugin.name' value='DTP Connection Profiles Storage File Editor Plug-in'/>
+        <property name='org.eclipse.equinox.p2.name' value='%plugin.name'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Eclipse Data Tools Platform'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-connectivity/eclipse/plugins/org.eclipse.datatools.connectivity.console.profile_1.0.0.v200909251451.jar'/>
+        <property name='file.lastModified' value='1294937949000'/>
+      </properties>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.connectivity.console.profile' version='1.0.0.v200909251451'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.datatools.connectivity.console.profile' version='1.0.0.v200909251451'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='3'>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='[3.3.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.datatools.connectivity' range='[1.1.0,2.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.datatools.connectivity.oda' range='[3.1.2,4.0.0)'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.datatools.connectivity.console.profile' version='1.0.0.v200909251451'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-Vendor: Eclipse Data Tools Platform&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Require-Bundle: org.eclipse.core.runtime;bundle-version=&quot;[3.3.0,4.0.0)&quot;,org.eclipse.datatools.connectivity;bundle-version=&quot;[1.1.0,2.0.0)&quot;,org.eclipse.datatools.connectivity.oda;bundle-version=&quot;[3.1.2,4.0.0)&quot;&#xA;Bundle-Name: %plugin.name&#xA;Bundle-Localization: plugin&#xA;Bundle-ActivationPolicy: lazy&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: org.eclipse.datatools.connectivity.console.profile;singleton:=true&#xA;Bundle-Version: 1.0.0.v200909251451&#xA;Eclipse-LazyStart: true&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.datatools.connectivity.oda.design' version='3.3.1.v200909251451'>
+      <update id='org.eclipse.datatools.connectivity.oda.design' range='[0.0.0,3.3.1.v200909251451)' severity='0'/>
+      <properties size='7'>
+        <property name='df_LT.providerName' value='Eclipse Data Tools Platform'/>
+        <property name='df_LT.pluginName' value='DTP ODA Design Session Model'/>
+        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-connectivity/eclipse/plugins/org.eclipse.datatools.connectivity.oda.design_3.3.1.v200909251451.jar'/>
+        <property name='file.lastModified' value='1294937949000'/>
+      </properties>
+      <provides size='6'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.connectivity.oda.design' version='3.3.1.v200909251451'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.datatools.connectivity.oda.design' version='3.3.1.v200909251451'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.oda.design' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.oda.design.util' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='4'>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='[3.4.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.emf.ecore' range='[2.4.0,3.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.emf.ecore.xmi' range='[2.4.0,3.0.0)'/>
+        <required namespace='osgi.bundle' name='com.ibm.icu' range='[3.4.4,5.0.0)'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.datatools.connectivity.oda.design' version='3.3.1.v200909251451'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Export-Package: org.eclipse.datatools.connectivity.oda.design,org.eclipse.datatools.connectivity.oda.design.util&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Bundle-Localization: plugin&#xA;Require-Bundle: org.eclipse.core.runtime;bundle-version=&quot;[3.4.0,4.0.0)&quot;,org.eclipse.emf.ecore;bundle-version=&quot;[2.4.0,3.0.0)&quot;;visibility:=reexport,org.eclipse.emf.ecore.xmi;bundle-version=&quot;[2.4.0,3.0.0)&quot;;visibility:=reexport,com.ibm.icu;bundle-version=&quot;[3.4.4,5.0.0)&quot;;visibility:=reexport&#xA;Bundle-Name: %pluginName&#xA;Bundle-Version: 3.3.1.v200909251451&#xA;Bundle-Vendor: %providerName&#xA;Bundle-SymbolicName: org.eclipse.datatools.connectivity.oda.design; singleton:=true&#xA;Bundle-ActivationPolicy: lazy&#xA;Manifest-Version: 1.0&#xA;Eclipse-LazyStart: true&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.datatools.connectivity.sqm.core.ui' version='1.2.0.v200909251451'>
+      <update id='org.eclipse.datatools.connectivity.sqm.core.ui' range='[0.0.0,1.2.0.v200909251451)' severity='0'/>
+      <properties size='7'>
+        <property name='df_LT.providerName' value='Eclipse Data Tools Platform'/>
+        <property name='df_LT.pluginName' value='Eclipse Data Tools Platform SQM UI Plug-in'/>
+        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-connectivity/eclipse/plugins/org.eclipse.datatools.connectivity.sqm.core.ui_1.2.0.v200909251451.jar'/>
+        <property name='file.lastModified' value='1294937950000'/>
+      </properties>
+      <provides size='26'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.connectivity.sqm.core.ui' version='1.2.0.v200909251451'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.datatools.connectivity.sqm.core.ui' version='1.2.0.v200909251451'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.core.internal.ui' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.core.internal.ui.dialogs' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.core.internal.ui.explorer.filter' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.core.internal.ui.explorer.helpers' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.core.internal.ui.explorer.popup' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.core.internal.ui.explorer.popup.providers' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.core.internal.ui.explorer.providers.content.virtual' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.core.internal.ui.explorer.providers.decorators' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.core.internal.ui.explorer.providers.decorators.impl' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.core.internal.ui.explorer.services' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.core.internal.ui.explorer.virtual' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.core.internal.ui.icons' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.core.internal.ui.l10n' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.core.internal.ui.preferences' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.core.internal.ui.services' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.core.internal.ui.util' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.core.internal.ui.util.resources' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.core.internal.ui.widgets' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.core.ui.explorer.filter' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.core.ui.explorer.providers.content.virtual' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.core.ui.explorer.virtual' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.sqm.core.ui.services' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='14'>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.navigator' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='com.ibm.icu' range='[3.4.0,5.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.emf.ecore' range='[2.2.0,3.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.emf.ecore.xmi' range='[2.2.0,3.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.datatools.modelbase.sql' range='[0.9.0,1.5.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.datatools.modelbase.dbdefinition' range='[0.9.0,1.5.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.datatools.connectivity.sqm.core' range='[0.9.1,1.5.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.datatools.connectivity.ui' range='[0.9.1,1.5.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.datatools.connectivity' range='[0.9.1,1.5.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.datatools.help' range='[1.0.0,2.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.help.base' range='[3.2.0,4.0.0)' optional='true'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.datatools.connectivity.sqm.core.ui' version='1.2.0.v200909251451'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Bundle-Name: %pluginName&#xA;Bundle-Activator: org.eclipse.datatools.connectivity.sqm.core.internal.ui.RDBCoreUIPlugin&#xA;Manifest-Version: 1.0&#xA;Bundle-Vendor: %providerName&#xA;Bundle-ActivationPolicy: lazy&#xA;Bundle-SymbolicName: org.eclipse.datatools.connectivity.sqm.core.ui; singleton:=true&#xA;Bundle-ManifestVersion: 2&#xA;Eclipse-LazyStart: true&#xA;Bundle-Version: 1.2.0.v200909251451&#xA;Bundle-Localization: plugin&#xA;Export-Package: org.eclipse.datatools.connectivity.sqm.core.internal.ui,org.eclipse.datatools.connectivity.sqm.core.internal.ui.dialogs,org.eclipse.datatools.connectivity.sqm.core.internal.ui.explorer.filter,org.eclipse.datatools.connectivity.sqm.core.internal.ui.explorer.helpers,org.eclipse.datatools.connectivity.sqm.core.internal.ui.explorer.popup,org.eclipse.datatools.connectivity.sqm.core.internal.ui.explorer.popup.providers,org.eclipse.datatools.connectivity.sqm.core.internal.ui.explorer.providers.content.virtual,org.eclipse.datatools.connectivity.sqm.core.internal.ui.explorer.providers.decorators,org.eclipse.datatools.connectivity.sqm.core.internal.ui.explorer.providers.decorators.impl,org.eclipse.datatools.connectivity.sqm.core.internal.ui.explorer.services,org.eclipse.datatools.connectivity.sqm.core.internal.ui.explorer.virtual,org.eclipse.datatools.connectivity.sqm.core.internal.ui.icons,org.eclipse.datatools.connectivity.sqm.core.internal.ui.l10n,org.eclipse.datatools.connectivity.sqm.core.internal.ui.preferences,org.eclipse.datatools.connectivity.sqm.core.internal.ui.services,org.eclipse.datatools.connectivity.sqm.core.internal.ui.util,org.eclipse.datatools.connectivity.sqm.core.internal.ui.util.resources,org.eclipse.datatools.connectivity.sqm.core.internal.ui.widgets,org.eclipse.datatools.connectivity.sqm.core.ui.explorer.filter,org.eclipse.datatools.connectivity.sqm.core.ui.explorer.providers.content.virtual,org.eclipse.datatools.connectivity.sqm.core.ui.explorer.virtual,org.eclipse.datatools.connectivity.sqm.core.ui.services&#xA;Require-Bundle: org.eclipse.ui;bundle-version=&quot;[3.2.0,4.0.0)&quot;,org.eclipse.core.runtime;bundle-version=&quot;[3.2.0,4.0.0)&quot;,org.eclipse.core.resources;bundle-version=&quot;[3.2.0,4.0.0)&quot;,org.eclipse.ui.navigator;bundle-version=&quot;[3.2.0,4.0.0)&quot;,com.ibm.icu;bundle-version=&quot;[3.4.0,5.0.0)&quot;,org.eclipse.emf.ecore;bundle-version=&quot;[2.2.0,3.0.0)&quot;,org.eclipse.emf.ecore.xmi;bundle-version=&quot;[2.2.0,3.0.0)&quot;,org.eclipse.datatools.modelbase.sql;bundle-version=&quot;[0.9.0,1.5.0)&quot;,org.eclipse.datatools.modelbase.dbdefinition;bundle-version=&quot;[0.9.0,1.5.0)&quot;,org.eclipse.datatools.connectivity.sqm.core;bundle-version=&quot;[0.9.1,1.5.0)&quot;,org.eclipse.datatools.connectivity.ui;bundle-version=&quot;[0.9.1,1.5.0)&quot;,org.eclipse.datatools.connectivity;bundle-version=&quot;[0.9.1,1.5.0)&quot;,org.eclipse.datatools.help;bundle-version=&quot;[1.0.0,2.0.0)&quot;;visibility:=reexport,org.eclipse.help.base;bundle-version=&quot;[3.2.0,4.0.0)&quot;;resolution:=optional&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.datatools.connectivity.oda' version='3.3.1.v200909251451'>
+      <update id='org.eclipse.datatools.connectivity.oda' range='[0.0.0,3.3.1.v200909251451)' severity='0'/>
+      <properties size='4'>
+        <property name='org.eclipse.equinox.p2.name' value='DTP Open Data Access'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Eclipse Data Tools Platform'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-connectivity/eclipse/plugins/org.eclipse.datatools.connectivity.oda_3.3.1.v200909251451.jar'/>
+        <property name='file.lastModified' value='1294937949000'/>
+      </properties>
+      <provides size='15'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.connectivity.oda' version='3.3.1.v200909251451'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.datatools.connectivity.oda' version='3.3.1.v200909251451'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.oda' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.oda.impl' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.oda.spec' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.oda.spec.impl' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.oda.spec.manifest' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.oda.spec.result' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.oda.spec.result.filter' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.oda.spec.util' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.oda.spec.valueexpr' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.oda.util' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.oda.util.logging' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.oda.util.manifest' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='2'>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='[3.3.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='com.ibm.icu' range='[3.4.4,5.0.0)'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.datatools.connectivity.oda' version='3.3.1.v200909251451'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Export-Package: org.eclipse.datatools.connectivity.oda,org.eclipse.datatools.connectivity.oda.impl,org.eclipse.datatools.connectivity.oda.spec,org.eclipse.datatools.connectivity.oda.spec.impl,org.eclipse.datatools.connectivity.oda.spec.manifest,org.eclipse.datatools.connectivity.oda.spec.result,org.eclipse.datatools.connectivity.oda.spec.result.filter,org.eclipse.datatools.connectivity.oda.spec.util,org.eclipse.datatools.connectivity.oda.spec.valueexpr,org.eclipse.datatools.connectivity.oda.util,org.eclipse.datatools.connectivity.oda.util.logging,org.eclipse.datatools.connectivity.oda.util.manifest&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Require-Bundle: org.eclipse.core.runtime;bundle-version=&quot;[3.3.0,4.0.0)&quot;;visibility:=reexport,com.ibm.icu;bundle-version=&quot;[3.4.4,5.0.0)&quot;;visibility:=reexport&#xA;Bundle-Activator: org.eclipse.datatools.connectivity.oda.util.OdaPlugin&#xA;Bundle-Name: DTP Open Data Access&#xA;Bundle-Version: 3.3.1.v200909251451&#xA;Bundle-Vendor: Eclipse Data Tools Platform&#xA;Bundle-SymbolicName: org.eclipse.datatools.connectivity.oda; singleton:=true&#xA;Bundle-ActivationPolicy: lazy&#xA;Manifest-Version: 1.0&#xA;Eclipse-LazyStart: true&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.datatools.connectivity.ui.dse' version='1.1.4.v200909251451'>
+      <update id='org.eclipse.datatools.connectivity.ui.dse' range='[0.0.0,1.1.4.v200909251451)' severity='0'/>
+      <properties size='7'>
+        <property name='df_LT.Plugin.ProviderName' value='Eclipse Data Tools Platform'/>
+        <property name='df_LT.Plugin.Name' value='Eclipse Data Tools Platform Data Source Explorer Plug-in'/>
+        <property name='org.eclipse.equinox.p2.name' value='%Plugin.Name'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%Plugin.ProviderName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-connectivity/eclipse/plugins/org.eclipse.datatools.connectivity.ui.dse_1.1.4.v200909251451.jar'/>
+        <property name='file.lastModified' value='1294937950000'/>
+      </properties>
+      <provides size='10'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.connectivity.ui.dse' version='1.1.4.v200909251451'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.datatools.connectivity.ui.dse' version='1.1.4.v200909251451'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.ui.dse' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.ui.dse.actions' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.ui.dse.dialogs' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.ui.dse.dialogs.filters' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.ui.dse.dnd' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.datatools.connectivity.ui.dse.views' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='14'>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.core.resources' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.ide' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.datatools.connectivity' range='[0.9.1,1.5.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.datatools.connectivity.ui' range='[1.1.1,1.5.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.views.properties.tabbed' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.navigator' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='com.ibm.icu' range='[3.4.0,5.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ltk.core.refactoring' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.help' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.datatools.help' range='[0.9.1,2.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.help.base' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.ui.navigator.resources' range='[3.2.0,4.0.0)'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.datatools.connectivity.ui.dse' version='1.1.4.v200909251451'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Bundle-Name: %Plugin.Name&#xA;Bundle-Activator: org.eclipse.datatools.connectivity.ui.dse.DSEPlugin&#xA;Manifest-Version: 1.0&#xA;Bundle-Vendor: %Plugin.ProviderName&#xA;Bundle-ActivationPolicy: lazy&#xA;Bundle-SymbolicName: org.eclipse.datatools.connectivity.ui.dse; singleton:=true&#xA;Bundle-ManifestVersion: 2&#xA;Eclipse-LazyStart: true&#xA;Bundle-Version: 1.1.4.v200909251451&#xA;Bundle-Localization: plugin&#xA;Export-Package: org.eclipse.datatools.connectivity.ui.dse,org.eclipse.datatools.connectivity.ui.dse.actions,org.eclipse.datatools.connectivity.ui.dse.dialogs,org.eclipse.datatools.connectivity.ui.dse.dialogs.filters,org.eclipse.datatools.connectivity.ui.dse.dnd,org.eclipse.datatools.connectivity.ui.dse.views&#xA;Require-Bundle: org.eclipse.ui;bundle-version=&quot;[3.2.0,4.0.0)&quot;,org.eclipse.core.runtime;bundle-version=&quot;[3.2.0,4.0.0)&quot;,org.eclipse.core.resources;bundle-version=&quot;[3.2.0,4.0.0)&quot;,org.eclipse.ui.ide;bundle-version=&quot;[3.2.0,4.0.0)&quot;,org.eclipse.datatools.connectivity;bundle-version=&quot;[0.9.1,1.5.0)&quot;;visibility:=reexport,org.eclipse.datatools.connectivity.ui;bundle-version=&quot;[1.1.1,1.5.0)&quot;;visibility:=reexport,org.eclipse.ui.views.properties.tabbed;bundle-version=&quot;[3.2.0,4.0.0)&quot;,org.eclipse.ui.navigator;bundle-version=&quot;[3.2.0,4.0.0)&quot;,com.ibm.icu;bundle-version=&quot;[3.4.0,5.0.0)&quot;,org.eclipse.ltk.core.refactoring;bundle-version=&quot;[3.2.0,4.0.0)&quot;,org.eclipse.help;bundle-version=&quot;[3.2.0,4.0.0)&quot;,org.eclipse.datatools.help;bundle-version=&quot;[0.9.1,2.0.0)&quot;,org.eclipse.help.base;bundle-version=&quot;[3.2.0,4.0.0)&quot;,org.eclipse.ui.navigator.resources;bundle-version=&quot;[3.2.0,4.0.0)&quot;&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.datatools.connectivity.feature.feature.jar' version='1.8.1.v200909251451'>
+      <properties size='10'>
+        <property name='org.eclipse.equinox.p2.name' value='%featureName'/>
+        <property name='org.eclipse.equinox.p2.description' value='%description'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.update.feature.plugin' value='org.eclipse.datatools.connectivity'/>
+        <property name='df_LT.featureName' value='Data Tools Platform Connectivity'/>
+        <property name='df_LT.providerName' value='Eclipse Data Tools Platform'/>
+        <property name='df_LT.description' value='Driver and connection management, Open Data Access (ODA) and the Data Source Explorer (DSE)'/>
+        <property name='df_LT.license' value='Eclipse Foundation Software User Agreement&#xA;April 14, 2010&#xA;&#xA;Usage Of Content&#xA;&#xA;THE ECLIPSE FOUNDATION MAKES AVAILABLE SOFTWARE, DOCUMENTATION, INFORMATION AND/OR&#xA;OTHER MATERIALS FOR OPEN SOURCE PROJECTS (COLLECTIVELY &quot;CONTENT&quot;).&#xA;USE OF THE CONTENT IS GOVERNED BY THE TERMS AND CONDITIONS OF THIS&#xA;AGREEMENT AND/OR THE TERMS AND CONDITIONS OF LICENSE AGREEMENTS OR&#xA;NOTICES INDICATED OR REFERENCED BELOW.  BY USING THE CONTENT, YOU&#xA;AGREE THAT YOUR USE OF THE CONTENT IS GOVERNED BY THIS AGREEMENT&#xA;AND/OR THE TERMS AND CONDITIONS OF ANY APPLICABLE LICENSE AGREEMENTS&#xA;OR NOTICES INDICATED OR REFERENCED BELOW.  IF YOU DO NOT AGREE TO THE&#xA;TERMS AND CONDITIONS OF THIS AGREEMENT AND THE TERMS AND CONDITIONS&#xA;OF ANY APPLICABLE LICENSE AGREEMENTS OR NOTICES INDICATED OR REFERENCED&#xA;BELOW, THEN YOU MAY NOT USE THE CONTENT.&#xA;&#xA;Applicable Licenses&#xA;&#xA;Unless otherwise indicated, all Content made available by the&#xA;Eclipse Foundation is provided to you under the terms and conditions of&#xA;the Eclipse Public License Version 1.0 (&quot;EPL&quot;). A copy of the EPL is&#xA;provided with this Content and is also available at http://www.eclipse.org/legal/epl-v10.html.&#xA;For purposes of the EPL, &quot;Program&quot; will mean the Content.&#xA;&#xA;Content includes, but is not limited to, source code, object code,&#xA;documentation and other files maintained in the Eclipse Foundation source code&#xA;repository (&quot;Repository&quot;) in software modules (&quot;Modules&quot;) and made available&#xA;as downloadable archives (&quot;Downloads&quot;).&#xA;&#xA;- Content may be structured and packaged into modules to facilitate delivering,&#xA;extending, and upgrading the Content. Typical modules may include plug-ins (&quot;Plug-ins&quot;),&#xA;plug-in fragments (&quot;Fragments&quot;), and features (&quot;Features&quot;).&#xA;- Each Plug-in or Fragment may be packaged as a sub-directory or JAR (Java(TM) ARchive)&#xA;in a directory named &quot;plugins&quot;.&#xA;- A Feature is a bundle of one or more Plug-ins and/or Fragments and associated material.&#xA;Each Feature may be packaged as a sub-directory in a directory named &quot;features&quot;.&#xA;Within a Feature, files named &quot;feature.xml&quot; may contain a list of the names and version&#xA;numbers of the Plug-ins and/or Fragments associated with that Feature.&#xA;- Features may also include other Features (&quot;Included Features&quot;). Within a Feature, files&#xA;named &quot;feature.xml&quot; may contain a list of the names and version numbers of Included Features.&#xA;&#xA;The terms and conditions governing Plug-ins and Fragments should be&#xA;contained in files named &quot;about.html&quot; (&quot;Abouts&quot;). The terms and&#xA;conditions governing Features and Included Features should be contained&#xA;in files named &quot;license.html&quot; (&quot;Feature Licenses&quot;). Abouts and Feature&#xA;Licenses may be located in any directory of a Download or Module&#xA;including, but not limited to the following locations:&#xA;&#xA;- The top-level (root) directory&#xA;- Plug-in and Fragment directories&#xA;- Inside Plug-ins and Fragments packaged as JARs&#xA;- Sub-directories of the directory named &quot;src&quot; of certain Plug-ins&#xA;- Feature directories&#xA;&#xA;Note: if a Feature made available by the Eclipse Foundation is installed using the&#xA;Provisioning Technology (as defined below), you must agree to a license (&quot;Feature &#xA;Update License&quot;) during the installation process. If the Feature contains&#xA;Included Features, the Feature Update License should either provide you&#xA;with the terms and conditions governing the Included Features or inform&#xA;you where you can locate them. Feature Update Licenses may be found in&#xA;the &quot;license&quot; property of files named &quot;feature.properties&quot; found within a Feature.&#xA;Such Abouts, Feature Licenses, and Feature Update Licenses contain the&#xA;terms and conditions (or references to such terms and conditions) that&#xA;govern your use of the associated Content in that directory.&#xA;&#xA;THE ABOUTS, FEATURE LICENSES, AND FEATURE UPDATE LICENSES MAY REFER&#xA;TO THE EPL OR OTHER LICENSE AGREEMENTS, NOTICES OR TERMS AND CONDITIONS.&#xA;SOME OF THESE OTHER LICENSE AGREEMENTS MAY INCLUDE (BUT ARE NOT LIMITED TO):&#xA;&#xA;- Common Public License Version 1.0 (available at http://www.eclipse.org/legal/cpl-v10.html)&#xA;- Apache Software License 1.1 (available at http://www.apache.org/licenses/LICENSE)&#xA;- Apache Software License 2.0 (available at http://www.apache.org/licenses/LICENSE-2.0)&#xA;- Metro Link Public License 1.00 (available at http://www.opengroup.org/openmotif/supporters/metrolink/license.html)&#xA;- Mozilla Public License Version 1.1 (available at http://www.mozilla.org/MPL/MPL-1.1.html)&#xA;&#xA;IT IS YOUR OBLIGATION TO READ AND ACCEPT ALL SUCH TERMS AND CONDITIONS PRIOR&#xA;TO USE OF THE CONTENT. If no About, Feature License, or Feature Update License&#xA;is provided, please contact the Eclipse Foundation to determine what terms and conditions&#xA;govern that particular Content.&#xA;&#xA;&#xA;Use of Provisioning Technology&#xA;&#xA;The Eclipse Foundation makes available provisioning software, examples of which include,&#xA;but are not limited to, p2 and the Eclipse Update Manager (&quot;Provisioning Technology&quot;) for&#xA;the purpose of allowing users to install software, documentation, information and/or&#xA;other materials (collectively &quot;Installable Software&quot;). This capability is provided with&#xA;the intent of allowing such users to install, extend and update Eclipse-based products.&#xA;Information about packaging Installable Software is available at&#xA;http://eclipse.org/equinox/p2/repository_packaging.html (&quot;Specification&quot;).&#xA;&#xA;You may use Provisioning Technology to allow other parties to install Installable Software.&#xA;You shall be responsible for enabling the applicable license agreements relating to the&#xA;Installable Software to be presented to, and accepted by, the users of the Provisioning Technology&#xA;in accordance with the Specification. By using Provisioning Technology in such a manner and&#xA;making it available in accordance with the Specification, you further acknowledge your&#xA;agreement to, and the acquisition of all necessary rights to permit the following:&#xA;&#xA;1. A series of actions may occur (&quot;Provisioning Process&quot;) in which a user may execute&#xA;the Provisioning Technology on a machine (&quot;Target Machine&quot;) with the intent of installing,&#xA;extending or updating the functionality of an Eclipse-based product.&#xA;2. During the Provisioning Process, the Provisioning Technology may cause third party&#xA;Installable Software or a portion thereof to be accessed and copied to the Target Machine.&#xA;3. Pursuant to the Specification, you will provide to the user the terms and conditions that&#xA;govern the use of the Installable Software (&quot;Installable Software Agreement&quot;) and such&#xA;Installable Software Agreement shall be accessed from the Target Machine in accordance&#xA;with the Specification. Such Installable Software Agreement must inform the user of the&#xA;terms and conditions that govern the Installable Software and must solicit acceptance by&#xA;the end user in the manner prescribed in such Installable Software Agreement. Upon such&#xA;indication of agreement by the user, the provisioning Technology will complete installation&#xA;of the Installable Software.&#xA;&#xA;Cryptography&#xA;&#xA;Content may contain encryption software. The country in which you are&#xA;currently may have restrictions on the import, possession, and use,&#xA;and/or re-export to another country, of encryption software. BEFORE&#xA;using any encryption software, please check the country&apos;s laws,&#xA;regulations and policies concerning the import, possession, or use, and&#xA;re-export of encryption software, to see if this is permitted.&#xA;&#xA;Java and all Java-based trademarks are trademarks of Oracle Corporation in the United States, other countries, or both.&#xA;'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/dtp-connectivity/eclipse/features/org.eclipse.datatools.connectivity.feature_1.8.1.v200909251451'/>
+        <property name='file.lastModified' value='1406152436000'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.connectivity.feature.feature.jar' version='1.8.1.v200909251451'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='feature' version='1.0.0'/>
+        <provided namespace='org.eclipse.update.feature' name='org.eclipse.datatools.connectivity.feature' version='1.8.1.v200909251451'/>
+      </provides>
+      <filter>
+        (org.eclipse.update.install.features=true)
+      </filter>
+      <artifacts size='1'>
+        <artifact classifier='org.eclipse.update.feature' id='org.eclipse.datatools.connectivity.feature' version='1.8.1.v200909251451'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='zipped'>
+            true
+          </instruction>
+        </instructions>
+      </touchpointData>
+      <licenses size='1'>
+        <license uri='%25licenseURL' url='%25licenseURL'>
+          %license
+        </license>
+      </licenses>
+    </unit>
+  </units>
+</repository>

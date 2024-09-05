@@ -1,0 +1,2 @@
+// A good idea for this program for universal use could be 
+// to count or use a counter to count up the lines of each document (or letter, and compare it to the count of the three example files), if that count matchs any of the three files acounts it will use that document body of code format to parse out the information

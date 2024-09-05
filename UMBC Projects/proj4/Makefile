@@ -1,0 +1,2 @@
+program: CrunoPlayer.cpp CrunoPlayer.h CrunoReverse.cpp CrunoReverse.h CrunoSkip.cpp CrunoSkip.h CrunoDraw2.cpp CrunoDraw2.h newCrunoGame.cpp newCrunoGame.h Cruno8.cpp Cruno8.h card.h card.cpp player.h player.cpp game.h game.cpp Test.cpp 
+	g++ -Wall CrunoPlayer.h CrunoPlayer.cpp CrunoDraw2.cpp CrunoReverse.cpp CrunoReverse.h CrunoSkip.cpp CrunoSkip.h CrunoDraw2.h newCrunoGame.cpp newCrunoGame.h Cruno8.cpp Cruno8.h card.h card.cpp player.h player.cpp game.h game.cpp Test.cpp -o proj4

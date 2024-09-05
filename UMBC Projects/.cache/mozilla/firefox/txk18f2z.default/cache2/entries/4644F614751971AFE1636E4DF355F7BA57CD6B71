@@ -1,0 +1,1879 @@
+@media only screen 
+and (min-width : 768px) 
+and (max-width : 1170px)  {
+	#exams div.infotip {min-width:160px;}
+	#exams div.infotip.online:after {left:44%;}
+	#exams div.infotip.pdf:after {left:44%;}
+  .sidebar-item.facebook { 
+      max-width:250px;
+      border-right:1px solid #efefef;
+      margin-left: 0;
+  }
+}
+@media only screen 
+and (min-width : 1024px) 
+and (max-width : 1170px)  {
+	#testimonial-sidebar input#comment_captcha_code {
+		width:56%!important;
+	}
+
+
+	#newsletter-sidebar h4 {
+		max-width:200px;
+	}
+
+	#newsletter-sidebar img {
+		width:130%;
+		height:auto;
+		max-width:130%;
+		left:-38px;
+	}
+
+	.yellow-sidebar-ad a {
+		padding:26px 0 26px 20px;
+	}
+	
+	
+	.yellow-sidebar-ad strong {
+		font-size:26px;
+		line-height:28px;
+	}
+	
+	.yellow-sidebar-ad:hover a {
+		padding-left:24px;
+	}
+
+}
+
+@media only screen 
+and (min-width : 1024px) 
+and (max-width : 1125px) 
+
+{
+
+	/* ================================ Main Navigation */	
+	#main-menu li a {
+		font-size: 14px;
+		padding: 14px 12px 14px 12px;
+	}
+	
+	#testimonial-promo {
+		height:auto;
+	}
+
+	#ad_holder,
+	.sidebar_adsense {
+		display:none;
+	}
+	
+
+	/* Test Yourself */
+	#test-yourself a.word-searches {
+		padding-right: 52px;
+	}
+	#test-yourself a.word-searches .icon.pro-left-small {
+		top: 50%!important;
+	}
+	
+	#newsletter-sidebar.reduced:after {
+		
+	}
+	#newsletter-signup-form span {
+		float: none;
+		width: 100%;
+		display: block;
+		text-align: left;
+		margin-top: 4px;
+	}
+	#newsletter-sidebar.reduced input#nl-submit {
+		float:none;
+	}
+	#newsletter-signup-form span br {
+		display: none;
+	}
+	
+}
+
+
+
+@media only screen 
+and (min-width : 768px) 
+and (max-width : 1024px) 
+
+{
+
+
+
+    /*test yourself */
+    body.test-yourself #test-yourself .grid-4 {
+        width:47%;
+    }
+    #test-yourself a.word-searches .icon.pro-left-small {
+        left:265px!important;
+    }
+    #test-yourself a.flash-cards .icon.pro-left-small {
+        left:218px!important;
+    }
+
+
+	.button {
+		line-height:20px;
+	}
+	.button.small {
+		font-size:12px;
+		line-height:20px;
+		padding:4px 7px;
+	}
+
+	#ad_holder,
+	.sidebar_adsense,
+	#member-downloads-button {
+		display:none;
+	}
+	
+	
+	/*#page-heading .topic-download {width:438px !important}*/
+
+	/* ================================ Main Navigation */	
+	
+	
+	#main-menu li a {
+		font-size: 13px;
+		padding: 15px 11px 13px 11px;
+		line-height:18px;
+	}
+	
+
+	#pro-feat.button, #login-toggle.button {
+		padding: 4px 7px!important;
+	}
+	
+	
+	/* ================================ Home Search */	
+	
+	#site-search {
+		width:80%;
+		margin-left:20%;
+	}
+	input#s {
+		width:79%;
+	}
+	#site-search input#searchsubmit {
+		position:absolute;
+		top:12px;
+		right:18px;
+	}
+	
+	/* ============================== Sidebar */
+	
+	#accounting-exams-sidebar h4,
+	#newsletter-sidebar	h4 {
+		font-size:24px;
+		line-height:28px;
+	}
+	#accounting-exams-sidebar img,
+	#newsletter-sidebar img {
+		display:none;
+	}
+	
+	#newsletter-sidebar p {
+		text-shadow:0 0 0 rgba(255,255,255,.4);
+	}
+	
+	#newsletter-sidebar h4 {
+		max-width:200px;
+	}
+
+	
+	.sidebar-subtitle,
+	#accounting-exams-sidebar,
+	#newsletter-sidebar {
+		font-size:12px;
+		line-height:18px;
+	}
+	input#nl-submit, input#bg-submit {
+		float:none;
+		font-size:16px;
+	}
+	#newsletter-signup-form span {
+		float:none;
+		width:100%;
+		display:block;
+		text-align:left;
+		margin-top:4px;
+		
+	}
+	#newsletter-signup-form span br {
+		display:none;
+	}
+
+	.yellow-sidebar-ad {
+		background:#ffe100 url(../images/yellow_sidebar_ad_bg.png) 100% -10px no-repeat;
+		background:url(../images/yellow_sidebar_ad_bg.png) 100% -10px no-repeat, -moz-linear-gradient(left, #ffe100 0%, #ffd000 100%);
+		background:url(../images/yellow_sidebar_ad_bg.png) 100% -10px no-repeat, -webkit-gradient(linear, left top, right top, color-stop(0%,#ffe100), color-stop(100%,#ffd000));
+		background:url(../images/yellow_sidebar_ad_bg.png) 100% -10px no-repeat, -webkit-linear-gradient(left, #ffe100 0%,#ffd000 100%);
+		background:url(../images/yellow_sidebar_ad_bg.png) 100% -10px no-repeat, -o-linear-gradient(left, #ffe100 0%,#ffd000 100%);
+		background:url(../images/yellow_sidebar_ad_bg.png) 100% -10px no-repeat, -ms-linear-gradient(left, #ffe100 0%,#ffd000 100%);
+		background:url(../images/yellow_sidebar_ad_bg.png) 100% -10px no-repeat, linear-gradient(to right, #ffe100 0%,#ffd000 100%);
+		height:155px;
+	}
+	.yellow-sidebar-ad:hover {
+		background:#ffee66 url(./images/yellow_sidebar_ad_bg.png) 100% -10px no-repeat;
+		background:url(../images/yellow_sidebar_ad_bg.png) 100% -10px no-repeat, -moz-linear-gradient(left, #ffee66 0%, #ffe366 100%);
+		background:url(../images/yellow_sidebar_ad_bg.png) 100% -10px no-repeat, -webkit-gradient(linear, left top, right top, color-stop(0%,#ffee66), color-stop(100%,#ffe366));
+		background:url(../images/yellow_sidebar_ad_bg.png) 100% -10px no-repeat, -webkit-linear-gradient(left, #ffee66 0%,#ffe366 100%);
+		background:url(../images/yellow_sidebar_ad_bg.png) 100% -10px no-repeat, -o-linear-gradient(left, #ffee66 0%,#ffe366 100%);
+		background:url(../images/yellow_sidebar_ad_bg.png) 100% -10px no-repeat, -ms-linear-gradient(left, #ffee66 0%,#ffe366 100%);
+		background:url(../images/yellow_sidebar_ad_bg.png) 100% -10px no-repeat, linear-gradient(to right, #ffee66 0%,#ffe366 100%);
+	}
+	
+	.yellow-sidebar-ad a {
+		padding:23px 0 0 16px;
+		height:155px;
+	}
+	
+	.yellow-sidebar-ad:hover a {
+		padding-left:20px;
+	}
+	
+	.yellow-sidebar-ad strong {
+		font-size:22px;
+		line-height:24px;
+	}
+	
+	.yellow-sidebar-ad .ad-subheading {
+		font-size: 14px;
+	}
+	
+	.yellow-sidebar-ad:hover a {
+		padding-left:20px;
+	}
+	
+	.yellow-sidebar-ad strong {
+		font-size:22px;
+		line-height:24px;
+	}
+	
+	.yellow-sidebar-ad .ad-subheading {
+		font-size: 14px;
+	}
+	
+	
+	
+	
+	.yellow-sidebar-ad.b2 strong {
+		margin-left:16px;
+		padding-top:16px;
+	}
+	.yellow-sidebar-ad.b2 .ad-subheading {
+		margin-left:16px;
+	}
+	#seminar-videos.yellow-sidebar-ad.b2 > img {
+		bottom:-6px;
+		right:-6px;
+	}
+	#bookkeeping-exams.yellow-sidebar-ad.b2 > img {
+		bottom:-10px;
+	}
+	
+	
+	
+	/* ============================== Footer */
+	
+	#testimonial-promo {
+		height:auto;
+	}
+	
+	#lower-promo h4 {
+		font-size:32px;
+	}
+	
+	/* Test Yourself */
+	#test-yourself a.word-searches {
+		padding-right: 42px;
+	}
+	#test-yourself a.word-searches .icon.pro-left-small {
+		top: 50%!important;
+	}
+	
+	#footer-bottom .grid-4 {
+		width:39%;
+	}
+	#footer-bottom .grid-6 {
+		width:36%;
+	}
+	
+	
+	
+	/* ============================== Purchase Pages */
+	
+	#purchase-heading .grid-4,
+	#purchase-overview .grid-4,
+	#purchase-content .grid-4 {
+		width:0;
+	}
+	
+	#purchase-heading .grid-8,
+	#purchase-overview .grid-8,
+	#purchase-content .grid-8 {
+		margin-left:320px;
+		width:auto!important;
+	}
+	
+	
+	
+	/* ============================== Confirmation */
+	
+	#confirmation-video p {
+		font-size:32px!important;
+		line-height:36px;
+	}
+	#confirmation-video p:after {
+		right:35px;
+	}
+	
+	/* ============================== Exam Single */
+
+	.exam-question.wrong .answer {
+		
+	}
+	.answer {
+		/*width:43%;*/
+	}
+
+	.exam-question a.view-answer br {
+		display:none;
+	}
+	
+	
+	
+	/* ================================= Quiz */
+	
+	.quiz-question.multiple-question .question span.subquestion {
+		display:block;
+		float:none;
+		width:100%;
+	}
+	.wrong-answer, .right-answer {
+		margin-left:0;
+		padding-left:18px;
+	}
+	
+	
+	
+	/*--------------------- Exam tooltips ------------*/
+	.exam-question .tooltip {
+		left:0;
+		right:auto;
+		top:82%;
+		width:260px;
+		max-width:400px;
+	}
+	
+	#mobile-exam-instructions.mobile {
+		display:block!important;
+	}
+	#mobile-exam-instructions .button.dark {
+		width: 100%;
+		padding-left: 74px;
+		position: relative;
+	}
+	#mobile-exam-instructions .button.slim {
+		position: relative;
+	}
+	#mobile-exam-instructions {
+		margin-bottom: 20px;
+	}
+	#mobile-exam-instructions .button.dark .icon {
+		left: 28px;
+		top: 11px;
+	}
+	#mobile-exam-instructions .button.slim .icon {
+		background-position: -579px -41px;
+		display: inline-block;
+		height: 21px;
+		width: 21px;
+		position: absolute;
+		right: 12px;
+		top: 50%;
+		margin-top: -10px;
+	}
+	#mobile-exam-instructions .ac-box {
+		display: none;
+	}
+	#exam-home-sidebar {
+		display:none;
+	}
+	
+	
+	/*------- Careers -- */
+	#sba-two, .sba-two, #sas-two, .sas-two {
+		margin-top:0;
+		margin-left:0;
+	}
+
+	#sba-three, #sas-three {
+		margin-top:-520px;
+	}
+	#sba-four, #sas-four {
+		margin-top:0;
+	}
+	#sba-four, .sba-four, #sas-four, .sas-four {
+		margin-left:50%;
+	}
+	
+	
+	
+	/*========== Pro Tooltips == */
+	
+	div.infotip.absolute {
+		left: -20%;
+		top: 118%;
+		right:0;
+		width:auto;
+	}
+	div.infotip:after {
+		left:43px;
+	}
+	
+	#visual-learning div.infotip, #business-forms div.infotip, #test-yourself div.infotip, #business-form-single div.infotip, div.infotip.absolute, #bookkeeping-training div.infotip, #exams div.infotip
+	{
+	}
+	
+	/*=== Testimonials == */
+	#testimonial-sidebar input#comment_captcha_code {
+		width:57%!important;
+	}
+	
+	
+	/*=== Job Search == */
+	
+	.job-search input[type=text] {
+		width:80%;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	/*=== Bookkeeping training changes, 2015 == */
+	
+	body.logged-in #bookkeeping-training #bookkeeping-topics {
+		width:62.58741258741259%!important;
+	}
+	
+	
+	
+	
+	
+	
+	/*=== Footer == */
+	
+	#lower-promo {
+		padding:0;
+	}
+	
+	#lower-promo .padding-right {
+		width:94%;
+	}
+	#lower-promo .pro-promo-image {
+		padding-top:14px;
+	}
+	#lower-promo .learn-more {
+		/*padding-top:26px;*/
+	}
+	
+	#lower-promo .grid-6,
+	#lower-promo .padding-right,
+	#lower-promo .padding-left {
+		min-height:0;
+		height:100%;
+	}
+	
+	
+	
+
+
+}
+
+
+
+/* =================================================== Tablet Portrait */
+
+@media only screen 
+and (min-width : 768px) 
+and (max-width : 768px)
+
+{
+
+
+
+	/* ============================== Accounting Topics */
+	.single-topic.open .topic-children {
+		margin-left:0px;
+	}
+	#accounting-topics .button.slim {
+		padding-right: 38px;
+	}
+	
+	
+	/* ============================== Topic Explanation */
+	.topic-more-ways p {
+		display:block;
+		margin-bottom:4px;
+	}
+	.topic-parts li > a span {
+
+	}
+	.topic-parts li.current-page a,
+	.topic-parts li a {
+
+	}
+	
+	#468-ad {
+	display: none;
+	}
+	
+	
+	/* ============================== Purchase Pages  */ /* I think this will conflict with the sticky menu */
+
+	#purchase-content  .grid-4 {
+		width:0;
+		background:pink;
+	}
+	#purchase-content  .grid-8 {
+		width:100%;
+		margin:0;
+	}
+	
+	/* ============================== Order Page */
+	
+	#pro-order-form input[type=text], #pro-order-form input[type=password], #pro-order-form input[type=email] {
+		width: 100%;
+		max-width: 338px;
+	}
+	
+	
+	
+	/*============================= Exam */
+	
+	#mobile-exam-instructions {
+		display:block!important;
+	}
+	#mobile-exam-instructions .button.slim {
+		position:relative;
+	}
+	#mobile-exam-instructions .button.slim .icon {
+		background-position: -579px -41px;
+		display: inline-block;
+		height: 21px;
+		width: 21px;
+		position: absolute;
+		right: 12px;
+		top: 50%;
+		margin-top: -10px;
+	}
+	#exam-home-sidebar { 
+		display:none!important;
+	}
+	
+	#exam-single .grid-8 {
+		width:100%!important;
+	}
+	.exam-question .tooltip {
+		right:0;
+		width:auto;
+	}
+	
+	#exam-submit input {
+		float:right;
+	}
+	
+	
+	#lower-promo {
+		height:300px;
+	}
+	
+	#lower-promo .pro-promo-image {
+		padding-top:25px;
+	}
+	#lower-promo .learn-more {
+		padding-top:14px;
+	}
+	
+	
+	body.logged-in #qna-topic .container .grid-8 {
+		width: 97%!important;
+	}
+	
+	
+	
+	/*=== Changes to make few pages at 768 behave more like mobile */
+	
+	#test-yourself .grid-4,
+	#visual-tutorials .grid-4 {
+		width:95.1048951048951%;
+	}
+	#test-yourself a.word-searches .icon.pro-left-small {
+		left: 260px;
+	}
+	
+	#exams .grid-12 .grid-4 {
+		width:100%;
+		float:none;
+		margin-left:0;
+		margin-right:0;
+		display:block;
+	}
+	#exams .grid-12 .grid-4 .ac-box {
+		height:auto!important;
+	}
+	
+	#exams .grid-12 .grid-4 .ac-box.exam-overview h2 br {
+		display:none;
+	}
+	#exams .grid-12 .grid-4 .ac-box.exam-overview h2 span {
+		display:inline-block!important;
+	}
+	
+	
+	#visual-tutorials .grid-4 .icon-list li {
+		display:inline-block;
+		margin-right:10px;
+	}
+	
+	
+	
+	
+	#dictionary-term .grid-8,
+	#dictionary-term .grid-4 {
+		display: block;
+		float: none;
+		position: relative;
+		margin-left: 10px;
+		margin-right: 10px;
+		width: auto!important;
+		min-width: 280px!important;
+		max-width: 767px!important;
+	}
+	
+	
+	
+}
+
+
+@media only screen 
+and (min-width : 768px) 
+and (max-width : 880px) 
+
+{
+
+	/*=== Header user menus not logged in */
+	#main-menu li a {
+		font-size: 12px!important;
+		padding: 15px 8px 13px 8px!important;
+	}
+
+
+
+
+
+	/*=== Header user menus when logged in */
+
+	
+	/* Page Title Area */
+	.topic-more-ways p {
+		display:block;
+		margin-bottom:4px;
+		padding-top:0;
+	}
+	
+	
+	#newsletter-sidebar {
+		padding:20px;
+	}
+	#newsletter-sidebar.reduced:after {
+		width:65px;
+		height:65px;
+	}
+	
+
+	.yellow-sidebar-ad.b2 strong {
+		margin-left: 12px;
+		padding-top: 12px;
+		margin-bottom:2px;
+	}
+	.yellow-sidebar-ad.b2 .ad-subheading {
+		margin-left:12px;
+		font-size:12px;
+		line-height:15px;
+	}
+	
+	/* Sidebar ad */
+	
+	#business-forms.yellow-sidebar-ad.b2 > img.image {
+		bottom:-14px;
+	}
+	
+	#bookkeeping-exams.yellow-sidebar-ad.b2 > img.image {
+		top:16px;
+		bottom:-16px;
+	}
+	#seminar-videos.yellow-sidebar-ad.b2 > img.image {
+		left:6px;
+		right:-6px;
+		top:4px;
+		bottom:-4px;
+	}
+	#save-as-pdf.yellow-sidebar-ad.b2 > img.image {
+		top:0;
+		bottom:auto;
+		max-width:110%;
+		width:110%;
+		height:auto;
+		left:0;
+		right:auto;
+	}
+	
+	/* ============================== Confirmation */
+	#confirmation-video .grid-10 {
+		width:90%;
+	}
+	#confirmation-video p {
+		font-size:30px!important;
+		line-height:34px;
+	}
+	#confirmation-video p:after {
+		right:35px;
+	}
+	
+	
+	
+	#footer-about img {
+		padding-bottom:80px;
+	}
+	
+	
+	
+	.dictionary-terms-list li.terms-list-split {
+		clear:none;
+	}
+	
+
+
+}
+
+
+@media only screen 
+and (min-width : 768px) 
+and (max-width : 830px) 
+
+{
+
+	#pro-feat.button,
+	#login-toggle.button {
+		margin-top:21px;
+		padding: 2px 4px!important;
+		max-width:45px;
+		display:block;
+		text-align:center;
+	}
+	#pro-feat.button {
+		max-width:154px;
+		margin-bottom:5px;
+		float:left;
+	}
+	#login-toggle.button {
+		float:right;
+		margin-left:5px;
+	}
+	
+	body.logged-in #qna-topic #term-related-qna {
+		display:none;
+	}
+	
+	body.logged-in #qna-topic .container .grid-8 {
+		width:97%!important;
+	}
+	
+	
+
+}
+
+
+@media only screen 
+and (min-width : 768px) 
+and (max-width : 900px) 
+{
+	/*=== Testimonials == */
+	#testimonial-sidebar input#comment_captcha_code {
+		width:80%!important;
+	}
+
+
+
+	.container #qna-archive .grid-6 {
+		height:220px;
+	}
+	.ta-right {
+		padding-top:10px;
+	}
+	.single-topic.open .topic-children li.pro {
+		width:85%;
+	}
+
+	
+	/* ================================ Cheat Sheet */
+
+
+
+	.cheat-sheet-image {
+		width:48%;
+	}
+	.cheat-sheet-content {
+		width:40%;
+		padding-top:20px;
+	}
+	
+	#explanation_page #explanation-main,
+	#quiz .container .grid-8,
+	#qna-topic .container .grid-8,
+	#crossword-topic .container .grid-8,
+	#about .container .grid-8,
+	#qna-suggest .container .grid-8 {
+		float:none;
+		display:block;
+		width:100%;
+		margin-left:0;
+		margin-right:0;
+	}
+	#explanation_page #sidebar,
+	#quiz #sidebar,
+	#qna-topic #sidebar,
+	#crossword-topic #sidebar,
+	#qna-suggest #sidebar,
+	#about #sidebar {
+		display:none;
+	}
+	
+
+}
+	
+	
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) { 
+
+	.yellow-sidebar-ad.b2 strong {
+		font-size: 26px;
+		line-height: 28px;
+	}
+	
+	#order-heading #order-header-badges {
+		top:-140px;
+	}
+
+}
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) { 	
+
+	#order-heading #order-header-badges {
+		top:-140px;
+	}
+	
+	#explanation_page #explanation-main,
+	#quiz .container .grid-8,
+	#qna-topic .container .grid-8,
+	#crossword-topic .container .grid-8,
+	#about .container .grid-8,
+	#qna-suggest .container .grid-8,
+	body.excluded > .full-width.white.padded .container .grid-8 {
+		float:none;
+		display:block;
+		width:100%;
+		margin-left:0;
+		margin-right:0;
+	}
+	#explanation_page #sidebar,
+	#quiz #sidebar,
+	#qna-topic #sidebar,
+	#crossword-topic #sidebar,
+	#qna-suggest #sidebar,
+	#about #sidebar,
+	body.excluded #sidebar {
+		display:none;
+	}
+	
+	body.excluded #page-content #pro-feat.button {
+		float:none;
+		margin-bottom:-18px;
+	}
+	
+	
+
+}
+
+
+
+	
+=======
+@media only screen 
+and (min-width : 768px) 
+and (max-width : 1170px)  {
+	#exams div.infotip {min-width:160px;}
+	#exams div.infotip.online:after {left:44%;}
+	#exams div.infotip.pdf:after {left:44%;}
+  .sidebar-item.facebook { 
+      max-width:250px;
+      border-right:1px solid #efefef;
+      margin-left: 0;
+  }
+
+}
+@media only screen 
+and (min-width : 1024px) 
+and (max-width : 1170px)  {
+	#testimonial-sidebar input#comment_captcha_code {
+		width:56%!important;
+	}
+
+
+	#newsletter-sidebar h4 {
+		max-width:200px;
+	}
+
+	#newsletter-sidebar img {
+		width:130%;
+		height:auto;
+		max-width:130%;
+		left:-38px;
+	}
+
+	.yellow-sidebar-ad a {
+		padding:26px 0 26px 20px;
+	}
+	
+	
+	.yellow-sidebar-ad strong {
+		font-size:26px;
+		line-height:28px;
+	}
+	
+	.yellow-sidebar-ad:hover a {
+		padding-left:24px;
+	}
+    
+    #test-yourself a.flash-cards .icon.pro-left-small {
+        left:212px;
+    }
+    #test-yourself a.word-searches .icon.pro-left-small {
+        left:260px;
+    }
+
+}
+
+@media only screen 
+and (min-width : 768px) 
+and (max-width : 1075px) {
+    #test-yourself a.word-searches .icon.pro-left-small {
+        left:200px;
+    }
+}
+
+
+@media only screen 
+and (min-width : 1024px) 
+and (max-width : 1125px) 
+
+{
+
+	/* ================================ Main Navigation */	
+	#main-menu li a {
+		font-size: 14px;
+		padding: 14px 12px 14px 12px;
+	}
+	
+	#testimonial-promo {
+		height:auto;
+	}
+
+	#ad_holder,
+	.sidebar_adsense {
+		display:none;
+	}
+	
+
+	/* Test Yourself */
+	#test-yourself a.word-searches {
+		padding-right: 52px;
+	}
+	#test-yourself a.word-searches .icon.pro-left-small {
+		top: 50%!important;
+	}
+	
+	#newsletter-sidebar.reduced:after {
+		
+	}
+	#newsletter-signup-form span {
+		float: none;
+		width: 100%;
+		display: block;
+		text-align: left;
+		margin-top: 4px;
+	}
+	#newsletter-sidebar.reduced input#nl-submit {
+		float:none;
+	}
+	#newsletter-signup-form span br {
+		display: none;
+	}
+	
+}
+
+
+
+@media only screen 
+and (min-width : 768px) 
+and (max-width : 1024px) 
+
+{
+
+
+	.button {
+		line-height:20px;
+	}
+	.button.small {
+		font-size:12px;
+		line-height:20px;
+		padding:4px 7px;
+	}
+
+	#ad_holder,
+	.sidebar_adsense,
+	#member-downloads-button {
+		display:none;
+	}
+	
+	
+	/*#page-heading .topic-download {width:438px !important}*/
+
+	/* ================================ Main Navigation */	
+	
+	
+	#main-menu li a {
+		font-size: 13px;
+		padding: 15px 11px 13px 11px;
+		line-height:18px;
+	}
+	
+
+	#pro-feat.button, #login-toggle.button {
+		padding: 4px 7px!important;
+	}
+	
+	
+	/* ================================ Home Search */	
+	
+	#site-search {
+		width:80%;
+		margin-left:20%;
+	}
+	input#s {
+		width:79%;
+	}
+	#site-search input#searchsubmit {
+		position:absolute;
+		top:12px;
+		right:18px;
+	}
+	
+	/* ============================== Sidebar */
+	
+	#accounting-exams-sidebar h4,
+	#newsletter-sidebar	h4 {
+		font-size:24px;
+		line-height:28px;
+	}
+	#accounting-exams-sidebar img,
+	#newsletter-sidebar img {
+		display:none;
+	}
+	
+	#newsletter-sidebar p {
+		text-shadow:0 0 0 rgba(255,255,255,.4);
+	}
+	
+	#newsletter-sidebar h4 {
+		max-width:200px;
+	}
+
+	
+	.sidebar-subtitle,
+	#accounting-exams-sidebar,
+	#newsletter-sidebar {
+		font-size:12px;
+		line-height:18px;
+	}
+	input#nl-submit, input#bg-submit {
+		float:none;
+		font-size:16px;
+	}
+	#newsletter-signup-form span {
+		float:none;
+		width:100%;
+		display:block;
+		text-align:left;
+		margin-top:4px;
+		
+	}
+	#newsletter-signup-form span br {
+		display:none;
+	}
+
+	.yellow-sidebar-ad {
+		background:#ffe100 url(../images/yellow_sidebar_ad_bg.png) 100% -10px no-repeat;
+		background:url(../images/yellow_sidebar_ad_bg.png) 100% -10px no-repeat, -moz-linear-gradient(left, #ffe100 0%, #ffd000 100%);
+		background:url(../images/yellow_sidebar_ad_bg.png) 100% -10px no-repeat, -webkit-gradient(linear, left top, right top, color-stop(0%,#ffe100), color-stop(100%,#ffd000));
+		background:url(../images/yellow_sidebar_ad_bg.png) 100% -10px no-repeat, -webkit-linear-gradient(left, #ffe100 0%,#ffd000 100%);
+		background:url(../images/yellow_sidebar_ad_bg.png) 100% -10px no-repeat, -o-linear-gradient(left, #ffe100 0%,#ffd000 100%);
+		background:url(../images/yellow_sidebar_ad_bg.png) 100% -10px no-repeat, -ms-linear-gradient(left, #ffe100 0%,#ffd000 100%);
+		background:url(../images/yellow_sidebar_ad_bg.png) 100% -10px no-repeat, linear-gradient(to right, #ffe100 0%,#ffd000 100%);
+		height:155px;
+	}
+	.yellow-sidebar-ad:hover {
+		background:#ffee66 url(./images/yellow_sidebar_ad_bg.png) 100% -10px no-repeat;
+		background:url(../images/yellow_sidebar_ad_bg.png) 100% -10px no-repeat, -moz-linear-gradient(left, #ffee66 0%, #ffe366 100%);
+		background:url(../images/yellow_sidebar_ad_bg.png) 100% -10px no-repeat, -webkit-gradient(linear, left top, right top, color-stop(0%,#ffee66), color-stop(100%,#ffe366));
+		background:url(../images/yellow_sidebar_ad_bg.png) 100% -10px no-repeat, -webkit-linear-gradient(left, #ffee66 0%,#ffe366 100%);
+		background:url(../images/yellow_sidebar_ad_bg.png) 100% -10px no-repeat, -o-linear-gradient(left, #ffee66 0%,#ffe366 100%);
+		background:url(../images/yellow_sidebar_ad_bg.png) 100% -10px no-repeat, -ms-linear-gradient(left, #ffee66 0%,#ffe366 100%);
+		background:url(../images/yellow_sidebar_ad_bg.png) 100% -10px no-repeat, linear-gradient(to right, #ffee66 0%,#ffe366 100%);
+	}
+	
+	.yellow-sidebar-ad a {
+		padding:23px 0 0 16px;
+		height:155px;
+	}
+	
+	.yellow-sidebar-ad:hover a {
+		padding-left:20px;
+	}
+	
+	.yellow-sidebar-ad strong {
+		font-size:22px;
+		line-height:24px;
+	}
+	
+	.yellow-sidebar-ad .ad-subheading {
+		font-size: 14px;
+	}
+	
+	.yellow-sidebar-ad:hover a {
+		padding-left:20px;
+	}
+	
+	.yellow-sidebar-ad strong {
+		font-size:22px;
+		line-height:24px;
+	}
+	
+	.yellow-sidebar-ad .ad-subheading {
+		font-size: 14px;
+	}
+	
+	
+	
+	
+	.yellow-sidebar-ad.b2 strong {
+		margin-left:16px;
+		padding-top:16px;
+	}
+	.yellow-sidebar-ad.b2 .ad-subheading {
+		margin-left:16px;
+	}
+	#seminar-videos.yellow-sidebar-ad.b2 > img {
+		bottom:-6px;
+		right:-6px;
+	}
+	#bookkeeping-exams.yellow-sidebar-ad.b2 > img {
+		bottom:-10px;
+	}
+	
+	
+	
+	/* ============================== Footer */
+	
+	#testimonial-promo {
+		height:auto;
+	}
+	
+	#lower-promo h4 {
+		font-size:32px;
+	}
+	
+	/* Test Yourself */
+	#test-yourself a.word-searches {
+		padding-right: 42px;
+	}
+	#test-yourself a.word-searches .icon.pro-left-small {
+		top: 50%!important;
+	}
+	
+	#footer-bottom .grid-4 {
+		width:39%;
+	}
+	#footer-bottom .grid-6 {
+		width:36%;
+	}
+	
+	
+	
+	/* ============================== Purchase Pages */
+	
+	#purchase-heading .grid-4,
+	#purchase-overview .grid-4,
+	#purchase-content .grid-4 {
+		width:0;
+	}
+	
+	#purchase-heading .grid-8,
+	#purchase-overview .grid-8,
+	#purchase-content .grid-8 {
+		margin-left:320px;
+		width:auto!important;
+	}
+	
+	
+	
+	/* ============================== Confirmation */
+	
+	#confirmation-video p {
+		font-size:32px!important;
+		line-height:36px;
+	}
+	#confirmation-video p:after {
+		right:35px;
+	}
+	
+	/* ============================== Exam Single */
+
+	.exam-question.wrong .answer {
+		
+	}
+	.answer {
+		/*width:43%;*/
+	}
+
+	.exam-question a.view-answer br {
+		display:none;
+	}
+	
+	
+	
+	/* ================================= Quiz */
+	
+	.quiz-question.multiple-question .question span.subquestion {
+		display:block;
+		float:none;
+		width:100%;
+	}
+	.wrong-answer, .right-answer {
+		margin-left:0;
+		padding-left:18px;
+	}
+	
+	
+	
+	/*--------------------- Exam tooltips ------------*/
+	.exam-question .tooltip {
+		left:0;
+		right:auto;
+		top:82%;
+		width:260px;
+		max-width:400px;
+	}
+	
+	#mobile-exam-instructions.mobile {
+		display:block!important;
+	}
+	#mobile-exam-instructions .button.dark {
+		width: 100%;
+		padding-left: 74px;
+		position: relative;
+	}
+	#mobile-exam-instructions .button.slim {
+		position: relative;
+	}
+	#mobile-exam-instructions {
+		margin-bottom: 20px;
+	}
+	#mobile-exam-instructions .button.dark .icon {
+		left: 28px;
+		top: 11px;
+	}
+	#mobile-exam-instructions .button.slim .icon {
+		background-position: -579px -41px;
+		display: inline-block;
+		height: 21px;
+		width: 21px;
+		position: absolute;
+		right: 12px;
+		top: 50%;
+		margin-top: -10px;
+	}
+	#mobile-exam-instructions .ac-box {
+		display: none;
+	}
+	#exam-home-sidebar {
+		display:none;
+	}
+	
+	
+	/*------- Careers -- */
+	#sba-two, .sba-two, #sas-two, .sas-two {
+		margin-top:0;
+		margin-left:0;
+	}
+
+	#sba-three, #sas-three {
+		margin-top:-520px;
+	}
+	#sba-four, #sas-four {
+		margin-top:0;
+	}
+	#sba-four, .sba-four, #sas-four, .sas-four {
+		margin-left:50%;
+	}
+	
+	
+	
+	/*========== Pro Tooltips == */
+	
+	div.infotip.absolute {
+		left: -20%;
+		top: 118%;
+		right:0;
+		width:auto;
+	}
+	div.infotip:after {
+		left:43px;
+	}
+	
+	#visual-learning div.infotip, #business-forms div.infotip, #test-yourself div.infotip, #business-form-single div.infotip, div.infotip.absolute, #bookkeeping-training div.infotip, #exams div.infotip
+	{
+	}
+	
+	/*=== Testimonials == */
+	#testimonial-sidebar input#comment_captcha_code {
+		width:57%!important;
+	}
+	
+	
+	/*=== Job Search == */
+	
+	.job-search input[type=text] {
+		width:80%;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	/*=== Bookkeeping training changes, 2015 == */
+	
+	body.logged-in #bookkeeping-training #bookkeeping-topics {
+		width:62.58741258741259%!important;
+	}
+	
+	
+	
+	
+	
+	
+	/*=== Footer == */
+	
+	#lower-promo {
+		padding:0;
+	}
+	
+	#lower-promo .padding-right {
+		width:94%;
+	}
+	#lower-promo .pro-promo-image {
+		padding-top:14px;
+	}
+	#lower-promo .learn-more {
+		/*padding-top:26px;*/
+	}
+	
+	#lower-promo .grid-6,
+	#lower-promo .padding-right,
+	#lower-promo .padding-left {
+		min-height:0;
+		height:100%;
+	}
+	
+	
+	
+
+
+}
+
+
+
+/* =================================================== Tablet Portrait */
+
+@media only screen 
+and (min-width : 768px) 
+and (max-width : 768px)
+
+{
+
+
+
+	/* ============================== Accounting Topics */
+	.single-topic.open .topic-children {
+		margin-left:0px;
+	}
+	#accounting-topics .button.slim {
+		padding-right: 38px;
+	}
+	
+	
+	/* ============================== Topic Explanation */
+	.topic-more-ways p {
+		display:block;
+		margin-bottom:4px;
+	}
+	.topic-parts li > a span {
+
+	}
+	.topic-parts li.current-page a,
+	.topic-parts li a {
+
+	}
+	
+	#468-ad {
+	display: none;
+	}
+	
+	
+	/* ============================== Purchase Pages  */ /* I think this will conflict with the sticky menu */
+
+	#purchase-content  .grid-4 {
+		width:0;
+		background:pink;
+	}
+	#purchase-content  .grid-8 {
+		width:100%;
+		margin:0;
+	}
+	
+	/* ============================== Order Page */
+	
+	#pro-order-form input[type=text], #pro-order-form input[type=password], #pro-order-form input[type=email] {
+		width: 100%;
+		max-width: 338px;
+	}
+	
+	
+	
+	/*============================= Exam */
+	
+	#mobile-exam-instructions {
+		display:block!important;
+	}
+	#mobile-exam-instructions .button.slim {
+		position:relative;
+	}
+	#mobile-exam-instructions .button.slim .icon {
+		background-position: -579px -41px;
+		display: inline-block;
+		height: 21px;
+		width: 21px;
+		position: absolute;
+		right: 12px;
+		top: 50%;
+		margin-top: -10px;
+	}
+	#exam-home-sidebar { 
+		display:none!important;
+	}
+	
+	#exam-single .grid-8 {
+		width:100%!important;
+	}
+	.exam-question .tooltip {
+		right:0;
+		width:auto;
+	}
+	
+	#exam-submit input {
+		float:right;
+	}
+	
+	
+	#lower-promo {
+		height:300px;
+	}
+	
+	#lower-promo .pro-promo-image {
+		padding-top:25px;
+	}
+	#lower-promo .learn-more {
+		padding-top:14px;
+	}
+	
+	
+	body.logged-in #qna-topic .container .grid-8 {
+		width: 97%!important;
+	}
+	
+	
+	
+	/*=== Changes to make few pages at 768 behave more like mobile */
+	
+	#test-yourself .grid-4,
+	#visual-tutorials .grid-4 {
+		width:95.1048951048951%;
+	}
+	#test-yourself a.word-searches .icon.pro-left-small {
+		left: 260px;
+	}
+	
+	#exams .grid-12 .grid-4 {
+		width:100%;
+		float:none;
+		margin-left:0;
+		margin-right:0;
+		display:block;
+	}
+	#exams .grid-12 .grid-4 .ac-box {
+		height:auto!important;
+	}
+	
+	#exams .grid-12 .grid-4 .ac-box.exam-overview h2 br {
+		display:none;
+	}
+	#exams .grid-12 .grid-4 .ac-box.exam-overview h2 span {
+		display:inline-block!important;
+	}
+	
+	
+	#visual-tutorials .grid-4 .icon-list li {
+		display:inline-block;
+		margin-right:10px;
+	}
+	
+	
+	
+	
+	#dictionary-term .grid-8,
+	#dictionary-term .grid-4 {
+		display: block;
+		float: none;
+		position: relative;
+		margin-left: 10px;
+		margin-right: 10px;
+		width: auto!important;
+		min-width: 280px!important;
+		max-width: 767px!important;
+	}
+	
+	
+	
+}
+
+
+@media only screen 
+and (min-width : 768px) 
+and (max-width : 880px) 
+
+{
+
+	/*=== Header user menus not logged in */
+	#main-menu li a {
+		font-size: 12px!important;
+		padding: 15px 8px 13px 8px!important;
+	}
+
+
+
+
+
+	/*=== Header user menus when logged in */
+
+	
+	/* Page Title Area */
+	.topic-more-ways p {
+		display:block;
+		margin-bottom:4px;
+		padding-top:0;
+	}
+	
+	
+	#newsletter-sidebar {
+		padding:20px;
+	}
+	#newsletter-sidebar.reduced:after {
+		width:65px;
+		height:65px;
+	}
+	
+
+	.yellow-sidebar-ad.b2 strong {
+		margin-left: 12px;
+		padding-top: 12px;
+		margin-bottom:2px;
+	}
+	.yellow-sidebar-ad.b2 .ad-subheading {
+		margin-left:12px;
+		font-size:12px;
+		line-height:15px;
+	}
+	
+	/* Sidebar ad */
+	
+	#business-forms.yellow-sidebar-ad.b2 > img.image {
+		bottom:-14px;
+	}
+	
+	#bookkeeping-exams.yellow-sidebar-ad.b2 > img.image {
+		top:16px;
+		bottom:-16px;
+	}
+	#seminar-videos.yellow-sidebar-ad.b2 > img.image {
+		left:6px;
+		right:-6px;
+		top:4px;
+		bottom:-4px;
+	}
+	#save-as-pdf.yellow-sidebar-ad.b2 > img.image {
+		top:0;
+		bottom:auto;
+		max-width:110%;
+		width:110%;
+		height:auto;
+		left:0;
+		right:auto;
+	}
+	
+	/* ============================== Confirmation */
+	#confirmation-video .grid-10 {
+		width:90%;
+	}
+	#confirmation-video p {
+		font-size:30px!important;
+		line-height:34px;
+	}
+	#confirmation-video p:after {
+		right:35px;
+	}
+	
+	
+	
+	#footer-about img {
+		padding-bottom:80px;
+	}
+	
+	
+	
+	.dictionary-terms-list li.terms-list-split {
+		clear:none;
+	}
+	
+
+
+}
+
+
+@media only screen 
+and (min-width : 768px) 
+and (max-width : 830px) 
+
+{
+
+	#pro-feat.button,
+	#login-toggle.button {
+		margin-top:21px;
+		padding: 2px 4px!important;
+		max-width:45px;
+		display:block;
+		text-align:center;
+	}
+	#pro-feat.button {
+		max-width:154px;
+		margin-bottom:5px;
+		float:left;
+	}
+	#login-toggle.button {
+		float:right;
+		margin-left:5px;
+	}
+	
+	body.logged-in #qna-topic #term-related-qna {
+		display:none;
+	}
+	
+	body.logged-in #qna-topic .container .grid-8 {
+		width:97%!important;
+	}
+	
+	
+
+}
+
+
+@media only screen 
+and (min-width : 768px) 
+and (max-width : 900px) 
+{
+	/*=== Testimonials == */
+	#testimonial-sidebar input#comment_captcha_code {
+		width:80%!important;
+	}
+
+
+
+	.container #qna-archive .grid-6 {
+		height:220px;
+	}
+	.ta-right {
+		padding-top:10px;
+	}
+	.single-topic.open .topic-children li.pro {
+		width:85%;
+	}
+
+	
+	/* ================================ Cheat Sheet */
+
+
+
+	.cheat-sheet-image {
+		width:48%;
+	}
+	.cheat-sheet-content {
+		width:40%;
+		padding-top:20px;
+	}
+	
+	#explanation_page #explanation-main,
+	#quiz .container .grid-8,
+	#qna-topic .container .grid-8,
+	#crossword-topic .container .grid-8,
+	#about .container .grid-8,
+	#qna-suggest .container .grid-8 {
+		float:none;
+		display:block;
+		width:100%;
+		margin-left:0;
+		margin-right:0;
+	}
+	#explanation_page #sidebar,
+	#quiz #sidebar,
+	#qna-topic #sidebar,
+	#crossword-topic #sidebar,
+	#qna-suggest #sidebar,
+	#about #sidebar {
+		display:none;
+	}
+	
+
+}
+	
+
+	
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape) { 
+
+	.yellow-sidebar-ad.b2 strong {
+		font-size: 26px;
+		line-height: 28px;
+	}
+	
+	#order-heading #order-header-badges {
+		top:-140px;
+	}
+    #test-yourself a.flash-cards .icon.pro-left-small {
+        left:206px;
+    }
+    #test-yourself a.word-searches .icon.pro-left-small {
+        left:254px;
+    }
+
+    body.test-yourself #test-yourself .grid-4 {
+    width:47%;
+	}
+	#test-yourself a.word-searches .icon.pro-left-small {
+	    left:265px!important;
+	}
+	#test-yourself a.flash-cards .icon.pro-left-small {
+	    left:218px!important;
+	}
+
+}
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : portrait) { 	
+
+	#order-heading #order-header-badges {
+		top:-140px;
+	}
+	
+	#explanation_page #explanation-main,
+	#quiz .container .grid-8,
+	#qna-topic .container .grid-8,
+	#crossword-topic .container .grid-8,
+	#about .container .grid-8,
+	#qna-suggest .container .grid-8,
+	body.excluded > .full-width.white.padded .container .grid-8 {
+		float:none;
+		display:block;
+		width:100%;
+		margin-left:0;
+		margin-right:0;
+	}
+	#explanation_page #sidebar,
+	#quiz #sidebar,
+	#qna-topic #sidebar,
+	#crossword-topic #sidebar,
+	#qna-suggest #sidebar,
+	#about #sidebar,
+	body.excluded #sidebar {
+		display:none;
+	}
+	
+	body.excluded #page-content #pro-feat.button {
+		float:none;
+		margin-bottom:-18px;
+	}
+    
+    #test-yourself a.flash-cards .icon.pro-left-small {
+        left:211px;
+    }
+	
+	
+
+}
+×C×      WVÚ¶WVÚ<‰ý‰WoåG   X    :http://www.accountingcoach.com/wp-content/themes/accounting-coach/css/tablet.css?v=3.28 necko:classified 1 request-method GET response-head HTTP/1.1 200 OK
+Date: Tue, 07 Jun 2016 14:26:24 GMT
+Server: Apache/2.2.15
+Last-Modified: Mon, 30 Nov 2015 14:59:53 GMT
+Etag: "f18241-8029-525c34b232c40"
+Accept-Ranges: bytes
+Content-Length: 32809
+Content-Type: text/css
+ uncompressed-len 0   €)

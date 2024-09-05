@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?metadataRepository version='1.1.0'?>
+<repository name='metadata listener dropins' type='org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository' version='1'>
+  <properties size='3'>
+    <property name='p2.system' value='true'/>
+    <property name='p2.timestamp' value='1465901243462'/>
+    <property name='dropin.metadataRepositories' value='file:/usr/share/eclipse/dropins/rpm-editor/|file:/usr/share/eclipse/dropins/dtp-enablement/|file:/usr/share/eclipse/dropins/dtp-connectivity/|file:/usr/share/eclipse/dropins/emf/|file:/usr/share/eclipse/dropins/dtp-modelbase/|file:/usr/share/eclipse/dropins/subclipse-clientadapter/|file:/usr/share/eclipse/dropins/birt/|file:/usr/share/eclipse/dropins/dtp-sqldevtools/|file:/usr/share/eclipse/dropins/subclipse/|file:/usr/share/eclipse/dropins/gef/|file:/usr/share/eclipse/dropins/svnkit/|file:/usr/share/eclipse/dropins/rse/|file:/usr/share/eclipse/dropins/subclipse-clientadapter-svnkit/|file:/usr/share/eclipse/dropins/subclipse-clientadapter-javahl/|file:/usr/lib64/eclipse/dropins/mylyn-java/|file:/usr/lib64/eclipse/dropins/valgrind/|file:/usr/lib64/eclipse/dropins/changelog/|file:/usr/lib64/eclipse/dropins/oprofile/|file:/usr/lib64/eclipse/dropins/mylyn/|file:/usr/lib64/eclipse/dropins/jdt/|file:/usr/lib64/eclipse/dropins/callgraph/|file:/usr/lib64/eclipse/dropins/linuxprofilingframework/|file:/usr/lib64/eclipse/dropins/cdt/|file:/usr/lib64/eclipse/dropins/sdk/'/>
+  </properties>
+</repository>

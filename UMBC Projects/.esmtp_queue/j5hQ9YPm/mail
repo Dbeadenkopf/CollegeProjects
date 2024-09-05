@@ -1,0 +1,7 @@
+To: root
+From: beadenk1
+Auto-Submitted: auto-generated
+Subject: *** SECURITY information for linux1.gl.umbc.edu ***
+
+linux1.gl.umbc.edu : May 14 19:54:56 : beadenk1 : user NOT in sudoers ; TTY=pts/14 ; PWD=/afs/umbc.edu/users/b/e/beadenk1/home/practice ; USER=root ; COMMAND=apt-get install libcurl-dev
+

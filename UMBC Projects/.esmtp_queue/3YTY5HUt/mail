@@ -1,0 +1,7 @@
+To: root
+From: beadenk1
+Auto-Submitted: auto-generated
+Subject: *** SECURITY information for linux1.gl.umbc.edu ***
+
+linux1.gl.umbc.edu : Apr  1 15:16:58 : beadenk1 : user NOT in sudoers ; TTY=pts/73 ; PWD=/afs/umbc.edu/users/b/e/beadenk1/home ; USER=root ; COMMAND=apt-get update
+

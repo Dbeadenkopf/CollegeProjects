@@ -1,0 +1,1200 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?metadataRepository version='1.1.0'?>
+<repository name='dropins metadata repo: file:/usr/share/eclipse/dropins/birt/' type='org.eclipse.equinox.internal.p2.metadata.repository.LocalMetadataRepository' version='1.0.0'>
+  <properties size='1'>
+    <property name='p2.timestamp' value='1465901238669'/>
+  </properties>
+  <references size='2'>
+    <repository uri='http://download.eclipse.org/birt/update-site/2.6' url='http://download.eclipse.org/birt/update-site/2.6' type='1' options='0'/>
+    <repository uri='http://download.eclipse.org/birt/update-site/2.6' url='http://download.eclipse.org/birt/update-site/2.6' type='0' options='0'/>
+  </references>
+  <units size='30'>
+    <unit id='org.eclipse.birt.chart' version='2.6.0.201101140540' singleton='false'>
+      <update id='org.eclipse.birt.chart' range='[0.0.0,2.6.0.201101140540)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='BIRT Chart Framework'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Eclipse BIRT Project'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/birt/eclipse/plugins/org.eclipse.birt.chart_2.6.0.201101140540'/>
+        <property name='file.lastModified' value='1406152438000'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.birt.chart' version='2.6.0.201101140540'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.birt.chart' version='2.6.0.201101140540'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.birt.chart' version='2.6.0.201101140540'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='2'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Bundle-Version: 2.6.0.201101140540&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: org.eclipse.birt.chart&#xA;Bundle-Name: BIRT Chart Framework&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Bundle-Localization: plugin&#xA;Bundle-Vendor: Eclipse BIRT Project&#xA;
+          </instruction>
+          <instruction key='zipped'>
+            true
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.apache.batik.ext.awt' version='1.6.0.v200805290154' singleton='false'>
+      <update id='org.apache.batik.ext.awt' range='[0.0.0,1.6.0.v200805290154)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/birt/eclipse/plugins/batik-awt-util.jar'/>
+        <property name='file.lastModified' value='1376399949000'/>
+      </properties>
+      <provides size='15'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.apache.batik.ext.awt' version='1.6.0.v200805290154'/>
+        <provided namespace='osgi.bundle' name='org.apache.batik.ext.awt' version='1.6.0.v200805290154'/>
+        <provided namespace='java.package' name='org.apache.batik.ext.awt' version='1.6.0'/>
+        <provided namespace='java.package' name='org.apache.batik.ext.awt.color' version='1.6.0'/>
+        <provided namespace='java.package' name='org.apache.batik.ext.awt.font' version='1.6.0'/>
+        <provided namespace='java.package' name='org.apache.batik.ext.awt.g2d' version='1.6.0'/>
+        <provided namespace='java.package' name='org.apache.batik.ext.awt.geom' version='1.6.0'/>
+        <provided namespace='java.package' name='org.apache.batik.ext.awt.image' version='1.6.0'/>
+        <provided namespace='java.package' name='org.apache.batik.ext.awt.image.codec' version='1.6.0'/>
+        <provided namespace='java.package' name='org.apache.batik.ext.awt.image.codec.tiff' version='1.6.0'/>
+        <provided namespace='java.package' name='org.apache.batik.ext.awt.image.renderable' version='1.6.0'/>
+        <provided namespace='java.package' name='org.apache.batik.ext.awt.image.rendered' version='1.6.0'/>
+        <provided namespace='java.package' name='org.apache.batik.ext.awt.image.spi' version='1.6.0'/>
+        <provided namespace='java.package' name='org.apache.batik.ext.swing' version='1.6.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='2'>
+        <required namespace='osgi.bundle' name='org.apache.batik.util' range='[1.6.0,1.7.0)'/>
+        <required namespace='osgi.bundle' name='org.apache.batik.util.gui' range='[1.6.0,1.7.0)'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.apache.batik.ext.awt' version='1.6.0.v200805290154'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.3&#xA;Require-Bundle: org.apache.batik.util;bundle-version=&quot;[1.6.0,1.7.0)&quot;,org.apache.batik.util.gui;bundle-version=&quot;[1.6.0,1.7.0)&quot;&#xA;Manifest-Version: 1.0&#xA;Bundle-Version: 1.6.0.v200805290154&#xA;Export-Package: org.apache.batik.ext.awt;version=&quot;1.6.0&quot;,org.apache.batik.ext.awt.color;version=&quot;1.6.0&quot;,org.apache.batik.ext.awt.font;version=&quot;1.6.0&quot;,org.apache.batik.ext.awt.g2d;version=&quot;1.6.0&quot;,org.apache.batik.ext.awt.geom;version=&quot;1.6.0&quot;,org.apache.batik.ext.awt.image;version=&quot;1.6.0&quot;,org.apache.batik.ext.awt.image.codec;version=&quot;1.6.0&quot;,org.apache.batik.ext.awt.image.codec.tiff;version=&quot;1.6.0&quot;,org.apache.batik.ext.awt.image.renderable;version=&quot;1.6.0&quot;,org.apache.batik.ext.awt.image.rendered;version=&quot;1.6.0&quot;,org.apache.batik.ext.awt.image.spi;version=&quot;1.6.0&quot;,org.apache.batik.ext.swing;version=&quot;1.6.0&quot;&#xA;Bundle-SymbolicName: org.apache.batik.ext.awt&#xA;Bundle-Localization: plugin&#xA;Bundle-Name: %pluginName&#xA;Bundle-Vendor: %providerName&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.w3c.css.sac' version='1.3.0.v200805290154' singleton='false'>
+      <update id='org.w3c.css.sac' range='[0.0.0,1.3.0.v200805290154)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/birt/eclipse/plugins/sac.jar'/>
+        <property name='file.lastModified' value='1259934717000'/>
+      </properties>
+      <provides size='5'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.w3c.css.sac' version='1.3.0.v200805290154'/>
+        <provided namespace='osgi.bundle' name='org.w3c.css.sac' version='1.3.0.v200805290154'/>
+        <provided namespace='java.package' name='org.w3c.css.sac' version='1.3.0'/>
+        <provided namespace='java.package' name='org.w3c.css.sac.helpers' version='1.3.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.w3c.css.sac' version='1.3.0.v200805290154'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Bundle-Name: %pluginName&#xA;Bundle-Version: 1.3.0.v200805290154&#xA;Export-Package: org.w3c.css.sac;version=&quot;1.3.0&quot;,org.w3c.css.sac.helpers;version=&quot;1.3.0&quot;&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.3,CDC-1.0/Foundation-1.0&#xA;Bundle-SymbolicName: org.w3c.css.sac&#xA;Bundle-Localization: plugin&#xA;Manifest-Version: 1.0&#xA;Bundle-Vendor: %providerName&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.birt.core.ui' version='2.6.0.201101140540'>
+      <update id='org.eclipse.birt.core.ui' range='[0.0.0,2.6.0.201101140540)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='BIRT Core UI'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Eclipse.org'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/birt/eclipse/plugins/org.eclipse.birt.core.ui_2.6.0.201101140540.jar'/>
+        <property name='file.lastModified' value='1295001648000'/>
+      </properties>
+      <provides size='9'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.birt.core.ui' version='2.6.0.201101140540'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.birt.core.ui' version='2.6.0.201101140540'/>
+        <provided namespace='java.package' name='org.eclipse.birt.core.ui.frameworks.errordisplay' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.core.ui.frameworks.taskwizard' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.core.ui.frameworks.taskwizard.composites' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.core.ui.frameworks.taskwizard.interfaces' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.core.ui.swt.custom' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.core.ui.utils' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='5'>
+        <required namespace='osgi.bundle' name='org.eclipse.swt' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.jface' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.birt.core' range='[2.1.0,3.0.0)'/>
+        <required namespace='java.package' name='com.ibm.icu.text' range='[3.4.4,5.0.0)'/>
+        <required namespace='java.package' name='com.ibm.icu.util' range='[3.4.4,5.0.0)'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.birt.core.ui' version='2.6.0.201101140540'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Bundle-Name: BIRT Core UI&#xA;Bundle-Activator: org.eclipse.birt.core.ui.plugin.CoreUIPlugin&#xA;Manifest-Version: 1.0&#xA;Bundle-Vendor: Eclipse.org&#xA;Bundle-SymbolicName: org.eclipse.birt.core.ui; singleton:=true&#xA;Import-Package: com.ibm.icu.text;version=&quot;[3.4.4,5.0.0)&quot;,com.ibm.icu.util;version=&quot;[3.4.4,5.0.0)&quot;&#xA;Bundle-ManifestVersion: 2&#xA;Eclipse-LazyStart: true&#xA;Bundle-Version: 2.6.0.201101140540&#xA;Bundle-Localization: plugin&#xA;Export-Package: org.eclipse.birt.core.ui.frameworks.errordisplay,org.eclipse.birt.core.ui.frameworks.taskwizard,org.eclipse.birt.core.ui.frameworks.taskwizard.composites,org.eclipse.birt.core.ui.frameworks.taskwizard.interfaces,org.eclipse.birt.core.ui.swt.custom,org.eclipse.birt.core.ui.utils&#xA;Require-Bundle: org.eclipse.swt;bundle-version=&quot;[3.2.0,4.0.0)&quot;;visibility:=reexport,org.eclipse.jface;bundle-version=&quot;[3.2.0,4.0.0)&quot;;visibility:=reexport,org.eclipse.birt.core;bundle-version=&quot;[2.1.0,3.0.0)&quot;;visibility:=reexport&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.birt.core' version='2.6.0.201101140540'>
+      <update id='org.eclipse.birt.core' range='[0.0.0,2.6.0.201101140540)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='BIRT Core Package'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Eclipse.org'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/birt/eclipse/plugins/org.eclipse.birt.core_2.6.0.201101140540.jar'/>
+        <property name='file.lastModified' value='1295001648000'/>
+      </properties>
+      <provides size='21'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.birt.core' version='2.6.0.201101140540'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.birt.core' version='2.6.0.201101140540'/>
+        <provided namespace='java.package' name='org.eclipse.birt.core.archive' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.core.archive.compound' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.core.btree' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.core.config' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.core.data' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.core.exception' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.core.format' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.core.framework' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.core.framework.osgi' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.core.framework.parser' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.core.i18n' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.core.plugin' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.core.preference' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.core.script' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.core.script.functionservice' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.core.script.functionservice.impl' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.core.template' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.core.util' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='5'>
+        <required namespace='osgi.bundle' name='org.eclipse.core.runtime' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.mozilla.rhino' range='[1.6.0,2.0.0)'/>
+        <required namespace='java.package' name='com.ibm.icu.lang' range='[3.4.4,5.0.0)'/>
+        <required namespace='java.package' name='com.ibm.icu.text' range='[3.4.4,5.0.0)'/>
+        <required namespace='java.package' name='com.ibm.icu.util' range='[3.4.4,5.0.0)'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.birt.core' version='2.6.0.201101140540'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Bundle-Name: BIRT Core Package&#xA;Bundle-ClassPath: .&#xA;Require-Bundle: org.eclipse.core.runtime;bundle-version=&quot;[3.2.0,4.0.0)&quot;;visibility:=reexport,org.mozilla.rhino;bundle-version=&quot;[1.6.0,2.0.0)&quot;;visibility:=reexport&#xA;Bundle-Activator: org.eclipse.birt.core.internal.plugin.CorePlugin&#xA;Bundle-Vendor: Eclipse.org&#xA;Manifest-Version: 1.0&#xA;Bundle-Version: 2.6.0.201101140540&#xA;Eclipse-ExtensibleAPI: true&#xA;Bundle-Localization: plugin&#xA;Export-Package: org.eclipse.birt.core.archive,org.eclipse.birt.core.archive.compound,org.eclipse.birt.core.btree,org.eclipse.birt.core.config,org.eclipse.birt.core.data,org.eclipse.birt.core.exception,org.eclipse.birt.core.format,org.eclipse.birt.core.framework,org.eclipse.birt.core.framework.osgi,org.eclipse.birt.core.framework.parser,org.eclipse.birt.core.i18n,org.eclipse.birt.core.plugin,org.eclipse.birt.core.preference,org.eclipse.birt.core.script,org.eclipse.birt.core.script.functionservice,org.eclipse.birt.core.script.functionservice.impl,org.eclipse.birt.core.template,org.eclipse.birt.core.util&#xA;Bundle-SymbolicName: org.eclipse.birt.core; singleton:=true&#xA;Import-Package: com.ibm.icu.lang;version=&quot;[3.4.4,5.0.0)&quot;,com.ibm.icu.text;version=&quot;[3.4.4,5.0.0)&quot;,com.ibm.icu.util;version=&quot;[3.4.4,5.0.0)&quot;&#xA;Eclipse-LazyStart: true&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.apache.batik.svggen' version='1.6.0.v200805290154' singleton='false'>
+      <update id='org.apache.batik.svggen' range='[0.0.0,1.6.0.v200805290154)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/birt/eclipse/plugins/batik-svggen.jar'/>
+        <property name='file.lastModified' value='1376399951000'/>
+      </properties>
+      <provides size='6'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.apache.batik.svggen' version='1.6.0.v200805290154'/>
+        <provided namespace='osgi.bundle' name='org.apache.batik.svggen' version='1.6.0.v200805290154'/>
+        <provided namespace='java.package' name='org.apache.batik.svggen' version='1.6.0'/>
+        <provided namespace='java.package' name='org.apache.batik.svggen.font' version='1.6.0'/>
+        <provided namespace='java.package' name='org.apache.batik.svggen.font.table' version='1.6.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='2'>
+        <required namespace='osgi.bundle' name='org.apache.batik.ext.awt' range='[1.6.0,1.7.0)'/>
+        <required namespace='osgi.bundle' name='org.apache.batik.util' range='[1.6.0,1.7.0)'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.apache.batik.svggen' version='1.6.0.v200805290154'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.3&#xA;Require-Bundle: org.apache.batik.ext.awt;bundle-version=&quot;[1.6.0,1.7.0)&quot;,org.apache.batik.util;bundle-version=&quot;[1.6.0,1.7.0)&quot;&#xA;Manifest-Version: 1.0&#xA;Bundle-Version: 1.6.0.v200805290154&#xA;Export-Package: org.apache.batik.svggen;version=&quot;1.6.0&quot;,org.apache.batik.svggen.font;version=&quot;1.6.0&quot;,org.apache.batik.svggen.font.table;version=&quot;1.6.0&quot;&#xA;Bundle-SymbolicName: org.apache.batik.svggen&#xA;Bundle-Localization: plugin&#xA;Bundle-Name: %pluginName&#xA;Bundle-Vendor: %providerName&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.apache.batik.transcoder' version='1.6.0.v200805290154' singleton='false'>
+      <update id='org.apache.batik.transcoder' range='[0.0.0,1.6.0.v200805290154)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/birt/eclipse/plugins/batik-transcoder.jar'/>
+        <property name='file.lastModified' value='1376399958000'/>
+      </properties>
+      <provides size='11'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.apache.batik.transcoder' version='1.6.0.v200805290154'/>
+        <provided namespace='osgi.bundle' name='org.apache.batik.transcoder' version='1.6.0.v200805290154'/>
+        <provided namespace='java.package' name='org.apache.batik.transcoder' version='1.6.0'/>
+        <provided namespace='java.package' name='org.apache.batik.transcoder.image' version='1.6.0'/>
+        <provided namespace='java.package' name='org.apache.batik.transcoder.image.resources' version='1.6.0'/>
+        <provided namespace='java.package' name='org.apache.batik.transcoder.keys' version='1.6.0'/>
+        <provided namespace='java.package' name='org.apache.batik.transcoder.print' version='1.6.0'/>
+        <provided namespace='java.package' name='org.apache.batik.transcoder.svg2svg' version='1.6.0'/>
+        <provided namespace='java.package' name='org.apache.batik.transcoder.wmf' version='1.6.0'/>
+        <provided namespace='java.package' name='org.apache.batik.transcoder.wmf.tosvg' version='1.6.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='8'>
+        <required namespace='osgi.bundle' name='org.apache.batik.bridge' range='[1.6.0,1.7.0)'/>
+        <required namespace='osgi.bundle' name='org.apache.batik.dom' range='[1.6.0,1.7.0)'/>
+        <required namespace='osgi.bundle' name='org.apache.batik.dom.svg' range='[1.6.0,1.7.0)'/>
+        <required namespace='osgi.bundle' name='org.apache.batik.ext.awt' range='[1.6.0,1.7.0)'/>
+        <required namespace='osgi.bundle' name='org.apache.batik.svggen' range='[1.6.0,1.7.0)'/>
+        <required namespace='osgi.bundle' name='org.apache.batik.util' range='[1.6.0,1.7.0)'/>
+        <required namespace='osgi.bundle' name='org.apache.batik.xml' range='[1.6.0,1.7.0)'/>
+        <required namespace='osgi.bundle' name='org.w3c.dom.svg' range='[1.1.0,1.3.0)'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.apache.batik.transcoder' version='1.6.0.v200805290154'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.3&#xA;Require-Bundle: org.apache.batik.bridge;bundle-version=&quot;[1.6.0,1.7.0)&quot;,org.apache.batik.dom;bundle-version=&quot;[1.6.0,1.7.0)&quot;,org.apache.batik.dom.svg;bundle-version=&quot;[1.6.0,1.7.0)&quot;,org.apache.batik.ext.awt;bundle-version=&quot;[1.6.0,1.7.0)&quot;,org.apache.batik.svggen;bundle-version=&quot;[1.6.0,1.7.0)&quot;,org.apache.batik.util;bundle-version=&quot;[1.6.0,1.7.0)&quot;,org.apache.batik.xml;bundle-version=&quot;[1.6.0,1.7.0)&quot;,org.w3c.dom.svg;bundle-version=&quot;[1.1.0,1.3.0)&quot;&#xA;Manifest-Version: 1.0&#xA;Bundle-Version: 1.6.0.v200805290154&#xA;Export-Package: org.apache.batik.transcoder;version=&quot;1.6.0&quot;,org.apache.batik.transcoder.image;version=&quot;1.6.0&quot;,org.apache.batik.transcoder.image.resources;version=&quot;1.6.0&quot;,org.apache.batik.transcoder.keys;version=&quot;1.6.0&quot;,org.apache.batik.transcoder.print;version=&quot;1.6.0&quot;,org.apache.batik.transcoder.svg2svg;version=&quot;1.6.0&quot;,org.apache.batik.transcoder.wmf;version=&quot;1.6.0&quot;,org.apache.batik.transcoder.wmf.tosvg;version=&quot;1.6.0&quot;&#xA;Bundle-SymbolicName: org.apache.batik.transcoder&#xA;Bundle-Localization: plugin&#xA;Bundle-Name: %pluginName&#xA;Bundle-Vendor: %providerName&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.birt.chart.ui.extension' version='2.6.0.201101140540'>
+      <update id='org.eclipse.birt.chart.ui.extension' range='[0.0.0,2.6.0.201101140540)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='BIRT Chart UI Extension'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Eclipse.org'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/birt/eclipse/plugins/org.eclipse.birt.chart.ui.extension_2.6.0.201101140540.jar'/>
+        <property name='file.lastModified' value='1295001647000'/>
+      </properties>
+      <provides size='19'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.birt.chart.ui.extension' version='2.6.0.201101140540'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.birt.chart.ui.extension' version='2.6.0.201101140540'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.ui.extension.i18n' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.ui.plugin' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.ui.swt.composites' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.ui.swt.series' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.ui.swt.type' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.ui.swt.wizard' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.ui.swt.wizard.data' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.ui.swt.wizard.format' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.ui.swt.wizard.format.axis' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.ui.swt.wizard.format.chart' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.ui.swt.wizard.format.popup' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.ui.swt.wizard.format.popup.axis' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.ui.swt.wizard.format.popup.chart' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.ui.swt.wizard.format.popup.series' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.ui.swt.wizard.format.series' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.ui.swt.wizard.preview' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='4'>
+        <required namespace='osgi.bundle' name='org.apache.commons.codec' range='[1.3.0,2.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.birt.chart.ui' range='[2.1.0,3.0.0)'/>
+        <required namespace='java.package' name='com.ibm.icu.text' range='[3.4.4,5.0.0)'/>
+        <required namespace='java.package' name='com.ibm.icu.util' range='[3.4.4,5.0.0)'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.birt.chart.ui.extension' version='2.6.0.201101140540'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Bundle-Name: BIRT Chart UI Extension&#xA;Bundle-Activator: org.eclipse.birt.chart.ui.plugin.ChartUIExtensionPlugin&#xA;Manifest-Version: 1.0&#xA;Bundle-Vendor: Eclipse.org&#xA;Bundle-SymbolicName: org.eclipse.birt.chart.ui.extension; singleton:=true&#xA;Import-Package: com.ibm.icu.text;version=&quot;[3.4.4,5.0.0)&quot;,com.ibm.icu.util;version=&quot;[3.4.4,5.0.0)&quot;&#xA;Bundle-ManifestVersion: 2&#xA;Eclipse-LazyStart: true&#xA;Bundle-Version: 2.6.0.201101140540&#xA;Bundle-Localization: plugin&#xA;Export-Package: org.eclipse.birt.chart.ui.extension.i18n,org.eclipse.birt.chart.ui.plugin,org.eclipse.birt.chart.ui.swt.composites,org.eclipse.birt.chart.ui.swt.series,org.eclipse.birt.chart.ui.swt.type,org.eclipse.birt.chart.ui.swt.wizard,org.eclipse.birt.chart.ui.swt.wizard.data,org.eclipse.birt.chart.ui.swt.wizard.format,org.eclipse.birt.chart.ui.swt.wizard.format.axis,org.eclipse.birt.chart.ui.swt.wizard.format.chart,org.eclipse.birt.chart.ui.swt.wizard.format.popup,org.eclipse.birt.chart.ui.swt.wizard.format.popup.axis,org.eclipse.birt.chart.ui.swt.wizard.format.popup.chart,org.eclipse.birt.chart.ui.swt.wizard.format.popup.series,org.eclipse.birt.chart.ui.swt.wizard.format.series,org.eclipse.birt.chart.ui.swt.wizard.preview&#xA;Require-Bundle: org.apache.commons.codec;bundle-version=&quot;[1.3.0,2.0.0)&quot;,org.eclipse.birt.chart.ui;bundle-version=&quot;[2.1.0,3.0.0)&quot;&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.w3c.dom.svg' version='1.1.0.v200806040011' singleton='false'>
+      <update id='org.w3c.dom.svg' range='[0.0.0,1.1.0.v200806040011)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/birt/eclipse/plugins/xml-commons-apis-ext.jar'/>
+        <property name='file.lastModified' value='1259934953000'/>
+      </properties>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.w3c.dom.svg' version='1.1.0.v200806040011'/>
+        <provided namespace='osgi.bundle' name='org.w3c.dom.svg' version='1.1.0.v200806040011'/>
+        <provided namespace='java.package' name='org.w3c.dom.svg' version='1.1.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='1'>
+        <required namespace='java.package' name='org.w3c.dom' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.w3c.dom.svg' version='1.1.0.v200806040011'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.4,J2SE-1.3,CDC-1.0/Foundation-1.0&#xA;Manifest-Version: 1.0&#xA;Bundle-Version: 1.1.0.v200806040011&#xA;Export-Package: org.w3c.dom.svg;version=&quot;1.1.0&quot;&#xA;Bundle-SymbolicName: org.w3c.dom.svg&#xA;Import-Package: org.w3c.dom&#xA;Bundle-Localization: plugin&#xA;Bundle-Name: %pluginName&#xA;Bundle-Vendor: %providerName&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.apache.batik.dom' version='1.6.0.v200805290154' singleton='false'>
+      <update id='org.apache.batik.dom' range='[0.0.0,1.6.0.v200805290154)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/birt/eclipse/plugins/batik-dom.jar'/>
+        <property name='file.lastModified' value='1376399959000'/>
+      </properties>
+      <provides size='7'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.apache.batik.dom' version='1.6.0.v200805290154'/>
+        <provided namespace='osgi.bundle' name='org.apache.batik.dom' version='1.6.0.v200805290154'/>
+        <provided namespace='java.package' name='org.apache.batik.dom' version='1.6.0'/>
+        <provided namespace='java.package' name='org.apache.batik.dom.events' version='1.6.0'/>
+        <provided namespace='java.package' name='org.apache.batik.dom.traversal' version='1.6.0'/>
+        <provided namespace='java.package' name='org.apache.batik.dom.util' version='1.6.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.apache.batik.dom' version='1.6.0.v200805290154'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-Vendor: %providerName&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.4,J2SE-1.3&#xA;Bundle-Name: %pluginName&#xA;Bundle-Localization: plugin&#xA;Import-package: org.w3c.dom,org.apache.xerces.parsers;resolution:=optional&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: org.apache.batik.dom&#xA;Bundle-Version: 1.6.0.v200805290154&#xA;Export-Package: org.apache.batik.dom;version=&quot;1.6.0&quot;,org.apache.batik.dom.events;version=&quot;1.6.0&quot;,org.apache.batik.dom.traversal;version=&quot;1.6.0&quot;,org.apache.batik.dom.util;version=&quot;1.6.0&quot;&#xA;Require-bundle: org.apache.batik.css;bundle-version=&quot;[1.6.0,1.7.0)&quot;,org.apache.batik.util;bundle-version=&quot;[1.6.0,1.7.0)&quot;,org.apache.batik.xml;bundle-version=&quot;[1.6.0,1.7.0)&quot;,org.w3c.css.sac;bundle-version=&quot;[1.3.0,1.4.0)&quot;&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.birt.chart.device.pdf' version='2.6.0.201101140540'>
+      <update id='org.eclipse.birt.chart.device.pdf' range='[0.0.0,2.6.0.201101140540)' severity='0'/>
+      <properties size='4'>
+        <property name='org.eclipse.equinox.p2.name' value='BIRT Chart Device PDF Extension'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Eclipse.org'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/birt/eclipse/plugins/org.eclipse.birt.chart.device.pdf_2.6.0.201101140540.jar'/>
+        <property name='file.lastModified' value='1295001646000'/>
+      </properties>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.birt.chart.device.pdf' version='2.6.0.201101140540'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.birt.chart.device.pdf' version='2.6.0.201101140540'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.device.pdf' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='18'>
+        <required namespace='osgi.bundle' name='org.eclipse.birt.chart.device.svg' range='[2.1.0,3.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.birt.chart.engine' range='[2.1.0,3.0.0)'/>
+        <required namespace='osgi.bundle' name='org.apache.batik.transcoder' range='[1.6.0,2.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.birt.chart.device.extension' range='[2.1.0,3.0.0)'/>
+        <required namespace='osgi.bundle' name='org.apache.batik.pdf' range='[1.6.0,2.0.0)'/>
+        <required namespace='osgi.bundle' name='org.apache.batik.util' range='[1.6.0,2.0.0)'/>
+        <required namespace='osgi.bundle' name='org.apache.batik.dom' range='[1.6.0,2.0.0)'/>
+        <required namespace='osgi.bundle' name='org.apache.batik.bridge' range='[1.6.0,2.0.0)'/>
+        <required namespace='osgi.bundle' name='org.apache.batik.css' range='[1.6.0,2.0.0)'/>
+        <required namespace='osgi.bundle' name='org.apache.batik.dom.svg' range='[1.6.0,2.0.0)'/>
+        <required namespace='osgi.bundle' name='org.apache.batik.ext.awt' range='[1.6.0,2.0.0)'/>
+        <required namespace='osgi.bundle' name='org.apache.batik.parser' range='[1.6.0,2.0.0)'/>
+        <required namespace='osgi.bundle' name='org.apache.batik.svggen' range='[1.6.0,2.0.0)'/>
+        <required namespace='osgi.bundle' name='org.apache.batik.util.gui' range='[1.6.0,2.0.0)'/>
+        <required namespace='osgi.bundle' name='org.apache.batik.xml' range='[1.6.0,2.0.0)'/>
+        <required namespace='osgi.bundle' name='org.w3c.dom.svg' range='[1.1.0,2.0.0)'/>
+        <required namespace='osgi.bundle' name='org.apache.xerces' range='[2.8.0,3.0.0)'/>
+        <required namespace='java.package' name='com.ibm.icu.util' range='[3.4.4,5.0.0)'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.birt.chart.device.pdf' version='2.6.0.201101140540'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Export-Package: org.eclipse.birt.chart.device.pdf&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Require-Bundle: org.eclipse.birt.chart.device.svg;bundle-version=&quot;[2.1.0,3.0.0)&quot;,org.eclipse.birt.chart.engine;bundle-version=&quot;[2.1.0,3.0.0)&quot;,org.apache.batik.transcoder;bundle-version=&quot;[1.6.0,2.0.0)&quot;,org.eclipse.birt.chart.device.extension;bundle-version=&quot;[2.1.0,3.0.0)&quot;,org.apache.batik.pdf;bundle-version=&quot;[1.6.0,2.0.0)&quot;,org.apache.batik.util;bundle-version=&quot;[1.6.0,2.0.0)&quot;,org.apache.batik.dom;bundle-version=&quot;[1.6.0,2.0.0)&quot;,org.apache.batik.bridge;bundle-version=&quot;[1.6.0,2.0.0)&quot;,org.apache.batik.css;bundle-version=&quot;[1.6.0,2.0.0)&quot;,org.apache.batik.dom.svg;bundle-version=&quot;[1.6.0,2.0.0)&quot;,org.apache.batik.ext.awt;bundle-version=&quot;[1.6.0,2.0.0)&quot;,org.apache.batik.parser;bundle-version=&quot;[1.6.0,2.0.0)&quot;,org.apache.batik.svggen;bundle-version=&quot;[1.6.0,2.0.0)&quot;,org.apache.batik.util.gui;bundle-version=&quot;[1.6.0,2.0.0)&quot;,org.apache.batik.xml;bundle-version=&quot;[1.6.0,2.0.0)&quot;,org.w3c.dom.svg;bundle-version=&quot;[1.1.0,2.0.0)&quot;,org.apache.xerces;bundle-version=&quot;[2.8.0,3.0.0)&quot;&#xA;Bundle-Activator: org.eclipse.birt.chart.device.pdf.plugin.ChartDevicePDFPlugin&#xA;Bundle-Name: BIRT Chart Device PDF Extension&#xA;Bundle-Version: 2.6.0.201101140540&#xA;Bundle-Vendor: Eclipse.org&#xA;Bundle-SymbolicName: org.eclipse.birt.chart.device.pdf; singleton:=true&#xA;Import-Package: com.ibm.icu.util;version=&quot;[3.4.4,5.0.0)&quot;&#xA;Manifest-Version: 1.0&#xA;Eclipse-LazyStart: true&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.birt.chart.device.svg' version='2.6.0.201101140540'>
+      <update id='org.eclipse.birt.chart.device.svg' range='[0.0.0,2.6.0.201101140540)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='BIRT Chart Device SVG Extension'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Eclipse.org'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/birt/eclipse/plugins/org.eclipse.birt.chart.device.svg_2.6.0.201101140540.jar'/>
+        <property name='file.lastModified' value='1295001646000'/>
+      </properties>
+      <provides size='6'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.birt.chart.device.svg' version='2.6.0.201101140540'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.birt.chart.device.svg' version='2.6.0.201101140540'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.device.svg' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.device.svg.i18n' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.device.svg.plugin' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='4'>
+        <required namespace='osgi.bundle' name='org.apache.commons.codec' range='[1.3.0,2.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.birt.chart.engine' range='[2.1.0,3.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.birt.chart.device.extension' range='[2.1.0,3.0.0)'/>
+        <required namespace='java.package' name='com.ibm.icu.util' range='[3.4.4,5.0.0)'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.birt.chart.device.svg' version='2.6.0.201101140540'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Bundle-Name: BIRT Chart Device SVG Extension&#xA;Bundle-Activator: org.eclipse.birt.chart.device.svg.plugin.ChartDeviceSVGPlugin&#xA;Manifest-Version: 1.0&#xA;Bundle-Vendor: Eclipse.org&#xA;Bundle-SymbolicName: org.eclipse.birt.chart.device.svg;singleton:=true&#xA;Import-Package: com.ibm.icu.util;version=&quot;[3.4.4,5.0.0)&quot;&#xA;Bundle-ManifestVersion: 2&#xA;Eclipse-LazyStart: true&#xA;Bundle-Version: 2.6.0.201101140540&#xA;Bundle-Localization: plugin&#xA;Export-Package: org.eclipse.birt.chart.device.svg,org.eclipse.birt.chart.device.svg.i18n,org.eclipse.birt.chart.device.svg.plugin&#xA;Require-Bundle: org.apache.commons.codec;bundle-version=&quot;[1.3.0,2.0.0)&quot;,org.eclipse.birt.chart.engine;bundle-version=&quot;[2.1.0,3.0.0)&quot;,org.eclipse.birt.chart.device.extension;bundle-version=&quot;[2.1.0,3.0.0)&quot;&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.apache.batik.xml' version='1.6.0.v200805290154' singleton='false'>
+      <update id='org.apache.batik.xml' range='[0.0.0,1.6.0.v200805290154)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/birt/eclipse/plugins/batik-xml.jar'/>
+        <property name='file.lastModified' value='1376399949000'/>
+      </properties>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.apache.batik.xml' version='1.6.0.v200805290154'/>
+        <provided namespace='osgi.bundle' name='org.apache.batik.xml' version='1.6.0.v200805290154'/>
+        <provided namespace='java.package' name='org.apache.batik.xml' version='1.6.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='1'>
+        <required namespace='osgi.bundle' name='org.apache.batik.util' range='[1.6.0,1.7.0)'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.apache.batik.xml' version='1.6.0.v200805290154'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.3&#xA;Require-Bundle: org.apache.batik.util;bundle-version=&quot;[1.6.0,1.7.0)&quot;&#xA;Manifest-Version: 1.0&#xA;Bundle-Version: 1.6.0.v200805290154&#xA;Export-Package: org.apache.batik.xml;version=&quot;1.6.0&quot;&#xA;Bundle-SymbolicName: org.apache.batik.xml&#xA;Bundle-Localization: plugin&#xA;Bundle-Name: %pluginName&#xA;Bundle-Vendor: %providerName&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.birt.chart.feature.jar' version='2.6.0.201101140540'>
+      <properties size='12'>
+        <property name='org.eclipse.equinox.p2.name' value='%featureName'/>
+        <property name='org.eclipse.equinox.p2.description' value='%description'/>
+        <property name='org.eclipse.equinox.p2.description.url' value='http://www.eclipse.org/birt'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.update.feature.plugin' value='org.eclipse.birt.chart'/>
+        <property name='df_LT.featureName' value='BIRT Chart Framework'/>
+        <property name='df_LT.providerName' value='Eclipse BIRT Project'/>
+        <property name='df_LT.description' value='Eclipse Business Intelligence and Reporting Tools (BIRT) Chart Framework Plug-ins.'/>
+        <property name='df_LT.copyright' value='(c) Copyright Eclipse Contributors and others 2004, 2007. All rights reserved.&#xA;'/>
+        <property name='df_LT.license' value='Eclipse Foundation Software User Agreement&#xA;April 14, 2010&#xA;&#xA;Usage Of Content&#xA;&#xA;THE ECLIPSE FOUNDATION MAKES AVAILABLE SOFTWARE, DOCUMENTATION, INFORMATION AND/OR&#xA;OTHER MATERIALS FOR OPEN SOURCE PROJECTS (COLLECTIVELY &quot;CONTENT&quot;).&#xA;USE OF THE CONTENT IS GOVERNED BY THE TERMS AND CONDITIONS OF THIS&#xA;AGREEMENT AND/OR THE TERMS AND CONDITIONS OF LICENSE AGREEMENTS OR&#xA;NOTICES INDICATED OR REFERENCED BELOW.  BY USING THE CONTENT, YOU&#xA;AGREE THAT YOUR USE OF THE CONTENT IS GOVERNED BY THIS AGREEMENT&#xA;AND/OR THE TERMS AND CONDITIONS OF ANY APPLICABLE LICENSE AGREEMENTS&#xA;OR NOTICES INDICATED OR REFERENCED BELOW.  IF YOU DO NOT AGREE TO THE&#xA;TERMS AND CONDITIONS OF THIS AGREEMENT AND THE TERMS AND CONDITIONS&#xA;OF ANY APPLICABLE LICENSE AGREEMENTS OR NOTICES INDICATED OR REFERENCED&#xA;BELOW, THEN YOU MAY NOT USE THE CONTENT.&#xA;&#xA;Applicable Licenses&#xA;&#xA;Unless otherwise indicated, all Content made available by the&#xA;Eclipse Foundation is provided to you under the terms and conditions of&#xA;the Eclipse Public License Version 1.0 (&quot;EPL&quot;). A copy of the EPL is&#xA;provided with this Content and is also available at http://www.eclipse.org/legal/epl-v10.html.&#xA;For purposes of the EPL, &quot;Program&quot; will mean the Content.&#xA;&#xA;Content includes, but is not limited to, source code, object code,&#xA;documentation and other files maintained in the Eclipse Foundation source code&#xA;repository (&quot;Repository&quot;) in software modules (&quot;Modules&quot;) and made available&#xA;as downloadable archives (&quot;Downloads&quot;).&#xA;&#xA;- Content may be structured and packaged into modules to facilitate delivering,&#xA;extending, and upgrading the Content. Typical modules may include plug-ins (&quot;Plug-ins&quot;),&#xA;plug-in fragments (&quot;Fragments&quot;), and features (&quot;Features&quot;).&#xA;- Each Plug-in or Fragment may be packaged as a sub-directory or JAR (Java(TM) ARchive)&#xA;in a directory named &quot;plugins&quot;.&#xA;- A Feature is a bundle of one or more Plug-ins and/or Fragments and associated material.&#xA;Each Feature may be packaged as a sub-directory in a directory named &quot;features&quot;.&#xA;Within a Feature, files named &quot;feature.xml&quot; may contain a list of the names and version&#xA;numbers of the Plug-ins and/or Fragments associated with that Feature.&#xA;- Features may also include other Features (&quot;Included Features&quot;). Within a Feature, files&#xA;named &quot;feature.xml&quot; may contain a list of the names and version numbers of Included Features.&#xA;&#xA;The terms and conditions governing Plug-ins and Fragments should be&#xA;contained in files named &quot;about.html&quot; (&quot;Abouts&quot;). The terms and&#xA;conditions governing Features and Included Features should be contained&#xA;in files named &quot;license.html&quot; (&quot;Feature Licenses&quot;). Abouts and Feature&#xA;Licenses may be located in any directory of a Download or Module&#xA;including, but not limited to the following locations:&#xA;&#xA;- The top-level (root) directory&#xA;- Plug-in and Fragment directories&#xA;- Inside Plug-ins and Fragments packaged as JARs&#xA;- Sub-directories of the directory named &quot;src&quot; of certain Plug-ins&#xA;- Feature directories&#xA;&#xA;Note: if a Feature made available by the Eclipse Foundation is installed using the&#xA;Provisioning Technology (as defined below), you must agree to a license (&quot;Feature &#xA;Update License&quot;) during the installation process. If the Feature contains&#xA;Included Features, the Feature Update License should either provide you&#xA;with the terms and conditions governing the Included Features or inform&#xA;you where you can locate them. Feature Update Licenses may be found in&#xA;the &quot;license&quot; property of files named &quot;feature.properties&quot; found within a Feature.&#xA;Such Abouts, Feature Licenses, and Feature Update Licenses contain the&#xA;terms and conditions (or references to such terms and conditions) that&#xA;govern your use of the associated Content in that directory.&#xA;&#xA;THE ABOUTS, FEATURE LICENSES, AND FEATURE UPDATE LICENSES MAY REFER&#xA;TO THE EPL OR OTHER LICENSE AGREEMENTS, NOTICES OR TERMS AND CONDITIONS.&#xA;SOME OF THESE OTHER LICENSE AGREEMENTS MAY INCLUDE (BUT ARE NOT LIMITED TO):&#xA;&#xA;- Common Public License Version 1.0 (available at http://www.eclipse.org/legal/cpl-v10.html)&#xA;- Apache Software License 1.1 (available at http://www.apache.org/licenses/LICENSE)&#xA;- Apache Software License 2.0 (available at http://www.apache.org/licenses/LICENSE-2.0)&#xA;- Metro Link Public License 1.00 (available at http://www.opengroup.org/openmotif/supporters/metrolink/license.html)&#xA;- Mozilla Public License Version 1.1 (available at http://www.mozilla.org/MPL/MPL-1.1.html)&#xA;&#xA;IT IS YOUR OBLIGATION TO READ AND ACCEPT ALL SUCH TERMS AND CONDITIONS PRIOR&#xA;TO USE OF THE CONTENT. If no About, Feature License, or Feature Update License&#xA;is provided, please contact the Eclipse Foundation to determine what terms and conditions&#xA;govern that particular Content.&#xA;&#xA;&#xA;Use of Provisioning Technology&#xA;&#xA;The Eclipse Foundation makes available provisioning software, examples of which include,&#xA;but are not limited to, p2 and the Eclipse Update Manager (&quot;Provisioning Technology&quot;) for&#xA;the purpose of allowing users to install software, documentation, information and/or&#xA;other materials (collectively &quot;Installable Software&quot;). This capability is provided with&#xA;the intent of allowing such users to install, extend and update Eclipse-based products.&#xA;Information about packaging Installable Software is available at&#xA;http://eclipse.org/equinox/p2/repository_packaging.html (&quot;Specification&quot;).&#xA;&#xA;You may use Provisioning Technology to allow other parties to install Installable Software.&#xA;You shall be responsible for enabling the applicable license agreements relating to the&#xA;Installable Software to be presented to, and accepted by, the users of the Provisioning Technology&#xA;in accordance with the Specification. By using Provisioning Technology in such a manner and&#xA;making it available in accordance with the Specification, you further acknowledge your&#xA;agreement to, and the acquisition of all necessary rights to permit the following:&#xA;&#xA;1. A series of actions may occur (&quot;Provisioning Process&quot;) in which a user may execute&#xA;the Provisioning Technology on a machine (&quot;Target Machine&quot;) with the intent of installing,&#xA;extending or updating the functionality of an Eclipse-based product.&#xA;2. During the Provisioning Process, the Provisioning Technology may cause third party&#xA;Installable Software or a portion thereof to be accessed and copied to the Target Machine.&#xA;3. Pursuant to the Specification, you will provide to the user the terms and conditions that&#xA;govern the use of the Installable Software (&quot;Installable Software Agreement&quot;) and such&#xA;Installable Software Agreement shall be accessed from the Target Machine in accordance&#xA;with the Specification. Such Installable Software Agreement must inform the user of the&#xA;terms and conditions that govern the Installable Software and must solicit acceptance by&#xA;the end user in the manner prescribed in such Installable Software Agreement. Upon such&#xA;indication of agreement by the user, the provisioning Technology will complete installation&#xA;of the Installable Software.&#xA;&#xA;Cryptography&#xA;&#xA;Content may contain encryption software. The country in which you are&#xA;currently may have restrictions on the import, possession, and use,&#xA;and/or re-export to another country, of encryption software. BEFORE&#xA;using any encryption software, please check the country&apos;s laws,&#xA;regulations and policies concerning the import, possession, or use, and&#xA;re-export of encryption software, to see if this is permitted.&#xA;&#xA;Java and all Java-based trademarks are trademarks of Oracle Corporation in the United States, other countries, or both.&#xA;'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/birt/eclipse/features/org.eclipse.birt.chart_2.6.0.201101140540'/>
+        <property name='file.lastModified' value='1406152437000'/>
+      </properties>
+      <provides size='3'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.birt.chart.feature.jar' version='2.6.0.201101140540'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='feature' version='1.0.0'/>
+        <provided namespace='org.eclipse.update.feature' name='org.eclipse.birt.chart' version='2.6.0.201101140540'/>
+      </provides>
+      <filter>
+        (org.eclipse.update.install.features=true)
+      </filter>
+      <artifacts size='1'>
+        <artifact classifier='org.eclipse.update.feature' id='org.eclipse.birt.chart' version='2.6.0.201101140540'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='zipped'>
+            true
+          </instruction>
+        </instructions>
+      </touchpointData>
+      <licenses size='1'>
+        <license uri='%25licenseURL' url='%25licenseURL'>
+          %license
+        </license>
+      </licenses>
+      <copyright uri='%25copyrightURL' url='%25copyrightURL'>
+        %copyright
+      </copyright>
+    </unit>
+    <unit id='org.apache.batik.dom.svg' version='1.6.0.v200805290154' singleton='false'>
+      <update id='org.apache.batik.dom.svg' range='[0.0.0,1.6.0.v200805290154)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/birt/eclipse/plugins/batik-svg-dom.jar'/>
+        <property name='file.lastModified' value='1376399953000'/>
+      </properties>
+      <provides size='5'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.apache.batik.dom.svg' version='1.6.0.v200805290154'/>
+        <provided namespace='osgi.bundle' name='org.apache.batik.dom.svg' version='1.6.0.v200805290154'/>
+        <provided namespace='java.package' name='org.apache.batik.dom.svg' version='1.6.0'/>
+        <provided namespace='java.package' name='org.apache.batik.dom.svg12' version='1.6.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='6'>
+        <required namespace='osgi.bundle' name='org.apache.batik.css' range='[1.6.0,1.7.0)'/>
+        <required namespace='osgi.bundle' name='org.apache.batik.dom' range='[1.6.0,1.7.0)'/>
+        <required namespace='osgi.bundle' name='org.apache.batik.parser' range='[1.6.0,1.7.0)'/>
+        <required namespace='osgi.bundle' name='org.apache.batik.util' range='[1.6.0,1.7.0)'/>
+        <required namespace='osgi.bundle' name='org.w3c.dom.svg' range='[1.1.0,1.3.0)'/>
+        <required namespace='java.package' name='org.w3c.dom' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.apache.batik.dom.svg' version='1.6.0.v200805290154'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-Vendor: %providerName&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.4,J2SE-1.3&#xA;Require-Bundle: org.apache.batik.css;bundle-version=&quot;[1.6.0,1.7.0)&quot;,org.apache.batik.dom;bundle-version=&quot;[1.6.0,1.7.0)&quot;,org.apache.batik.parser;bundle-version=&quot;[1.6.0,1.7.0)&quot;,org.apache.batik.util;bundle-version=&quot;[1.6.0,1.7.0)&quot;,org.w3c.dom.svg;bundle-version=&quot;[1.1.0,1.3.0)&quot;&#xA;Import-Package: org.w3c.dom&#xA;Bundle-Name: %pluginName&#xA;Bundle-Localization: plugin&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: org.apache.batik.dom.svg&#xA;Bundle-Version: 1.6.0.v200805290154&#xA;Export-Package: org.apache.batik.dom.svg;version=&quot;1.6.0&quot;,org.apache.batik.dom.svg12;version=&quot;1.6.0&quot;&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.birt.chart.engine.extension' version='2.6.0.201101140540'>
+      <update id='org.eclipse.birt.chart.engine.extension' range='[0.0.0,2.6.0.201101140540)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='BIRT Chart Engine Extension'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Eclipse.org'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/birt/eclipse/plugins/org.eclipse.birt.chart.engine.extension_2.6.0.201101140540.jar'/>
+        <property name='file.lastModified' value='1295001646000'/>
+      </properties>
+      <provides size='8'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.birt.chart.engine.extension' version='2.6.0.201101140540'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.birt.chart.engine.extension' version='2.6.0.201101140540'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.engine.extension.i18n' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.extension.aggregate' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.extension.datafeed' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.extension.render' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.plugin' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='4'>
+        <required namespace='osgi.bundle' name='org.eclipse.birt.chart.engine' range='[2.1.0,3.0.0)'/>
+        <required namespace='java.package' name='com.ibm.icu.math' range='[3.4.4,5.0.0)'/>
+        <required namespace='java.package' name='com.ibm.icu.text' range='[3.4.4,5.0.0)'/>
+        <required namespace='java.package' name='com.ibm.icu.util' range='[3.4.4,5.0.0)'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.birt.chart.engine.extension' version='2.6.0.201101140540'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Bundle-Name: BIRT Chart Engine Extension&#xA;Bundle-Activator: org.eclipse.birt.chart.plugin.ChartEngineExtensionPlugin&#xA;Manifest-Version: 1.0&#xA;Bundle-Vendor: Eclipse.org&#xA;Bundle-SymbolicName: org.eclipse.birt.chart.engine.extension; singleton:=true&#xA;Import-Package: com.ibm.icu.math;version=&quot;[3.4.4,5.0.0)&quot;,com.ibm.icu.text;version=&quot;[3.4.4,5.0.0)&quot;,com.ibm.icu.util;version=&quot;[3.4.4,5.0.0)&quot;&#xA;Bundle-ManifestVersion: 2&#xA;Eclipse-LazyStart: true&#xA;Bundle-Version: 2.6.0.201101140540&#xA;Bundle-Localization: plugin&#xA;Export-Package: org.eclipse.birt.chart.engine.extension.i18n,org.eclipse.birt.chart.extension.aggregate,org.eclipse.birt.chart.extension.datafeed,org.eclipse.birt.chart.extension.render,org.eclipse.birt.chart.plugin&#xA;Require-Bundle: org.eclipse.birt.chart.engine;bundle-version=&quot;[2.1.0,3.0.0)&quot;&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.apache.batik.pdf' version='1.6.0.v200806031500' singleton='false'>
+      <update id='org.apache.batik.pdf' range='[0.0.0,1.6.0.v200806031500)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='%Bundle-Name'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%Bundle-Vendor'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/birt/eclipse/plugins/fop.jar'/>
+        <property name='file.lastModified' value='1275412986000'/>
+      </properties>
+      <provides size='25'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.apache.batik.pdf' version='1.6.0.v200806031500'/>
+        <provided namespace='osgi.bundle' name='org.apache.batik.pdf' version='1.6.0.v200806031500'/>
+        <provided namespace='java.package' name='org.apache.avalon.framework' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.avalon.framework.activity' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.avalon.framework.configuration' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.avalon.framework.container' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.commons.io' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.commons.io.output' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.commons.logging' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.commons.logging.impl' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.fop.apps' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.fop.fo' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.fop.fonts' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.fop.fonts.apps' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.fop.fonts.base14' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.fop.fonts.truetype' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.fop.fonts.type1' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.fop.image' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.fop.image.analyser' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.fop.pdf' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.fop.render.pdf' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.fop.render.ps' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.fop.svg' version='0.0.0'/>
+        <provided namespace='java.package' name='org.apache.fop.util' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='13'>
+        <required namespace='java.package' name='org.apache.batik.bridge' range='[1.6.0,1.7.0)'/>
+        <required namespace='java.package' name='org.apache.batik.dom.svg' range='[1.6.0,1.7.0)'/>
+        <required namespace='java.package' name='org.apache.batik.dom.util' range='[1.6.0,1.7.0)'/>
+        <required namespace='java.package' name='org.apache.batik.ext.awt' range='[1.6.0,1.7.0)'/>
+        <required namespace='java.package' name='org.apache.batik.ext.awt.g2d' range='[1.6.0,1.7.0)'/>
+        <required namespace='java.package' name='org.apache.batik.gvt' range='[1.6.0,1.7.0)'/>
+        <required namespace='java.package' name='org.apache.batik.gvt.renderer' range='[1.6.0,1.7.0)'/>
+        <required namespace='java.package' name='org.apache.batik.gvt.text' range='[1.6.0,1.7.0)'/>
+        <required namespace='java.package' name='org.apache.batik.transcoder' range='[1.6.0,1.7.0)'/>
+        <required namespace='java.package' name='org.apache.batik.transcoder.image' range='[1.6.0,1.7.0)'/>
+        <required namespace='java.package' name='org.apache.batik.transcoder.keys' range='[1.6.0,1.7.0)'/>
+        <required namespace='java.package' name='org.apache.batik.util' range='[1.6.0,1.7.0)'/>
+        <required namespace='java.package' name='org.w3c.dom' range='0.0.0'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.apache.batik.pdf' version='1.6.0.v200806031500'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-Vendor: %Bundle-Vendor&#xA;Bundle-ManifestVersion: 2&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.4&#xA;Main-Class: org.apache.fop.cli.Main&#xA;Import-Package: org.apache.batik.bridge;version=&quot;[1.6.0,1.7.0)&quot;,org.apache.batik.dom.svg;version=&quot;[1.6.0,1.7.0)&quot;,org.apache.batik.dom.util;version=&quot;[1.6.0,1.7.0)&quot;,org.apache.batik.ext.awt;version=&quot;[1.6.0,1.7.0)&quot;,org.apache.batik.ext.awt.g2d;version=&quot;[1.6.0,1.7.0)&quot;,org.apache.batik.gvt;version=&quot;[1.6.0,1.7.0)&quot;,org.apache.batik.gvt.renderer;version=&quot;[1.6.0,1.7.0)&quot;,org.apache.batik.gvt.text;version=&quot;[1.6.0,1.7.0)&quot;,org.apache.batik.transcoder;version=&quot;[1.6.0,1.7.0)&quot;,org.apache.batik.transcoder.image;version=&quot;[1.6.0,1.7.0)&quot;,org.apache.batik.transcoder.keys;version=&quot;[1.6.0,1.7.0)&quot;,org.apache.batik.util;version=&quot;[1.6.0,1.7.0)&quot;,org.w3c.dom&#xA;Bundle-Name: %Bundle-Name&#xA;Bundle-Localization: plugin&#xA;Manifest-Version: 1.0&#xA;Bundle-SymbolicName: org.apache.batik.pdf&#xA;Bundle-Version: 1.6.0.v200806031500&#xA;Export-Package: org.apache.avalon.framework,org.apache.avalon.framework.activity,org.apache.avalon.framework.configuration,org.apache.avalon.framework.container,org.apache.commons.io,org.apache.commons.io.output,org.apache.commons.logging,org.apache.commons.logging.impl,org.apache.fop.apps,org.apache.fop.fo,org.apache.fop.fonts,org.apache.fop.fonts.apps,org.apache.fop.fonts.base14,org.apache.fop.fonts.truetype,org.apache.fop.fonts.type1,org.apache.fop.image,org.apache.fop.image.analyser,org.apache.fop.pdf,org.apache.fop.render.pdf,org.apache.fop.render.ps,org.apache.fop.svg,org.apache.fop.util&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.birt.chart.device.extension' version='2.6.0.201101140540'>
+      <update id='org.eclipse.birt.chart.device.extension' range='[0.0.0,2.6.0.201101140540)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='BIRT Chart Device Extension(s)'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Eclipse.org'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/birt/eclipse/plugins/org.eclipse.birt.chart.device.extension_2.6.0.201101140540.jar'/>
+        <property name='file.lastModified' value='1295001646000'/>
+      </properties>
+      <provides size='8'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.birt.chart.device.extension' version='2.6.0.201101140540'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.birt.chart.device.extension' version='2.6.0.201101140540'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.device.extension.i18n' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.device.image' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.device.plugin' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.device.swing' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.device.util' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='3'>
+        <required namespace='osgi.bundle' name='org.apache.commons.codec' range='[1.3.0,2.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.birt.chart.engine' range='[2.1.0,3.0.0)'/>
+        <required namespace='java.package' name='com.ibm.icu.util' range='[3.4.4,5.0.0)'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.birt.chart.device.extension' version='2.6.0.201101140540'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Bundle-Name: BIRT Chart Device Extension(s)&#xA;Bundle-Activator: org.eclipse.birt.chart.device.plugin.ChartDeviceExtensionPlugin&#xA;Manifest-Version: 1.0&#xA;Bundle-Vendor: Eclipse.org&#xA;Bundle-SymbolicName: org.eclipse.birt.chart.device.extension; singleton:=true&#xA;Import-Package: com.ibm.icu.util;version=&quot;[3.4.4,5.0.0)&quot;&#xA;Bundle-ManifestVersion: 2&#xA;Eclipse-LazyStart: true&#xA;Bundle-Version: 2.6.0.201101140540&#xA;Bundle-Localization: plugin&#xA;Export-Package: org.eclipse.birt.chart.device.extension.i18n,org.eclipse.birt.chart.device.image,org.eclipse.birt.chart.device.plugin,org.eclipse.birt.chart.device.swing,org.eclipse.birt.chart.device.util&#xA;Require-Bundle: org.apache.commons.codec;bundle-version=&quot;[1.3.0,2.0.0)&quot;,org.eclipse.birt.chart.engine;bundle-version=&quot;[2.1.0,3.0.0)&quot;&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.apache.batik.util.gui' version='1.6.0.v200805290154' singleton='false'>
+      <update id='org.apache.batik.util.gui' range='[0.0.0,1.6.0.v200805290154)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/birt/eclipse/plugins/batik-gui-util.jar'/>
+        <property name='file.lastModified' value='1376399957000'/>
+      </properties>
+      <provides size='5'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.apache.batik.util.gui' version='1.6.0.v200805290154'/>
+        <provided namespace='osgi.bundle' name='org.apache.batik.util.gui' version='1.6.0.v200805290154'/>
+        <provided namespace='java.package' name='org.apache.batik.util.gui' version='1.6.0'/>
+        <provided namespace='java.package' name='org.apache.batik.util.gui.resource' version='1.6.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.apache.batik.util.gui' version='1.6.0.v200805290154'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Bundle-Name: %pluginName&#xA;Bundle-Version: 1.6.0.v200805290154&#xA;Export-Package: org.apache.batik.util.gui;version=&quot;1.6.0&quot;,org.apache.batik.util.gui.resource;version=&quot;1.6.0&quot;&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.3&#xA;Bundle-SymbolicName: org.apache.batik.util.gui&#xA;Bundle-Localization: plugin&#xA;Manifest-Version: 1.0&#xA;Bundle-Vendor: %providerName&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.apache.batik.parser' version='1.6.0.v200805290154' singleton='false'>
+      <update id='org.apache.batik.parser' range='[0.0.0,1.6.0.v200805290154)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/birt/eclipse/plugins/batik-parser.jar'/>
+        <property name='file.lastModified' value='1376399960000'/>
+      </properties>
+      <provides size='4'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.apache.batik.parser' version='1.6.0.v200805290154'/>
+        <provided namespace='osgi.bundle' name='org.apache.batik.parser' version='1.6.0.v200805290154'/>
+        <provided namespace='java.package' name='org.apache.batik.parser' version='1.6.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='4'>
+        <required namespace='osgi.bundle' name='org.apache.batik.ext.awt' range='[1.6.0,1.7.0)'/>
+        <required namespace='osgi.bundle' name='org.apache.batik.util' range='[1.6.0,1.7.0)'/>
+        <required namespace='osgi.bundle' name='org.apache.batik.xml' range='[1.6.0,1.7.0)'/>
+        <required namespace='osgi.bundle' name='org.w3c.dom.svg' range='[1.1.0,1.3.0)'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.apache.batik.parser' version='1.6.0.v200805290154'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.3&#xA;Require-Bundle: org.apache.batik.ext.awt;bundle-version=&quot;[1.6.0,1.7.0)&quot;,org.apache.batik.util;bundle-version=&quot;[1.6.0,1.7.0)&quot;,org.apache.batik.xml;bundle-version=&quot;[1.6.0,1.7.0)&quot;,org.w3c.dom.svg;bundle-version=&quot;[1.1.0,1.3.0)&quot;&#xA;Manifest-Version: 1.0&#xA;Bundle-Version: 1.6.0.v200805290154&#xA;Export-Package: org.apache.batik.parser;version=&quot;1.6.0&quot;&#xA;Bundle-SymbolicName: org.apache.batik.parser&#xA;Bundle-Localization: plugin&#xA;Bundle-Name: %pluginName&#xA;Bundle-Vendor: %providerName&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.birt.chart.engine' version='2.6.0.201101140540'>
+      <update id='org.eclipse.birt.chart.engine' range='[0.0.0,2.6.0.201101140540)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='BIRT Chart Engine'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Eclipse.org'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/birt/eclipse/plugins/org.eclipse.birt.chart.engine_2.6.0.201101140540.jar'/>
+        <property name='file.lastModified' value='1295001650000'/>
+      </properties>
+      <provides size='42'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.birt.chart.engine' version='2.6.0.201101140540'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.birt.chart.engine' version='2.6.0.201101140540'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.aggregate' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.api' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.computation' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.computation.withaxes' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.computation.withoutaxes' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.datafeed' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.device' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.engine.i18n' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.event' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.exception' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.factory' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.integrate' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.internal.computations' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.internal.datafeed' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.internal.model' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.log' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.model' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.model.attribute' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.model.attribute.impl' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.model.attribute.util' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.model.component' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.model.component.impl' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.model.component.util' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.model.data' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.model.data.impl' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.model.data.util' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.model.impl' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.model.layout' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.model.layout.impl' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.model.layout.util' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.model.type' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.model.type.impl' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.model.type.util' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.model.util' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.plugin' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.render' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.script' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.style' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.util' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='7'>
+        <required namespace='osgi.bundle' name='org.eclipse.emf.ecore' range='[2.2.0,3.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.emf.ecore.xmi' range='[2.2.0,3.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.birt.core' range='[2.1.0,3.0.0)'/>
+        <required namespace='java.package' name='com.ibm.icu.lang' range='[3.4.4,5.0.0)'/>
+        <required namespace='java.package' name='com.ibm.icu.math' range='[3.4.4,5.0.0)'/>
+        <required namespace='java.package' name='com.ibm.icu.text' range='[3.4.4,5.0.0)'/>
+        <required namespace='java.package' name='com.ibm.icu.util' range='[3.4.4,5.0.0)'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.birt.chart.engine' version='2.6.0.201101140540'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Bundle-Name: BIRT Chart Engine&#xA;Bundle-Activator: org.eclipse.birt.chart.plugin.ChartEnginePlugin&#xA;Manifest-Version: 1.0&#xA;Bundle-Vendor: Eclipse.org&#xA;Bundle-SymbolicName: org.eclipse.birt.chart.engine;singleton:=true&#xA;Import-Package: com.ibm.icu.lang;version=&quot;[3.4.4,5.0.0)&quot;,com.ibm.icu.math;version=&quot;[3.4.4,5.0.0)&quot;,com.ibm.icu.text;version=&quot;[3.4.4,5.0.0)&quot;,com.ibm.icu.util;version=&quot;[3.4.4,5.0.0)&quot;&#xA;Bundle-ManifestVersion: 2&#xA;Eclipse-LazyStart: true&#xA;Bundle-Version: 2.6.0.201101140540&#xA;Bundle-Localization: plugin&#xA;Export-Package: org.eclipse.birt.chart.aggregate,org.eclipse.birt.chart.api,org.eclipse.birt.chart.computation,org.eclipse.birt.chart.computation.withaxes,org.eclipse.birt.chart.computation.withoutaxes,org.eclipse.birt.chart.datafeed,org.eclipse.birt.chart.device,org.eclipse.birt.chart.engine.i18n,org.eclipse.birt.chart.event,org.eclipse.birt.chart.exception,org.eclipse.birt.chart.factory,org.eclipse.birt.chart.integrate,org.eclipse.birt.chart.internal.computations;x-friends:=&quot;org.eclipse.birt.chart.tests&quot;,org.eclipse.birt.chart.internal.datafeed;x-friends:=&quot;org.eclipse.birt.chart.tests&quot;,org.eclipse.birt.chart.internal.model;x-friends:=&quot;org.eclipse.birt.chart.tests&quot;,org.eclipse.birt.chart.log,org.eclipse.birt.chart.model,org.eclipse.birt.chart.model.attribute,org.eclipse.birt.chart.model.attribute.impl,org.eclipse.birt.chart.model.attribute.util,org.eclipse.birt.chart.model.component,org.eclipse.birt.chart.model.component.impl,org.eclipse.birt.chart.model.component.util,org.eclipse.birt.chart.model.data,org.eclipse.birt.chart.model.data.impl,org.eclipse.birt.chart.model.data.util,org.eclipse.birt.chart.model.impl,org.eclipse.birt.chart.model.layout,org.eclipse.birt.chart.model.layout.impl,org.eclipse.birt.chart.model.layout.util,org.eclipse.birt.chart.model.type,org.eclipse.birt.chart.model.type.impl,org.eclipse.birt.chart.model.type.util,org.eclipse.birt.chart.model.util,org.eclipse.birt.chart.plugin,org.eclipse.birt.chart.render,org.eclipse.birt.chart.script,org.eclipse.birt.chart.style,org.eclipse.birt.chart.util&#xA;Require-Bundle: org.eclipse.emf.ecore;bundle-version=&quot;[2.2.0,3.0.0)&quot;;visibility:=reexport,org.eclipse.emf.ecore.xmi;bundle-version=&quot;[2.2.0,3.0.0)&quot;;visibility:=reexport,org.eclipse.birt.core;bundle-version=&quot;[2.1.0,3.0.0)&quot;;visibility:=reexport&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.birt.chart.feature.group' version='2.6.0.201101140540' singleton='false'>
+      <update id='org.eclipse.birt.chart.feature.group' range='[0.0.0,2.6.0.201101140540)' severity='0'/>
+      <properties size='12'>
+        <property name='org.eclipse.equinox.p2.name' value='%featureName'/>
+        <property name='org.eclipse.equinox.p2.description' value='%description'/>
+        <property name='org.eclipse.equinox.p2.description.url' value='http://www.eclipse.org/birt'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.type.group' value='true'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/birt/eclipse/features/org.eclipse.birt.chart_2.6.0.201101140540'/>
+        <property name='file.lastModified' value='1406152437000'/>
+        <property name='df_LT.featureName' value='BIRT Chart Framework'/>
+        <property name='df_LT.providerName' value='Eclipse BIRT Project'/>
+        <property name='df_LT.description' value='Eclipse Business Intelligence and Reporting Tools (BIRT) Chart Framework Plug-ins.'/>
+        <property name='df_LT.copyright' value='(c) Copyright Eclipse Contributors and others 2004, 2007. All rights reserved.&#xA;'/>
+        <property name='df_LT.license' value='Eclipse Foundation Software User Agreement&#xA;April 14, 2010&#xA;&#xA;Usage Of Content&#xA;&#xA;THE ECLIPSE FOUNDATION MAKES AVAILABLE SOFTWARE, DOCUMENTATION, INFORMATION AND/OR&#xA;OTHER MATERIALS FOR OPEN SOURCE PROJECTS (COLLECTIVELY &quot;CONTENT&quot;).&#xA;USE OF THE CONTENT IS GOVERNED BY THE TERMS AND CONDITIONS OF THIS&#xA;AGREEMENT AND/OR THE TERMS AND CONDITIONS OF LICENSE AGREEMENTS OR&#xA;NOTICES INDICATED OR REFERENCED BELOW.  BY USING THE CONTENT, YOU&#xA;AGREE THAT YOUR USE OF THE CONTENT IS GOVERNED BY THIS AGREEMENT&#xA;AND/OR THE TERMS AND CONDITIONS OF ANY APPLICABLE LICENSE AGREEMENTS&#xA;OR NOTICES INDICATED OR REFERENCED BELOW.  IF YOU DO NOT AGREE TO THE&#xA;TERMS AND CONDITIONS OF THIS AGREEMENT AND THE TERMS AND CONDITIONS&#xA;OF ANY APPLICABLE LICENSE AGREEMENTS OR NOTICES INDICATED OR REFERENCED&#xA;BELOW, THEN YOU MAY NOT USE THE CONTENT.&#xA;&#xA;Applicable Licenses&#xA;&#xA;Unless otherwise indicated, all Content made available by the&#xA;Eclipse Foundation is provided to you under the terms and conditions of&#xA;the Eclipse Public License Version 1.0 (&quot;EPL&quot;). A copy of the EPL is&#xA;provided with this Content and is also available at http://www.eclipse.org/legal/epl-v10.html.&#xA;For purposes of the EPL, &quot;Program&quot; will mean the Content.&#xA;&#xA;Content includes, but is not limited to, source code, object code,&#xA;documentation and other files maintained in the Eclipse Foundation source code&#xA;repository (&quot;Repository&quot;) in software modules (&quot;Modules&quot;) and made available&#xA;as downloadable archives (&quot;Downloads&quot;).&#xA;&#xA;- Content may be structured and packaged into modules to facilitate delivering,&#xA;extending, and upgrading the Content. Typical modules may include plug-ins (&quot;Plug-ins&quot;),&#xA;plug-in fragments (&quot;Fragments&quot;), and features (&quot;Features&quot;).&#xA;- Each Plug-in or Fragment may be packaged as a sub-directory or JAR (Java(TM) ARchive)&#xA;in a directory named &quot;plugins&quot;.&#xA;- A Feature is a bundle of one or more Plug-ins and/or Fragments and associated material.&#xA;Each Feature may be packaged as a sub-directory in a directory named &quot;features&quot;.&#xA;Within a Feature, files named &quot;feature.xml&quot; may contain a list of the names and version&#xA;numbers of the Plug-ins and/or Fragments associated with that Feature.&#xA;- Features may also include other Features (&quot;Included Features&quot;). Within a Feature, files&#xA;named &quot;feature.xml&quot; may contain a list of the names and version numbers of Included Features.&#xA;&#xA;The terms and conditions governing Plug-ins and Fragments should be&#xA;contained in files named &quot;about.html&quot; (&quot;Abouts&quot;). The terms and&#xA;conditions governing Features and Included Features should be contained&#xA;in files named &quot;license.html&quot; (&quot;Feature Licenses&quot;). Abouts and Feature&#xA;Licenses may be located in any directory of a Download or Module&#xA;including, but not limited to the following locations:&#xA;&#xA;- The top-level (root) directory&#xA;- Plug-in and Fragment directories&#xA;- Inside Plug-ins and Fragments packaged as JARs&#xA;- Sub-directories of the directory named &quot;src&quot; of certain Plug-ins&#xA;- Feature directories&#xA;&#xA;Note: if a Feature made available by the Eclipse Foundation is installed using the&#xA;Provisioning Technology (as defined below), you must agree to a license (&quot;Feature &#xA;Update License&quot;) during the installation process. If the Feature contains&#xA;Included Features, the Feature Update License should either provide you&#xA;with the terms and conditions governing the Included Features or inform&#xA;you where you can locate them. Feature Update Licenses may be found in&#xA;the &quot;license&quot; property of files named &quot;feature.properties&quot; found within a Feature.&#xA;Such Abouts, Feature Licenses, and Feature Update Licenses contain the&#xA;terms and conditions (or references to such terms and conditions) that&#xA;govern your use of the associated Content in that directory.&#xA;&#xA;THE ABOUTS, FEATURE LICENSES, AND FEATURE UPDATE LICENSES MAY REFER&#xA;TO THE EPL OR OTHER LICENSE AGREEMENTS, NOTICES OR TERMS AND CONDITIONS.&#xA;SOME OF THESE OTHER LICENSE AGREEMENTS MAY INCLUDE (BUT ARE NOT LIMITED TO):&#xA;&#xA;- Common Public License Version 1.0 (available at http://www.eclipse.org/legal/cpl-v10.html)&#xA;- Apache Software License 1.1 (available at http://www.apache.org/licenses/LICENSE)&#xA;- Apache Software License 2.0 (available at http://www.apache.org/licenses/LICENSE-2.0)&#xA;- Metro Link Public License 1.00 (available at http://www.opengroup.org/openmotif/supporters/metrolink/license.html)&#xA;- Mozilla Public License Version 1.1 (available at http://www.mozilla.org/MPL/MPL-1.1.html)&#xA;&#xA;IT IS YOUR OBLIGATION TO READ AND ACCEPT ALL SUCH TERMS AND CONDITIONS PRIOR&#xA;TO USE OF THE CONTENT. If no About, Feature License, or Feature Update License&#xA;is provided, please contact the Eclipse Foundation to determine what terms and conditions&#xA;govern that particular Content.&#xA;&#xA;&#xA;Use of Provisioning Technology&#xA;&#xA;The Eclipse Foundation makes available provisioning software, examples of which include,&#xA;but are not limited to, p2 and the Eclipse Update Manager (&quot;Provisioning Technology&quot;) for&#xA;the purpose of allowing users to install software, documentation, information and/or&#xA;other materials (collectively &quot;Installable Software&quot;). This capability is provided with&#xA;the intent of allowing such users to install, extend and update Eclipse-based products.&#xA;Information about packaging Installable Software is available at&#xA;http://eclipse.org/equinox/p2/repository_packaging.html (&quot;Specification&quot;).&#xA;&#xA;You may use Provisioning Technology to allow other parties to install Installable Software.&#xA;You shall be responsible for enabling the applicable license agreements relating to the&#xA;Installable Software to be presented to, and accepted by, the users of the Provisioning Technology&#xA;in accordance with the Specification. By using Provisioning Technology in such a manner and&#xA;making it available in accordance with the Specification, you further acknowledge your&#xA;agreement to, and the acquisition of all necessary rights to permit the following:&#xA;&#xA;1. A series of actions may occur (&quot;Provisioning Process&quot;) in which a user may execute&#xA;the Provisioning Technology on a machine (&quot;Target Machine&quot;) with the intent of installing,&#xA;extending or updating the functionality of an Eclipse-based product.&#xA;2. During the Provisioning Process, the Provisioning Technology may cause third party&#xA;Installable Software or a portion thereof to be accessed and copied to the Target Machine.&#xA;3. Pursuant to the Specification, you will provide to the user the terms and conditions that&#xA;govern the use of the Installable Software (&quot;Installable Software Agreement&quot;) and such&#xA;Installable Software Agreement shall be accessed from the Target Machine in accordance&#xA;with the Specification. Such Installable Software Agreement must inform the user of the&#xA;terms and conditions that govern the Installable Software and must solicit acceptance by&#xA;the end user in the manner prescribed in such Installable Software Agreement. Upon such&#xA;indication of agreement by the user, the provisioning Technology will complete installation&#xA;of the Installable Software.&#xA;&#xA;Cryptography&#xA;&#xA;Content may contain encryption software. The country in which you are&#xA;currently may have restrictions on the import, possession, and use,&#xA;and/or re-export to another country, of encryption software. BEFORE&#xA;using any encryption software, please check the country&apos;s laws,&#xA;regulations and policies concerning the import, possession, or use, and&#xA;re-export of encryption software, to see if this is permitted.&#xA;&#xA;Java and all Java-based trademarks are trademarks of Oracle Corporation in the United States, other countries, or both.&#xA;'/>
+      </properties>
+      <provides size='2'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.birt.chart.feature.group' version='2.6.0.201101140540'/>
+        <provided namespace='org.eclipse.equinox.p2.localization' name='df_LT' version='1.0.0'/>
+      </provides>
+      <requires size='38'>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.ui' range='[3.2.0,4.0.0)'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.swt' range='[3.2.0,4.0.0)'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.jface' range='[3.2.0,4.0.0)'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.swt' range='[3.2.0,4.0.0)'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.core.runtime' range='[3.2.0,4.0.0)'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='com.ibm.icu' range='3.4.4'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.emf.common.feature.group' range='2.3.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.emf.ecore.feature.group' range='2.3.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.datatools.enablement.oda.feature.feature.group' range='1.6.0'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.birt.chart.ui' range='[2.6.0.201101140540,2.6.0.201101140540]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.birt.chart.ui.extension' range='[2.6.0.201101140540,2.6.0.201101140540]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.birt.core.ui' range='[2.6.0.201101140540,2.6.0.201101140540]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.birt.chart.device.extension' range='[2.6.0.201101140540,2.6.0.201101140540]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.birt.chart.device.svg' range='[2.6.0.201101140540,2.6.0.201101140540]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.birt.chart.device.swt' range='[2.6.0.201101140540,2.6.0.201101140540]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.birt.chart.device.pdf' range='[2.6.0.201101140540,2.6.0.201101140540]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.birt.chart.examples.core' range='[2.6.0.201101140540,2.6.0.201101140540]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.birt.chart.engine' range='[2.6.0.201101140540,2.6.0.201101140540]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.birt.chart.engine.extension' range='[2.6.0.201101140540,2.6.0.201101140540]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.birt.core' range='[2.6.0.201101140540,2.6.0.201101140540]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.apache.batik.bridge' range='[1.6.0.v200805290154,1.6.0.v200805290154]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.apache.batik.css' range='[1.6.0.v200805290154,1.6.0.v200805290154]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.apache.batik.dom' range='[1.6.0.v200805290154,1.6.0.v200805290154]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.apache.batik.dom.svg' range='[1.6.0.v200805290154,1.6.0.v200805290154]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.apache.batik.ext.awt' range='[1.6.0.v200805290154,1.6.0.v200805290154]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.apache.batik.parser' range='[1.6.0.v200805290154,1.6.0.v200805290154]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.apache.batik.svggen' range='[1.6.0.v200805290154,1.6.0.v200805290154]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.apache.batik.transcoder' range='[1.6.0.v200805290154,1.6.0.v200805290154]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.apache.batik.util' range='[1.6.0.v200805290154,1.6.0.v200805290154]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.apache.batik.util.gui' range='[1.6.0.v200805290154,1.6.0.v200805290154]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.apache.batik.xml' range='[1.6.0.v200805290154,1.6.0.v200805290154]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.w3c.css.sac' range='[1.3.0.v200805290154,1.3.0.v200805290154]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.w3c.dom.svg' range='[1.1.0.v200806040011,1.1.0.v200806040011]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.apache.batik.pdf' range='[1.6.0.v200806031500,1.6.0.v200806031500]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.apache.commons.codec' range='[1.3.0.v20080530-1600,1.3.0.v20080530-1600]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.birt.chart' range='[2.6.0.201101140540,2.6.0.201101140540]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.mozilla.rhino' range='[1.7.1.201101140540,1.7.1.201101140540]'/>
+        <required namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.birt.chart.feature.jar' range='[2.6.0.201101140540,2.6.0.201101140540]'>
+          <filter>
+            (org.eclipse.update.install.features=true)
+          </filter>
+        </required>
+      </requires>
+      <touchpoint id='null' version='0.0.0'/>
+      <licenses size='1'>
+        <license uri='%25licenseURL' url='%25licenseURL'>
+          %license
+        </license>
+      </licenses>
+      <copyright uri='%25copyrightURL' url='%25copyrightURL'>
+        %copyright
+      </copyright>
+    </unit>
+    <unit id='org.apache.batik.bridge' version='1.6.0.v200805290154' singleton='false'>
+      <update id='org.apache.batik.bridge' range='[0.0.0,1.6.0.v200805290154)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/birt/eclipse/plugins/batik-bridge.jar'/>
+        <property name='file.lastModified' value='1376399956000'/>
+      </properties>
+      <provides size='16'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.apache.batik.bridge' version='1.6.0.v200805290154'/>
+        <provided namespace='osgi.bundle' name='org.apache.batik.bridge' version='1.6.0.v200805290154'/>
+        <provided namespace='java.package' name='org.apache.batik.bridge' version='1.6.0'/>
+        <provided namespace='java.package' name='org.apache.batik.bridge.svg12' version='1.6.0'/>
+        <provided namespace='java.package' name='org.apache.batik.gvt' version='1.6.0'/>
+        <provided namespace='java.package' name='org.apache.batik.gvt.event' version='1.6.0'/>
+        <provided namespace='java.package' name='org.apache.batik.gvt.filter' version='1.6.0'/>
+        <provided namespace='java.package' name='org.apache.batik.gvt.flow' version='1.6.0'/>
+        <provided namespace='java.package' name='org.apache.batik.gvt.font' version='1.6.0'/>
+        <provided namespace='java.package' name='org.apache.batik.gvt.renderer' version='1.6.0'/>
+        <provided namespace='java.package' name='org.apache.batik.gvt.svg12' version='1.6.0'/>
+        <provided namespace='java.package' name='org.apache.batik.gvt.text' version='1.6.0'/>
+        <provided namespace='java.package' name='org.apache.batik.script' version='1.6.0'/>
+        <provided namespace='java.package' name='org.apache.batik.script.rhino' version='1.6.0'/>
+        <provided namespace='java.package' name='META-INF.services' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.apache.batik.bridge' version='1.6.0.v200805290154'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Require-bundle: org.apache.batik.css;bundle-version=&quot;[1.6.0,1.7.0)&quot;,org.apache.batik.dom;bundle-version=&quot;[1.6.0,1.7.0)&quot;,org.apache.batik.dom.svg;bundle-version=&quot;[1.6.0,1.7.0)&quot;,org.apache.batik.ext.awt;bundle-version=&quot;[1.6.0,1.7.0)&quot;,org.apache.batik.parser;bundle-version=&quot;[1.6.0,1.7.0)&quot;,org.apache.batik.util;bundle-version=&quot;[1.6.0,1.7.0)&quot;,org.apache.batik.util.gui;bundle-version=&quot;[1.6.0,1.7.0)&quot;,org.apache.batik.xml;bundle-version=&quot;[1.6.0,1.7.0)&quot;,org.w3c.dom.svg;bundle-version=&quot;[1.1.0,1.3.0)&quot;&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.3&#xA;Manifest-Version: 1.0&#xA;Bundle-Version: 1.6.0.v200805290154&#xA;Export-Package: org.apache.batik.bridge;version=&quot;1.6.0&quot;,org.apache.batik.bridge.svg12;version=&quot;1.6.0&quot;,org.apache.batik.gvt;version=&quot;1.6.0&quot;,org.apache.batik.gvt.event;version=&quot;1.6.0&quot;,org.apache.batik.gvt.filter;version=&quot;1.6.0&quot;,org.apache.batik.gvt.flow;version=&quot;1.6.0&quot;,org.apache.batik.gvt.font;version=&quot;1.6.0&quot;,org.apache.batik.gvt.renderer;version=&quot;1.6.0&quot;,org.apache.batik.gvt.svg12;version=&quot;1.6.0&quot;,org.apache.batik.gvt.text;version=&quot;1.6.0&quot;,org.apache.batik.script;version=&quot;1.6.0&quot;,org.apache.batik.script.rhino;version=&quot;1.6.0&quot;,META-INF.services&#xA;Bundle-SymbolicName: org.apache.batik.bridge&#xA;Bundle-Localization: plugin&#xA;Bundle-Name: %pluginName&#xA;Bundle-Vendor: %providerName&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.apache.commons.codec' version='1.3.0.v20080530-1600' singleton='false'>
+      <update id='org.apache.commons.codec' range='[0.0.0,1.3.0.v20080530-1600)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='%bundleName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%bundleProvider'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/birt/eclipse/plugins/org.apache.commons.codec_1.3.0.jar'/>
+        <property name='file.lastModified' value='1263235710000'/>
+      </properties>
+      <provides size='8'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.apache.commons.codec' version='1.3.0.v20080530-1600'/>
+        <provided namespace='osgi.bundle' name='org.apache.commons.codec' version='1.3.0.v20080530-1600'/>
+        <provided namespace='java.package' name='org.apache.commons.codec' version='1.3.0'/>
+        <provided namespace='java.package' name='org.apache.commons.codec.binary' version='1.3.0'/>
+        <provided namespace='java.package' name='org.apache.commons.codec.digest' version='1.3.0'/>
+        <provided namespace='java.package' name='org.apache.commons.codec.language' version='1.3.0'/>
+        <provided namespace='java.package' name='org.apache.commons.codec.net' version='1.3.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.apache.commons.codec' version='1.3.0.v20080530-1600'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Implementation-Vendor: Apache Software Foundation&#xA;Bundle-Version: 1.3.0.v20080530-1600&#xA;Specification-Title: Jakarta Commons Codec&#xA;Implementation-Title: org.apache.commons.codec&#xA;Export-Package: org.apache.commons.codec;version=&quot;1.3.0&quot;,org.apache.commons.codec.binary;version=&quot;1.3.0&quot;,org.apache.commons.codec.digest;version=&quot;1.3.0&quot;,org.apache.commons.codec.language;version=&quot;1.3.0&quot;,org.apache.commons.codec.net;version=&quot;1.3.0&quot;&#xA;Manifest-Version: 1.0&#xA;Ant-Version: Apache Ant 1.7.1&#xA;Bundle-Localization: plugin&#xA;Bundle-SymbolicName: org.apache.commons.codec&#xA;Created-By: 4.4.2 20100105 (Red Hat 4.4.2-22) (Free Software Foundation, Inc.)&#xA;Specification-Version: 1.3&#xA;Extension-Name: org.apache.commons.codec&#xA;Implementation-Version: 1.3&#xA;Specification-Vendor: Apache Software Foundation&#xA;Bundle-Vendor: %bundleProvider&#xA;Bundle-Name: %bundleName&#xA;Bundle-ManifestVersion: 2&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.birt.chart.examples.core' version='2.6.0.201101140540'>
+      <update id='org.eclipse.birt.chart.examples.core' range='[0.0.0,2.6.0.201101140540)' severity='0'/>
+      <properties size='4'>
+        <property name='org.eclipse.equinox.p2.name' value='BIRT Chart Examples Core Plug-in'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Eclipse.org'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/birt/eclipse/plugins/org.eclipse.birt.chart.examples.core_2.6.0.201101140540.jar'/>
+        <property name='file.lastModified' value='1295001646000'/>
+      </properties>
+      <provides size='8'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.birt.chart.examples.core' version='2.6.0.201101140540'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.birt.chart.examples.core' version='2.6.0.201101140540'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.examples.radar.i18n' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.examples.radar.model.type' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.examples.radar.model.type.impl' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.examples.radar.model.type.util' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.examples.radar.render' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='3'>
+        <required namespace='osgi.bundle' name='org.eclipse.birt.chart.engine' range='[2.6.0,3.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.birt.chart.engine.extension' range='[2.6.0,3.0.0)'/>
+        <required namespace='java.package' name='com.ibm.icu.util' range='[4.2.0,5.0.0)'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.birt.chart.examples.core' version='2.6.0.201101140540'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Export-Package: org.eclipse.birt.chart.examples.radar.i18n,org.eclipse.birt.chart.examples.radar.model.type,org.eclipse.birt.chart.examples.radar.model.type.impl,org.eclipse.birt.chart.examples.radar.model.type.util,org.eclipse.birt.chart.examples.radar.render&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Require-Bundle: org.eclipse.birt.chart.engine;bundle-version=&quot;[2.6.0,3.0.0)&quot;,org.eclipse.birt.chart.engine.extension;bundle-version=&quot;[2.6.0,3.0.0)&quot;&#xA;Bundle-Activator: org.eclipse.birt.chart.examples.ChartExamplesCorePlugin&#xA;Bundle-Name: BIRT Chart Examples Core Plug-in&#xA;Bundle-Version: 2.6.0.201101140540&#xA;Bundle-Vendor: Eclipse.org&#xA;Bundle-SymbolicName: org.eclipse.birt.chart.examples.core;singleton:=true&#xA;Import-Package: com.ibm.icu.util;version=&quot;[4.2.0,5.0.0)&quot;&#xA;Bundle-ActivationPolicy: lazy&#xA;Manifest-Version: 1.0&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.apache.batik.util' version='1.6.0.v200805290154' singleton='false'>
+      <update id='org.apache.batik.util' range='[0.0.0,1.6.0.v200805290154)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/birt/eclipse/plugins/batik-util.jar'/>
+        <property name='file.lastModified' value='1376399959000'/>
+      </properties>
+      <provides size='8'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.apache.batik.util' version='1.6.0.v200805290154'/>
+        <provided namespace='osgi.bundle' name='org.apache.batik.util' version='1.6.0.v200805290154'/>
+        <provided namespace='java.package' name='org.apache.batik' version='1.6.0'/>
+        <provided namespace='java.package' name='org.apache.batik.i18n' version='1.6.0'/>
+        <provided namespace='java.package' name='org.apache.batik.util' version='1.6.0'/>
+        <provided namespace='java.package' name='org.apache.batik.util.io' version='1.6.0'/>
+        <provided namespace='java.package' name='org.apache.batik.util.resources' version='1.6.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='1'>
+        <required namespace='osgi.bundle' name='org.apache.batik.util.gui' range='[1.6.0,1.7.0)'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.apache.batik.util' version='1.6.0.v200805290154'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.3&#xA;Require-Bundle: org.apache.batik.util.gui;bundle-version=&quot;[1.6.0,1.7.0)&quot;&#xA;Manifest-Version: 1.0&#xA;Bundle-Version: 1.6.0.v200805290154&#xA;Export-Package: org.apache.batik;version=&quot;1.6.0&quot;,org.apache.batik.i18n;version=&quot;1.6.0&quot;,org.apache.batik.util;version=&quot;1.6.0&quot;,org.apache.batik.util.io;version=&quot;1.6.0&quot;,org.apache.batik.util.resources;version=&quot;1.6.0&quot;&#xA;Bundle-SymbolicName: org.apache.batik.util&#xA;Bundle-Localization: plugin&#xA;Bundle-Name: %pluginName&#xA;Bundle-Vendor: %providerName&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.apache.batik.css' version='1.6.0.v200805290154' singleton='false'>
+      <update id='org.apache.batik.css' range='[0.0.0,1.6.0.v200805290154)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='%pluginName'/>
+        <property name='org.eclipse.equinox.p2.provider' value='%providerName'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/birt/eclipse/plugins/batik-css.jar'/>
+        <property name='file.lastModified' value='1376399955000'/>
+      </properties>
+      <provides size='11'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.apache.batik.css' version='1.6.0.v200805290154'/>
+        <provided namespace='osgi.bundle' name='org.apache.batik.css' version='1.6.0.v200805290154'/>
+        <provided namespace='java.package' name='org.apache.batik.css.dom' version='1.6.0'/>
+        <provided namespace='java.package' name='org.apache.batik.css.engine' version='1.6.0'/>
+        <provided namespace='java.package' name='org.apache.batik.css.engine.sac' version='1.6.0'/>
+        <provided namespace='java.package' name='org.apache.batik.css.engine.value' version='1.6.0'/>
+        <provided namespace='java.package' name='org.apache.batik.css.engine.value.css2' version='1.6.0'/>
+        <provided namespace='java.package' name='org.apache.batik.css.engine.value.svg' version='1.6.0'/>
+        <provided namespace='java.package' name='org.apache.batik.css.engine.value.svg12' version='1.6.0'/>
+        <provided namespace='java.package' name='org.apache.batik.css.parser' version='1.6.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.apache.batik.css' version='1.6.0.v200805290154'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Require-bundle: org.apache.batik.util;bundle-version=&quot;[1.6.0,1.7.0)&quot;,org.w3c.css.sac;bundle-version=&quot;[1.3.0,1.4.0)&quot;,org.w3c.dom.svg;bundle-version=&quot;[1.1.0,1.3.0)&quot;&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.3&#xA;Manifest-Version: 1.0&#xA;Bundle-Version: 1.6.0.v200805290154&#xA;Export-Package: org.apache.batik.css.dom;version=&quot;1.6.0&quot;,org.apache.batik.css.engine;version=&quot;1.6.0&quot;,org.apache.batik.css.engine.sac;version=&quot;1.6.0&quot;,org.apache.batik.css.engine.value;version=&quot;1.6.0&quot;,org.apache.batik.css.engine.value.css2;version=&quot;1.6.0&quot;,org.apache.batik.css.engine.value.svg;version=&quot;1.6.0&quot;,org.apache.batik.css.engine.value.svg12;version=&quot;1.6.0&quot;,org.apache.batik.css.parser;version=&quot;1.6.0&quot;&#xA;Bundle-SymbolicName: org.apache.batik.css&#xA;Bundle-Localization: plugin&#xA;Bundle-Name: %pluginName&#xA;Bundle-Vendor: %providerName&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.mozilla.rhino' version='1.7.1.201101140540' singleton='false'>
+      <update id='org.mozilla.rhino' range='[0.0.0,1.7.1.201101140540)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='Mozilla Rhino'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Eclipse.org'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/birt/eclipse/plugins/org.mozilla.rhino_1.7.1.201101140540'/>
+        <property name='file.lastModified' value='1406152438000'/>
+      </properties>
+      <provides size='5'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.mozilla.rhino' version='1.7.1.201101140540'/>
+        <provided namespace='osgi.bundle' name='org.mozilla.rhino' version='1.7.1.201101140540'/>
+        <provided namespace='java.package' name='org.mozilla.javascript' version='0.0.0'/>
+        <provided namespace='java.package' name='org.mozilla.javascript.debug' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.mozilla.rhino' version='1.7.1.201101140540'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='2'>
+          <instruction key='manifest'>
+            Bundle-ManifestVersion: 2&#xA;Bundle-RequiredExecutionEnvironment: J2SE-1.4&#xA;Manifest-Version: 1.0&#xA;Bundle-Version: 1.7.1.201101140540&#xA;Export-Package: org.mozilla.javascript,org.mozilla.javascript.debug&#xA;Bundle-SymbolicName: org.mozilla.rhino&#xA;Bundle-Localization: plugin&#xA;Bundle-ClassPath: lib/js.jar&#xA;Bundle-Name: Mozilla Rhino&#xA;Bundle-Vendor: Eclipse.org&#xA;
+          </instruction>
+          <instruction key='zipped'>
+            true
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.birt.chart.ui' version='2.6.0.201101140540'>
+      <update id='org.eclipse.birt.chart.ui' range='[0.0.0,2.6.0.201101140540)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='BIRT Chart Library UI Plug-in'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Eclipse.org'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/birt/eclipse/plugins/org.eclipse.birt.chart.ui_2.6.0.201101140540.jar'/>
+        <property name='file.lastModified' value='1295001648000'/>
+      </properties>
+      <provides size='10'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.birt.chart.ui' version='2.6.0.201101140540'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.birt.chart.ui' version='2.6.0.201101140540'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.ui.i18n' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.ui.integrate' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.ui.plugin' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.ui.swt' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.ui.swt.interfaces' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.ui.swt.wizard' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.ui.util' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='5'>
+        <required namespace='osgi.bundle' name='org.eclipse.ui' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.birt.core.ui' range='[2.1.0,3.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.birt.chart.engine' range='[2.1.0,3.0.0)'/>
+        <required namespace='java.package' name='com.ibm.icu.text' range='[3.4.4,5.0.0)'/>
+        <required namespace='java.package' name='com.ibm.icu.util' range='[3.4.4,5.0.0)'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.birt.chart.ui' version='2.6.0.201101140540'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Bundle-Name: BIRT Chart Library UI Plug-in&#xA;Bundle-Activator: org.eclipse.birt.chart.ui.plugin.ChartUIPlugin&#xA;Manifest-Version: 1.0&#xA;Bundle-Vendor: Eclipse.org&#xA;Bundle-SymbolicName: org.eclipse.birt.chart.ui; singleton:=true&#xA;Import-Package: com.ibm.icu.text;version=&quot;[3.4.4,5.0.0)&quot;,com.ibm.icu.util;version=&quot;[3.4.4,5.0.0)&quot;&#xA;Bundle-ManifestVersion: 2&#xA;Eclipse-LazyStart: true&#xA;Bundle-Version: 2.6.0.201101140540&#xA;Bundle-Localization: plugin&#xA;Export-Package: org.eclipse.birt.chart.ui.i18n,org.eclipse.birt.chart.ui.integrate,org.eclipse.birt.chart.ui.plugin,org.eclipse.birt.chart.ui.swt,org.eclipse.birt.chart.ui.swt.interfaces,org.eclipse.birt.chart.ui.swt.wizard,org.eclipse.birt.chart.ui.util&#xA;Require-Bundle: org.eclipse.ui;bundle-version=&quot;[3.2.0,4.0.0)&quot;;visibility:=reexport,org.eclipse.birt.core.ui;bundle-version=&quot;[2.1.0,3.0.0)&quot;;visibility:=reexport,org.eclipse.birt.chart.engine;bundle-version=&quot;[2.1.0,3.0.0)&quot;;visibility:=reexport&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+    <unit id='org.eclipse.birt.chart.device.swt' version='2.6.0.201101140540'>
+      <update id='org.eclipse.birt.chart.device.swt' range='[0.0.0,2.6.0.201101140540)' severity='0'/>
+      <properties size='5'>
+        <property name='org.eclipse.equinox.p2.name' value='BIRT Chart Device SWT Extension'/>
+        <property name='org.eclipse.equinox.p2.provider' value='Eclipse.org'/>
+        <property name='org.eclipse.equinox.p2.bundle.localization' value='plugin'/>
+        <property name='file.name' value='/usr/share/eclipse/dropins/birt/eclipse/plugins/org.eclipse.birt.chart.device.swt_2.6.0.201101140540.jar'/>
+        <property name='file.lastModified' value='1295001649000'/>
+      </properties>
+      <provides size='5'>
+        <provided namespace='org.eclipse.equinox.p2.iu' name='org.eclipse.birt.chart.device.swt' version='2.6.0.201101140540'/>
+        <provided namespace='osgi.bundle' name='org.eclipse.birt.chart.device.swt' version='2.6.0.201101140540'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.device.swt' version='0.0.0'/>
+        <provided namespace='java.package' name='org.eclipse.birt.chart.device.swt.util' version='0.0.0'/>
+        <provided namespace='org.eclipse.equinox.p2.eclipse.type' name='bundle' version='1.0.0'/>
+      </provides>
+      <requires size='4'>
+        <required namespace='osgi.bundle' name='org.apache.commons.codec' range='[1.3.0,2.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.swt' range='[3.2.0,4.0.0)'/>
+        <required namespace='osgi.bundle' name='org.eclipse.birt.chart.engine' range='[2.1.0,3.0.0)'/>
+        <required namespace='java.package' name='com.ibm.icu.util' range='[3.4.4,5.0.0)'/>
+      </requires>
+      <artifacts size='1'>
+        <artifact classifier='osgi.bundle' id='org.eclipse.birt.chart.device.swt' version='2.6.0.201101140540'/>
+      </artifacts>
+      <touchpoint id='org.eclipse.equinox.p2.osgi' version='1.0.0'/>
+      <touchpointData size='1'>
+        <instructions size='1'>
+          <instruction key='manifest'>
+            Bundle-RequiredExecutionEnvironment: J2SE-1.5&#xA;Bundle-Name: BIRT Chart Device SWT Extension&#xA;Bundle-Activator: org.eclipse.birt.chart.device.swt.ChartDeviceSwtActivator&#xA;Manifest-Version: 1.0&#xA;Bundle-Vendor: Eclipse.org&#xA;Bundle-SymbolicName: org.eclipse.birt.chart.device.swt; singleton:=true&#xA;Import-Package: com.ibm.icu.util;version=&quot;[3.4.4,5.0.0)&quot;&#xA;Bundle-ManifestVersion: 2&#xA;Eclipse-LazyStart: true&#xA;Bundle-Version: 2.6.0.201101140540&#xA;Bundle-Localization: plugin&#xA;Export-Package: org.eclipse.birt.chart.device.swt,org.eclipse.birt.chart.device.swt.util&#xA;Require-Bundle: org.apache.commons.codec;bundle-version=&quot;[1.3.0,2.0.0)&quot;,org.eclipse.swt;bundle-version=&quot;[3.2.0,4.0.0)&quot;,org.eclipse.birt.chart.engine;bundle-version=&quot;[2.1.0,3.0.0)&quot;&#xA;
+          </instruction>
+        </instructions>
+      </touchpointData>
+    </unit>
+  </units>
+</repository>

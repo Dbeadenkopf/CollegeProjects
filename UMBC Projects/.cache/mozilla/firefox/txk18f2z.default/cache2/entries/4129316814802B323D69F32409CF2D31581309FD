@@ -1,0 +1,736 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="ad.size" content="width=300,height=250">
+    
+	<title>NEXXUS</title>
+	<style>
+		body {
+			margin: 0px;
+			padding: 0px;
+			background-color: #fff;
+		}
+		
+		#container {
+			cursor: pointer;
+			width: 298px;
+			height: 248px;
+			left: 0px;
+			top: 0px;
+			position: absolute;
+			overflow: hidden;
+			border: 1px solid #d0d0d0;
+		}	
+		#container div {
+			position: inherit;
+			visibility: hidden;
+		}
+		
+		/*#ref{
+			position: absolute;
+			left:0px;
+			width: 600px;
+			height: 250px;
+			//background: url(ref5.jpg);
+			visibility: visible !important;
+		}*/
+		
+		#pack1{
+			
+			left: 149px;
+			top: -25px;
+			width: 79px;
+			height: 289px;
+			background: url(pack1.jpg);
+			-webkit-animation: packout1 1s cubic-bezier(0, 0, 0.2, 1) forwards,
+				packin1 1s ease-in 3s forwards,
+				packfim1 1s cubic-bezier(0, 0, 0.2, 1) 13.5s forwards;
+			animation: packout1 1s cubic-bezier(0, 0, 0.2, 1) forwards,
+				packin1 1s ease-in 3s forwards,
+				packfim1 1s cubic-bezier(0, 0, 0.2, 1) 13.5s forwards;
+		}
+		.IE98 #pack1{
+			left: 146px;
+			top: -22px;
+			-webkit-transform: scale(0.93);
+					transform: scale(0.93);
+			visibility:visible !important;
+		}				
+		#pack2{
+			left: 226px;
+			top: -25px;
+			width: 79px;
+			height: 292px;
+			background: url(pack2.jpg);
+			-webkit-animation: packout2 1s cubic-bezier(0, 0, 0.2, 1) forwards,
+				packin2 1s ease-in 3s forwards,
+				packfim2 1s cubic-bezier(0, 0, 0.2, 1) 13.5s forwards;
+			animation: packout2 1s cubic-bezier(0, 0, 0.2, 1) forwards,
+				packin2 1s ease-in 3s forwards,
+				packfim2 1s cubic-bezier(0, 0, 0.2, 1) 13.5s forwards;
+		}
+		.IE98 #pack2{
+			left: 219px;
+			top: -22px;
+			opacity: 1;
+			-webkit-transform: scale(0.93);
+					transform: scale(0.93);
+			visibility:visible !important;
+		}			
+		#txt1{
+			//visibility: hidden;
+			left: 10px;
+			top: 55px;
+			width: 137px;
+			height: 114px;
+			background: url(txt1.png);
+			-webkit-animation: fadeout 1s cubic-bezier(0, 0, 0.2, 1) .5s forwards,
+				fadein .5s ease-in 3.7s forwards;
+			        animation: fadeout 1s cubic-bezier(0, 0, 0.2, 1) .5s forwards,
+				fadein .5s ease-in 3.7s forwards;
+		}
+		#foto1{
+			left: 0px;
+			top: 0px;
+			width: 589px;
+			height: 720px;
+			background: url(foto1.jpg);
+			//transform: translate(0,-327px);
+			//opacity: 0.5;
+			
+			-webkit-animation: slidein 5s cubic-bezier(0.5, 0, 0.5, 1) 4s forwards,
+					fadein .5s ease-in 12s forwards;
+			        animation: slidein 5s cubic-bezier(0.5, 0, 0.5, 1) 4s forwards,
+					fadein .5s ease-in 12s forwards;
+			
+		}
+		#foto2{
+			left: -70px;
+			top: 0px;
+			width: 370px;
+			height: 250px;
+			background: url(foto2.jpg);
+			-webkit-animation: slidein2 3s cubic-bezier(0.5, 0, 0.5, 1) 9s forwards,
+						fade 1s ease-in 13s forwards;
+			        animation: slidein2 3s cubic-bezier(0.5, 0, 0.5, 1) 9s forwards,
+						fade 1s ease-in 13s forwards;
+		}
+		#txt2{
+			//visibility: hidden;
+			left: 80px;
+			top: 94px;
+			width:139px;
+			height: 63px;
+			
+			background: url(txt2.png);
+			-webkit-animation: fadeout 1s cubic-bezier(0.4, 0, 0.2, 1) 4.8s forwards,
+				fadein .5s ease-in 8.5s forwards;
+			        animation: fadeout 1s cubic-bezier(0.4, 0, 0.2, 1) 4.8s forwards,
+				fadein .5s ease-in 8.5s forwards;
+		}
+		
+		#txt3{
+			left: 83px;
+			top: 91px;
+			width:133px;
+			height: 70px;
+			background: url(txt2_2.png);
+			-webkit-animation: fadeout 1s cubic-bezier(0, 0, 0.2, 1) 9.2s forwards,
+				fadein .5s ease-in 12.5s forwards;
+			        animation: fadeout 1s cubic-bezier(0, 0, 0.2, 1) 9.2s forwards,
+				fadein .5s ease-in 12.5s forwards;
+		}
+		#lines{
+			width: 82px;
+			height: 71px;
+			left: 33px;
+			top: 38px;
+			border-top: 1px solid #000000;
+			border-bottom: 1px solid #000000;
+			-webkit-animation: liner 1s ease-out 13s forwards;
+			        animation: liner 1s ease-out 13s forwards;
+		}
+		#txt4{
+			left: 25px;
+			top: 56px;
+			width:97px;
+			height: 38px;
+			background: url(txt3.png);
+			-webkit-animation: fadeout 1s cubic-bezier(0, 0, 0.2, 1) 13s forwards;
+			        animation: fadeout 1s cubic-bezier(0, 0, 0.2, 1) 13s forwards;
+		}
+		
+		#txt5{
+			left: 15px;
+			top: 124px;
+			width:117px;
+			height: 65px;
+			background: url(txt4.png);
+			-webkit-animation: fadeout 1s cubic-bezier(0, 0, 0.2, 1) 13.3s forwards;
+			        animation: fadeout 1s cubic-bezier(0, 0, 0.2, 1) 13.3s forwards;
+		}
+		
+		#nexxus{
+			left:45px;
+			top: 12px;
+			width:61px;
+			height: 16px;
+			
+			-webkit-animation: liner 1s cubic-bezier(0, 0, 0.2, 1) forwards,
+					repo_nexxus 2s cubic-bezier(0.65, 0.05, 0.36, 1) 4s forwards,
+					repo_nexxus2 2s cubic-bezier(0.65, 0.05, 0.36, 1) 12.5s forwards;
+			        animation: liner 1s cubic-bezier(0, 0, 0.2, 1) forwards,
+						repo_nexxus 2s cubic-bezier(0.65, 0.05, 0.36, 1) 4s forwards,
+						repo_nexxus2 2s cubic-bezier(0.65, 0.05, 0.36, 1) 12.5s forwards;
+			-webkit-transition: all .3s ease-in-out;
+					transition: all .3s ease-in-out;
+		}
+		.nexxus_black{
+			background: url(nexxus.png);
+		}
+		.nexxus_white{
+			background: url(nexxus_white.png);
+		}
+		
+		#cta{
+			left: 19px;
+			top: 208px;
+			width: 112px;
+			height: 25px;
+			
+			-webkit-animation: fadeout .5s cubic-bezier(0, 0, 0.2, 1) 1s forwards,
+								repo_cta 2s cubic-bezier(0.65, 0.05, 0.36, 1) 4s forwards,
+								repo_cta2 2s cubic-bezier(0.65, 0.05, 0.36, 1) 12.5s forwards;
+			        animation: fadeout .5s cubic-bezier(0, 0, 0.2, 1) 1s forwards,
+								repo_cta 2s cubic-bezier(0.65, 0.05, 0.36, 1) 4s forwards,
+								repo_cta2 2s cubic-bezier(0.65, 0.05, 0.36, 1) 12.5s forwards;
+			-webkit-transition: all .3s ease-in-out;
+					transition: all .3s ease-in-out;
+		}
+		
+		.cta_black:hover{
+			background-color: #f2f2f2;
+		}
+		.cta_black{
+			
+			border: 1px solid #000000;
+			background: url(cta.png) center center no-repeat;
+		}
+		.cta_white:hover{
+			background-color: #333333;
+		}
+		.cta_white{
+			border: 1px solid #ffffff;
+			background: url(cta_white.png) center center no-repeat;
+		}
+		
+		.IE98 #txt4,.IE98 #txt5,.IE98 #nexxus,.IE98 #cta,.IE98 #lines{
+			visibility:visible !important;
+		}
+		
+		
+		@-webkit-keyframes fadeout{
+			0%{
+				visibility: visible;
+				opacity: 0;		
+				-webkit-transform: translate(20px,0);		
+				        transform: translate(20px,0)
+			}
+			100%{
+				visibility: visible;
+				opacity: 1;
+				
+			}
+		}
+		
+		
+		
+		
+		@keyframes fadeout{
+			0%{
+				visibility: visible;
+				opacity: 0;		
+				-webkit-transform: translate(20px,0);		
+				        transform: translate(20px,0)
+			}
+			100%{
+				visibility: visible;
+				opacity: 1;
+				
+			}
+		}
+		
+		@-webkit-keyframes fadein{
+			0%{
+				visibility: visible;
+				opacity: 1;				
+			}
+			100%{
+				visibility: hidden;
+				opacity: 0;
+				-webkit-transform: translate(-20px,0);
+				        transform: translate(-20px,0)
+			}
+		}
+		
+		@keyframes fadein{
+			0%{
+				visibility: visible;
+				opacity: 1;				
+			}
+			100%{
+				visibility: hidden;
+				opacity: 0;
+				-webkit-transform: translate(-20px,0);
+				        transform: translate(-20px,0)
+			}
+		}
+		
+		@-webkit-keyframes fade{
+			0%{
+				visibility: visible;
+				opacity: 1;				
+			}
+			100%{
+				visibility: hidden;
+				opacity: 0;
+			}
+		}
+		
+		@keyframes fade{
+			0%{
+				visibility: visible;
+				opacity: 1;				
+			}
+			100%{
+				visibility: hidden;
+				opacity: 0;
+			}
+		}
+		
+		@-webkit-keyframes slidein{
+			0%{
+				visibility: visible;
+				opacity: 0;	
+				-webkit-transform: translate(-131px,-470px);
+				        transform: translate(-131px,-470px);
+				
+			}
+			20%{
+				opacity: 1;
+			}
+			100%{
+				visibility: visible;
+				opacity: 1;
+				-webkit-transform:  translate(-152px,-180px) scale(0.56) rotate(7deg);
+				        transform:  translate(-152px,-180px) scale(0.56) rotate(7deg);
+				
+			}
+		}
+		
+		@keyframes slidein{
+			0%{
+				visibility: visible;
+				opacity: 0;	
+				-webkit-transform: translate(-131px,-470px);
+				        transform: translate(-131px,-470px);
+				
+			}
+			20%{
+				opacity: 1;
+			}
+			100%{
+				visibility: visible;
+				opacity: 1;
+				-webkit-transform:  translate(-152px,-180px) scale(0.56) rotate(7deg);
+				        transform:  translate(-152px,-180px) scale(0.56) rotate(7deg);
+				
+			}
+		}
+		
+		@-webkit-keyframes slidein2{
+			0%{
+				visibility: visible;
+				opacity: 0;	
+				-webkit-transform: translate(70px,0px);	
+				        transform: translate(70px,0px);
+				
+			}
+			40%{
+				opacity: 1;
+			}
+			100%{
+				visibility: visible;
+				opacity: 1;
+			}
+		}
+		
+		@keyframes slidein2{
+			0%{
+				visibility: visible;
+				opacity: 0;	
+				-webkit-transform: translate(70px,0px);	
+				        transform: translate(70px,0px);
+				
+			}
+			40%{
+				opacity: 1;
+			}
+			100%{
+				visibility: visible;
+				opacity: 1;
+			}
+		}
+		
+		@-webkit-keyframes packout1{
+			0%{
+				visibility: visible;
+				opacity: 0;		
+				-webkit-transform: translate(0px,40px);		
+				        transform: translate(0px,40px);
+			}
+			100%{
+				visibility: visible;
+				opacity: 1;
+				-webkit-transform: translate(0px,0px);
+				        transform: translate(0px,0px);
+			}
+		}
+		
+		@keyframes packout1{
+			0%{
+				visibility: visible;
+				opacity: 0;		
+				-webkit-transform: translate(0px,40px);		
+				        transform: translate(0px,40px);
+			}
+			100%{
+				visibility: visible;
+				opacity: 1;
+				-webkit-transform: translate(0px,0px);
+				        transform: translate(0px,0px);
+			}
+		}
+		
+		@-webkit-keyframes packin1{
+			100%{
+				visibility: visible;
+				opacity: 0;		
+				-webkit-transform: translate(0px,-40px);		
+				        transform: translate(0px,-40px);		
+			}
+			0%{
+				visibility: visible;
+				opacity: 1;
+				-webkit-transform: translate(0px,0px);
+				        transform: translate(0px,0px);
+			}
+		}
+		
+		@keyframes packin1{
+			100%{
+				visibility: visible;
+				opacity: 0;		
+				-webkit-transform: translate(0px,-40px);		
+				        transform: translate(0px,-40px);		
+			}
+			0%{
+				visibility: visible;
+				opacity: 1;
+				-webkit-transform: translate(0px,0px);
+				        transform: translate(0px,0px);
+			}
+		}
+		
+		@-webkit-keyframes packout2{
+			0%{
+				visibility: visible;
+				opacity: 0;		
+				-webkit-transform: translate(0px,-40px);		
+				        transform: translate(0px,-40px);		
+			}
+			100%{
+				visibility: visible;
+				opacity: 1;
+				
+			}
+		}
+		
+		@keyframes packout2{
+			0%{
+				visibility: visible;
+				opacity: 0;		
+				-webkit-transform: translate(0px,-40px);		
+				        transform: translate(0px,-40px);		
+			}
+			100%{
+				visibility: visible;
+				opacity: 1;
+				
+			}
+		}
+		
+		@-webkit-keyframes packin2{
+			100%{
+				visibility: visible;
+				opacity: 0;		
+				-webkit-transform: translate(0px,40px);		
+				        transform: translate(0px,40px);
+			}
+			0%{
+				visibility: visible;
+				opacity: 1;
+				
+			}
+		}
+		
+		@keyframes packin2{
+			100%{
+				visibility: visible;
+				opacity: 0;		
+				-webkit-transform: translate(0px,40px);		
+				        transform: translate(0px,40px);
+			}
+			0%{
+				visibility: visible;
+				opacity: 1;
+				
+			}
+		}		
+			
+		@-webkit-keyframes liner{
+			0%{
+				visibility: visible;
+				width: 1px;
+				left: 75px;
+				/*-webkit-transform: translate(41px,0);
+				        transform: translate(41px,0)*/
+			}
+			100%{
+				visibility: visible;
+			}
+		}		
+			
+		@keyframes liner{
+			0%{
+				visibility: visible;
+				width: 1px;
+				left: 75px;
+				/*-webkit-transform: translate(41px,0);
+				        transform: translate(41px,0)*/
+			}
+			100%{
+				visibility: visible;
+			}
+		}
+		
+		
+		
+		@-webkit-keyframes packfim1{
+			0%{
+				visibility: visible;
+				opacity: 0;
+				left: 146px;
+    			top: 42px;
+				-webkit-transform: scale(0.93);
+				        transform: scale(0.93);
+			}
+			
+			100%{
+				left: 146px;
+    			top: -22px;
+				-webkit-transform: scale(0.93);
+				        transform: scale(0.93);
+				visibility: visible;
+			}
+		}
+		
+		
+		
+		@keyframes packfim1{
+			0%{
+				visibility: visible;
+				opacity: 0;
+				left: 146px;
+    			top: 42px;
+				-webkit-transform: scale(0.93);
+				        transform: scale(0.93);
+			}
+			
+			100%{
+				left: 146px;
+    			top: -22px;
+				-webkit-transform: scale(0.93);
+				        transform: scale(0.93);
+				visibility: visible;
+			}
+		}
+		
+		@-webkit-keyframes packfim2{
+			0%{
+				visibility: visible;
+				opacity: 0;
+				left: 219px;
+    			top: -62px;
+				-webkit-transform: scale(0.93);
+				        transform: scale(0.93);
+			}
+			
+			100%{
+				left: 219px;
+    			top: -22px;
+				opacity: 1;
+				-webkit-transform: scale(0.93);
+				        transform: scale(0.93);
+				visibility: visible;
+			}
+		}
+		
+		@keyframes packfim2{
+			0%{
+				visibility: visible;
+				opacity: 0;
+				left: 219px;
+    			top: -62px;
+				-webkit-transform: scale(0.93);
+				        transform: scale(0.93);
+			}
+			
+			100%{
+				left: 219px;
+    			top: -22px;
+				opacity: 1;
+				-webkit-transform: scale(0.93);
+				        transform: scale(0.93);
+				visibility: visible;
+			}
+		}
+		@-webkit-keyframes repo_cta{
+			0%{}
+			100%{
+				left: 89px;
+			}
+		}
+		@keyframes repo_cta{
+			0%{}
+			100%{
+				left: 89px;
+			}
+		}
+		@-webkit-keyframes repo_nexxus{
+			0%{}
+			100%{
+				left: 115px;
+			}
+		}
+		@keyframes repo_nexxus{
+			0%{}
+			100%{
+				left: 115px;
+			}
+		}
+		@-webkit-keyframes repo_cta2{
+			0%{}
+			100%{
+				-webkit-transform: translate(-70px,0px);		
+				        transform: translate(-70px,0px);
+			}
+		}
+		@keyframes repo_cta2{
+			0%{}
+			100%{
+				-webkit-transform: translate(-70px,0px);		
+				        transform: translate(-70px,0px);
+			}
+		}
+		@-webkit-keyframes repo_nexxus2{
+			0%{}
+			100%{
+				-webkit-transform: translate(-70px,0px);		
+				        transform: translate(-70px,0px);	
+			}
+		}
+		@keyframes repo_nexxus2{
+			0%{}
+			100%{
+				-webkit-transform: translate(-70px,0px);		
+				        transform: translate(-70px,0px);	
+			}
+		}
+	</style>
+	<script>
+		function getParameterByName(name) {
+				name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+				var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+								results = regex.exec(location.search);
+				return results === null ? "" :
+                decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+        
+        var clickTag = getParameterByName('exit');
+        
+        
+        function doClick() {
+			window.open(clickTag,'_blank');
+		}
+
+	</script>
+</head>
+
+<body >
+<script type="text/javascript">
+   
+	var fg = 1;
+	function update(){
+		if(fg == 1){
+			fg++;
+			document.getElementById('nexxus').className = 'nexxus_white';
+			document.getElementById('cta').className = 'cta_white';
+		}else if(fg == 2){
+			document.getElementById('nexxus').className = 'nexxus_black';
+			document.getElementById('cta').className = 'cta_black';
+		}
+	}
+	function isIE () {
+	  var myNav = navigator.userAgent.toLowerCase();
+	  return (myNav.indexOf('msie') != -1) ? parseInt(myNav.split('msie')[1]) : false;
+	}
+	if(!(isIE() == 9)){
+		var dly = setTimeout(update,4000);
+		var dly2 = setTimeout(update,13000);
+	}
+</script>
+	<div id="ref"></div>
+	<!--[if (IE 9) ]>   <div id="container" onclick="doClick();" class="IE98"> <![endif]-->
+	<!--[if (gt IE 9)|!(IE)]><!--> <div id="container" onclick="doClick();"> <!--<![endif]-->
+		<div id="pack1"></div>
+		<div id="pack2"></div>
+		<div id="foto1"></div>
+		<div id="foto2"></div>
+		<div id="txt1"></div>
+		<div id="txt2"></div>
+		<div id="lines"></div>
+		<div id="txt3"></div>
+		<div id="txt4"></div>
+		<div id="txt5"></div>
+		<div id="nexxus" class="nexxus_black"></div>
+		<div id="cta" class="cta_black"></div>
+	</div>
+</body>
+
+</html>
+=P¹mþÿ      WVÖ÷WVÖû<‰÷zWVÖ÷  û    :http://html5.adsrvr.org/cpsla2v/w4r1j6g/8e9t8ns4/index.html?exit=http%3A%2F%2Finsight.adsrvr.org%2Ftrack%2Fclk%3Fimp%3D46be054a-dc77-4096-b245-1adf72f18713%26ag%3D08392g6%26crid%3Dkdxuva3t%26cf%3D%26fq%3D0%26td_s%3Dsmallbusiness.chron.com%26rcats%3D%26mcat%3D%26mste%3D%26mfld%3D4%26mssi%3D%26mfsi%3Doeuoo5v7ko%26sv%3Dpublisherdirect%26uhow%3D58%26agsa%3D%26rgco%3DUnited%2520States%26rgre%3DMaryland%26rgme%3D512%26rgci%3DBaltimore%26rgz%3D21250%26dt%3DPC%26osf%3DLinux%26os%3DOther%26br%3DFirefox%26svpid%3D%26rlangs%3Den%26mlang%3D%26did%3Dttdd-dyiu4is-tj5vjze%26rcxt%3D%26tmpc%3D24.44%26vrtd%3D%26osi%3D%26osv%3D%26daid%3D%26dnr%3D0%26dur%3D%26crrelr%3D%26r%3Dhttp%3a%2f%2fwww.nexxus.com%2fproduct%2fcategory%2f861158%2fproducts-therappe-humectress&cb=113320 necko:classified 1 request-method GET response-head HTTP/1.1 200 OK
+Content-Type: text/html
+Content-Length: 16130
+Date: Thu, 12 May 2016 00:00:42 GMT
+Last-Modified: Fri, 12 Feb 2016 18:15:58 GMT
+Etag: "5d97030096d5bfb52af549a6c043a62a"
+Accept-Ranges: bytes
+Server: AmazonS3
+Age: 13506
+X-Cache: Hit from cloudfront
+Via: 1.1 e7c0b31d9821e117355a6a7a216eac86.cloudfront.net (CloudFront)
+X-Amz-Cf-Id: cxHQ7R5YUjf5LAzLoJQDkTWGiNc_tAj7AV3S9mw81B1qHh9-0IMozg==
+ charset windows-1252 uncompressed-len 0 predictor::resource-count 13 predictor::http://html5.adsrvr.org/cpsla2v/w4r1j6g/8e9t8ns4/pack1.jpg 1,1,1465308919,0 predictor::http://html5.adsrvr.org/cpsla2v/w4r1j6g/8e9t8ns4/pack2.jpg 1,1,1465308919,0 predictor::http://html5.adsrvr.org/cpsla2v/w4r1j6g/8e9t8ns4/foto1.jpg 1,1,1465308919,0 predictor::http://html5.adsrvr.org/cpsla2v/w4r1j6g/8e9t8ns4/foto2.jpg 1,1,1465308919,0 predictor::http://html5.adsrvr.org/cpsla2v/w4r1j6g/8e9t8ns4/txt1.png 1,1,1465308919,0 predictor::http://html5.adsrvr.org/cpsla2v/w4r1j6g/8e9t8ns4/txt2.png 1,1,1465308919,0 predictor::http://html5.adsrvr.org/cpsla2v/w4r1j6g/8e9t8ns4/txt2_2.png 1,1,1465308919,0 predictor::http://html5.adsrvr.org/cpsla2v/w4r1j6g/8e9t8ns4/txt3.png 1,1,1465308919,0 predictor::http://html5.adsrvr.org/cpsla2v/w4r1j6g/8e9t8ns4/txt4.png 1,1,1465308919,0 predictor::http://html5.adsrvr.org/cpsla2v/w4r1j6g/8e9t8ns4/nexxus.png 1,1,1465308919,0 predictor::http://html5.adsrvr.org/cpsla2v/w4r1j6g/8e9t8ns4/cta.png 1,1,1465308919,0 predictor::http://html5.adsrvr.org/cpsla2v/w4r1j6g/8e9t8ns4/nexxus_white.png 1,1,1465308919,0 predictor::http://html5.adsrvr.org/cpsla2v/w4r1j6g/8e9t8ns4/cta_white.png 1,1,1465308919,0   ?

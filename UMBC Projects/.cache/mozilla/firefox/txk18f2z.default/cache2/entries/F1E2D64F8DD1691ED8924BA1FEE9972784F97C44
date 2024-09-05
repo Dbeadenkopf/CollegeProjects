@@ -1,0 +1,320 @@
+/**
+ * @author john martin : jmartin@unicon.net
+ * player_client.js : Plugin to render an interactive player container that uses cross domain communication
+ * Requires jQuery and includes jQuery postMessage
+ */
+
+/*======= DEPENDENCIES =======*/
+
+/*
+ * jQuery postMessage - v0.5 - 9/11/2009 : For cross domain communication : Copyright (c) 2009 "Cowboy" Ben Alman : Dual licensed under the MIT and GPL licenses.
+ * http://benalman.com/code/projects/jquery-postmessage/docs/files/jquery-ba-postmessage-js.html
+ */
+(function($){var g,d,j=1,a,b=this,f=!1,h="postMessage",e="addEventListener",c,i=b[h]&&!$.browser.opera;$[h]=function(k,l,m){if(!l){return}k=typeof k==="string"?k:$.param(k);m=m||parent;if(i){m[h](k,l.replace(/([^:]+:\/\/[^\/]+).*/,"$1"))}else{if(l){m.location=l.replace(/#.*$/,"")+"#"+(+new Date)+(j++)+"&"+k}}};$.receiveMessage=c=function(l,m,k){if(i){if(l){a&&c();a=function(n){if((typeof m==="string"&&n.origin!==m)||($.isFunction(m)&&m(n.origin)===f)){return f}l(n)}}if(b[e]){b[l?e:"removeEventListener"]("message",a,f)}else{b[l?"attachEvent":"detachEvent"]("onmessage",a)}}else{g&&clearInterval(g);g=null;if(l){k=typeof m==="number"?m:typeof k==="number"?k:100;g=setInterval(function(){var o=document.location.hash,n=/^#?\d+&/;if(o!==d&&n.test(o)){d=o;l({data:o.replace(n,"")})}},k)}}}})(jQuery);
+
+
+/*======= PLAYER CLIENT  =======*/
+
+//namespace
+var playerClient = playerClient || {};
+
+//private scope (requires jQuery)
+(function($){
+
+    //base url for player services (NOT FINALIZED)
+    var playerServices_url = "http://mediaplayer.pearsoncmg.com/media";
+    var devPlayerServices_url = "http://dev.mediaplayer.pearsoncmg.com/media";
+
+    //parent url to pass into the iframe (for cross browser cross domain messaging reasons)
+    var parentURL = encodeURIComponent( document.location.href );
+
+    //client defaults (used only locally, not passed on to the player)
+    var clientDefaults = {
+
+        // settings that the client uses
+        animate: 'all 100ms', //false if you do not want CSS animations, otherwise give milliseconds of transitions
+        autoResize: true, //if you want the target to squeeze around the iframe
+
+        // media settings
+        dev: false, //are we hitting the dev version of the wrapper?
+        mediaId: false, //ideally we want to just provide a mediaId and forward them to the wrapper
+        url: false, //otherwise the client could provide a pre-built url.. if so just use it as is we don't need to construct a url
+
+        // callbacks API : This is the current contract for communication from the players
+        onClipEnd: function () {},
+        onResize: function (size) {},
+        onPlayerReady: function () {
+            var that = this;
+            that.target.addClass('player-ready');
+        }
+    };
+
+    //player defaults (passed in as query params to the player)
+    var playerDefaults = {}; //This should be agnostic of the player receiving params so it's just a placeholder
+
+    //So we list an example API for the player "tpPlayer". You should check the target players documentation
+    //For a list of configuration options TODO : provide URL here for documentation
+
+    //==== tpPlayer API and it's default values
+    //aspectRatio: '16:9', // the aspect ratio for the video portion of the player
+    //showMediumButton: true, // use false if you don't want the user to be able to click the medium size button
+    //language: 'en', //2 character 639-1 language code (English is default)
+    //preventHashChange: false //if your app cannot inccur hash changes, then set this to true
+
+    //unique id for players created
+    var playerId = 0;
+
+    //registry of all players
+    var allPlayers = {};
+
+    //private method of adding a player into the registry
+    var addPlayer = function (player) {
+        allPlayers[player.id] = player;
+    };
+
+    //private method to retrive a player
+    var getPlayer = function (playerId) {
+        return allPlayers[playerId];
+    };
+
+    //fraction reducer
+    var reduce = function (numerator,denominator) {
+        var gcd = function gcd(a,b){
+            return b ? gcd(b, a%b) : a;
+        };
+        gcd = gcd(numerator,denominator);
+        return [numerator/gcd, denominator/gcd];
+    };
+
+    //determine fullscreen support
+    var supportsFullScreenAPI = function(){
+
+        var browserPrefixes = 'webkit moz o ms khtml'.split(' ');
+        var supportsFullScreen = false;
+
+        // check for native support
+        if (typeof document.cancelFullScreen != 'undefined') {
+
+            supportsFullScreen = true;
+
+        } else {
+
+            // check for FullScreen support by vendor prefix
+            for (var i = 0; i < browserPrefixes.length; i++) {
+                if (typeof document[browserPrefixes[i] + 'CancelFullScreen'] != 'undefined') {
+                    supportsFullScreen = true;
+                    break;
+                }
+            }
+        }
+
+        return supportsFullScreen;
+    };
+
+    /**
+     * Create and return a new player object within the specified target, configs for the instance behavior, and configs passed on to the player
+     * @param {Object} target : where to inject the iframe
+     * @param {Object} client_options_in : options that hold information about how the player should behave in the client's page
+     * @param {Object} player_options_in : options passed along to the player (API can be found in the media player documentation)
+     */
+    playerClient.createPlayer = function (target, client_options_in, player_options_in) {
+
+        /*======= FACTORY STYLE PASSBACK OBJECT AND OPTIONS SETUP =======*/
+
+        var that = {};
+        client_options_in = client_options_in || {};
+        player_options_in = player_options_in || {};
+
+        /*======= PRIVATE METHODS / PROPS =======*/
+
+        var addQueryParams = function (url, params) {
+
+            var hasQuery = url.indexOf('?') != -1;
+            var queryString = "";
+            var delim = hasQuery ? "&" : "?";
+
+            for(par in params) {
+                queryString = queryString + delim + par + "=" + params[par];
+                delim = "&";
+            }
+
+            return url + queryString;
+        };
+
+        var init = function () {
+
+            // setup some references and the options and store some original styling
+            that.target = target;
+            that.originalPosition = that.target.css('position') || 'static';
+            that.originalZIndex = that.target.css('z-index');
+            that.originalLeft = that.target.css('left') || 0;
+            that.originalTop = that.target.css('top') || 0;
+
+            that.client_options = $.extend({}, clientDefaults, client_options_in);
+            that.player_options = $.extend({}, playerDefaults, player_options_in);
+
+            // give this player it's own unique id
+            playerId++;
+            that.id = playerId;
+
+            // create and size the iframe
+            that.video = $('<iframe/>');
+            that.video.css({width:'100%', height:'100%'}); //styling
+            that.video.attr('frameborder',0).attr('scrolling','no'); //styling
+            that.video.attr('webkitallowfullscreen','').attr('mozallowfullscreen','').attr('allowfullscreen',''); //for fullscreen api
+
+            //accessibility
+            that.video.attr('tabindex','0');
+
+            //hardware accelerated animations
+            if(that.client_options.animate){
+                that.video.css({'transition':that.client_options.animate, '-moz-transition':that.client_options.animate, '-webkit-transition': that.client_options.animate});
+
+                //if settings allow, also animate the target
+                if(that.client_options.autoResize){
+                    that.target.css({'transition':that.client_options.animate, '-moz-transition':that.client_options.animate, '-webkit-transition': that.client_options.animate});
+                }
+            }
+
+            // create the src url and tack on the parent url in the hash for cross browser / cross domain communication
+            var videoSource = "";
+            if(that.client_options.url){
+                videoSource = that.client_options.url;
+            } else {
+                videoSource = (that.player_options.dev ? devPlayerServices_url : playerServices_url) + "/" + that.client_options.mediaId;
+            }
+
+            // Params that need to go to the player to maintain the cross domain communication API
+            var mandatoryConfigs = {
+                parentURL: parentURL, // used for cross domain communication
+                playerId: playerId // used for cross domain communication
+            };
+
+            // merge mandatory configs that need to go to the player as well as options the client passed in
+            var player_configs = $.extend({}, mandatoryConfigs, that.player_options);
+
+            //videoSource = addQueryParams(videoSource, player_configs);
+
+            //put that video in there
+            that.video.appendTo(that.target).attr('src', videoSource);
+
+            //and store the original size
+            that.target.attr('orig_width', that.target.width());
+            that.target.attr('orig_height', that.target.height());
+        };
+
+
+        /*======= PUBLIC METHODS / PROPS=======*/
+
+        // self destructing
+        that.destroy = function () {
+            $(that.video).remove();
+        };
+
+        // resize the video area
+        that.resize = function (width, height, positionFixed) {
+
+            that.target.css({height:height + 'px', width: width + 'px'});
+            if(positionFixed){
+                that.target.css({position:'fixed', left:0, top:0, 'z-index':99999});
+            } else {
+                that.target.css({position: that.originalPosition, left:that.originalLeft, top:that.originalTop, 'z-index':(that.originalZIndex || 0)});
+            }
+        };
+
+
+        /*======= START IT UP AND PASSBACK THE OBJECT =======*/
+
+        //initialize
+        init();
+
+        //register it
+        addPlayer(that);
+
+        //return the reference
+        return that;
+    };
+
+
+    /*======= IMMEDIATLY START LISTENING FOR COMMUNICATION DIRECTED AT OUR PLAYERS =======*/
+
+    $.receiveMessage(function(e){
+
+        var extractParams = function (queryString) {
+
+            var params = {};
+
+            var allParams = queryString.split('&');
+            for(var i=0; i < allParams.length; i++){
+                var paramParts = allParams[i].split('=');
+                var key = decodeURIComponent(paramParts[0]);
+                var value = decodeURIComponent(paramParts[1]);
+
+                params[key] = value;
+            }
+
+            return params;
+        };
+
+        var params = extractParams(e.data);
+
+        // Get the player id
+        var playerId = params.playerId;
+
+        // If we have a playerId then this message is related to a player and we check the event API
+        if(playerId){
+
+            // Get the player
+            var thisPlayer = getPlayer(playerId);
+
+            // Check for resizing
+            var width = params.width;
+            var height = params.height;
+
+            if(params.onResize) {
+
+                if(thisPlayer.client_options.autoResize){
+
+                    var newWidth = thisPlayer.target.attr('orig_width');
+                    var newHeight = thisPlayer.target.attr('orig_height');
+
+                    if(params.onResize == "medium"){
+                        newWidth = newWidth * 1.5;
+                        newHeight = newHeight * 1.5;
+                    }
+
+                    if(params.onResize == "fullscreen") {
+
+                        if(!supportsFullScreenAPI()){
+                            thisPlayer.resize($(window).width(), $(window).height(), true);
+                        }
+
+                    } else {
+                        thisPlayer.resize(newWidth, newHeight);
+                    }
+                }
+
+                thisPlayer.client_options.onResize.call(thisPlayer, params.size);
+            }
+
+            // Check for clipEnd
+            if(params.onClipEnd) {
+                thisPlayer.client_options.onClipEnd.call(thisPlayer);
+            }
+
+            // Check for onPlayerReady and if so fire off the callback
+            if(params.onPlayerReady){
+                thisPlayer.client_options.onPlayerReady.call(thisPlayer);
+            }
+        }
+    });
+
+})(jQuery);¢Y^*f      WVÝPWVÝP<‰þlWbv€   M    :https://view.ebookplus.pearsoncmg.com/ebook/javascript/player_client_4.14.js necko:classified 1 security-info FnhllAKWRHGAlo+ESXykKAAAAAAAAAAAwAAAAAAAAEaphjojH6pBabDSgSnsfLHeAAQAAgAAAAAAAAAAAAAAAAAAAAAB4vFIJp5wRkeyPxAQ9RJGKPqbqVvKO0mKuIl8ec8o/uhmCjImkVxP+7sgiYWmMt8FvcOXmlQiTNWFiWlrbpbqgwAAAAAAAAhfMIIIWzCCB0OgAwIBAgIRAL1zMhGh29ipMJTT780D1gQwDQYJKoZIhvcNAQELBQAwgZYxCzAJBgNVBAYTAkdCMRswGQYDVQQIExJHcmVhdGVyIE1hbmNoZXN0ZXIxEDAOBgNVBAcTB1NhbGZvcmQxGjAYBgNVBAoTEUNPTU9ETyBDQSBMaW1pdGVkMTwwOgYDVQQDEzNDT01PRE8gUlNBIE9yZ2FuaXphdGlvbiBWYWxpZGF0aW9uIFNlY3VyZSBTZXJ2ZXIgQ0EwHhcNMTQxMDE1MDAwMDAwWhcNMTcwNjMwMjM1OTU5WjCBwTELMAkGA1UEBhMCVVMxDjAMBgNVBBETBTA3Njc1MQswCQYDVQQIEwJOSjETMBEGA1UEBxMKT2xkIFRhcHBhbjEaMBgGA1UECRMRMjAwIE9sZCBUYXBwYW4gUmQxIDAeBgNVBAoTF1BlYXJzb24gRWR1Y2F0aW9uLCBJbmMuMR8wHQYDVQQLExZVbmlmaWVkIENvbW11bmljYXRpb25zMSEwHwYDVQQDExhlYm9va3BsdXMucGVhcnNvbmNtZy5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDhK6liBN8NJsz1UDL0HlpwOxxpBOozgKgR5sFY2DbtjPhrL8uCr/kMZI4GlL6iwUS+qRYFDfZnEOrTBRKBzrY04W0f37zRkfr1BlfPSS6oeLTIOlbub+R+1SdAhpHD19kUQuvaDySk8IMWyNV1GzqUre1eFx1+YuBh3ym66gmj1zMlqSMT0S8E+bvpIMuU6Li4waaEcj6KBjqjNsDwZu/H9SkSo0UIS4WjNjVGL5tuEMs5vbxl9BeEvb7tneV5neGiaIUZ+318Nw8hbA676qafHYgd5TBOBf/UkGO2kGuO45fqd5klvrVyr+GZPklvEAz/8ax0iIHeT1Edv7uNNvPnAgMBAAGjggR1MIIEcTAfBgNVHSMEGDAWgBSa8yvaz61Pti+7KkhIKhK3G0LBJDAdBgNVHQ4EFgQUHTDjUkH2GjE44t0HyztdQccxv5EwDgYDVR0PAQH/BAQDAgWgMAwGA1UdEwEB/wQCMAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMFAGA1UdIARJMEcwOwYMKwYBBAGyMQECAQMEMCswKQYIKwYBBQUHAgEWHWh0dHBzOi8vc2VjdXJlLmNvbW9kby5jb20vQ1BTMAgGBmeBDAECAjBaBgNVHR8EUzBRME+gTaBLhklodHRwOi8vY3JsLmNvbW9kb2NhLmNvbS9DT01PRE9SU0FPcmdhbml6YXRpb25WYWxpZGF0aW9uU2VjdXJlU2VydmVyQ0EuY3JsMIGLBggrBgEFBQcBAQR/MH0wVQYIKwYBBQUHMAKGSWh0dHA6Ly9jcnQuY29tb2RvY2EuY29tL0NPTU9ET1JTQU9yZ2FuaXphdGlvblZhbGlkYXRpb25TZWN1cmVTZXJ2ZXJDQS5jcnQwJAYIKwYBBQUHMAGGGGh0dHA6Ly9vY3NwLmNvbW9kb2NhLmNvbTCCArQGA1UdEQSCAqswggKnghhlYm9va3BsdXMucGVhcnNvbmNtZy5jb22CImxpdmUucHBlMS5lYm9va3BsdXMucGVhcnNvbmNtZy5jb22CImxpdmUucHBlMi5lYm9va3BsdXMucGVhcnNvbmNtZy5jb22CImxpdmUucHBlMy5lYm9va3BsdXMucGVhcnNvbmNtZy5jb22CLnJ1bWJhLmJvb2tzaGVsZi5jZXJ0MS5lYm9va3BsdXMucGVhcnNvbmNtZy5jb22CKHJ1bWJhLmJvb2tzaGVsZi5lYm9va3BsdXMucGVhcnNvbmNtZy5jb22CLXJ1bWJhLmJvb2tzaGVsZi5wcGUxLmVib29rcGx1cy5wZWFyc29uY21nLmNvbYIsc21zLmJvb2tzaGVsZi5jZXJ0MS5lYm9va3BsdXMucGVhcnNvbmNtZy5jb22CJnNtcy5ib29rc2hlbGYuZWJvb2twbHVzLnBlYXJzb25jbWcuY29tgitzbXMuYm9va3NoZWxmLnBwZTEuZWJvb2twbHVzLnBlYXJzb25jbWcuY29tgiJ2aWV3LmNlcnQxLmVib29rcGNsLnBlYXJzb25jbWcuY29tgiN2aWV3LmNlcnQxLmVib29rcGx1cy5wZWFyc29uY21nLmNvbYIjdmlldy5jZXJ0Mi5lYm9va3BsdXMucGVhcnNvbmNtZy5jb22CI3ZpZXcuY2VydDMuZWJvb2twbHVzLnBlYXJzb25jbWcuY29tgh12aWV3LmVib29rcGx1cy5wZWFyc29uY21nLmNvbYIfdmlldy5ldGV4dC5ob21lMS5wZWFyc29uY21nLmNvbYIfdmlldy5ldGV4dC5ob21lMi5wZWFyc29uY21nLmNvbYIfdmlldy5ldGV4dC5ob21lMy5wZWFyc29uY21nLmNvbTANBgkqhkiG9w0BAQsFAAOCAQEAk3RkRCtHKdHs4/4L2zqZO/HIOHhLH8Z547bTEAi5wEE7qAaq9UFhZptP8xzcyGxK4Okt1pRnoiaHmeY4v7usqMmfd454TKVLVvvVYR3PlJJ7n85hfaWLmrZUc6Dhs5rNgnTgZPnb5jXusuYYE/En9kZj7TqAYaVpnB45/dwZ/RpysISQhikQ67gyjVZKRidNxHd9BiArGm39hJCNnnxYSv1TRwk2Oa6HlLqG24hyKPfdQnJA7CxiEZyTzbxrLMd006imjpe6zjLb48x0aT/5gJdCL/4SwPCKb2aNpwRPxVLpHYjP+oGnrAb0l5xPEuCQxNMzBWIzuO7ljOplP42TQwA1AAMAAAAAAQEAAA== request-method GET response-head HTTP/1.1 200 OK
+Accept-Ranges: bytes
+Etag: W/"12335-1457694440000"
+Last-Modified: Fri, 11 Mar 2016 11:07:20 GMT
+Content-Type: text/javascript
+Content-Length: 12335
+Date: Tue, 07 Jun 2016 14:19:42 GMT
+Server: Prod
+ uncompressed-len 0   0/

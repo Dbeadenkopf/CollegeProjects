@@ -1,0 +1,431 @@
+
+function openType2Window(url, name)
+{
+	windowPopupLevel = getWindowLocationDetails(2, false);
+	//Commented by Pracheta on 16/Feb/2010 as links are not opening in Safari browser
+	/*if (isSafariBrowser())
+	{
+		ViewerMain.openBrowserFromFlex(url, null, null, null);
+	}
+	else
+	{*/
+		var newWindow = window.open(url, name, windowPopupLevel);
+		//newWindow.focus();
+	//}
+
+}
+
+function openInSameWindow(url)
+{
+	window.location.href = url;	
+	return false;
+}
+
+function isSafariBrowser()
+{
+	return detectBrowser( "safari" );
+}
+
+function isIEBrowser()
+{
+	return detectBrowser( "msie" );
+}
+
+function isChromeBrowser()
+{
+	return detectBrowser( "chrome" );
+}
+
+function detectBrowser(browserAbbr)
+{
+	var userAgent = navigator.userAgent.toLowerCase();
+	return ( userAgent.indexOf( browserAbbr.toLowerCase() ) != -1 );
+}
+
+function getWindowLocationDetails(level, menubar)
+{
+	var winWidth = 400; // sets a default width for browsers who do not understand screen.width below
+	var winheight = 400; // ditto for height
+	var factor = 0.75;  // Default factor
+
+	var locationDetails = "";
+
+	//  weeds out older browsers who do not understand screen.width/screen.height
+	if (screen)
+	{ 
+		winWidth = screen.width;
+		winHeight = screen.height; //Assuming 100 pixels for menu bar and status bars
+	}
+
+	if (menubar)
+	{
+		winHeight = winHeight - 100; //Assuming 100 pixels for menu bar and status bars
+	}
+	if (!level)
+	{
+	}
+	else if (level == 1)
+	{
+		factor = 0.92;
+	}
+	else if (level == 2)
+	{
+		factor = 0.75;
+	}
+	else if (level == 3 || level == 31)
+	{
+		factor = 0.6;
+	}
+	else if (level == 4)
+	{
+		factor = 0.4;
+	}
+
+	if (menubar)
+	{
+		locationDetails = 'menubar=yes,';
+	}
+	else
+	{
+		locationDetails = 'menubar=no,';
+	}
+
+	var width;
+	var height;
+	var scrollbar = "yes";
+	
+	if(level == 2)
+	{
+
+		height = winHeight * 0.88;
+		width = winWidth * 0.79;
+
+	}else if (level == 5)
+	{
+		width = 230;
+		height = 160;
+		scrollbar = "no";
+	}
+	else
+	{
+		width = winWidth*factor;
+		height = winHeight*factor;
+	}
+	
+	
+	var left ;
+	var top ;
+
+	if(level == 1)
+	{
+		left = (winWidth - width)/2;
+		top = 0;
+
+	}else if(level == 2)
+	{
+		left = (winWidth - width)/2;
+		top = (winHeight - height)/4;
+
+	}else
+	{
+		left = (winWidth - width)/2;
+		top = (winHeight - height)/2;
+	}
+
+	var toolbar = "no";
+	if(level==1 || level==31)
+	{
+		toolbar = "yes";
+	}
+
+	locationDetails = locationDetails + 'toolbar=' + toolbar + ',location=no,scrollbars='+scrollbar+',resizable=yes,width='+
+		width+',height='+height+',left='+left+',top='+top;
+
+	return locationDetails;
+}
+function openURL(url, name, width, height)
+{
+	var title = "";
+	var params = "";
+
+	var leftPosition = null;
+	var topPosition = null;
+	
+	var defaultWidth = 800;
+	var defaultHeight = 600;
+
+	if ((width != null && width >0) && (height != null && height > 0))
+	{
+		leftPosition = (screen.width- width)/2;
+		topPosition = (screen.height-height)/2;
+		params = 'menubar=yes,toolbar,location,resizable,scrollbars=1,width='+ width + ',height=' + height +",top=" +topPosition +",left=" + leftPosition ;
+		
+	}
+	else
+	{
+		leftPosition = (screen.width - defaultWidth)/2;
+		topPosition = (screen.height - defaultHeight)/2;
+		params = 'menubar=yes,toolbar=no,location,resizable=yes,scrollbars=1,width='+ defaultWidth + ',height=' + defaultHeight +",top=" +topPosition +",left=" + leftPosition ;
+		
+	}
+	
+	if (isSafariBrowser())
+	{
+		ViewerMain.openBrowserFromFlex(url, null, null, null);
+	}
+	else
+	{
+		newWindow = window.open(url,title, params);
+		newWindow.focus();
+	}
+	
+}
+/**
+* To open the mov file type.
+* e.g. <a href="#" onClick="openTest('http://media.pearsoncmg.com/aw/aw_akst_basicmathapps_4/video/abm04_0101_MSTR.mov');">video presentation</a>
+*/
+function openTest(mName, mW, mH)
+{
+	if (mW == null)
+	{
+		mW = 320;
+	}
+	if (mH == null)
+	{
+		mH = 256;
+	}
+	newWindowqt = window.open("", "", "toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no, resizable=yes, width=" + mW + ", height=" + mH + ";");
+	newWindowqt.document.write('<html><head><title>quicktimemovie<\/title><\/head><body bgcolor="#000000" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0"><embed src="' + mName + '" width="100%" height="100%" bgcolor="000000" pluginspage="http://www.apple.com/quicktime/download/" autoplay="true" controller="true" scale="aspect"></embed><\/body><\/html>');
+}
+function initNormal()
+{
+		this.moveTo(0, 0);
+		this.resizeTo(screen.availWidth,screen.availHeight);
+}
+function initLogin(){
+	    document.forms[0].loginName.focus();
+		if(document.forms[0].password.value!=''){
+		document.getElementById('_passwordSavedByBrowser').value='Y';
+		document.getElementById('_oldPpassword').value=document.forms[0].password.value;
+	}
+}
+
+function initLogOut()
+	{
+		var width = GetWidth();
+		var height = GetHeight();
+		
+
+		if (width >= 1260)
+		{
+			//do nothing
+		}
+		else
+		{
+			width = 1260;
+		}
+
+		if(height >= 580 )
+		{
+		}
+		else
+		{
+			height = 580;
+		}
+
+		if(width > screen.availWidth)
+			width = screen.availWidth;
+
+		if(height > screen.availHeight)
+			height = screen.availHeight;
+
+		//Rajiv:ETEXT-628 Viewer: Pressing Logout in S16 resizes the browser to fullsize which hides parent LMS page
+		//this.moveTo(0, 0);
+		//innerResizeWindow(width, height);
+	}
+
+function isCDRomVersion()
+{     
+      return false;
+}
+
+function innerResizeWindow(innerWidth, innerHeight) {
+        if (self.innerWidth) {
+                myInnerWidth = self.innerWidth;
+                myInnerHeight = self.innerHeight;
+        }
+        else if (document.documentElement && document.documentElement.clientWidth) {
+                myInnerWidth = document.documentElement.clientWidth;
+                myInnerHeight = document.documentElement.clientHeight;
+        }
+        else if (document.body) {
+                myInnerWidth = document.body.clientWidth;
+                myInnerHeight = document.body.clientHeight;
+        }
+        else
+		{
+                return;
+        }
+        adjustWidth = innerWidth - myInnerWidth;
+        adjustHeight = innerHeight - myInnerHeight;
+        window.resizeBy(adjustWidth, adjustHeight);
+	}
+	
+	function GetWidth()
+	{
+        var x = 0;
+        if (self.innerWidth)
+        {
+                x = self.innerWidth;
+        }
+        else if (document.documentElement && document.documentElement.clientWidth)
+        {
+                x = document.documentElement.clientWidth;
+        }
+        else if (document.body)
+        {
+                x = document.body.clientWidth;
+        }
+        return x;
+	}
+	
+	function GetHeight()
+	{
+        var y = 0;
+        if (self.innerHeight)
+        {
+                y = self.innerHeight;
+        }
+        else if (document.documentElement && document.documentElement.clientHeight)
+        {
+                y = document.documentElement.clientHeight;
+        }
+        else if (document.body)
+        {
+                y = document.body.clientHeight;
+        }
+        return y;
+	}
+	
+/* Returns the size of the window, IE/FF/Safari/etc */
+function getOuterHeightWidth()
+{
+	// set default values for h/w so resize will occur
+	var totalW = 0;
+	var totalH = 0;
+	
+    if (window.outerHeight)
+    {
+        totalW = window.outerWidth;
+        totalH = window.outerHeight;
+    } 
+    //Rajiv: http://jira.pearsoncmg.com/browse/ETEXT-1534
+    else if(document.body.offsetWidth && (document.documentElement.clientWidth || document.body.clientWidth ))
+    {
+    	var currClientWidth = document.documentElement.clientWidth ? document.documentElement.clientWidth : document.body.clientWidth;
+    	var currClientHeight = document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight;
+	
+    	var cW = document.body.offsetWidth;
+        var cH = document.body.offsetHeight;
+        window.resizeTo(currClientWidth,currClientHeight);
+        var barsW = currClientWidth - document.body.offsetWidth;
+        var barsH = currClientHeight - document.body.offsetHeight;
+        totalW = barsW + cW;
+        totalH = barsH + cH;
+        window.resizeTo(totalW,totalH);
+    }
+    else
+    {
+    	// if we have IE or other browser that doesn't support outerHeight/outerWidth
+    	if ( document.documentElement.clientWidth || document.body.clientWidth )
+    	{
+	    	var currClientWidth = document.documentElement.clientWidth ? document.documentElement.clientWidth : document.body.clientWidth;
+	    	var currClientHeight = document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight;
+    	
+            var clientW = currClientWidth;
+            var clientH = currClientHeight;
+            
+            // resize the window, the new window will be smaller
+            window.resizeTo (clientW, clientH);
+
+            // calculate the difference between the client and the total size in the new window
+            var frameW = clientW - currClientWidth;
+            var frameH = clientH - currClientHeight;
+
+            totalW = clientW + frameW;
+            totalH = clientH + frameH;
+
+            /* if no scrollbar appeared when the original window was made smaller,
+               then the totalW and totalH contains the size of the original window,
+               else totalW or totalH contains a larger value. */
+
+            window.resizeTo (totalW, totalH);
+
+            if (clientW != currClientWidth || clientH != currClientHeight)
+            {
+                    // repair the mistake
+                frameW = totalW - currClientWidth;
+                frameH = totalH - currClientWidth;
+
+                totalW = clientW + frameW;
+                totalH = clientH + frameH;
+            }
+        }
+    }
+
+	return new Array( totalW, totalH );
+}
+
+function convert(str)
+{
+  str = str.replace(/&amp;/gi,"&");
+  str = str.replace(/&gt;/gi,">");
+  str = str.replace(/&lt;/gi,"<");
+  
+  return str;
+}
+function convert1(str)
+{
+  if(str.indexOf("&amp;")!=-1){
+  	str = str.replace(/&amp;/gi,"&");
+  }  
+ str = str.replace(/&gt;/gi,">");
+str = str.replace(/&lt;/gi,"<");  
+ str = str.replace(/&#034;/gi,"\"");
+  return str;
+	} 
+	function convert2(str)
+	{
+	  
+	  str = str.replace("&gt;",">");
+	  str = str.replace("&lt;","<");
+	  return str;
+	}
+	
+	/**
+	 * This function is used to launch feedback link from both bookshelf as well as from book. It will open HTML based feedback page.
+	 * @param firstname --this is first name of the user
+	 * @param lastname  --this is last name of the user
+	 * @param topic     --this is list of topics
+	 * @param topicID   --this is list of topic id. topic and topicid both should be in same order.
+	 * @param userid    --this is user id
+	 * @param bookid    --this is bookid
+	 */
+	function openFeedback(firstName,lastName,topicNameList,topicIDList,userID,bookID)
+	{
+		//name of the user
+		var name=firstName+" "+lastName;
+		//Create feedback URL
+		var feedbackURL="/ebook/jsp/viewer/feedback.jsp?keepThis=true&TB_iframe=true&height=400&width=400&name="+name+"&topicname="+topicNameList+"&topicID="+topicIDList+"&userid="+userID+"&bookid"+bookID;
+		//set "feedback" anchor tag's "href" as this feedback 
+		document.getElementById('feedback').setAttribute('href',feedbackURL);
+	}
+>"5—:p      WVÝPWVÝP<‰þlWbv€   F    :https://view.ebookplus.pearsoncmg.com/ebook/javascript/common_4.14.js necko:classified 1 security-info FnhllAKWRHGAlo+ESXykKAAAAAAAAAAAwAAAAAAAAEaphjojH6pBabDSgSnsfLHeAAQAAgAAAAAAAAAAAAAAAAAAAAAB4vFIJp5wRkeyPxAQ9RJGKPqbqVvKO0mKuIl8ec8o/uhmCjImkVxP+7sgiYWmMt8FvcOXmlQiTNWFiWlrbpbqgwAAAAAAAAhfMIIIWzCCB0OgAwIBAgIRAL1zMhGh29ipMJTT780D1gQwDQYJKoZIhvcNAQELBQAwgZYxCzAJBgNVBAYTAkdCMRswGQYDVQQIExJHcmVhdGVyIE1hbmNoZXN0ZXIxEDAOBgNVBAcTB1NhbGZvcmQxGjAYBgNVBAoTEUNPTU9ETyBDQSBMaW1pdGVkMTwwOgYDVQQDEzNDT01PRE8gUlNBIE9yZ2FuaXphdGlvbiBWYWxpZGF0aW9uIFNlY3VyZSBTZXJ2ZXIgQ0EwHhcNMTQxMDE1MDAwMDAwWhcNMTcwNjMwMjM1OTU5WjCBwTELMAkGA1UEBhMCVVMxDjAMBgNVBBETBTA3Njc1MQswCQYDVQQIEwJOSjETMBEGA1UEBxMKT2xkIFRhcHBhbjEaMBgGA1UECRMRMjAwIE9sZCBUYXBwYW4gUmQxIDAeBgNVBAoTF1BlYXJzb24gRWR1Y2F0aW9uLCBJbmMuMR8wHQYDVQQLExZVbmlmaWVkIENvbW11bmljYXRpb25zMSEwHwYDVQQDExhlYm9va3BsdXMucGVhcnNvbmNtZy5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDhK6liBN8NJsz1UDL0HlpwOxxpBOozgKgR5sFY2DbtjPhrL8uCr/kMZI4GlL6iwUS+qRYFDfZnEOrTBRKBzrY04W0f37zRkfr1BlfPSS6oeLTIOlbub+R+1SdAhpHD19kUQuvaDySk8IMWyNV1GzqUre1eFx1+YuBh3ym66gmj1zMlqSMT0S8E+bvpIMuU6Li4waaEcj6KBjqjNsDwZu/H9SkSo0UIS4WjNjVGL5tuEMs5vbxl9BeEvb7tneV5neGiaIUZ+318Nw8hbA676qafHYgd5TBOBf/UkGO2kGuO45fqd5klvrVyr+GZPklvEAz/8ax0iIHeT1Edv7uNNvPnAgMBAAGjggR1MIIEcTAfBgNVHSMEGDAWgBSa8yvaz61Pti+7KkhIKhK3G0LBJDAdBgNVHQ4EFgQUHTDjUkH2GjE44t0HyztdQccxv5EwDgYDVR0PAQH/BAQDAgWgMAwGA1UdEwEB/wQCMAAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMFAGA1UdIARJMEcwOwYMKwYBBAGyMQECAQMEMCswKQYIKwYBBQUHAgEWHWh0dHBzOi8vc2VjdXJlLmNvbW9kby5jb20vQ1BTMAgGBmeBDAECAjBaBgNVHR8EUzBRME+gTaBLhklodHRwOi8vY3JsLmNvbW9kb2NhLmNvbS9DT01PRE9SU0FPcmdhbml6YXRpb25WYWxpZGF0aW9uU2VjdXJlU2VydmVyQ0EuY3JsMIGLBggrBgEFBQcBAQR/MH0wVQYIKwYBBQUHMAKGSWh0dHA6Ly9jcnQuY29tb2RvY2EuY29tL0NPTU9ET1JTQU9yZ2FuaXphdGlvblZhbGlkYXRpb25TZWN1cmVTZXJ2ZXJDQS5jcnQwJAYIKwYBBQUHMAGGGGh0dHA6Ly9vY3NwLmNvbW9kb2NhLmNvbTCCArQGA1UdEQSCAqswggKnghhlYm9va3BsdXMucGVhcnNvbmNtZy5jb22CImxpdmUucHBlMS5lYm9va3BsdXMucGVhcnNvbmNtZy5jb22CImxpdmUucHBlMi5lYm9va3BsdXMucGVhcnNvbmNtZy5jb22CImxpdmUucHBlMy5lYm9va3BsdXMucGVhcnNvbmNtZy5jb22CLnJ1bWJhLmJvb2tzaGVsZi5jZXJ0MS5lYm9va3BsdXMucGVhcnNvbmNtZy5jb22CKHJ1bWJhLmJvb2tzaGVsZi5lYm9va3BsdXMucGVhcnNvbmNtZy5jb22CLXJ1bWJhLmJvb2tzaGVsZi5wcGUxLmVib29rcGx1cy5wZWFyc29uY21nLmNvbYIsc21zLmJvb2tzaGVsZi5jZXJ0MS5lYm9va3BsdXMucGVhcnNvbmNtZy5jb22CJnNtcy5ib29rc2hlbGYuZWJvb2twbHVzLnBlYXJzb25jbWcuY29tgitzbXMuYm9va3NoZWxmLnBwZTEuZWJvb2twbHVzLnBlYXJzb25jbWcuY29tgiJ2aWV3LmNlcnQxLmVib29rcGNsLnBlYXJzb25jbWcuY29tgiN2aWV3LmNlcnQxLmVib29rcGx1cy5wZWFyc29uY21nLmNvbYIjdmlldy5jZXJ0Mi5lYm9va3BsdXMucGVhcnNvbmNtZy5jb22CI3ZpZXcuY2VydDMuZWJvb2twbHVzLnBlYXJzb25jbWcuY29tgh12aWV3LmVib29rcGx1cy5wZWFyc29uY21nLmNvbYIfdmlldy5ldGV4dC5ob21lMS5wZWFyc29uY21nLmNvbYIfdmlldy5ldGV4dC5ob21lMi5wZWFyc29uY21nLmNvbYIfdmlldy5ldGV4dC5ob21lMy5wZWFyc29uY21nLmNvbTANBgkqhkiG9w0BAQsFAAOCAQEAk3RkRCtHKdHs4/4L2zqZO/HIOHhLH8Z547bTEAi5wEE7qAaq9UFhZptP8xzcyGxK4Okt1pRnoiaHmeY4v7usqMmfd454TKVLVvvVYR3PlJJ7n85hfaWLmrZUc6Dhs5rNgnTgZPnb5jXusuYYE/En9kZj7TqAYaVpnB45/dwZ/RpysISQhikQ67gyjVZKRidNxHd9BiArGm39hJCNnnxYSv1TRwk2Oa6HlLqG24hyKPfdQnJA7CxiEZyTzbxrLMd006imjpe6zjLb48x0aT/5gJdCL/4SwPCKb2aNpwRPxVLpHYjP+oGnrAb0l5xPEuCQxNMzBWIzuO7ljOplP42TQwA1AAMAAAAAAQEAAA== request-method GET response-head HTTP/1.1 200 OK
+Accept-Ranges: bytes
+Etag: W/"11055-1457694440000"
+Last-Modified: Fri, 11 Mar 2016 11:07:20 GMT
+Content-Type: text/javascript
+Content-Length: 11055
+Date: Tue, 07 Jun 2016 14:19:42 GMT
+Server: Prod
+ uncompressed-len 0   +/

@@ -1,0 +1,259 @@
+/* ============================================================
+ * bootstrapSwitch v1.3 by Larentis Mattia @spiritualGuru
+ * http://www.larentis.eu/switch/
+ * ============================================================
+ * Licensed under the Apache License, Version 2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ * ============================================================ */
+
+!function ($) {
+  "use strict";
+
+  $.fn['bootstrapSwitch'] = function (method) {
+    var methods = {
+      init: function () {
+        return this.each(function () {
+            var $element = $(this)
+              , $div
+              , $switchLeft
+              , $switchRight
+              , $label
+              , myClasses = ""
+              , classes = $element.attr('class')
+              , color
+              , moving
+              , onLabel = "ON"
+              , offLabel = "OFF"
+              , icon = false;
+
+            $.each(['switch-mini', 'switch-small', 'switch-large'], function (i, el) {
+              if (classes.indexOf(el) >= 0)
+                myClasses = el;
+            });
+
+            $element.addClass('has-switch');
+
+            if ($element.data('on') !== undefined)
+              color = "switch-" + $element.data('on');
+
+            if ($element.data('on-label') !== undefined)
+              onLabel = $element.data('on-label');
+
+            if ($element.data('off-label') !== undefined)
+              offLabel = $element.data('off-label');
+
+            if ($element.data('icon') !== undefined)
+              icon = $element.data('icon');
+
+            $switchLeft = $('<span>')
+              .addClass("switch-left")
+              .addClass(myClasses)
+              .addClass(color)
+              .html(onLabel);
+
+            color = '';
+            if ($element.data('off') !== undefined)
+              color = "switch-" + $element.data('off');
+
+            $switchRight = $('<span>')
+              .addClass("switch-right")
+              .addClass(myClasses)
+              .addClass(color)
+              .html(offLabel);
+
+            $label = $('<label>')
+              .html("&nbsp;")
+              .addClass(myClasses)
+              .attr('for', $element.find('input').attr('id'));
+
+            if (icon) {
+              $label.html('<i class="' + icon + '"></i>');
+            }
+
+            $div = $element.find(':checkbox').wrap($('<div>')).parent().data('animated', false);
+
+            if ($element.data('animated') !== false)
+              $div.addClass('switch-animate').data('animated', true);
+
+            $div
+              .append($switchLeft)
+              .append($label)
+              .append($switchRight);
+
+            $element.find('>div').addClass(
+              $element.find('input').is(':checked') ? 'switch-on' : 'switch-off'
+            );
+
+            if ($element.find('input').is(':disabled'))
+              $(this).addClass('deactivate');
+
+            var changeStatus = function ($this) {
+              $this.siblings('label').trigger('mousedown').trigger('mouseup').trigger('click');
+            };
+
+            $element.on('keydown', function (e) {
+              if (e.keyCode === 32) {
+                e.stopImmediatePropagation();
+                e.preventDefault();
+                changeStatus($(e.target).find('span:first'));
+              }
+            });
+
+            $switchLeft.on('click', function (e) {
+              changeStatus($(this));
+            });
+
+            $switchRight.on('click', function (e) {
+              changeStatus($(this));
+            });
+
+            $element.find('input').on('change', function (e) {
+              var $this = $(this)
+                , $element = $this.parent()
+                , thisState = $this.is(':checked')
+                , state = $element.is('.switch-off');
+
+              e.preventDefault();
+
+              $element.css('left', '');
+
+              if (state === thisState) {
+
+                if (thisState)
+                  $element.removeClass('switch-off').addClass('switch-on');
+                else $element.removeClass('switch-on').addClass('switch-off');
+
+                if ($element.data('animated') !== false)
+                  $element.addClass("switch-animate");
+
+                $element.parent().trigger('switch-change', {'el': $this, 'value': thisState})
+              }
+            });
+
+            $element.find('label').on('mousedown touchstart', function (e) {
+              var $this = $(this);
+              moving = false;
+
+              e.preventDefault();
+              e.stopImmediatePropagation();
+
+              $this.closest('div').removeClass('switch-animate');
+
+              if ($this.closest('.has-switch').is('.deactivate'))
+                $this.unbind('click');
+              else {
+                $this.on('mousemove touchmove', function (e) {
+                  var $element = $(this).closest('.switch')
+                    , relativeX = (e.pageX || e.originalEvent.targetTouches[0].pageX) - $element.offset().left
+                    , percent = (relativeX / $element.width()) * 100
+                    , left = 25
+                    , right = 75;
+
+                  moving = true;
+
+                  if (percent < left)
+                    percent = left;
+                  else if (percent > right)
+                    percent = right;
+
+                  $element.find('>div').css('left', (percent - right) + "%")
+                });
+
+                $this.on('click touchend', function (e) {
+                  var $this = $(this)
+                    , $target = $(e.target)
+                    , $myCheckBox = $target.siblings('input');
+
+                  e.stopImmediatePropagation();
+                  e.preventDefault();
+
+                  $this.unbind('mouseleave');
+
+                  if (moving)
+                    $myCheckBox.prop('checked', !(parseInt($this.parent().css('left')) < -25));
+                  else $myCheckBox.prop("checked", !$myCheckBox.is(":checked"));
+
+                  moving = false;
+                  $myCheckBox.trigger('change');
+                });
+
+                $this.on('mouseleave', function (e) {
+                  var $this = $(this)
+                    , $myCheckBox = $this.siblings('input');
+
+                  e.preventDefault();
+                  e.stopImmediatePropagation();
+
+                  $this.unbind('mouseleave');
+                  $this.trigger('mouseup');
+
+                  $myCheckBox.prop('checked', !(parseInt($this.parent().css('left')) < -25)).trigger('change');
+                });
+
+                $this.on('mouseup', function (e) {
+                  e.stopImmediatePropagation();
+                  e.preventDefault();
+
+                  $(this).unbind('mousemove');
+                });
+              }
+            });
+          }
+        );
+      },
+      toggleActivation: function () {
+        $(this).toggleClass('deactivate');
+      },
+      isActive: function () {
+        return !$(this).hasClass('deactivate');
+      },
+      setActive: function (active) {
+        if (active)
+          $(this).removeClass('deactivate');
+        else $(this).addClass('deactivate');
+      },
+      toggleState: function (skipOnChange) {
+        var $input = $(this).find('input:checkbox');
+        $input.prop('checked', !$input.is(':checked')).trigger('change', skipOnChange);
+      },
+      setState: function (value, skipOnChange) {
+        $(this).find('input:checkbox').prop('checked', value).trigger('change', skipOnChange);
+      },
+      status: function () {
+        return $(this).find('input:checkbox').is(':checked');
+      },
+      destroy: function () {
+        var $div = $(this).find('div')
+          , $checkbox;
+
+        $div.find(':not(input:checkbox)').remove();
+
+        $checkbox = $div.children();
+        $checkbox.unwrap().unwrap();
+
+        $checkbox.unbind('change');
+
+        return $checkbox;
+      }
+    };
+
+    if (methods[method])
+      return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
+    else if (typeof method === 'object' || !method)
+      return methods.init.apply(this, arguments);
+    else
+      $.error('Method ' + method + ' does not exist!');
+  };
+}(jQuery);
+
+$(function () {
+  $('.switch')['bootstrapSwitch']();
+});
+›Wx(ê      W", W",<euÌW"@Ý   E    :https://services.jsatech.com/custom/v3/assets/js/bootstrap-switch.js necko:classified 1 security-info FnhllAKWRHGAlo+ESXykKAAAAAAAAAAAwAAAAAAAAEaphjojH6pBabDSgSnsfLHeAAQAAgAAAAAAAAAAAAAAAAAAAAAB4vFIJp5wRkeyPxAQ9RJGKPqbqVvKO0mKuIl8ec8o/uhmCjImkVxP+7sgiYWmMt8F+O2DZM7ZTG6GukivU8OT5gAAAAAAAAS9MIIEuTCCA6GgAwIBAgIQdc2NGdwB5YJY7EqAIpb8vDANBgkqhkiG9w0BAQsFADBBMQswCQYDVQQGEwJVUzEVMBMGA1UEChMMdGhhd3RlLCBJbmMuMRswGQYDVQQDExJ0aGF3dGUgU1NMIENBIC0gRzIwHhcNMTUwNDE3MDAwMDAwWhcNMTcwNzE2MjM1OTU5WjB2MQswCQYDVQQGEwJVUzEWMBQGA1UECBMNTWFzc2FjaHVzZXR0czEQMA4GA1UEBxQHQmVkZm9yZDEeMBwGA1UEChQVSlNBIFRlY2hub2xvZ2llcyBJbmMuMR0wGwYDVQQDFBRzZXJ2aWNlcy5qc2F0ZWNoLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAOEFXB34dHG5ksRQ54vMQSqG7WmmePNXmHDjRCDJ9AJxenkwToQa7nB3riPuhtjaPMZGBfOScmkeL33Qg5spSZgHbJYrLK5nrICeoadmzu88Rq2VHsblDpZIXs2+LmBT/TAlsJzmPDovncl6K7m2JO+6REaUQD6MjKXyAxTff7RPFmTwEUT7kIWt37wSwAP3LquVSob+AQ7PrKdXP9mrl1en7e9ubn4C0juDGF/pAGJnBwpYsUn7Itg5xamrDlX/xJ8n2C9tHoCwYEXzeiIVS4elUYHb1ZQ2fJJuKkbKMPl67NkocMBf/AXd5KQgsxARxd1Um6qJB9VCFD7idCG4q8sCAwEAAaOCAXYwggFyMB8GA1UdEQQYMBaCFHNlcnZpY2VzLmpzYXRlY2guY29tMAkGA1UdEwQCMAAwbgYDVR0gBGcwZTBjBgZngQwBAgIwWTAmBggrBgEFBQcCARYaaHR0cHM6Ly93d3cudGhhd3RlLmNvbS9jcHMwLwYIKwYBBQUHAgIwIwwhaHR0cHM6Ly93d3cudGhhd3RlLmNvbS9yZXBvc2l0b3J5MA4GA1UdDwEB/wQEAwIFoDAfBgNVHSMEGDAWgBTCT0hX/NFPmsBdOH0OBdvZLrVSYDArBgNVHR8EJDAiMCCgHqAchhpodHRwOi8vdGouc3ltY2IuY29tL3RqLmNybDAdBgNVHSUEFjAUBggrBgEFBQcDAQYIKwYBBQUHAwIwVwYIKwYBBQUHAQEESzBJMB8GCCsGAQUFBzABhhNodHRwOi8vdGouc3ltY2QuY29tMCYGCCsGAQUFBzAChhpodHRwOi8vdGouc3ltY2IuY29tL3RqLmNydDANBgkqhkiG9w0BAQsFAAOCAQEAZUtKeIQ7G2hCAEvVufhqpyrbdaUtn9tZ9slBdJGRo0nsomPtpY6C5ME8armJetd0cz5BKf2ATesE+yQcwLvDX/3V4RV6AnZgRVlECrqLZ2M8h6gcWEAE6oYK+x5bTdZLUyo9m+dsDW+jzOBzZJX2ACZQMdJG1GQSXRr11WO15IZ15xArqjsZ1qW5TyzbTJUssCe1P4x9Q/+8a54L8eZgZJXZV8VXnNziDvDMCkMKp6rsGKeGXo9vSH2xZM/c3TJhPLlFRSjFwN/mM1iMC3D7+DJfU4o6P5xm2Lk1BOoqZmFlIvsmwCuEU6GH5TVTCyx8N+IfMVmX9tGMiyFFA+54icAvAAMAAAAAAQEAAA== request-method GET response-head HTTP/1.1 200 OK
+Date: Thu, 28 Apr 2016 15:28:01 GMT
+Server: Apache
+Last-Modified: Thu, 28 Apr 2016 00:37:44 GMT
+Accept-Ranges: bytes
+Content-Length: 8205
+Content-Type: text/javascript
+ uncompressed-len 0    

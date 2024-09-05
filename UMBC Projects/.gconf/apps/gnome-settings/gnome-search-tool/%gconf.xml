@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<gconf>
+	<entry name="history-gsearchtool-file-entry" mtime="1499370033" type="list" ltype="string">
+		<li type="string">
+			<stringvalue>command line</stringvalue>
+		</li>
+	</entry>
+</gconf>

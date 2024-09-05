@@ -1,0 +1,2860 @@
+/*
+ * Copyright 2005 Joe Walker
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/**
+ * Declare an object to which we can add real functions.
+ */
+if (dwr == null) var dwr = {};
+if (dwr.engine == null) dwr.engine = {};
+if (DWREngine == null) var DWREngine = dwr.engine;
+
+/**
+ * Set an alternative error handler from the default alert box.
+ * @see getahead.org/dwr/browser/engine/errors
+ */
+dwr.engine.setErrorHandler = function(handler) {
+  dwr.engine._errorHandler = handler;
+};
+
+/**
+ * Set an alternative warning handler from the default alert box.
+ * @see getahead.org/dwr/browser/engine/errors
+ */
+dwr.engine.setWarningHandler = function(handler) {
+  dwr.engine._warningHandler = handler;
+};
+
+/**
+ * Setter for the text/html handler - what happens if a DWR request gets an HTML
+ * reply rather than the expected Javascript. Often due to login timeout
+ */
+dwr.engine.setTextHtmlHandler = function(handler) {
+  dwr.engine._textHtmlHandler = handler;
+};
+
+/**
+ * Set a default timeout value for all calls. 0 (the default) turns timeouts off.
+ * @see getahead.org/dwr/browser/engine/errors
+ */
+dwr.engine.setTimeout = function(timeout) {
+  dwr.engine._timeout = timeout;
+};
+
+/**
+ * The Pre-Hook is called before any DWR remoting is done.
+ * @see getahead.org/dwr/browser/engine/hooks
+ */
+dwr.engine.setPreHook = function(handler) {
+  dwr.engine._preHook = handler;
+};
+
+/**
+ * The Post-Hook is called after any DWR remoting is done.
+ * @see getahead.org/dwr/browser/engine/hooks
+ */
+dwr.engine.setPostHook = function(handler) {
+  dwr.engine._postHook = handler;
+};
+
+/**
+ * Custom headers for all DWR calls
+ * @see getahead.org/dwr/????
+ */
+dwr.engine.setHeaders = function(headers) {
+  dwr.engine._headers = headers;
+};
+
+/**
+ * Custom parameters for all DWR calls
+ * @see getahead.org/dwr/????
+ */
+dwr.engine.setParameters = function(parameters) {
+  dwr.engine._parameters = parameters;
+};
+
+/** XHR remoting type constant. See dwr.engine.set[Rpc|Poll]Type() */
+dwr.engine.XMLHttpRequest = 1;
+
+/** XHR remoting type constant. See dwr.engine.set[Rpc|Poll]Type() */
+dwr.engine.IFrame = 2;
+
+/** XHR remoting type constant. See dwr.engine.setRpcType() */
+dwr.engine.ScriptTag = 3;
+
+/**
+ * Set the preferred remoting type.
+ * @param newType One of dwr.engine.XMLHttpRequest or dwr.engine.IFrame or dwr.engine.ScriptTag
+ * @see getahead.org/dwr/browser/engine/options
+ */
+dwr.engine.setRpcType = function(newType) {
+  if (newType != dwr.engine.XMLHttpRequest && newType != dwr.engine.IFrame && newType != dwr.engine.ScriptTag) {
+    dwr.engine._handleError(null, { name:"dwr.engine.invalidRpcType", message:"RpcType must be one of dwr.engine.XMLHttpRequest or dwr.engine.IFrame or dwr.engine.ScriptTag" });
+    return;
+  }
+  dwr.engine._rpcType = newType;
+};
+
+/**
+ * Which HTTP method do we use to send results? Must be one of "GET" or "POST".
+ * @see getahead.org/dwr/browser/engine/options
+ */
+dwr.engine.setHttpMethod = function(httpMethod) {
+  if (httpMethod != "GET" && httpMethod != "POST") {
+    dwr.engine._handleError(null, { name:"dwr.engine.invalidHttpMethod", message:"Remoting method must be one of GET or POST" });
+    return;
+  }
+  dwr.engine._httpMethod = httpMethod;
+};
+
+/**
+ * Ensure that remote calls happen in the order in which they were sent? (Default: false)
+ * @see getahead.org/dwr/browser/engine/ordering
+ */
+dwr.engine.setOrdered = function(ordered) {
+  dwr.engine._ordered = ordered;
+};
+
+/**
+ * Do we ask the XHR object to be asynchronous? (Default: true)
+ * @see getahead.org/dwr/browser/engine/options
+ */
+dwr.engine.setAsync = function(async) {
+  dwr.engine._async = async;
+};
+
+/**
+ * Does DWR poll the server for updates? (Default: false)
+ * @see getahead.org/dwr/browser/engine/options
+ */
+dwr.engine.setActiveReverseAjax = function(activeReverseAjax) {
+  if (activeReverseAjax) {
+    // Bail if we are already started
+    if (dwr.engine._activeReverseAjax) return;
+    dwr.engine._activeReverseAjax = true;
+    dwr.engine._poll();
+  }
+  else {
+    // Can we cancel an existing request?
+    if (dwr.engine._activeReverseAjax && dwr.engine._pollReq) dwr.engine._pollReq.abort();
+    dwr.engine._activeReverseAjax = false;
+  }
+  // TODO: in iframe mode, if we start, stop, start then the second start may
+  // well kick off a second iframe while the first is still about to return
+  // we should cope with this but we don't
+};
+
+/**
+ * The default message handler.
+ * @see getahead.org/dwr/browser/engine/errors
+ */
+dwr.engine.defaultErrorHandler = function(message, ex) {
+  dwr.engine._debug("Error: " + ex.name + ", " + ex.message, true);
+  if (message == null || message == "") alert("A server error has occured.");
+  // Ignore NS_ERROR_NOT_AVAILABLE if Mozilla is being narky
+  else if (message.indexOf("0x80040111") != -1) dwr.engine._debug(message);
+  else alert(message);
+};
+
+/**
+ * The default warning handler.
+ * @see getahead.org/dwr/browser/engine/errors
+ */
+dwr.engine.defaultWarningHandler = function(message, ex) {
+  dwr.engine._debug(message);
+};
+
+/**
+ * For reduced latency you can group several remote calls together using a batch.
+ * @see getahead.org/dwr/browser/engine/batch
+ */
+dwr.engine.beginBatch = function() {
+  if (dwr.engine._batch) {
+    dwr.engine._handleError(null, { name:"dwr.engine.batchBegun", message:"Batch already begun" });
+    return;
+  }
+  dwr.engine._batch = dwr.engine._createBatch();
+};
+
+/**
+ * Finished grouping a set of remote calls together. Go and execute them all.
+ * @see getahead.org/dwr/browser/engine/batch
+ */
+dwr.engine.endBatch = function(options) {
+  var batch = dwr.engine._batch;
+  if (batch == null) {
+    dwr.engine._handleError(null, { name:"dwr.engine.batchNotBegun", message:"No batch in progress" });
+    return;
+  }
+  dwr.engine._batch = null;
+  if (batch.map.callCount == 0) return;
+
+  // The hooks need to be merged carefully to preserve ordering
+  if (options) dwr.engine._mergeBatch(batch, options);
+
+  // In ordered mode, we don't send unless the list of sent items is empty
+  if (dwr.engine._ordered && dwr.engine._batchesLength != 0) {
+    dwr.engine._batchQueue[dwr.engine._batchQueue.length] = batch;
+  }
+  else {
+    dwr.engine._sendData(batch);
+  }
+};
+
+/** @deprecated */
+dwr.engine.setPollMethod = function(type) { dwr.engine.setPollType(type); };
+dwr.engine.setMethod = function(type) { dwr.engine.setRpcType(type); };
+dwr.engine.setVerb = function(verb) { dwr.engine.setHttpMethod(verb); };
+dwr.engine.setPollType = function() { dwr.engine._debug("Manually setting the Poll Type is not supported"); };
+
+//==============================================================================
+// Only private stuff below here
+//==============================================================================
+
+/** The original page id sent from the server */
+dwr.engine._origScriptSessionId = "8A22AEE4C7B3F9CA3A094735175A6B14";
+
+/** The session cookie name */
+dwr.engine._sessionCookieName = "JSESSIONID"; // JSESSIONID
+
+/** Is GET enabled for the benefit of Safari? */
+dwr.engine._allowGetForSafariButMakeForgeryEasier = "false";
+
+/** The script prefix to strip in the case of scriptTagProtection. */
+dwr.engine._scriptTagProtection = "throw 'allowScriptTagRemoting is false.';";
+
+/** The default path to the DWR servlet */
+dwr.engine._defaultPath = "/webapps/blackboard/dwr";
+
+/** Do we use XHR for reverse ajax because we are not streaming? */
+dwr.engine._pollWithXhr = "false";
+
+/** The read page id that we calculate */
+dwr.engine._scriptSessionId = null;
+
+/** The function that we use to fetch/calculate a session id */
+dwr.engine._getScriptSessionId = function() {
+  if (dwr.engine._scriptSessionId == null) {
+    dwr.engine._scriptSessionId = dwr.engine._origScriptSessionId + Math.floor(Math.random() * 1000);
+  }
+  return dwr.engine._scriptSessionId;
+};
+
+/** A function to call if something fails. */
+dwr.engine._errorHandler = dwr.engine.defaultErrorHandler;
+
+/** For debugging when something unexplained happens. */
+dwr.engine._warningHandler = dwr.engine.defaultWarningHandler;
+
+/** A function to be called before requests are marshalled. Can be null. */
+dwr.engine._preHook = null;
+
+/** A function to be called after replies are received. Can be null. */
+dwr.engine._postHook = null;
+
+/** An map of the batches that we have sent and are awaiting a reply on. */
+dwr.engine._batches = {};
+
+/** A count of the number of outstanding batches. Should be == to _batches.length unless prototype has messed things up */
+dwr.engine._batchesLength = 0;
+
+/** In ordered mode, the array of batches waiting to be sent */
+dwr.engine._batchQueue = [];
+
+/** What is the default rpc type */
+dwr.engine._rpcType = dwr.engine.XMLHttpRequest;
+
+/** What is the default remoting method (ie GET or POST) */
+dwr.engine._httpMethod = "POST";
+
+/** Do we attempt to ensure that calls happen in the order in which they were sent? */
+dwr.engine._ordered = false;
+
+/** Do we make the calls async? */
+dwr.engine._async = true;
+
+/** The current batch (if we are in batch mode) */
+dwr.engine._batch = null;
+
+/** The global timeout */
+dwr.engine._timeout = 0;
+
+/** ActiveX objects to use when we want to convert an xml string into a DOM object. */
+dwr.engine._DOMDocument = ["Msxml2.DOMDocument.6.0", "Msxml2.DOMDocument.5.0", "Msxml2.DOMDocument.4.0", "Msxml2.DOMDocument.3.0", "MSXML2.DOMDocument", "MSXML.DOMDocument", "Microsoft.XMLDOM"];
+
+/** The ActiveX objects to use when we want to do an XMLHttpRequest call. */
+dwr.engine._XMLHTTP = ["Msxml2.XMLHTTP.6.0", "Msxml2.XMLHTTP.5.0", "Msxml2.XMLHTTP.4.0", "MSXML2.XMLHTTP.3.0", "MSXML2.XMLHTTP", "Microsoft.XMLHTTP"];
+
+/** Are we doing comet or polling? */
+dwr.engine._activeReverseAjax = false;
+
+/** The iframe that we are using to poll */
+dwr.engine._outstandingIFrames = [];
+
+/** The xhr object that we are using to poll */
+dwr.engine._pollReq = null;
+
+/** How many milliseconds between internal comet polls */
+dwr.engine._pollCometInterval = 200;
+
+/** How many times have we re-tried to poll? */
+dwr.engine._pollRetries = 0;
+dwr.engine._maxPollRetries = 0;
+
+/** Do we do a document.reload if we get a text/html reply? */
+dwr.engine._textHtmlHandler = null;
+
+/** If you wish to send custom headers with every request */
+dwr.engine._headers = null;
+
+/** If you wish to send extra custom request parameters with each request */
+dwr.engine._parameters = null;
+
+/** Undocumented interceptors - do not use */
+dwr.engine._postSeperator = "\n";
+dwr.engine._defaultInterceptor = function(data) { return data; };
+dwr.engine._urlRewriteHandler = dwr.engine._defaultInterceptor;
+dwr.engine._contentRewriteHandler = dwr.engine._defaultInterceptor;
+dwr.engine._replyRewriteHandler = dwr.engine._defaultInterceptor;
+
+/** Batch ids allow us to know which batch the server is answering */
+dwr.engine._nextBatchId = 0;
+
+/** A list of the properties that need merging from calls to a batch */
+dwr.engine._propnames = [ "rpcType", "httpMethod", "async", "timeout", "errorHandler", "warningHandler", "textHtmlHandler" ];
+
+/** Do we stream, or can be hacked to do so? */
+dwr.engine._partialResponseNo = 0;
+dwr.engine._partialResponseYes = 1;
+dwr.engine._partialResponseFlush = 2;
+
+/** Is this page in the process of unloading? */
+dwr.engine._unloading = false;
+
+/**
+ * @private Send a request. Called by the Javascript interface stub
+ * @param path part of URL after the host and before the exec bit without leading or trailing /s
+ * @param scriptName The class to execute
+ * @param methodName The method on said class to execute
+ * @param func The callback function to which any returned data should be passed
+ *       if this is null, any returned data will be ignored
+ * @param vararg_params The parameters to pass to the above class
+ */
+dwr.engine._execute = function(path, scriptName, methodName, vararg_params) {
+  var singleShot = false;
+  if (dwr.engine._batch == null) {
+    dwr.engine.beginBatch();
+    singleShot = true;
+  }
+  var batch = dwr.engine._batch;
+  // To make them easy to manipulate we copy the arguments into an args array
+  var args = [];
+  for (var i = 0; i < arguments.length - 3; i++) {
+    args[i] = arguments[i + 3];
+  }
+  // All the paths MUST be to the same servlet
+  if (batch.path == null) {
+    batch.path = path;
+  }
+  else {
+    if (batch.path != path) {
+      dwr.engine._handleError(batch, { name:"dwr.engine.multipleServlets", message:"Can't batch requests to multiple DWR Servlets." });
+      return;
+    }
+  }
+  // From the other params, work out which is the function (or object with
+  // call meta-data) and which is the call parameters
+  var callData;
+  var lastArg = args[args.length - 1];
+  if (typeof lastArg == "function" || lastArg == null) callData = { callback:args.pop() };
+  else callData = args.pop();
+
+  // Merge from the callData into the batch
+  dwr.engine._mergeBatch(batch, callData);
+  batch.handlers[batch.map.callCount] = {
+    exceptionHandler:callData.exceptionHandler,
+    callback:callData.callback
+  };
+
+  // Copy to the map the things that need serializing
+  var prefix = "c" + batch.map.callCount + "-";
+  batch.map[prefix + "scriptName"] = scriptName;
+  batch.map[prefix + "methodName"] = methodName;
+  batch.map[prefix + "id"] = batch.map.callCount;
+  for (i = 0; i < args.length; i++) {
+    dwr.engine._serializeAll(batch, [], args[i], prefix + "param" + i);
+  }
+
+  // Now we have finished remembering the call, we incr the call count
+  batch.map.callCount++;
+  if (singleShot) dwr.engine.endBatch();
+};
+
+/** @private Poll the server to see if there is any data waiting */
+dwr.engine._poll = function() {
+  if (!dwr.engine._activeReverseAjax) return;
+
+  var batch = dwr.engine._createBatch();
+  batch.map.id = 0; // TODO: Do we need this??
+  batch.map.callCount = 1;
+  batch.isPoll = true;
+  if (dwr.engine._pollWithXhr == "true") {
+    batch.rpcType = dwr.engine.XMLHttpRequest;
+    batch.map.partialResponse = dwr.engine._partialResponseNo;
+  }
+  else {
+    if (navigator.userAgent.indexOf("Gecko/") != -1) {
+      batch.rpcType = dwr.engine.XMLHttpRequest;
+      batch.map.partialResponse = dwr.engine._partialResponseYes;
+    }
+    else {
+      batch.rpcType = dwr.engine.XMLHttpRequest;
+      batch.map.partialResponse = dwr.engine._partialResponseNo;
+    }
+  }
+  batch.httpMethod = "POST";
+  batch.async = true;
+  batch.timeout = 0;
+  batch.path = dwr.engine._defaultPath;
+  batch.preHooks = [];
+  batch.postHooks = [];
+  batch.errorHandler = dwr.engine._pollErrorHandler;
+  batch.warningHandler = dwr.engine._pollErrorHandler;
+  batch.handlers[0] = {
+    callback:function(pause) {
+      dwr.engine._pollRetries = 0;
+      setTimeout(dwr.engine._poll, pause);
+    }
+  };
+
+  // Send the data
+  dwr.engine._sendData(batch);
+  if (batch.rpcType == dwr.engine.XMLHttpRequest && batch.map.partialResponse == dwr.engine._partialResponseYes) {
+    dwr.engine._checkCometPoll();
+  }
+};
+
+/** Try to recover from polling errors */
+dwr.engine._pollErrorHandler = function(msg, ex) {
+  // if anything goes wrong then just silently try again (up to 3x) after 10s
+  dwr.engine._pollRetries++;
+  dwr.engine._debug("Reverse Ajax poll failed (pollRetries=" + dwr.engine._pollRetries + "): " + ex.name + " : " + ex.message);
+  if (dwr.engine._pollRetries < dwr.engine._maxPollRetries) {
+    setTimeout(dwr.engine._poll, 10000);
+  }
+  else {
+    dwr.engine._activeReverseAjax = false;
+    dwr.engine._debug("Giving up.");
+  }
+};
+
+/** @private Generate a new standard batch */
+dwr.engine._createBatch = function() {
+  var batch = {
+    map:{
+      callCount:0,
+      page:window.location.pathname + window.location.search,
+      httpSessionId:dwr.engine._getJSessionId(),
+      scriptSessionId:dwr.engine._getScriptSessionId()
+    },
+    charsProcessed:0, paramCount:0,
+    parameters:{}, headers:{},
+    isPoll:false, handlers:{}, preHooks:[], postHooks:[],
+    rpcType:dwr.engine._rpcType,
+    httpMethod:dwr.engine._httpMethod,
+    async:dwr.engine._async,
+    timeout:dwr.engine._timeout,
+    errorHandler:dwr.engine._errorHandler,
+    warningHandler:dwr.engine._warningHandler,
+    textHtmlHandler:dwr.engine._textHtmlHandler
+  };
+  if (dwr.engine._preHook) batch.preHooks.push(dwr.engine._preHook);
+  if (dwr.engine._postHook) batch.postHooks.push(dwr.engine._postHook);
+  var propname, data;
+  if (dwr.engine._headers) {
+    for (propname in dwr.engine._headers) {
+      data = dwr.engine._headers[propname];
+      if (typeof data != "function") batch.headers[propname] = data;
+    }
+  }
+  if (dwr.engine._parameters) {
+    for (propname in dwr.engine._parameters) {
+      data = dwr.engine._parameters[propname];
+      if (typeof data != "function") batch.parameters[propname] = data;
+    }
+  }
+  return batch;
+};
+
+/** @private Take further options and merge them into */
+dwr.engine._mergeBatch = function(batch, overrides) {
+  var propname, data;
+  for (var i = 0; i < dwr.engine._propnames.length; i++) {
+    propname = dwr.engine._propnames[i];
+    if (overrides[propname] != null) batch[propname] = overrides[propname];
+  }
+  if (overrides.preHook != null) batch.preHooks.unshift(overrides.preHook);
+  if (overrides.postHook != null) batch.postHooks.push(overrides.postHook);
+  if (overrides.headers) {
+    for (propname in overrides.headers) {
+      data = overrides.headers[propname];
+      if (typeof data != "function") batch.headers[propname] = data;
+    }
+  }
+  if (overrides.parameters) {
+    for (propname in overrides.parameters) {
+      data = overrides.parameters[propname];
+      if (typeof data != "function") batch.map["p-" + propname] = "" + data;
+    }
+  }
+};
+
+/** @private What is our session id? */
+dwr.engine._getJSessionId =  function() {
+  var cookies = document.cookie.split(';');
+  for (var i = 0; i < cookies.length; i++) {
+    var cookie = cookies[i];
+    while (cookie.charAt(0) == ' ') cookie = cookie.substring(1, cookie.length);
+    if (cookie.indexOf(dwr.engine._sessionCookieName + "=") == 0) {
+      return cookie.substring(dwr.engine._sessionCookieName.length + 1, cookie.length);
+    }
+  }
+  return "";
+};
+
+/** @private Check for reverse Ajax activity */
+dwr.engine._checkCometPoll = function() {
+  for (var i = 0; i < dwr.engine._outstandingIFrames.length; i++) {
+    var text = "";
+    var iframe = dwr.engine._outstandingIFrames[i];
+    try {
+      text = dwr.engine._getTextFromCometIFrame(iframe);
+    }
+    catch (ex) {
+      dwr.engine._handleWarning(iframe.batch, ex);
+    }
+    if (text != "") dwr.engine._processCometResponse(text, iframe.batch);
+  }
+  if (dwr.engine._pollReq) {
+    var req = dwr.engine._pollReq;
+    var text = req.responseText;
+    if (text != null) dwr.engine._processCometResponse(text, req.batch);
+  }
+
+  // If the poll resources are still there, come back again
+  if (dwr.engine._outstandingIFrames.length > 0 || dwr.engine._pollReq) {
+    setTimeout(dwr.engine._checkCometPoll, dwr.engine._pollCometInterval);
+  }
+};
+
+/** @private Extract the whole (executed an all) text from the current iframe */
+dwr.engine._getTextFromCometIFrame = function(frameEle) {
+  var body = frameEle.contentWindow.document.body;
+  if (body == null) return "";
+  var text = body.innerHTML;
+  // We need to prevent IE from stripping line feeds
+  if (text.indexOf("<PRE>") == 0 || text.indexOf("<pre>") == 0) {
+    text = text.substring(5, text.length - 7);
+  }
+  return text;
+};
+
+/** @private Some more text might have come in, test and execute the new stuff */
+dwr.engine._processCometResponse = function(response, batch) {
+  if (batch.charsProcessed == response.length) return;
+  if (response.length == 0) {
+    batch.charsProcessed = 0;
+    return;
+  }
+
+  var firstStartTag = response.indexOf("//#DWR-START#", batch.charsProcessed);
+  if (firstStartTag == -1) {
+    // dwr.engine._debug("No start tag (search from " + batch.charsProcessed + "). skipping '" + response.substring(batch.charsProcessed) + "'");
+    batch.charsProcessed = response.length;
+    return;
+  }
+  // if (firstStartTag > 0) {
+  //   dwr.engine._debug("Start tag not at start (search from " + batch.charsProcessed + "). skipping '" + response.substring(batch.charsProcessed, firstStartTag) + "'");
+  // }
+
+  var lastEndTag = response.lastIndexOf("//#DWR-END#");
+  if (lastEndTag == -1) {
+    // dwr.engine._debug("No end tag. unchanged charsProcessed=" + batch.charsProcessed);
+    return;
+  }
+
+  // Skip the end tag too for next time, remembering CR and LF
+  if (response.charCodeAt(lastEndTag + 11) == 13 && response.charCodeAt(lastEndTag + 12) == 10) {
+    batch.charsProcessed = lastEndTag + 13;
+  }
+  else {
+    batch.charsProcessed = lastEndTag + 11;
+  }
+
+  var exec = response.substring(firstStartTag + 13, lastEndTag);
+
+  dwr.engine._receivedBatch = batch;
+  dwr.engine._eval(exec);
+  dwr.engine._receivedBatch = null;
+};
+
+/** @private Actually send the block of data in the batch object. */
+dwr.engine._sendData = function(batch) {
+  batch.map.batchId = dwr.engine._nextBatchId;
+  dwr.engine._nextBatchId++;
+  dwr.engine._batches[batch.map.batchId] = batch;
+  dwr.engine._batchesLength++;
+  batch.completed = false;
+
+  for (var i = 0; i < batch.preHooks.length; i++) {
+    batch.preHooks[i]();
+  }
+  batch.preHooks = null;
+  // Set a timeout
+  if (batch.timeout && batch.timeout != 0) {
+    batch.timeoutId = setTimeout(function() { dwr.engine._abortRequest(batch); }, batch.timeout);
+  }
+  // Get setup for XMLHttpRequest if possible
+  if (batch.rpcType == dwr.engine.XMLHttpRequest) {
+    if (window.XMLHttpRequest) {
+      batch.req = new XMLHttpRequest();
+    }
+    // IE5 for the mac claims to support window.ActiveXObject, but throws an error when it's used
+    else if (window.ActiveXObject && !(navigator.userAgent.indexOf("Mac") >= 0 && navigator.userAgent.indexOf("MSIE") >= 0)) {
+      batch.req = dwr.engine._newActiveXObject(dwr.engine._XMLHTTP);
+    }
+  }
+
+  var prop, request;
+  if (batch.req) {
+    // Proceed using XMLHttpRequest
+    if (batch.async) {
+      batch.req.onreadystatechange = function() {
+        if (typeof dwr != 'undefined') dwr.engine._stateChange(batch);
+      };
+    }
+    // If we're polling, record this for monitoring
+    if (batch.isPoll) {
+      dwr.engine._pollReq = batch.req;
+      // In IE XHR is an ActiveX control so you can't augment it like this
+      if (!(document.all && !window.opera)) batch.req.batch = batch;
+    }
+    // Workaround for Safari 1.x POST bug
+    var indexSafari = navigator.userAgent.indexOf("Safari/");
+    if (indexSafari >= 0) {
+      var version = navigator.userAgent.substring(indexSafari + 7);
+      if (parseInt(version, 10) < 400) {
+        if (dwr.engine._allowGetForSafariButMakeForgeryEasier == "true") batch.httpMethod = "GET";
+        else dwr.engine._handleWarning(batch, { name:"dwr.engine.oldSafari", message:"Safari GET support disabled. See getahead.org/dwr/server/servlet and allowGetForSafariButMakeForgeryEasier." });
+      }
+    }
+    batch.mode = batch.isPoll ? dwr.engine._ModePlainPoll : dwr.engine._ModePlainCall;
+    request = dwr.engine._constructRequest(batch);
+    try {
+      batch.req.open(batch.httpMethod, request.url, batch.async);
+      try {
+        for (prop in batch.headers) {
+          var value = batch.headers[prop];
+          if (typeof value == "string") batch.req.setRequestHeader(prop, value);
+        }
+        if (!batch.headers["Content-Type"]) batch.req.setRequestHeader("Content-Type", "text/plain");
+      }
+      catch (ex) {
+        dwr.engine._handleWarning(batch, ex);
+      }
+      batch.req.send(request.body);
+      if (!batch.async) dwr.engine._stateChange(batch);
+    }
+    catch (ex) {
+      dwr.engine._handleError(batch, ex);
+    }
+  }
+  else if (batch.rpcType != dwr.engine.ScriptTag) {
+    var idname = batch.isPoll ? "dwr-if-poll-" + batch.map.batchId : "dwr-if-" + batch.map.batchId;
+    // Removed htmlfile implementation. Don't expect it to return before v3
+    batch.div = document.createElement("div");
+    // Add the div to the document first, otherwise IE 6 will ignore onload handler.
+    document.body.appendChild(batch.div);
+    batch.div.innerHTML = "<iframe src='javascript:void(0)' frameborder='0' style='width:0px;height:0px;border:0;' id='" + idname + "' name='" + idname + "' onload='dwr.engine._iframeLoadingComplete (" + batch.map.batchId + ");'></iframe>";
+    batch.document = document;
+    batch.iframe = batch.document.getElementById(idname);
+    batch.iframe.batch = batch;
+    batch.mode = batch.isPoll ? dwr.engine._ModeHtmlPoll : dwr.engine._ModeHtmlCall;
+    if (batch.isPoll) dwr.engine._outstandingIFrames.push(batch.iframe);
+    request = dwr.engine._constructRequest(batch);
+    if (batch.httpMethod == "GET") {
+      batch.iframe.setAttribute("src", request.url);
+    }
+    else {
+      batch.form = batch.document.createElement("form");
+      batch.form.setAttribute("id", "dwr-form");
+      batch.form.setAttribute("action", request.url);
+      batch.form.setAttribute("style", "display:none;");
+      batch.form.setAttribute("target", idname);
+      batch.form.target = idname;
+      batch.form.setAttribute("method", batch.httpMethod);
+      for (prop in batch.map) {
+        var value = batch.map[prop];
+        if (typeof value != "function") {
+          var formInput = batch.document.createElement("input");
+          formInput.setAttribute("type", "hidden");
+          formInput.setAttribute("name", prop);
+          formInput.setAttribute("value", value);
+          batch.form.appendChild(formInput);
+        }
+      }
+      batch.document.body.appendChild(batch.form);
+      batch.form.submit();
+    }
+  }
+  else {
+    batch.httpMethod = "GET"; // There's no such thing as ScriptTag using POST
+    batch.mode = batch.isPoll ? dwr.engine._ModePlainPoll : dwr.engine._ModePlainCall;
+    request = dwr.engine._constructRequest(batch);
+    batch.script = document.createElement("script");
+    batch.script.id = "dwr-st-" + batch.map["c0-id"];
+    batch.script.src = request.url;
+    document.body.appendChild(batch.script);
+  }
+};
+
+dwr.engine._ModePlainCall = "/call/plaincall/";
+dwr.engine._ModeHtmlCall = "/call/htmlcall/";
+dwr.engine._ModePlainPoll = "/call/plainpoll/";
+dwr.engine._ModeHtmlPoll = "/call/htmlpoll/";
+
+/** @private Work out what the URL should look like */
+dwr.engine._constructRequest = function(batch) {
+  // A quick string to help people that use web log analysers
+  var request = { url:batch.path + batch.mode, body:null };
+  if (batch.isPoll == true) {
+    request.url += "ReverseAjax.dwr";
+  }
+  else if (batch.map.callCount == 1) {
+    request.url += batch.map["c0-scriptName"] + "." + batch.map["c0-methodName"] + ".dwr";
+  }
+  else {
+    request.url += "Multiple." + batch.map.callCount + ".dwr";
+  }
+  // Play nice with url re-writing
+  var sessionMatch = location.href.match(/jsessionid=([^?]+)/);
+  if (sessionMatch != null) {
+    request.url += ";jsessionid=" + sessionMatch[1];
+  }
+
+  var prop;
+  if (batch.httpMethod == "GET") {
+    // Some browsers (Opera/Safari2) seem to fail to convert the callCount value
+    // to a string in the loop below so we do it manually here.
+    batch.map.callCount = "" + batch.map.callCount;
+    request.url += "?";
+    for (prop in batch.map) {
+      if (typeof batch.map[prop] != "function") {
+        request.url += encodeURIComponent(prop) + "=" + encodeURIComponent(batch.map[prop]) + "&";
+      }
+    }
+    request.url = request.url.substring(0, request.url.length - 1);
+  }
+  else {
+    // PERFORMANCE: for iframe mode this is thrown away.
+    request.body = "";
+    if (document.all && !window.opera) {
+      // Use array joining on IE (fastest)
+      var buf = [];
+      for (prop in batch.map) {
+        if (typeof batch.map[prop] != "function") {
+          buf.push(prop + "=" + batch.map[prop] + dwr.engine._postSeperator);
+        }
+      }
+      request.body = buf.join("");
+    }
+    else {
+      // Use string concat on other browsers (fastest)
+      for (prop in batch.map) {
+        if (typeof batch.map[prop] != "function") {
+          request.body += prop + "=" + batch.map[prop] + dwr.engine._postSeperator;
+        }
+      }
+    }
+    request.body = dwr.engine._contentRewriteHandler(request.body);
+  }
+  request.url = dwr.engine._urlRewriteHandler(request.url);
+  return request;
+};
+
+/** @private Called by XMLHttpRequest to indicate that something has happened */
+dwr.engine._stateChange = function(batch) {
+  var toEval;
+
+  if (batch.completed) {
+    dwr.engine._debug("Error: _stateChange() with batch.completed");
+    return;
+  }
+
+  var req = batch.req;
+  try {
+    if (req.readyState != 4) return;
+  }
+  catch (ex) {
+    dwr.engine._handleWarning(batch, ex);
+    // It's broken - clear up and forget this call
+    dwr.engine._clearUp(batch);
+    return;
+  }
+
+  if (dwr.engine._unloading) {
+    dwr.engine._debug("Ignoring reply from server as page is unloading.");
+    return;
+  }
+
+  try {
+    var reply = req.responseText;
+    reply = dwr.engine._replyRewriteHandler(reply);
+    var status = req.status; // causes Mozilla to except on page moves
+
+    if (reply == null || reply == "") {
+      dwr.engine._handleWarning(batch, { name:"dwr.engine.missingData", message:"No data received from server" });
+    }
+    else if (status != 200) {
+      dwr.engine._handleError(batch, { name:"dwr.engine.http." + status, message:req.statusText });
+    }
+    else {
+      var contentType = req.getResponseHeader("Content-Type");
+      if (!contentType.match(/^text\/plain/) && !contentType.match(/^text\/javascript/)) {
+        if (contentType.match(/^text\/html/) && typeof batch.textHtmlHandler == "function") {
+          batch.textHtmlHandler({ status:status, responseText:reply, contentType:contentType });
+        }
+        else {
+          dwr.engine._handleWarning(batch, { name:"dwr.engine.invalidMimeType", message:"Invalid content type: '" + contentType + "'" });
+        }
+      }
+      else {
+        // Comet replies might have already partially executed
+        if (batch.isPoll && batch.map.partialResponse == dwr.engine._partialResponseYes) {
+          dwr.engine._processCometResponse(reply, batch);
+        }
+        else {
+          if (reply.search("//#DWR") == -1) {
+            dwr.engine._handleWarning(batch, { name:"dwr.engine.invalidReply", message:"Invalid reply from server" });
+          }
+          else {
+            toEval = reply;
+          }
+        }
+      }
+    }
+  }
+  catch (ex) {
+    dwr.engine._handleWarning(batch, ex);
+  }
+
+  dwr.engine._callPostHooks(batch);
+
+  // Outside of the try/catch so errors propogate normally:
+  dwr.engine._receivedBatch = batch;
+  if (toEval != null) toEval = toEval.replace(dwr.engine._scriptTagProtection, "");
+  dwr.engine._eval(toEval);
+  dwr.engine._receivedBatch = null;
+  dwr.engine._validateBatch(batch);
+  if (!batch.completed) dwr.engine._clearUp(batch);
+};
+
+/**
+ * @private This function is invoked when a batch reply is received.
+ * It checks that there is a response for every call in the batch. Otherwise,
+ * an error will be signaled (a call without a response indicates that the
+ * server failed to send complete batch response).
+ */
+dwr.engine._validateBatch = function(batch) {
+  // If some call left unreplied, report an error.
+  if (!batch.completed) {
+    for (var i = 0; i < batch.map.callCount; i++) {
+      if (batch.handlers[i] != null) {
+        dwr.engine._handleWarning(batch, { name:"dwr.engine.incompleteReply", message:"Incomplete reply from server" });
+        break;
+      }
+    }
+  }
+}
+
+/** @private Called from iframe onload, check batch using batch-id */
+dwr.engine._iframeLoadingComplete = function(batchId) {
+  // dwr.engine._checkCometPoll();
+  var batch = dwr.engine._batches[batchId];
+  if (batch) dwr.engine._validateBatch(batch);
+}
+
+/** @private Called by the server: Execute a callback */
+dwr.engine._remoteHandleCallback = function(batchId, callId, reply) {
+  var batch = dwr.engine._batches[batchId];
+  if (batch == null) {
+    dwr.engine._debug("Warning: batch == null in remoteHandleCallback for batchId=" + batchId, true);
+    return;
+  }
+  // Error handlers inside here indicate an error that is nothing to do
+  // with DWR so we handle them differently.
+  try {
+    var handlers = batch.handlers[callId];
+    batch.handlers[callId] = null;
+    if (!handlers) {
+      dwr.engine._debug("Warning: Missing handlers. callId=" + callId, true);
+    }
+    else if (typeof handlers.callback == "function") handlers.callback(reply);
+  }
+  catch (ex) {
+    dwr.engine._handleError(batch, ex);
+  }
+};
+
+/** @private Called by the server: Handle an exception for a call */
+dwr.engine._remoteHandleException = function(batchId, callId, ex) {
+  var batch = dwr.engine._batches[batchId];
+  if (batch == null) { dwr.engine._debug("Warning: null batch in remoteHandleException", true); return; }
+  var handlers = batch.handlers[callId];
+  batch.handlers[callId] = null;
+  if (handlers == null) { dwr.engine._debug("Warning: null handlers in remoteHandleException", true); return; }
+  if (ex.message == undefined) ex.message = "";
+  if (typeof handlers.exceptionHandler == "function") handlers.exceptionHandler(ex.message, ex);
+  else if (typeof batch.errorHandler == "function") batch.errorHandler(ex.message, ex);
+};
+
+/** @private Called by the server: The whole batch is broken */
+dwr.engine._remoteHandleBatchException = function(ex, batchId) {
+  var searchBatch = (dwr.engine._receivedBatch == null && batchId != null);
+  if (searchBatch) {
+    dwr.engine._receivedBatch = dwr.engine._batches[batchId];
+  }
+  if (ex.message == undefined) ex.message = "";
+  dwr.engine._handleError(dwr.engine._receivedBatch, ex);
+  if (searchBatch) {
+    dwr.engine._receivedBatch = null;
+    dwr.engine._clearUp(dwr.engine._batches[batchId]);
+  }
+};
+
+/** @private Called by the server: Reverse ajax should not be used */
+dwr.engine._remotePollCometDisabled = function(ex, batchId) {
+  dwr.engine.setActiveReverseAjax(false);
+  var searchBatch = (dwr.engine._receivedBatch == null && batchId != null);
+  if (searchBatch) {
+    dwr.engine._receivedBatch = dwr.engine._batches[batchId];
+  }
+  if (ex.message == undefined) ex.message = "";
+  dwr.engine._handleError(dwr.engine._receivedBatch, ex);
+  if (searchBatch) {
+    dwr.engine._receivedBatch = null;
+    dwr.engine._clearUp(dwr.engine._batches[batchId]);
+  }
+};
+
+/** @private Called by the server: An IFrame reply is about to start */
+dwr.engine._remoteBeginIFrameResponse = function(iframe, batchId) {
+  if (iframe != null) dwr.engine._receivedBatch = iframe.batch;
+  dwr.engine._callPostHooks(dwr.engine._receivedBatch);
+};
+
+/** @private Called by the server: An IFrame reply is just completing */
+dwr.engine._remoteEndIFrameResponse = function(batchId) {
+  dwr.engine._clearUp(dwr.engine._receivedBatch);
+  dwr.engine._receivedBatch = null;
+};
+
+/** @private This is a hack to make the context be this window */
+dwr.engine._eval = function(script) {
+  if (script == null) return null;
+  if (script == "") { dwr.engine._debug("Warning: blank script", true); return null; }
+  // dwr.engine._debug("Exec: [" + script + "]", true);
+  return eval(script);
+};
+
+/** @private Called as a result of a request timeout */
+dwr.engine._abortRequest = function(batch) {
+  if (batch && !batch.completed) {
+    dwr.engine._clearUp(batch);
+    if (batch.req) batch.req.abort();
+    dwr.engine._handleError(batch, { name:"dwr.engine.timeout", message:"Timeout" });
+  }
+};
+
+/** @private call all the post hooks for a batch */
+dwr.engine._callPostHooks = function(batch) {
+  if (batch.postHooks) {
+    for (var i = 0; i < batch.postHooks.length; i++) {
+      batch.postHooks[i]();
+    }
+    batch.postHooks = null;
+  }
+};
+
+/** @private A call has finished by whatever means and we need to shut it all down. */
+dwr.engine._clearUp = function(batch) {
+  if (!batch) { dwr.engine._debug("Warning: null batch in dwr.engine._clearUp()", true); return; }
+  if (batch.completed) { dwr.engine._debug("Warning: Double complete", true); return; }
+
+  // IFrame tidyup
+  if (batch.div) batch.div.parentNode.removeChild(batch.div);
+  if (batch.iframe) {
+    // If this is a poll frame then stop comet polling
+    for (var i = 0; i < dwr.engine._outstandingIFrames.length; i++) {
+      if (dwr.engine._outstandingIFrames[i] == batch.iframe) {
+        dwr.engine._outstandingIFrames.splice(i, 1);
+      }
+    }
+    batch.iframe.parentNode.removeChild(batch.iframe);
+  }
+  if (batch.form) batch.form.parentNode.removeChild(batch.form);
+
+  // XHR tidyup: avoid IE handles increase
+  if (batch.req) {
+    // If this is a poll frame then stop comet polling
+    if (batch.req == dwr.engine._pollReq) dwr.engine._pollReq = null;
+    delete batch.req;
+  }
+
+  // Timeout tidyup
+  if (batch.timeoutId) {
+    clearTimeout(batch.timeoutId);
+    delete batch.timeoutId;
+  }
+
+  if (batch.map && (batch.map.batchId || batch.map.batchId == 0)) {
+    delete dwr.engine._batches[batch.map.batchId];
+    dwr.engine._batchesLength--;
+  }
+
+  batch.completed = true;
+
+  // If there is anything on the queue waiting to go out, then send it.
+  // We don't need to check for ordered mode, here because when ordered mode
+  // gets turned off, we still process *waiting* batches in an ordered way.
+  if (dwr.engine._batchQueue.length != 0) {
+    var sendbatch = dwr.engine._batchQueue.shift();
+    dwr.engine._sendData(sendbatch);
+  }
+};
+
+/** @private Abort any XHRs in progress at page unload (solves zombie socket problems in IE). */
+dwr.engine._unloader = function() {
+  dwr.engine._unloading = true;
+
+  // Empty queue of waiting ordered requests
+  dwr.engine._batchQueue.length = 0;
+
+  // Abort any ongoing XHRs and clear their batches
+  for (var batchId in dwr.engine._batches) {
+    var batch = dwr.engine._batches[batchId];
+    // Only process objects that look like batches (avoid prototype additions!)
+    if (batch && batch.map) {
+      if (batch.req) {
+        batch.req.abort();
+      }
+      dwr.engine._clearUp(batch);
+    }
+  }
+};
+// Now register the unload handler
+if (window.addEventListener) window.addEventListener('unload', dwr.engine._unloader, false);
+else if (window.attachEvent) window.attachEvent('onunload', dwr.engine._unloader);
+
+/** @private Generic error handling routing to save having null checks everywhere */
+dwr.engine._handleError = function(batch, ex) {
+  if (typeof ex == "string") ex = { name:"unknown", message:ex };
+  if (ex.message == null) ex.message = "";
+  if (ex.name == null) ex.name = "unknown";
+  if (batch && typeof batch.errorHandler == "function") batch.errorHandler(ex.message, ex);
+  else if (dwr.engine._errorHandler) dwr.engine._errorHandler(ex.message, ex);
+  if (batch) dwr.engine._clearUp(batch);
+};
+
+/** @private Generic error handling routing to save having null checks everywhere */
+dwr.engine._handleWarning = function(batch, ex) {
+  if (typeof ex == "string") ex = { name:"unknown", message:ex };
+  if (ex.message == null) ex.message = "";
+  if (ex.name == null) ex.name = "unknown";
+  if (batch && typeof batch.warningHandler == "function") batch.warningHandler(ex.message, ex);
+  else if (dwr.engine._warningHandler) dwr.engine._warningHandler(ex.message, ex);
+  if (batch) dwr.engine._clearUp(batch);
+};
+
+/**
+ * @private Marshall a data item
+ * @param batch A map of variables to how they have been marshalled
+ * @param referto An array of already marshalled variables to prevent recurrsion
+ * @param data The data to be marshalled
+ * @param name The name of the data being marshalled
+ */
+dwr.engine._serializeAll = function(batch, referto, data, name) {
+  if (data == null) {
+    batch.map[name] = "null:null";
+    return;
+  }
+
+  switch (typeof data) {
+  case "boolean":
+    batch.map[name] = "boolean:" + data;
+    break;
+  case "number":
+    batch.map[name] = "number:" + data;
+    break;
+  case "string":
+    batch.map[name] = "string:" + encodeURIComponent(data);
+    break;
+  case "object":
+    if (data instanceof String) batch.map[name] = "String:" + encodeURIComponent(data);
+    else if (data instanceof Boolean) batch.map[name] = "Boolean:" + data;
+    else if (data instanceof Number) batch.map[name] = "Number:" + data;
+    else if (data instanceof Date) batch.map[name] = "Date:" + data.getTime();
+    else if (data && data.join) batch.map[name] = dwr.engine._serializeArray(batch, referto, data, name);
+    else batch.map[name] = dwr.engine._serializeObject(batch, referto, data, name);
+    break;
+  case "function":
+    // We just ignore functions.
+    break;
+  default:
+    dwr.engine._handleWarning(null, { name:"dwr.engine.unexpectedType", message:"Unexpected type: " + typeof data + ", attempting default converter." });
+    batch.map[name] = "default:" + data;
+    break;
+  }
+};
+
+/** @private Have we already converted this object? */
+dwr.engine._lookup = function(referto, data, name) {
+  var lookup;
+  // Can't use a map: getahead.org/ajax/javascript-gotchas
+  for (var i = 0; i < referto.length; i++) {
+    if (referto[i].data == data) {
+      lookup = referto[i];
+      break;
+    }
+  }
+  if (lookup) return "reference:" + lookup.name;
+  referto.push({ data:data, name:name });
+  return null;
+};
+
+/** @private Marshall an object */
+dwr.engine._serializeObject = function(batch, referto, data, name) {
+  var ref = dwr.engine._lookup(referto, data, name);
+  if (ref) return ref;
+
+  // This check for an HTML is not complete, but is there a better way?
+  // Maybe we should add: data.hasChildNodes typeof "function" == true
+  if (data.nodeName && data.nodeType) {
+    return dwr.engine._serializeXml(batch, referto, data, name);
+  }
+
+  // treat objects as an associative arrays
+  var reply = "Object_" + dwr.engine._getObjectClassName(data) + ":{";
+  var element;
+  for (element in data) {
+    if (typeof data[element] != "function") {
+      batch.paramCount++;
+      var childName = "c" + dwr.engine._batch.map.callCount + "-e" + batch.paramCount;
+      dwr.engine._serializeAll(batch, referto, data[element], childName);
+
+      reply += encodeURIComponent(element) + ":reference:" + childName + ", ";
+    }
+  }
+
+  if (reply.substring(reply.length - 2) == ", ") {
+    reply = reply.substring(0, reply.length - 2);
+  }
+  reply += "}";
+
+  return reply;
+};
+
+/** @private Returns the classname of supplied argument obj */
+dwr.engine._errorClasses = { "Error":Error, "EvalError":EvalError, "RangeError":RangeError, "ReferenceError":ReferenceError, "SyntaxError":SyntaxError, "TypeError":TypeError, "URIError":URIError };
+dwr.engine._getObjectClassName = function(obj) {
+  // Try to find the classname by stringifying the object's constructor
+  // and extract <class> from "function <class>".
+  if (obj && obj.constructor && obj.constructor.toString)
+  {
+    var str = obj.constructor.toString();
+    var regexpmatch = str.match(/function\s+(\w+)/);
+    if (regexpmatch && regexpmatch.length == 2) {
+      return regexpmatch[1];
+    }
+  }
+
+  // Now manually test against the core Error classes, as these in some
+  // browsers successfully match to the wrong class in the
+  // Object.toString() test we will do later
+  if (obj && obj.constructor) {
+	for (var errorname in dwr.engine._errorClasses) {
+      if (obj.constructor == dwr.engine._errorClasses[errorname]) return errorname;
+    }
+  }
+
+  // Try to find the classname by calling Object.toString() on the object
+  // and extracting <class> from "[object <class>]"
+  if (obj) {
+    var str = Object.prototype.toString.call(obj);
+    var regexpmatch = str.match(/\[object\s+(\w+)/);
+    if (regexpmatch && regexpmatch.length==2) {
+      return regexpmatch[1];
+    }
+  }
+
+  // Supplied argument was probably not an object, but what is better?
+  return "Object";
+};
+
+/** @private Marshall an object */
+dwr.engine._serializeXml = function(batch, referto, data, name) {
+  var ref = dwr.engine._lookup(referto, data, name);
+  if (ref) return ref;
+
+  var output;
+  if (window.XMLSerializer) output = new XMLSerializer().serializeToString(data);
+  else if (data.toXml) output = data.toXml;
+  else output = data.innerHTML;
+
+  return "XML:" + encodeURIComponent(output);
+};
+
+/** @private Marshall an array */
+dwr.engine._serializeArray = function(batch, referto, data, name) {
+  var ref = dwr.engine._lookup(referto, data, name);
+  if (ref) return ref;
+
+  if (document.all && !window.opera) {
+    // Use array joining on IE (fastest)
+    var buf = ["Array:["];
+    for (var i = 0; i < data.length; i++) {
+      if (i != 0) buf.push(",");
+      batch.paramCount++;
+      var childName = "c" + dwr.engine._batch.map.callCount + "-e" + batch.paramCount;
+      dwr.engine._serializeAll(batch, referto, data[i], childName);
+      buf.push("reference:");
+      buf.push(childName);
+    }
+    buf.push("]");
+    reply = buf.join("");
+  }
+  else {
+    // Use string concat on other browsers (fastest)
+    var reply = "Array:[";
+    for (var i = 0; i < data.length; i++) {
+      if (i != 0) reply += ",";
+      batch.paramCount++;
+      var childName = "c" + dwr.engine._batch.map.callCount + "-e" + batch.paramCount;
+      dwr.engine._serializeAll(batch, referto, data[i], childName);
+      reply += "reference:";
+      reply += childName;
+    }
+    reply += "]";
+  }
+
+  return reply;
+};
+
+/** @private Convert an XML string into a DOM object. */
+dwr.engine._unserializeDocument = function(xml) {
+  var dom;
+  if (window.DOMParser) {
+    var parser = new DOMParser();
+    dom = parser.parseFromString(xml, "text/xml");
+    if (!dom.documentElement || dom.documentElement.tagName == "parsererror") {
+      var message = dom.documentElement.firstChild.data;
+      message += "\n" + dom.documentElement.firstChild.nextSibling.firstChild.data;
+      throw message;
+    }
+    return dom;
+  }
+  else if (window.ActiveXObject) {
+    dom = dwr.engine._newActiveXObject(dwr.engine._DOMDocument);
+    dom.loadXML(xml); // What happens on parse fail with IE?
+    return dom;
+  }
+  else {
+    var div = document.createElement("div");
+    div.innerHTML = xml;
+    return div;
+  }
+};
+
+/** @param axarray An array of strings to attempt to create ActiveX objects from */
+dwr.engine._newActiveXObject = function(axarray) {
+  var returnValue;
+  for (var i = 0; i < axarray.length; i++) {
+    try {
+      returnValue = new ActiveXObject(axarray[i]);
+      break;
+    }
+    catch (ex) { /* ignore */ }
+  }
+  return returnValue;
+};
+
+/** @private Used internally when some message needs to get to the programmer */
+dwr.engine._debug = function(message, stacktrace) {
+  var written = false;
+  try {
+    if (window.console) {
+      if (stacktrace && window.console.trace) window.console.trace();
+      window.console.log(message);
+      written = true;
+    }
+    else if (window.opera && window.opera.postError) {
+      window.opera.postError(message);
+      written = true;
+    }
+  }
+  catch (ex) { /* ignore */ }
+
+  if (!written) {
+    var debug = document.getElementById("dwr-debug");
+    if (debug) {
+      var contents = message + "<br/>" + debug.innerHTML;
+      if (contents.length > 2048) contents = contents.substring(0, 2048);
+      debug.innerHTML = contents;
+    }
+  }
+};
+
+         20181009141245‚	  
+   Ü         B                           ì∏      / * 
+   *   C o p y r i g h t   2 0 0 5   J o e   W a l k e r 
+   * 
+   *   L i c e n s e d   u n d e r   t h e   A p a c h e   L i c e n s e ,   V e r s i o n   2 . 0   ( t h e   " L i c e n s e " ) ; 
+   *   y o u   m a y   n o t   u s e   t h i s   f i l e   e x c e p t   i n   c o m p l i a n c e   w i t h   t h e   L i c e n s e . 
+   *   Y o u   m a y   o b t a i n   a   c o p y   o f   t h e   L i c e n s e   a t 
+   * 
+   *           h t t p : / / w w w . a p a c h e . o r g / l i c e n s e s / L I C E N S E - 2 . 0 
+   * 
+   *   U n l e s s   r e q u i r e d   b y   a p p l i c a b l e   l a w   o r   a g r e e d   t o   i n   w r i t i n g ,   s o f t w a r e 
+   *   d i s t r i b u t e d   u n d e r   t h e   L i c e n s e   i s   d i s t r i b u t e d   o n   a n   " A S   I S "   B A S I S , 
+   *   W I T H O U T   W A R R A N T I E S   O R   C O N D I T I O N S   O F   A N Y   K I N D ,   e i t h e r   e x p r e s s   o r   i m p l i e d . 
+   *   S e e   t h e   L i c e n s e   f o r   t h e   s p e c i f i c   l a n g u a g e   g o v e r n i n g   p e r m i s s i o n s   a n d 
+   *   l i m i t a t i o n s   u n d e r   t h e   L i c e n s e . 
+   * / 
+ 
+ / * * 
+   *   D e c l a r e   a n   o b j e c t   t o   w h i c h   w e   c a n   a d d   r e a l   f u n c t i o n s . 
+   * / 
+ i f   ( d w r   = =   n u l l )   v a r   d w r   =   { } ; 
+ i f   ( d w r . e n g i n e   = =   n u l l )   d w r . e n g i n e   =   { } ; 
+ i f   ( D W R E n g i n e   = =   n u l l )   v a r   D W R E n g i n e   =   d w r . e n g i n e ; 
+ 
+ / * * 
+   *   S e t   a n   a l t e r n a t i v e   e r r o r   h a n d l e r   f r o m   t h e   d e f a u l t   a l e r t   b o x . 
+   *   @ s e e   g e t a h e a d . o r g / d w r / b r o w s e r / e n g i n e / e r r o r s 
+   * / 
+ d w r . e n g i n e . s e t E r r o r H a n d l e r   =   f u n c t i o n ( h a n d l e r )   { 
+     d w r . e n g i n e . _ e r r o r H a n d l e r   =   h a n d l e r ; 
+ } ; 
+ 
+ / * * 
+   *   S e t   a n   a l t e r n a t i v e   w a r n i n g   h a n d l e r   f r o m   t h e   d e f a u l t   a l e r t   b o x . 
+   *   @ s e e   g e t a h e a d . o r g / d w r / b r o w s e r / e n g i n e / e r r o r s 
+   * / 
+ d w r . e n g i n e . s e t W a r n i n g H a n d l e r   =   f u n c t i o n ( h a n d l e r )   { 
+     d w r . e n g i n e . _ w a r n i n g H a n d l e r   =   h a n d l e r ; 
+ } ; 
+ 
+ / * * 
+   *   S e t t e r   f o r   t h e   t e x t / h t m l   h a n d l e r   -   w h a t   h a p p e n s   i f   a   D W R   r e q u e s t   g e t s   a n   H T M L 
+   *   r e p l y   r a t h e r   t h a n   t h e   e x p e c t e d   J a v a s c r i p t .   O f t e n   d u e   t o   l o g i n   t i m e o u t 
+   * / 
+ d w r . e n g i n e . s e t T e x t H t m l H a n d l e r   =   f u n c t i o n ( h a n d l e r )   { 
+     d w r . e n g i n e . _ t e x t H t m l H a n d l e r   =   h a n d l e r ; 
+ } ; 
+ 
+ / * * 
+   *   S e t   a   d e f a u l t   t i m e o u t   v a l u e   f o r   a l l   c a l l s .   0   ( t h e   d e f a u l t )   t u r n s   t i m e o u t s   o f f . 
+   *   @ s e e   g e t a h e a d . o r g / d w r / b r o w s e r / e n g i n e / e r r o r s 
+   * / 
+ d w r . e n g i n e . s e t T i m e o u t   =   f u n c t i o n ( t i m e o u t )   { 
+     d w r . e n g i n e . _ t i m e o u t   =   t i m e o u t ; 
+ } ; 
+ 
+ / * * 
+   *   T h e   P r e - H o o k   i s   c a l l e d   b e f o r e   a n y   D W R   r e m o t i n g   i s   d o n e . 
+   *   @ s e e   g e t a h e a d . o r g / d w r / b r o w s e r / e n g i n e / h o o k s 
+   * / 
+ d w r . e n g i n e . s e t P r e H o o k   =   f u n c t i o n ( h a n d l e r )   { 
+     d w r . e n g i n e . _ p r e H o o k   =   h a n d l e r ; 
+ } ; 
+ 
+ / * * 
+   *   T h e   P o s t - H o o k   i s   c a l l e d   a f t e r   a n y   D W R   r e m o t i n g   i s   d o n e . 
+   *   @ s e e   g e t a h e a d . o r g / d w r / b r o w s e r / e n g i n e / h o o k s 
+   * / 
+ d w r . e n g i n e . s e t P o s t H o o k   =   f u n c t i o n ( h a n d l e r )   { 
+     d w r . e n g i n e . _ p o s t H o o k   =   h a n d l e r ; 
+ } ; 
+ 
+ / * * 
+   *   C u s t o m   h e a d e r s   f o r   a l l   D W R   c a l l s 
+   *   @ s e e   g e t a h e a d . o r g / d w r / ? ? ? ? 
+   * / 
+ d w r . e n g i n e . s e t H e a d e r s   =   f u n c t i o n ( h e a d e r s )   { 
+     d w r . e n g i n e . _ h e a d e r s   =   h e a d e r s ; 
+ } ; 
+ 
+ / * * 
+   *   C u s t o m   p a r a m e t e r s   f o r   a l l   D W R   c a l l s 
+   *   @ s e e   g e t a h e a d . o r g / d w r / ? ? ? ? 
+   * / 
+ d w r . e n g i n e . s e t P a r a m e t e r s   =   f u n c t i o n ( p a r a m e t e r s )   { 
+     d w r . e n g i n e . _ p a r a m e t e r s   =   p a r a m e t e r s ; 
+ } ; 
+ 
+ / * *   X H R   r e m o t i n g   t y p e   c o n s t a n t .   S e e   d w r . e n g i n e . s e t [ R p c | P o l l ] T y p e ( )   * / 
+ d w r . e n g i n e . X M L H t t p R e q u e s t   =   1 ; 
+ 
+ / * *   X H R   r e m o t i n g   t y p e   c o n s t a n t .   S e e   d w r . e n g i n e . s e t [ R p c | P o l l ] T y p e ( )   * / 
+ d w r . e n g i n e . I F r a m e   =   2 ; 
+ 
+ / * *   X H R   r e m o t i n g   t y p e   c o n s t a n t .   S e e   d w r . e n g i n e . s e t R p c T y p e ( )   * / 
+ d w r . e n g i n e . S c r i p t T a g   =   3 ; 
+ 
+ / * * 
+   *   S e t   t h e   p r e f e r r e d   r e m o t i n g   t y p e . 
+   *   @ p a r a m   n e w T y p e   O n e   o f   d w r . e n g i n e . X M L H t t p R e q u e s t   o r   d w r . e n g i n e . I F r a m e   o r   d w r . e n g i n e . S c r i p t T a g 
+   *   @ s e e   g e t a h e a d . o r g / d w r / b r o w s e r / e n g i n e / o p t i o n s 
+   * / 
+ d w r . e n g i n e . s e t R p c T y p e   =   f u n c t i o n ( n e w T y p e )   { 
+     i f   ( n e w T y p e   ! =   d w r . e n g i n e . X M L H t t p R e q u e s t   & &   n e w T y p e   ! =   d w r . e n g i n e . I F r a m e   & &   n e w T y p e   ! =   d w r . e n g i n e . S c r i p t T a g )   { 
+         d w r . e n g i n e . _ h a n d l e E r r o r ( n u l l ,   {   n a m e : " d w r . e n g i n e . i n v a l i d R p c T y p e " ,   m e s s a g e : " R p c T y p e   m u s t   b e   o n e   o f   d w r . e n g i n e . X M L H t t p R e q u e s t   o r   d w r . e n g i n e . I F r a m e   o r   d w r . e n g i n e . S c r i p t T a g "   } ) ; 
+         r e t u r n ; 
+     } 
+     d w r . e n g i n e . _ r p c T y p e   =   n e w T y p e ; 
+ } ; 
+ 
+ / * * 
+   *   W h i c h   H T T P   m e t h o d   d o   w e   u s e   t o   s e n d   r e s u l t s ?   M u s t   b e   o n e   o f   " G E T "   o r   " P O S T " . 
+   *   @ s e e   g e t a h e a d . o r g / d w r / b r o w s e r / e n g i n e / o p t i o n s 
+   * / 
+ d w r . e n g i n e . s e t H t t p M e t h o d   =   f u n c t i o n ( h t t p M e t h o d )   { 
+     i f   ( h t t p M e t h o d   ! =   " G E T "   & &   h t t p M e t h o d   ! =   " P O S T " )   { 
+         d w r . e n g i n e . _ h a n d l e E r r o r ( n u l l ,   {   n a m e : " d w r . e n g i n e . i n v a l i d H t t p M e t h o d " ,   m e s s a g e : " R e m o t i n g   m e t h o d   m u s t   b e   o n e   o f   G E T   o r   P O S T "   } ) ; 
+         r e t u r n ; 
+     } 
+     d w r . e n g i n e . _ h t t p M e t h o d   =   h t t p M e t h o d ; 
+ } ; 
+ 
+ / * * 
+   *   E n s u r e   t h a t   r e m o t e   c a l l s   h a p p e n   i n   t h e   o r d e r   i n   w h i c h   t h e y   w e r e   s e n t ?   ( D e f a u l t :   f a l s e ) 
+   *   @ s e e   g e t a h e a d . o r g / d w r / b r o w s e r / e n g i n e / o r d e r i n g 
+   * / 
+ d w r . e n g i n e . s e t O r d e r e d   =   f u n c t i o n ( o r d e r e d )   { 
+     d w r . e n g i n e . _ o r d e r e d   =   o r d e r e d ; 
+ } ; 
+ 
+ / * * 
+   *   D o   w e   a s k   t h e   X H R   o b j e c t   t o   b e   a s y n c h r o n o u s ?   ( D e f a u l t :   t r u e ) 
+   *   @ s e e   g e t a h e a d . o r g / d w r / b r o w s e r / e n g i n e / o p t i o n s 
+   * / 
+ d w r . e n g i n e . s e t A s y n c   =   f u n c t i o n ( a s y n c )   { 
+     d w r . e n g i n e . _ a s y n c   =   a s y n c ; 
+ } ; 
+ 
+ / * * 
+   *   D o e s   D W R   p o l l   t h e   s e r v e r   f o r   u p d a t e s ?   ( D e f a u l t :   f a l s e ) 
+   *   @ s e e   g e t a h e a d . o r g / d w r / b r o w s e r / e n g i n e / o p t i o n s 
+   * / 
+ d w r . e n g i n e . s e t A c t i v e R e v e r s e A j a x   =   f u n c t i o n ( a c t i v e R e v e r s e A j a x )   { 
+     i f   ( a c t i v e R e v e r s e A j a x )   { 
+         / /   B a i l   i f   w e   a r e   a l r e a d y   s t a r t e d 
+         i f   ( d w r . e n g i n e . _ a c t i v e R e v e r s e A j a x )   r e t u r n ; 
+         d w r . e n g i n e . _ a c t i v e R e v e r s e A j a x   =   t r u e ; 
+         d w r . e n g i n e . _ p o l l ( ) ; 
+     } 
+     e l s e   { 
+         / /   C a n   w e   c a n c e l   a n   e x i s t i n g   r e q u e s t ? 
+         i f   ( d w r . e n g i n e . _ a c t i v e R e v e r s e A j a x   & &   d w r . e n g i n e . _ p o l l R e q )   d w r . e n g i n e . _ p o l l R e q . a b o r t ( ) ; 
+         d w r . e n g i n e . _ a c t i v e R e v e r s e A j a x   =   f a l s e ; 
+     } 
+     / /   T O D O :   i n   i f r a m e   m o d e ,   i f   w e   s t a r t ,   s t o p ,   s t a r t   t h e n   t h e   s e c o n d   s t a r t   m a y 
+     / /   w e l l   k i c k   o f f   a   s e c o n d   i f r a m e   w h i l e   t h e   f i r s t   i s   s t i l l   a b o u t   t o   r e t u r n 
+     / /   w e   s h o u l d   c o p e   w i t h   t h i s   b u t   w e   d o n ' t 
+ } ; 
+ 
+ / * * 
+   *   T h e   d e f a u l t   m e s s a g e   h a n d l e r . 
+   *   @ s e e   g e t a h e a d . o r g / d w r / b r o w s e r / e n g i n e / e r r o r s 
+   * / 
+ d w r . e n g i n e . d e f a u l t E r r o r H a n d l e r   =   f u n c t i o n ( m e s s a g e ,   e x )   { 
+     d w r . e n g i n e . _ d e b u g ( " E r r o r :   "   +   e x . n a m e   +   " ,   "   +   e x . m e s s a g e ,   t r u e ) ; 
+     i f   ( m e s s a g e   = =   n u l l   | |   m e s s a g e   = =   " " )   a l e r t ( " A   s e r v e r   e r r o r   h a s   o c c u r e d . " ) ; 
+     / /   I g n o r e   N S _ E R R O R _ N O T _ A V A I L A B L E   i f   M o z i l l a   i s   b e i n g   n a r k y 
+     e l s e   i f   ( m e s s a g e . i n d e x O f ( " 0 x 8 0 0 4 0 1 1 1 " )   ! =   - 1 )   d w r . e n g i n e . _ d e b u g ( m e s s a g e ) ; 
+     e l s e   a l e r t ( m e s s a g e ) ; 
+ } ; 
+ 
+ / * * 
+   *   T h e   d e f a u l t   w a r n i n g   h a n d l e r . 
+   *   @ s e e   g e t a h e a d . o r g / d w r / b r o w s e r / e n g i n e / e r r o r s 
+   * / 
+ d w r . e n g i n e . d e f a u l t W a r n i n g H a n d l e r   =   f u n c t i o n ( m e s s a g e ,   e x )   { 
+     d w r . e n g i n e . _ d e b u g ( m e s s a g e ) ; 
+ } ; 
+ 
+ / * * 
+   *   F o r   r e d u c e d   l a t e n c y   y o u   c a n   g r o u p   s e v e r a l   r e m o t e   c a l l s   t o g e t h e r   u s i n g   a   b a t c h . 
+   *   @ s e e   g e t a h e a d . o r g / d w r / b r o w s e r / e n g i n e / b a t c h 
+   * / 
+ d w r . e n g i n e . b e g i n B a t c h   =   f u n c t i o n ( )   { 
+     i f   ( d w r . e n g i n e . _ b a t c h )   { 
+         d w r . e n g i n e . _ h a n d l e E r r o r ( n u l l ,   {   n a m e : " d w r . e n g i n e . b a t c h B e g u n " ,   m e s s a g e : " B a t c h   a l r e a d y   b e g u n "   } ) ; 
+         r e t u r n ; 
+     } 
+     d w r . e n g i n e . _ b a t c h   =   d w r . e n g i n e . _ c r e a t e B a t c h ( ) ; 
+ } ; 
+ 
+ / * * 
+   *   F i n i s h e d   g r o u p i n g   a   s e t   o f   r e m o t e   c a l l s   t o g e t h e r .   G o   a n d   e x e c u t e   t h e m   a l l . 
+   *   @ s e e   g e t a h e a d . o r g / d w r / b r o w s e r / e n g i n e / b a t c h 
+   * / 
+ d w r . e n g i n e . e n d B a t c h   =   f u n c t i o n ( o p t i o n s )   { 
+     v a r   b a t c h   =   d w r . e n g i n e . _ b a t c h ; 
+     i f   ( b a t c h   = =   n u l l )   { 
+         d w r . e n g i n e . _ h a n d l e E r r o r ( n u l l ,   {   n a m e : " d w r . e n g i n e . b a t c h N o t B e g u n " ,   m e s s a g e : " N o   b a t c h   i n   p r o g r e s s "   } ) ; 
+         r e t u r n ; 
+     } 
+     d w r . e n g i n e . _ b a t c h   =   n u l l ; 
+     i f   ( b a t c h . m a p . c a l l C o u n t   = =   0 )   r e t u r n ; 
+ 
+     / /   T h e   h o o k s   n e e d   t o   b e   m e r g e d   c a r e f u l l y   t o   p r e s e r v e   o r d e r i n g 
+     i f   ( o p t i o n s )   d w r . e n g i n e . _ m e r g e B a t c h ( b a t c h ,   o p t i o n s ) ; 
+ 
+     / /   I n   o r d e r e d   m o d e ,   w e   d o n ' t   s e n d   u n l e s s   t h e   l i s t   o f   s e n t   i t e m s   i s   e m p t y 
+     i f   ( d w r . e n g i n e . _ o r d e r e d   & &   d w r . e n g i n e . _ b a t c h e s L e n g t h   ! =   0 )   { 
+         d w r . e n g i n e . _ b a t c h Q u e u e [ d w r . e n g i n e . _ b a t c h Q u e u e . l e n g t h ]   =   b a t c h ; 
+     } 
+     e l s e   { 
+         d w r . e n g i n e . _ s e n d D a t a ( b a t c h ) ; 
+     } 
+ } ; 
+ 
+ / * *   @ d e p r e c a t e d   * / 
+ d w r . e n g i n e . s e t P o l l M e t h o d   =   f u n c t i o n ( t y p e )   {   d w r . e n g i n e . s e t P o l l T y p e ( t y p e ) ;   } ; 
+ d w r . e n g i n e . s e t M e t h o d   =   f u n c t i o n ( t y p e )   {   d w r . e n g i n e . s e t R p c T y p e ( t y p e ) ;   } ; 
+ d w r . e n g i n e . s e t V e r b   =   f u n c t i o n ( v e r b )   {   d w r . e n g i n e . s e t H t t p M e t h o d ( v e r b ) ;   } ; 
+ d w r . e n g i n e . s e t P o l l T y p e   =   f u n c t i o n ( )   {   d w r . e n g i n e . _ d e b u g ( " M a n u a l l y   s e t t i n g   t h e   P o l l   T y p e   i s   n o t   s u p p o r t e d " ) ;   } ; 
+ 
+ / / = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+ / /   O n l y   p r i v a t e   s t u f f   b e l o w   h e r e 
+ / / = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
+ 
+ / * *   T h e   o r i g i n a l   p a g e   i d   s e n t   f r o m   t h e   s e r v e r   * / 
+ d w r . e n g i n e . _ o r i g S c r i p t S e s s i o n I d   =   " 8 A 2 2 A E E 4 C 7 B 3 F 9 C A 3 A 0 9 4 7 3 5 1 7 5 A 6 B 1 4 " ; 
+ 
+ / * *   T h e   s e s s i o n   c o o k i e   n a m e   * / 
+ d w r . e n g i n e . _ s e s s i o n C o o k i e N a m e   =   " J S E S S I O N I D " ;   / /   J S E S S I O N I D 
+ 
+ / * *   I s   G E T   e n a b l e d   f o r   t h e   b e n e f i t   o f   S a f a r i ?   * / 
+ d w r . e n g i n e . _ a l l o w G e t F o r S a f a r i B u t M a k e F o r g e r y E a s i e r   =   " f a l s e " ; 
+ 
+ / * *   T h e   s c r i p t   p r e f i x   t o   s t r i p   i n   t h e   c a s e   o f   s c r i p t T a g P r o t e c t i o n .   * / 
+ d w r . e n g i n e . _ s c r i p t T a g P r o t e c t i o n   =   " t h r o w   ' a l l o w S c r i p t T a g R e m o t i n g   i s   f a l s e . ' ; " ; 
+ 
+ / * *   T h e   d e f a u l t   p a t h   t o   t h e   D W R   s e r v l e t   * / 
+ d w r . e n g i n e . _ d e f a u l t P a t h   =   " / w e b a p p s / b l a c k b o a r d / d w r " ; 
+ 
+ / * *   D o   w e   u s e   X H R   f o r   r e v e r s e   a j a x   b e c a u s e   w e   a r e   n o t   s t r e a m i n g ?   * / 
+ d w r . e n g i n e . _ p o l l W i t h X h r   =   " f a l s e " ; 
+ 
+ / * *   T h e   r e a d   p a g e   i d   t h a t   w e   c a l c u l a t e   * / 
+ d w r . e n g i n e . _ s c r i p t S e s s i o n I d   =   n u l l ; 
+ 
+ / * *   T h e   f u n c t i o n   t h a t   w e   u s e   t o   f e t c h / c a l c u l a t e   a   s e s s i o n   i d   * / 
+ d w r . e n g i n e . _ g e t S c r i p t S e s s i o n I d   =   f u n c t i o n ( )   { 
+     i f   ( d w r . e n g i n e . _ s c r i p t S e s s i o n I d   = =   n u l l )   { 
+         d w r . e n g i n e . _ s c r i p t S e s s i o n I d   =   d w r . e n g i n e . _ o r i g S c r i p t S e s s i o n I d   +   M a t h . f l o o r ( M a t h . r a n d o m ( )   *   1 0 0 0 ) ; 
+     } 
+     r e t u r n   d w r . e n g i n e . _ s c r i p t S e s s i o n I d ; 
+ } ; 
+ 
+ / * *   A   f u n c t i o n   t o   c a l l   i f   s o m e t h i n g   f a i l s .   * / 
+ d w r . e n g i n e . _ e r r o r H a n d l e r   =   d w r . e n g i n e . d e f a u l t E r r o r H a n d l e r ; 
+ 
+ / * *   F o r   d e b u g g i n g   w h e n   s o m e t h i n g   u n e x p l a i n e d   h a p p e n s .   * / 
+ d w r . e n g i n e . _ w a r n i n g H a n d l e r   =   d w r . e n g i n e . d e f a u l t W a r n i n g H a n d l e r ; 
+ 
+ / * *   A   f u n c t i o n   t o   b e   c a l l e d   b e f o r e   r e q u e s t s   a r e   m a r s h a l l e d .   C a n   b e   n u l l .   * / 
+ d w r . e n g i n e . _ p r e H o o k   =   n u l l ; 
+ 
+ / * *   A   f u n c t i o n   t o   b e   c a l l e d   a f t e r   r e p l i e s   a r e   r e c e i v e d .   C a n   b e   n u l l .   * / 
+ d w r . e n g i n e . _ p o s t H o o k   =   n u l l ; 
+ 
+ / * *   A n   m a p   o f   t h e   b a t c h e s   t h a t   w e   h a v e   s e n t   a n d   a r e   a w a i t i n g   a   r e p l y   o n .   * / 
+ d w r . e n g i n e . _ b a t c h e s   =   { } ; 
+ 
+ / * *   A   c o u n t   o f   t h e   n u m b e r   o f   o u t s t a n d i n g   b a t c h e s .   S h o u l d   b e   = =   t o   _ b a t c h e s . l e n g t h   u n l e s s   p r o t o t y p e   h a s   m e s s e d   t h i n g s   u p   * / 
+ d w r . e n g i n e . _ b a t c h e s L e n g t h   =   0 ; 
+ 
+ / * *   I n   o r d e r e d   m o d e ,   t h e   a r r a y   o f   b a t c h e s   w a i t i n g   t o   b e   s e n t   * / 
+ d w r . e n g i n e . _ b a t c h Q u e u e   =   [ ] ; 
+ 
+ / * *   W h a t   i s   t h e   d e f a u l t   r p c   t y p e   * / 
+ d w r . e n g i n e . _ r p c T y p e   =   d w r . e n g i n e . X M L H t t p R e q u e s t ; 
+ 
+ / * *   W h a t   i s   t h e   d e f a u l t   r e m o t i n g   m e t h o d   ( i e   G E T   o r   P O S T )   * / 
+ d w r . e n g i n e . _ h t t p M e t h o d   =   " P O S T " ; 
+ 
+ / * *   D o   w e   a t t e m p t   t o   e n s u r e   t h a t   c a l l s   h a p p e n   i n   t h e   o r d e r   i n   w h i c h   t h e y   w e r e   s e n t ?   * / 
+ d w r . e n g i n e . _ o r d e r e d   =   f a l s e ; 
+ 
+ / * *   D o   w e   m a k e   t h e   c a l l s   a s y n c ?   * / 
+ d w r . e n g i n e . _ a s y n c   =   t r u e ; 
+ 
+ / * *   T h e   c u r r e n t   b a t c h   ( i f   w e   a r e   i n   b a t c h   m o d e )   * / 
+ d w r . e n g i n e . _ b a t c h   =   n u l l ; 
+ 
+ / * *   T h e   g l o b a l   t i m e o u t   * / 
+ d w r . e n g i n e . _ t i m e o u t   =   0 ; 
+ 
+ / * *   A c t i v e X   o b j e c t s   t o   u s e   w h e n   w e   w a n t   t o   c o n v e r t   a n   x m l   s t r i n g   i n t o   a   D O M   o b j e c t .   * / 
+ d w r . e n g i n e . _ D O M D o c u m e n t   =   [ " M s x m l 2 . D O M D o c u m e n t . 6 . 0 " ,   " M s x m l 2 . D O M D o c u m e n t . 5 . 0 " ,   " M s x m l 2 . D O M D o c u m e n t . 4 . 0 " ,   " M s x m l 2 . D O M D o c u m e n t . 3 . 0 " ,   " M S X M L 2 . D O M D o c u m e n t " ,   " M S X M L . D O M D o c u m e n t " ,   " M i c r o s o f t . X M L D O M " ] ; 
+ 
+ / * *   T h e   A c t i v e X   o b j e c t s   t o   u s e   w h e n   w e   w a n t   t o   d o   a n   X M L H t t p R e q u e s t   c a l l .   * / 
+ d w r . e n g i n e . _ X M L H T T P   =   [ " M s x m l 2 . X M L H T T P . 6 . 0 " ,   " M s x m l 2 . X M L H T T P . 5 . 0 " ,   " M s x m l 2 . X M L H T T P . 4 . 0 " ,   " M S X M L 2 . X M L H T T P . 3 . 0 " ,   " M S X M L 2 . X M L H T T P " ,   " M i c r o s o f t . X M L H T T P " ] ; 
+ 
+ / * *   A r e   w e   d o i n g   c o m e t   o r   p o l l i n g ?   * / 
+ d w r . e n g i n e . _ a c t i v e R e v e r s e A j a x   =   f a l s e ; 
+ 
+ / * *   T h e   i f r a m e   t h a t   w e   a r e   u s i n g   t o   p o l l   * / 
+ d w r . e n g i n e . _ o u t s t a n d i n g I F r a m e s   =   [ ] ; 
+ 
+ / * *   T h e   x h r   o b j e c t   t h a t   w e   a r e   u s i n g   t o   p o l l   * / 
+ d w r . e n g i n e . _ p o l l R e q   =   n u l l ; 
+ 
+ / * *   H o w   m a n y   m i l l i s e c o n d s   b e t w e e n   i n t e r n a l   c o m e t   p o l l s   * / 
+ d w r . e n g i n e . _ p o l l C o m e t I n t e r v a l   =   2 0 0 ; 
+ 
+ / * *   H o w   m a n y   t i m e s   h a v e   w e   r e - t r i e d   t o   p o l l ?   * / 
+ d w r . e n g i n e . _ p o l l R e t r i e s   =   0 ; 
+ d w r . e n g i n e . _ m a x P o l l R e t r i e s   =   0 ; 
+ 
+ / * *   D o   w e   d o   a   d o c u m e n t . r e l o a d   i f   w e   g e t   a   t e x t / h t m l   r e p l y ?   * / 
+ d w r . e n g i n e . _ t e x t H t m l H a n d l e r   =   n u l l ; 
+ 
+ / * *   I f   y o u   w i s h   t o   s e n d   c u s t o m   h e a d e r s   w i t h   e v e r y   r e q u e s t   * / 
+ d w r . e n g i n e . _ h e a d e r s   =   n u l l ; 
+ 
+ / * *   I f   y o u   w i s h   t o   s e n d   e x t r a   c u s t o m   r e q u e s t   p a r a m e t e r s   w i t h   e a c h   r e q u e s t   * / 
+ d w r . e n g i n e . _ p a r a m e t e r s   =   n u l l ; 
+ 
+ / * *   U n d o c u m e n t e d   i n t e r c e p t o r s   -   d o   n o t   u s e   * / 
+ d w r . e n g i n e . _ p o s t S e p e r a t o r   =   " \ n " ; 
+ d w r . e n g i n e . _ d e f a u l t I n t e r c e p t o r   =   f u n c t i o n ( d a t a )   {   r e t u r n   d a t a ;   } ; 
+ d w r . e n g i n e . _ u r l R e w r i t e H a n d l e r   =   d w r . e n g i n e . _ d e f a u l t I n t e r c e p t o r ; 
+ d w r . e n g i n e . _ c o n t e n t R e w r i t e H a n d l e r   =   d w r . e n g i n e . _ d e f a u l t I n t e r c e p t o r ; 
+ d w r . e n g i n e . _ r e p l y R e w r i t e H a n d l e r   =   d w r . e n g i n e . _ d e f a u l t I n t e r c e p t o r ; 
+ 
+ / * *   B a t c h   i d s   a l l o w   u s   t o   k n o w   w h i c h   b a t c h   t h e   s e r v e r   i s   a n s w e r i n g   * / 
+ d w r . e n g i n e . _ n e x t B a t c h I d   =   0 ; 
+ 
+ / * *   A   l i s t   o f   t h e   p r o p e r t i e s   t h a t   n e e d   m e r g i n g   f r o m   c a l l s   t o   a   b a t c h   * / 
+ d w r . e n g i n e . _ p r o p n a m e s   =   [   " r p c T y p e " ,   " h t t p M e t h o d " ,   " a s y n c " ,   " t i m e o u t " ,   " e r r o r H a n d l e r " ,   " w a r n i n g H a n d l e r " ,   " t e x t H t m l H a n d l e r "   ] ; 
+ 
+ / * *   D o   w e   s t r e a m ,   o r   c a n   b e   h a c k e d   t o   d o   s o ?   * / 
+ d w r . e n g i n e . _ p a r t i a l R e s p o n s e N o   =   0 ; 
+ d w r . e n g i n e . _ p a r t i a l R e s p o n s e Y e s   =   1 ; 
+ d w r . e n g i n e . _ p a r t i a l R e s p o n s e F l u s h   =   2 ; 
+ 
+ / * *   I s   t h i s   p a g e   i n   t h e   p r o c e s s   o f   u n l o a d i n g ?   * / 
+ d w r . e n g i n e . _ u n l o a d i n g   =   f a l s e ; 
+ 
+ / * * 
+   *   @ p r i v a t e   S e n d   a   r e q u e s t .   C a l l e d   b y   t h e   J a v a s c r i p t   i n t e r f a c e   s t u b 
+   *   @ p a r a m   p a t h   p a r t   o f   U R L   a f t e r   t h e   h o s t   a n d   b e f o r e   t h e   e x e c   b i t   w i t h o u t   l e a d i n g   o r   t r a i l i n g   / s 
+   *   @ p a r a m   s c r i p t N a m e   T h e   c l a s s   t o   e x e c u t e 
+   *   @ p a r a m   m e t h o d N a m e   T h e   m e t h o d   o n   s a i d   c l a s s   t o   e x e c u t e 
+   *   @ p a r a m   f u n c   T h e   c a l l b a c k   f u n c t i o n   t o   w h i c h   a n y   r e t u r n e d   d a t a   s h o u l d   b e   p a s s e d 
+   *               i f   t h i s   i s   n u l l ,   a n y   r e t u r n e d   d a t a   w i l l   b e   i g n o r e d 
+   *   @ p a r a m   v a r a r g _ p a r a m s   T h e   p a r a m e t e r s   t o   p a s s   t o   t h e   a b o v e   c l a s s 
+   * / 
+ d w r . e n g i n e . _ e x e c u t e   =   f u n c t i o n ( p a t h ,   s c r i p t N a m e ,   m e t h o d N a m e ,   v a r a r g _ p a r a m s )   { 
+     v a r   s i n g l e S h o t   =   f a l s e ; 
+     i f   ( d w r . e n g i n e . _ b a t c h   = =   n u l l )   { 
+         d w r . e n g i n e . b e g i n B a t c h ( ) ; 
+         s i n g l e S h o t   =   t r u e ; 
+     } 
+     v a r   b a t c h   =   d w r . e n g i n e . _ b a t c h ; 
+     / /   T o   m a k e   t h e m   e a s y   t o   m a n i p u l a t e   w e   c o p y   t h e   a r g u m e n t s   i n t o   a n   a r g s   a r r a y 
+     v a r   a r g s   =   [ ] ; 
+     f o r   ( v a r   i   =   0 ;   i   <   a r g u m e n t s . l e n g t h   -   3 ;   i + + )   { 
+         a r g s [ i ]   =   a r g u m e n t s [ i   +   3 ] ; 
+     } 
+     / /   A l l   t h e   p a t h s   M U S T   b e   t o   t h e   s a m e   s e r v l e t 
+     i f   ( b a t c h . p a t h   = =   n u l l )   { 
+         b a t c h . p a t h   =   p a t h ; 
+     } 
+     e l s e   { 
+         i f   ( b a t c h . p a t h   ! =   p a t h )   { 
+             d w r . e n g i n e . _ h a n d l e E r r o r ( b a t c h ,   {   n a m e : " d w r . e n g i n e . m u l t i p l e S e r v l e t s " ,   m e s s a g e : " C a n ' t   b a t c h   r e q u e s t s   t o   m u l t i p l e   D W R   S e r v l e t s . "   } ) ; 
+             r e t u r n ; 
+         } 
+     } 
+     / /   F r o m   t h e   o t h e r   p a r a m s ,   w o r k   o u t   w h i c h   i s   t h e   f u n c t i o n   ( o r   o b j e c t   w i t h 
+     / /   c a l l   m e t a - d a t a )   a n d   w h i c h   i s   t h e   c a l l   p a r a m e t e r s 
+     v a r   c a l l D a t a ; 
+     v a r   l a s t A r g   =   a r g s [ a r g s . l e n g t h   -   1 ] ; 
+     i f   ( t y p e o f   l a s t A r g   = =   " f u n c t i o n "   | |   l a s t A r g   = =   n u l l )   c a l l D a t a   =   {   c a l l b a c k : a r g s . p o p ( )   } ; 
+     e l s e   c a l l D a t a   =   a r g s . p o p ( ) ; 
+ 
+     / /   M e r g e   f r o m   t h e   c a l l D a t a   i n t o   t h e   b a t c h 
+     d w r . e n g i n e . _ m e r g e B a t c h ( b a t c h ,   c a l l D a t a ) ; 
+     b a t c h . h a n d l e r s [ b a t c h . m a p . c a l l C o u n t ]   =   { 
+         e x c e p t i o n H a n d l e r : c a l l D a t a . e x c e p t i o n H a n d l e r , 
+         c a l l b a c k : c a l l D a t a . c a l l b a c k 
+     } ; 
+ 
+     / /   C o p y   t o   t h e   m a p   t h e   t h i n g s   t h a t   n e e d   s e r i a l i z i n g 
+     v a r   p r e f i x   =   " c "   +   b a t c h . m a p . c a l l C o u n t   +   " - " ; 
+     b a t c h . m a p [ p r e f i x   +   " s c r i p t N a m e " ]   =   s c r i p t N a m e ; 
+     b a t c h . m a p [ p r e f i x   +   " m e t h o d N a m e " ]   =   m e t h o d N a m e ; 
+     b a t c h . m a p [ p r e f i x   +   " i d " ]   =   b a t c h . m a p . c a l l C o u n t ; 
+     f o r   ( i   =   0 ;   i   <   a r g s . l e n g t h ;   i + + )   { 
+         d w r . e n g i n e . _ s e r i a l i z e A l l ( b a t c h ,   [ ] ,   a r g s [ i ] ,   p r e f i x   +   " p a r a m "   +   i ) ; 
+     } 
+ 
+     / /   N o w   w e   h a v e   f i n i s h e d   r e m e m b e r i n g   t h e   c a l l ,   w e   i n c r   t h e   c a l l   c o u n t 
+     b a t c h . m a p . c a l l C o u n t + + ; 
+     i f   ( s i n g l e S h o t )   d w r . e n g i n e . e n d B a t c h ( ) ; 
+ } ; 
+ 
+ / * *   @ p r i v a t e   P o l l   t h e   s e r v e r   t o   s e e   i f   t h e r e   i s   a n y   d a t a   w a i t i n g   * / 
+ d w r . e n g i n e . _ p o l l   =   f u n c t i o n ( )   { 
+     i f   ( ! d w r . e n g i n e . _ a c t i v e R e v e r s e A j a x )   r e t u r n ; 
+ 
+     v a r   b a t c h   =   d w r . e n g i n e . _ c r e a t e B a t c h ( ) ; 
+     b a t c h . m a p . i d   =   0 ;   / /   T O D O :   D o   w e   n e e d   t h i s ? ? 
+     b a t c h . m a p . c a l l C o u n t   =   1 ; 
+     b a t c h . i s P o l l   =   t r u e ; 
+     i f   ( d w r . e n g i n e . _ p o l l W i t h X h r   = =   " t r u e " )   { 
+         b a t c h . r p c T y p e   =   d w r . e n g i n e . X M L H t t p R e q u e s t ; 
+         b a t c h . m a p . p a r t i a l R e s p o n s e   =   d w r . e n g i n e . _ p a r t i a l R e s p o n s e N o ; 
+     } 
+     e l s e   { 
+         i f   ( n a v i g a t o r . u s e r A g e n t . i n d e x O f ( " G e c k o / " )   ! =   - 1 )   { 
+             b a t c h . r p c T y p e   =   d w r . e n g i n e . X M L H t t p R e q u e s t ; 
+             b a t c h . m a p . p a r t i a l R e s p o n s e   =   d w r . e n g i n e . _ p a r t i a l R e s p o n s e Y e s ; 
+         } 
+         e l s e   { 
+             b a t c h . r p c T y p e   =   d w r . e n g i n e . X M L H t t p R e q u e s t ; 
+             b a t c h . m a p . p a r t i a l R e s p o n s e   =   d w r . e n g i n e . _ p a r t i a l R e s p o n s e N o ; 
+         } 
+     } 
+     b a t c h . h t t p M e t h o d   =   " P O S T " ; 
+     b a t c h . a s y n c   =   t r u e ; 
+     b a t c h . t i m e o u t   =   0 ; 
+     b a t c h . p a t h   =   d w r . e n g i n e . _ d e f a u l t P a t h ; 
+     b a t c h . p r e H o o k s   =   [ ] ; 
+     b a t c h . p o s t H o o k s   =   [ ] ; 
+     b a t c h . e r r o r H a n d l e r   =   d w r . e n g i n e . _ p o l l E r r o r H a n d l e r ; 
+     b a t c h . w a r n i n g H a n d l e r   =   d w r . e n g i n e . _ p o l l E r r o r H a n d l e r ; 
+     b a t c h . h a n d l e r s [ 0 ]   =   { 
+         c a l l b a c k : f u n c t i o n ( p a u s e )   { 
+             d w r . e n g i n e . _ p o l l R e t r i e s   =   0 ; 
+             s e t T i m e o u t ( d w r . e n g i n e . _ p o l l ,   p a u s e ) ; 
+         } 
+     } ; 
+ 
+     / /   S e n d   t h e   d a t a 
+     d w r . e n g i n e . _ s e n d D a t a ( b a t c h ) ; 
+     i f   ( b a t c h . r p c T y p e   = =   d w r . e n g i n e . X M L H t t p R e q u e s t   & &   b a t c h . m a p . p a r t i a l R e s p o n s e   = =   d w r . e n g i n e . _ p a r t i a l R e s p o n s e Y e s )   { 
+         d w r . e n g i n e . _ c h e c k C o m e t P o l l ( ) ; 
+     } 
+ } ; 
+ 
+ / * *   T r y   t o   r e c o v e r   f r o m   p o l l i n g   e r r o r s   * / 
+ d w r . e n g i n e . _ p o l l E r r o r H a n d l e r   =   f u n c t i o n ( m s g ,   e x )   { 
+     / /   i f   a n y t h i n g   g o e s   w r o n g   t h e n   j u s t   s i l e n t l y   t r y   a g a i n   ( u p   t o   3 x )   a f t e r   1 0 s 
+     d w r . e n g i n e . _ p o l l R e t r i e s + + ; 
+     d w r . e n g i n e . _ d e b u g ( " R e v e r s e   A j a x   p o l l   f a i l e d   ( p o l l R e t r i e s = "   +   d w r . e n g i n e . _ p o l l R e t r i e s   +   " ) :   "   +   e x . n a m e   +   "   :   "   +   e x . m e s s a g e ) ; 
+     i f   ( d w r . e n g i n e . _ p o l l R e t r i e s   <   d w r . e n g i n e . _ m a x P o l l R e t r i e s )   { 
+         s e t T i m e o u t ( d w r . e n g i n e . _ p o l l ,   1 0 0 0 0 ) ; 
+     } 
+     e l s e   { 
+         d w r . e n g i n e . _ a c t i v e R e v e r s e A j a x   =   f a l s e ; 
+         d w r . e n g i n e . _ d e b u g ( " G i v i n g   u p . " ) ; 
+     } 
+ } ; 
+ 
+ / * *   @ p r i v a t e   G e n e r a t e   a   n e w   s t a n d a r d   b a t c h   * / 
+ d w r . e n g i n e . _ c r e a t e B a t c h   =   f u n c t i o n ( )   { 
+     v a r   b a t c h   =   { 
+         m a p : { 
+             c a l l C o u n t : 0 , 
+             p a g e : w i n d o w . l o c a t i o n . p a t h n a m e   +   w i n d o w . l o c a t i o n . s e a r c h , 
+             h t t p S e s s i o n I d : d w r . e n g i n e . _ g e t J S e s s i o n I d ( ) , 
+             s c r i p t S e s s i o n I d : d w r . e n g i n e . _ g e t S c r i p t S e s s i o n I d ( ) 
+         } , 
+         c h a r s P r o c e s s e d : 0 ,   p a r a m C o u n t : 0 , 
+         p a r a m e t e r s : { } ,   h e a d e r s : { } , 
+         i s P o l l : f a l s e ,   h a n d l e r s : { } ,   p r e H o o k s : [ ] ,   p o s t H o o k s : [ ] , 
+         r p c T y p e : d w r . e n g i n e . _ r p c T y p e , 
+         h t t p M e t h o d : d w r . e n g i n e . _ h t t p M e t h o d , 
+         a s y n c : d w r . e n g i n e . _ a s y n c , 
+         t i m e o u t : d w r . e n g i n e . _ t i m e o u t , 
+         e r r o r H a n d l e r : d w r . e n g i n e . _ e r r o r H a n d l e r , 
+         w a r n i n g H a n d l e r : d w r . e n g i n e . _ w a r n i n g H a n d l e r , 
+         t e x t H t m l H a n d l e r : d w r . e n g i n e . _ t e x t H t m l H a n d l e r 
+     } ; 
+     i f   ( d w r . e n g i n e . _ p r e H o o k )   b a t c h . p r e H o o k s . p u s h ( d w r . e n g i n e . _ p r e H o o k ) ; 
+     i f   ( d w r . e n g i n e . _ p o s t H o o k )   b a t c h . p o s t H o o k s . p u s h ( d w r . e n g i n e . _ p o s t H o o k ) ; 
+     v a r   p r o p n a m e ,   d a t a ; 
+     i f   ( d w r . e n g i n e . _ h e a d e r s )   { 
+         f o r   ( p r o p n a m e   i n   d w r . e n g i n e . _ h e a d e r s )   { 
+             d a t a   =   d w r . e n g i n e . _ h e a d e r s [ p r o p n a m e ] ; 
+             i f   ( t y p e o f   d a t a   ! =   " f u n c t i o n " )   b a t c h . h e a d e r s [ p r o p n a m e ]   =   d a t a ; 
+         } 
+     } 
+     i f   ( d w r . e n g i n e . _ p a r a m e t e r s )   { 
+         f o r   ( p r o p n a m e   i n   d w r . e n g i n e . _ p a r a m e t e r s )   { 
+             d a t a   =   d w r . e n g i n e . _ p a r a m e t e r s [ p r o p n a m e ] ; 
+             i f   ( t y p e o f   d a t a   ! =   " f u n c t i o n " )   b a t c h . p a r a m e t e r s [ p r o p n a m e ]   =   d a t a ; 
+         } 
+     } 
+     r e t u r n   b a t c h ; 
+ } ; 
+ 
+ / * *   @ p r i v a t e   T a k e   f u r t h e r   o p t i o n s   a n d   m e r g e   t h e m   i n t o   * / 
+ d w r . e n g i n e . _ m e r g e B a t c h   =   f u n c t i o n ( b a t c h ,   o v e r r i d e s )   { 
+     v a r   p r o p n a m e ,   d a t a ; 
+     f o r   ( v a r   i   =   0 ;   i   <   d w r . e n g i n e . _ p r o p n a m e s . l e n g t h ;   i + + )   { 
+         p r o p n a m e   =   d w r . e n g i n e . _ p r o p n a m e s [ i ] ; 
+         i f   ( o v e r r i d e s [ p r o p n a m e ]   ! =   n u l l )   b a t c h [ p r o p n a m e ]   =   o v e r r i d e s [ p r o p n a m e ] ; 
+     } 
+     i f   ( o v e r r i d e s . p r e H o o k   ! =   n u l l )   b a t c h . p r e H o o k s . u n s h i f t ( o v e r r i d e s . p r e H o o k ) ; 
+     i f   ( o v e r r i d e s . p o s t H o o k   ! =   n u l l )   b a t c h . p o s t H o o k s . p u s h ( o v e r r i d e s . p o s t H o o k ) ; 
+     i f   ( o v e r r i d e s . h e a d e r s )   { 
+         f o r   ( p r o p n a m e   i n   o v e r r i d e s . h e a d e r s )   { 
+             d a t a   =   o v e r r i d e s . h e a d e r s [ p r o p n a m e ] ; 
+             i f   ( t y p e o f   d a t a   ! =   " f u n c t i o n " )   b a t c h . h e a d e r s [ p r o p n a m e ]   =   d a t a ; 
+         } 
+     } 
+     i f   ( o v e r r i d e s . p a r a m e t e r s )   { 
+         f o r   ( p r o p n a m e   i n   o v e r r i d e s . p a r a m e t e r s )   { 
+             d a t a   =   o v e r r i d e s . p a r a m e t e r s [ p r o p n a m e ] ; 
+             i f   ( t y p e o f   d a t a   ! =   " f u n c t i o n " )   b a t c h . m a p [ " p - "   +   p r o p n a m e ]   =   " "   +   d a t a ; 
+         } 
+     } 
+ } ; 
+ 
+ / * *   @ p r i v a t e   W h a t   i s   o u r   s e s s i o n   i d ?   * / 
+ d w r . e n g i n e . _ g e t J S e s s i o n I d   =     f u n c t i o n ( )   { 
+     v a r   c o o k i e s   =   d o c u m e n t . c o o k i e . s p l i t ( ' ; ' ) ; 
+     f o r   ( v a r   i   =   0 ;   i   <   c o o k i e s . l e n g t h ;   i + + )   { 
+         v a r   c o o k i e   =   c o o k i e s [ i ] ; 
+         w h i l e   ( c o o k i e . c h a r A t ( 0 )   = =   '   ' )   c o o k i e   =   c o o k i e . s u b s t r i n g ( 1 ,   c o o k i e . l e n g t h ) ; 
+         i f   ( c o o k i e . i n d e x O f ( d w r . e n g i n e . _ s e s s i o n C o o k i e N a m e   +   " = " )   = =   0 )   { 
+             r e t u r n   c o o k i e . s u b s t r i n g ( d w r . e n g i n e . _ s e s s i o n C o o k i e N a m e . l e n g t h   +   1 ,   c o o k i e . l e n g t h ) ; 
+         } 
+     } 
+     r e t u r n   " " ; 
+ } ; 
+ 
+ / * *   @ p r i v a t e   C h e c k   f o r   r e v e r s e   A j a x   a c t i v i t y   * / 
+ d w r . e n g i n e . _ c h e c k C o m e t P o l l   =   f u n c t i o n ( )   { 
+     f o r   ( v a r   i   =   0 ;   i   <   d w r . e n g i n e . _ o u t s t a n d i n g I F r a m e s . l e n g t h ;   i + + )   { 
+         v a r   t e x t   =   " " ; 
+         v a r   i f r a m e   =   d w r . e n g i n e . _ o u t s t a n d i n g I F r a m e s [ i ] ; 
+         t r y   { 
+             t e x t   =   d w r . e n g i n e . _ g e t T e x t F r o m C o m e t I F r a m e ( i f r a m e ) ; 
+         } 
+         c a t c h   ( e x )   { 
+             d w r . e n g i n e . _ h a n d l e W a r n i n g ( i f r a m e . b a t c h ,   e x ) ; 
+         } 
+         i f   ( t e x t   ! =   " " )   d w r . e n g i n e . _ p r o c e s s C o m e t R e s p o n s e ( t e x t ,   i f r a m e . b a t c h ) ; 
+     } 
+     i f   ( d w r . e n g i n e . _ p o l l R e q )   { 
+         v a r   r e q   =   d w r . e n g i n e . _ p o l l R e q ; 
+         v a r   t e x t   =   r e q . r e s p o n s e T e x t ; 
+         i f   ( t e x t   ! =   n u l l )   d w r . e n g i n e . _ p r o c e s s C o m e t R e s p o n s e ( t e x t ,   r e q . b a t c h ) ; 
+     } 
+ 
+     / /   I f   t h e   p o l l   r e s o u r c e s   a r e   s t i l l   t h e r e ,   c o m e   b a c k   a g a i n 
+     i f   ( d w r . e n g i n e . _ o u t s t a n d i n g I F r a m e s . l e n g t h   >   0   | |   d w r . e n g i n e . _ p o l l R e q )   { 
+         s e t T i m e o u t ( d w r . e n g i n e . _ c h e c k C o m e t P o l l ,   d w r . e n g i n e . _ p o l l C o m e t I n t e r v a l ) ; 
+     } 
+ } ; 
+ 
+ / * *   @ p r i v a t e   E x t r a c t   t h e   w h o l e   ( e x e c u t e d   a n   a l l )   t e x t   f r o m   t h e   c u r r e n t   i f r a m e   * / 
+ d w r . e n g i n e . _ g e t T e x t F r o m C o m e t I F r a m e   =   f u n c t i o n ( f r a m e E l e )   { 
+     v a r   b o d y   =   f r a m e E l e . c o n t e n t W i n d o w . d o c u m e n t . b o d y ; 
+     i f   ( b o d y   = =   n u l l )   r e t u r n   " " ; 
+     v a r   t e x t   =   b o d y . i n n e r H T M L ; 
+     / /   W e   n e e d   t o   p r e v e n t   I E   f r o m   s t r i p p i n g   l i n e   f e e d s 
+     i f   ( t e x t . i n d e x O f ( " < P R E > " )   = =   0   | |   t e x t . i n d e x O f ( " < p r e > " )   = =   0 )   { 
+         t e x t   =   t e x t . s u b s t r i n g ( 5 ,   t e x t . l e n g t h   -   7 ) ; 
+     } 
+     r e t u r n   t e x t ; 
+ } ; 
+ 
+ / * *   @ p r i v a t e   S o m e   m o r e   t e x t   m i g h t   h a v e   c o m e   i n ,   t e s t   a n d   e x e c u t e   t h e   n e w   s t u f f   * / 
+ d w r . e n g i n e . _ p r o c e s s C o m e t R e s p o n s e   =   f u n c t i o n ( r e s p o n s e ,   b a t c h )   { 
+     i f   ( b a t c h . c h a r s P r o c e s s e d   = =   r e s p o n s e . l e n g t h )   r e t u r n ; 
+     i f   ( r e s p o n s e . l e n g t h   = =   0 )   { 
+         b a t c h . c h a r s P r o c e s s e d   =   0 ; 
+         r e t u r n ; 
+     } 
+ 
+     v a r   f i r s t S t a r t T a g   =   r e s p o n s e . i n d e x O f ( " / / # D W R - S T A R T # " ,   b a t c h . c h a r s P r o c e s s e d ) ; 
+     i f   ( f i r s t S t a r t T a g   = =   - 1 )   { 
+         / /   d w r . e n g i n e . _ d e b u g ( " N o   s t a r t   t a g   ( s e a r c h   f r o m   "   +   b a t c h . c h a r s P r o c e s s e d   +   " ) .   s k i p p i n g   ' "   +   r e s p o n s e . s u b s t r i n g ( b a t c h . c h a r s P r o c e s s e d )   +   " ' " ) ; 
+         b a t c h . c h a r s P r o c e s s e d   =   r e s p o n s e . l e n g t h ; 
+         r e t u r n ; 
+     } 
+     / /   i f   ( f i r s t S t a r t T a g   >   0 )   { 
+     / /       d w r . e n g i n e . _ d e b u g ( " S t a r t   t a g   n o t   a t   s t a r t   ( s e a r c h   f r o m   "   +   b a t c h . c h a r s P r o c e s s e d   +   " ) .   s k i p p i n g   ' "   +   r e s p o n s e . s u b s t r i n g ( b a t c h . c h a r s P r o c e s s e d ,   f i r s t S t a r t T a g )   +   " ' " ) ; 
+     / /   } 
+ 
+     v a r   l a s t E n d T a g   =   r e s p o n s e . l a s t I n d e x O f ( " / / # D W R - E N D # " ) ; 
+     i f   ( l a s t E n d T a g   = =   - 1 )   { 
+         / /   d w r . e n g i n e . _ d e b u g ( " N o   e n d   t a g .   u n c h a n g e d   c h a r s P r o c e s s e d = "   +   b a t c h . c h a r s P r o c e s s e d ) ; 
+         r e t u r n ; 
+     } 
+ 
+     / /   S k i p   t h e   e n d   t a g   t o o   f o r   n e x t   t i m e ,   r e m e m b e r i n g   C R   a n d   L F 
+     i f   ( r e s p o n s e . c h a r C o d e A t ( l a s t E n d T a g   +   1 1 )   = =   1 3   & &   r e s p o n s e . c h a r C o d e A t ( l a s t E n d T a g   +   1 2 )   = =   1 0 )   { 
+         b a t c h . c h a r s P r o c e s s e d   =   l a s t E n d T a g   +   1 3 ; 
+     } 
+     e l s e   { 
+         b a t c h . c h a r s P r o c e s s e d   =   l a s t E n d T a g   +   1 1 ; 
+     } 
+ 
+     v a r   e x e c   =   r e s p o n s e . s u b s t r i n g ( f i r s t S t a r t T a g   +   1 3 ,   l a s t E n d T a g ) ; 
+ 
+     d w r . e n g i n e . _ r e c e i v e d B a t c h   =   b a t c h ; 
+     d w r . e n g i n e . _ e v a l ( e x e c ) ; 
+     d w r . e n g i n e . _ r e c e i v e d B a t c h   =   n u l l ; 
+ } ; 
+ 
+ / * *   @ p r i v a t e   A c t u a l l y   s e n d   t h e   b l o c k   o f   d a t a   i n   t h e   b a t c h   o b j e c t .   * / 
+ d w r . e n g i n e . _ s e n d D a t a   =   f u n c t i o n ( b a t c h )   { 
+     b a t c h . m a p . b a t c h I d   =   d w r . e n g i n e . _ n e x t B a t c h I d ; 
+     d w r . e n g i n e . _ n e x t B a t c h I d + + ; 
+     d w r . e n g i n e . _ b a t c h e s [ b a t c h . m a p . b a t c h I d ]   =   b a t c h ; 
+     d w r . e n g i n e . _ b a t c h e s L e n g t h + + ; 
+     b a t c h . c o m p l e t e d   =   f a l s e ; 
+ 
+     f o r   ( v a r   i   =   0 ;   i   <   b a t c h . p r e H o o k s . l e n g t h ;   i + + )   { 
+         b a t c h . p r e H o o k s [ i ] ( ) ; 
+     } 
+     b a t c h . p r e H o o k s   =   n u l l ; 
+     / /   S e t   a   t i m e o u t 
+     i f   ( b a t c h . t i m e o u t   & &   b a t c h . t i m e o u t   ! =   0 )   { 
+         b a t c h . t i m e o u t I d   =   s e t T i m e o u t ( f u n c t i o n ( )   {   d w r . e n g i n e . _ a b o r t R e q u e s t ( b a t c h ) ;   } ,   b a t c h . t i m e o u t ) ; 
+     } 
+     / /   G e t   s e t u p   f o r   X M L H t t p R e q u e s t   i f   p o s s i b l e 
+     i f   ( b a t c h . r p c T y p e   = =   d w r . e n g i n e . X M L H t t p R e q u e s t )   { 
+         i f   ( w i n d o w . X M L H t t p R e q u e s t )   { 
+             b a t c h . r e q   =   n e w   X M L H t t p R e q u e s t ( ) ; 
+         } 
+         / /   I E 5   f o r   t h e   m a c   c l a i m s   t o   s u p p o r t   w i n d o w . A c t i v e X O b j e c t ,   b u t   t h r o w s   a n   e r r o r   w h e n   i t ' s   u s e d 
+         e l s e   i f   ( w i n d o w . A c t i v e X O b j e c t   & &   ! ( n a v i g a t o r . u s e r A g e n t . i n d e x O f ( " M a c " )   > =   0   & &   n a v i g a t o r . u s e r A g e n t . i n d e x O f ( " M S I E " )   > =   0 ) )   { 
+             b a t c h . r e q   =   d w r . e n g i n e . _ n e w A c t i v e X O b j e c t ( d w r . e n g i n e . _ X M L H T T P ) ; 
+         } 
+     } 
+ 
+     v a r   p r o p ,   r e q u e s t ; 
+     i f   ( b a t c h . r e q )   { 
+         / /   P r o c e e d   u s i n g   X M L H t t p R e q u e s t 
+         i f   ( b a t c h . a s y n c )   { 
+             b a t c h . r e q . o n r e a d y s t a t e c h a n g e   =   f u n c t i o n ( )   { 
+                 i f   ( t y p e o f   d w r   ! =   ' u n d e f i n e d ' )   d w r . e n g i n e . _ s t a t e C h a n g e ( b a t c h ) ; 
+             } ; 
+         } 
+         / /   I f   w e ' r e   p o l l i n g ,   r e c o r d   t h i s   f o r   m o n i t o r i n g 
+         i f   ( b a t c h . i s P o l l )   { 
+             d w r . e n g i n e . _ p o l l R e q   =   b a t c h . r e q ; 
+             / /   I n   I E   X H R   i s   a n   A c t i v e X   c o n t r o l   s o   y o u   c a n ' t   a u g m e n t   i t   l i k e   t h i s 
+             i f   ( ! ( d o c u m e n t . a l l   & &   ! w i n d o w . o p e r a ) )   b a t c h . r e q . b a t c h   =   b a t c h ; 
+         } 
+         / /   W o r k a r o u n d   f o r   S a f a r i   1 . x   P O S T   b u g 
+         v a r   i n d e x S a f a r i   =   n a v i g a t o r . u s e r A g e n t . i n d e x O f ( " S a f a r i / " ) ; 
+         i f   ( i n d e x S a f a r i   > =   0 )   { 
+             v a r   v e r s i o n   =   n a v i g a t o r . u s e r A g e n t . s u b s t r i n g ( i n d e x S a f a r i   +   7 ) ; 
+             i f   ( p a r s e I n t ( v e r s i o n ,   1 0 )   <   4 0 0 )   { 
+                 i f   ( d w r . e n g i n e . _ a l l o w G e t F o r S a f a r i B u t M a k e F o r g e r y E a s i e r   = =   " t r u e " )   b a t c h . h t t p M e t h o d   =   " G E T " ; 
+                 e l s e   d w r . e n g i n e . _ h a n d l e W a r n i n g ( b a t c h ,   {   n a m e : " d w r . e n g i n e . o l d S a f a r i " ,   m e s s a g e : " S a f a r i   G E T   s u p p o r t   d i s a b l e d .   S e e   g e t a h e a d . o r g / d w r / s e r v e r / s e r v l e t   a n d   a l l o w G e t F o r S a f a r i B u t M a k e F o r g e r y E a s i e r . "   } ) ; 
+             } 
+         } 
+         b a t c h . m o d e   =   b a t c h . i s P o l l   ?   d w r . e n g i n e . _ M o d e P l a i n P o l l   :   d w r . e n g i n e . _ M o d e P l a i n C a l l ; 
+         r e q u e s t   =   d w r . e n g i n e . _ c o n s t r u c t R e q u e s t ( b a t c h ) ; 
+         t r y   { 
+             b a t c h . r e q . o p e n ( b a t c h . h t t p M e t h o d ,   r e q u e s t . u r l ,   b a t c h . a s y n c ) ; 
+             t r y   { 
+                 f o r   ( p r o p   i n   b a t c h . h e a d e r s )   { 
+                     v a r   v a l u e   =   b a t c h . h e a d e r s [ p r o p ] ; 
+                     i f   ( t y p e o f   v a l u e   = =   " s t r i n g " )   b a t c h . r e q . s e t R e q u e s t H e a d e r ( p r o p ,   v a l u e ) ; 
+                 } 
+                 i f   ( ! b a t c h . h e a d e r s [ " C o n t e n t - T y p e " ] )   b a t c h . r e q . s e t R e q u e s t H e a d e r ( " C o n t e n t - T y p e " ,   " t e x t / p l a i n " ) ; 
+             } 
+             c a t c h   ( e x )   { 
+                 d w r . e n g i n e . _ h a n d l e W a r n i n g ( b a t c h ,   e x ) ; 
+             } 
+             b a t c h . r e q . s e n d ( r e q u e s t . b o d y ) ; 
+             i f   ( ! b a t c h . a s y n c )   d w r . e n g i n e . _ s t a t e C h a n g e ( b a t c h ) ; 
+         } 
+         c a t c h   ( e x )   { 
+             d w r . e n g i n e . _ h a n d l e E r r o r ( b a t c h ,   e x ) ; 
+         } 
+     } 
+     e l s e   i f   ( b a t c h . r p c T y p e   ! =   d w r . e n g i n e . S c r i p t T a g )   { 
+         v a r   i d n a m e   =   b a t c h . i s P o l l   ?   " d w r - i f - p o l l - "   +   b a t c h . m a p . b a t c h I d   :   " d w r - i f - "   +   b a t c h . m a p . b a t c h I d ; 
+         / /   R e m o v e d   h t m l f i l e   i m p l e m e n t a t i o n .   D o n ' t   e x p e c t   i t   t o   r e t u r n   b e f o r e   v 3 
+         b a t c h . d i v   =   d o c u m e n t . c r e a t e E l e m e n t ( " d i v " ) ; 
+         / /   A d d   t h e   d i v   t o   t h e   d o c u m e n t   f i r s t ,   o t h e r w i s e   I E   6   w i l l   i g n o r e   o n l o a d   h a n d l e r . 
+         d o c u m e n t . b o d y . a p p e n d C h i l d ( b a t c h . d i v ) ; 
+         b a t c h . d i v . i n n e r H T M L   =   " < i f r a m e   s r c = ' j a v a s c r i p t : v o i d ( 0 ) '   f r a m e b o r d e r = ' 0 '   s t y l e = ' w i d t h : 0 p x ; h e i g h t : 0 p x ; b o r d e r : 0 ; '   i d = ' "   +   i d n a m e   +   " '   n a m e = ' "   +   i d n a m e   +   " '   o n l o a d = ' d w r . e n g i n e . _ i f r a m e L o a d i n g C o m p l e t e   ( "   +   b a t c h . m a p . b a t c h I d   +   " ) ; ' > < / i f r a m e > " ; 
+         b a t c h . d o c u m e n t   =   d o c u m e n t ; 
+         b a t c h . i f r a m e   =   b a t c h . d o c u m e n t . g e t E l e m e n t B y I d ( i d n a m e ) ; 
+         b a t c h . i f r a m e . b a t c h   =   b a t c h ; 
+         b a t c h . m o d e   =   b a t c h . i s P o l l   ?   d w r . e n g i n e . _ M o d e H t m l P o l l   :   d w r . e n g i n e . _ M o d e H t m l C a l l ; 
+         i f   ( b a t c h . i s P o l l )   d w r . e n g i n e . _ o u t s t a n d i n g I F r a m e s . p u s h ( b a t c h . i f r a m e ) ; 
+         r e q u e s t   =   d w r . e n g i n e . _ c o n s t r u c t R e q u e s t ( b a t c h ) ; 
+         i f   ( b a t c h . h t t p M e t h o d   = =   " G E T " )   { 
+             b a t c h . i f r a m e . s e t A t t r i b u t e ( " s r c " ,   r e q u e s t . u r l ) ; 
+         } 
+         e l s e   { 
+             b a t c h . f o r m   =   b a t c h . d o c u m e n t . c r e a t e E l e m e n t ( " f o r m " ) ; 
+             b a t c h . f o r m . s e t A t t r i b u t e ( " i d " ,   " d w r - f o r m " ) ; 
+             b a t c h . f o r m . s e t A t t r i b u t e ( " a c t i o n " ,   r e q u e s t . u r l ) ; 
+             b a t c h . f o r m . s e t A t t r i b u t e ( " s t y l e " ,   " d i s p l a y : n o n e ; " ) ; 
+             b a t c h . f o r m . s e t A t t r i b u t e ( " t a r g e t " ,   i d n a m e ) ; 
+             b a t c h . f o r m . t a r g e t   =   i d n a m e ; 
+             b a t c h . f o r m . s e t A t t r i b u t e ( " m e t h o d " ,   b a t c h . h t t p M e t h o d ) ; 
+             f o r   ( p r o p   i n   b a t c h . m a p )   { 
+                 v a r   v a l u e   =   b a t c h . m a p [ p r o p ] ; 
+                 i f   ( t y p e o f   v a l u e   ! =   " f u n c t i o n " )   { 
+                     v a r   f o r m I n p u t   =   b a t c h . d o c u m e n t . c r e a t e E l e m e n t ( " i n p u t " ) ; 
+                     f o r m I n p u t . s e t A t t r i b u t e ( " t y p e " ,   " h i d d e n " ) ; 
+                     f o r m I n p u t . s e t A t t r i b u t e ( " n a m e " ,   p r o p ) ; 
+                     f o r m I n p u t . s e t A t t r i b u t e ( " v a l u e " ,   v a l u e ) ; 
+                     b a t c h . f o r m . a p p e n d C h i l d ( f o r m I n p u t ) ; 
+                 } 
+             } 
+             b a t c h . d o c u m e n t . b o d y . a p p e n d C h i l d ( b a t c h . f o r m ) ; 
+             b a t c h . f o r m . s u b m i t ( ) ; 
+         } 
+     } 
+     e l s e   { 
+         b a t c h . h t t p M e t h o d   =   " G E T " ;   / /   T h e r e ' s   n o   s u c h   t h i n g   a s   S c r i p t T a g   u s i n g   P O S T 
+         b a t c h . m o d e   =   b a t c h . i s P o l l   ?   d w r . e n g i n e . _ M o d e P l a i n P o l l   :   d w r . e n g i n e . _ M o d e P l a i n C a l l ; 
+         r e q u e s t   =   d w r . e n g i n e . _ c o n s t r u c t R e q u e s t ( b a t c h ) ; 
+         b a t c h . s c r i p t   =   d o c u m e n t . c r e a t e E l e m e n t ( " s c r i p t " ) ; 
+         b a t c h . s c r i p t . i d   =   " d w r - s t - "   +   b a t c h . m a p [ " c 0 - i d " ] ; 
+         b a t c h . s c r i p t . s r c   =   r e q u e s t . u r l ; 
+         d o c u m e n t . b o d y . a p p e n d C h i l d ( b a t c h . s c r i p t ) ; 
+     } 
+ } ; 
+ 
+ d w r . e n g i n e . _ M o d e P l a i n C a l l   =   " / c a l l / p l a i n c a l l / " ; 
+ d w r . e n g i n e . _ M o d e H t m l C a l l   =   " / c a l l / h t m l c a l l / " ; 
+ d w r . e n g i n e . _ M o d e P l a i n P o l l   =   " / c a l l / p l a i n p o l l / " ; 
+ d w r . e n g i n e . _ M o d e H t m l P o l l   =   " / c a l l / h t m l p o l l / " ; 
+ 
+ / * *   @ p r i v a t e   W o r k   o u t   w h a t   t h e   U R L   s h o u l d   l o o k   l i k e   * / 
+ d w r . e n g i n e . _ c o n s t r u c t R e q u e s t   =   f u n c t i o n ( b a t c h )   { 
+     / /   A   q u i c k   s t r i n g   t o   h e l p   p e o p l e   t h a t   u s e   w e b   l o g   a n a l y s e r s 
+     v a r   r e q u e s t   =   {   u r l : b a t c h . p a t h   +   b a t c h . m o d e ,   b o d y : n u l l   } ; 
+     i f   ( b a t c h . i s P o l l   = =   t r u e )   { 
+         r e q u e s t . u r l   + =   " R e v e r s e A j a x . d w r " ; 
+     } 
+     e l s e   i f   ( b a t c h . m a p . c a l l C o u n t   = =   1 )   { 
+         r e q u e s t . u r l   + =   b a t c h . m a p [ " c 0 - s c r i p t N a m e " ]   +   " . "   +   b a t c h . m a p [ " c 0 - m e t h o d N a m e " ]   +   " . d w r " ; 
+     } 
+     e l s e   { 
+         r e q u e s t . u r l   + =   " M u l t i p l e . "   +   b a t c h . m a p . c a l l C o u n t   +   " . d w r " ; 
+     } 
+     / /   P l a y   n i c e   w i t h   u r l   r e - w r i t i n g 
+     v a r   s e s s i o n M a t c h   =   l o c a t i o n . h r e f . m a t c h ( / j s e s s i o n i d = ( [ ^ ? ] + ) / ) ; 
+     i f   ( s e s s i o n M a t c h   ! =   n u l l )   { 
+         r e q u e s t . u r l   + =   " ; j s e s s i o n i d = "   +   s e s s i o n M a t c h [ 1 ] ; 
+     } 
+ 
+     v a r   p r o p ; 
+     i f   ( b a t c h . h t t p M e t h o d   = =   " G E T " )   { 
+         / /   S o m e   b r o w s e r s   ( O p e r a / S a f a r i 2 )   s e e m   t o   f a i l   t o   c o n v e r t   t h e   c a l l C o u n t   v a l u e 
+         / /   t o   a   s t r i n g   i n   t h e   l o o p   b e l o w   s o   w e   d o   i t   m a n u a l l y   h e r e . 
+         b a t c h . m a p . c a l l C o u n t   =   " "   +   b a t c h . m a p . c a l l C o u n t ; 
+         r e q u e s t . u r l   + =   " ? " ; 
+         f o r   ( p r o p   i n   b a t c h . m a p )   { 
+             i f   ( t y p e o f   b a t c h . m a p [ p r o p ]   ! =   " f u n c t i o n " )   { 
+                 r e q u e s t . u r l   + =   e n c o d e U R I C o m p o n e n t ( p r o p )   +   " = "   +   e n c o d e U R I C o m p o n e n t ( b a t c h . m a p [ p r o p ] )   +   " & " ; 
+             } 
+         } 
+         r e q u e s t . u r l   =   r e q u e s t . u r l . s u b s t r i n g ( 0 ,   r e q u e s t . u r l . l e n g t h   -   1 ) ; 
+     } 
+     e l s e   { 
+         / /   P E R F O R M A N C E :   f o r   i f r a m e   m o d e   t h i s   i s   t h r o w n   a w a y . 
+         r e q u e s t . b o d y   =   " " ; 
+         i f   ( d o c u m e n t . a l l   & &   ! w i n d o w . o p e r a )   { 
+             / /   U s e   a r r a y   j o i n i n g   o n   I E   ( f a s t e s t ) 
+             v a r   b u f   =   [ ] ; 
+             f o r   ( p r o p   i n   b a t c h . m a p )   { 
+                 i f   ( t y p e o f   b a t c h . m a p [ p r o p ]   ! =   " f u n c t i o n " )   { 
+                     b u f . p u s h ( p r o p   +   " = "   +   b a t c h . m a p [ p r o p ]   +   d w r . e n g i n e . _ p o s t S e p e r a t o r ) ; 
+                 } 
+             } 
+             r e q u e s t . b o d y   =   b u f . j o i n ( " " ) ; 
+         } 
+         e l s e   { 
+             / /   U s e   s t r i n g   c o n c a t   o n   o t h e r   b r o w s e r s   ( f a s t e s t ) 
+             f o r   ( p r o p   i n   b a t c h . m a p )   { 
+                 i f   ( t y p e o f   b a t c h . m a p [ p r o p ]   ! =   " f u n c t i o n " )   { 
+                     r e q u e s t . b o d y   + =   p r o p   +   " = "   +   b a t c h . m a p [ p r o p ]   +   d w r . e n g i n e . _ p o s t S e p e r a t o r ; 
+                 } 
+             } 
+         } 
+         r e q u e s t . b o d y   =   d w r . e n g i n e . _ c o n t e n t R e w r i t e H a n d l e r ( r e q u e s t . b o d y ) ; 
+     } 
+     r e q u e s t . u r l   =   d w r . e n g i n e . _ u r l R e w r i t e H a n d l e r ( r e q u e s t . u r l ) ; 
+     r e t u r n   r e q u e s t ; 
+ } ; 
+ 
+ / * *   @ p r i v a t e   C a l l e d   b y   X M L H t t p R e q u e s t   t o   i n d i c a t e   t h a t   s o m e t h i n g   h a s   h a p p e n e d   * / 
+ d w r . e n g i n e . _ s t a t e C h a n g e   =   f u n c t i o n ( b a t c h )   { 
+     v a r   t o E v a l ; 
+ 
+     i f   ( b a t c h . c o m p l e t e d )   { 
+         d w r . e n g i n e . _ d e b u g ( " E r r o r :   _ s t a t e C h a n g e ( )   w i t h   b a t c h . c o m p l e t e d " ) ; 
+         r e t u r n ; 
+     } 
+ 
+     v a r   r e q   =   b a t c h . r e q ; 
+     t r y   { 
+         i f   ( r e q . r e a d y S t a t e   ! =   4 )   r e t u r n ; 
+     } 
+     c a t c h   ( e x )   { 
+         d w r . e n g i n e . _ h a n d l e W a r n i n g ( b a t c h ,   e x ) ; 
+         / /   I t ' s   b r o k e n   -   c l e a r   u p   a n d   f o r g e t   t h i s   c a l l 
+         d w r . e n g i n e . _ c l e a r U p ( b a t c h ) ; 
+         r e t u r n ; 
+     } 
+ 
+     i f   ( d w r . e n g i n e . _ u n l o a d i n g )   { 
+         d w r . e n g i n e . _ d e b u g ( " I g n o r i n g   r e p l y   f r o m   s e r v e r   a s   p a g e   i s   u n l o a d i n g . " ) ; 
+         r e t u r n ; 
+     } 
+ 
+     t r y   { 
+         v a r   r e p l y   =   r e q . r e s p o n s e T e x t ; 
+         r e p l y   =   d w r . e n g i n e . _ r e p l y R e w r i t e H a n d l e r ( r e p l y ) ; 
+         v a r   s t a t u s   =   r e q . s t a t u s ;   / /   c a u s e s   M o z i l l a   t o   e x c e p t   o n   p a g e   m o v e s 
+ 
+         i f   ( r e p l y   = =   n u l l   | |   r e p l y   = =   " " )   { 
+             d w r . e n g i n e . _ h a n d l e W a r n i n g ( b a t c h ,   {   n a m e : " d w r . e n g i n e . m i s s i n g D a t a " ,   m e s s a g e : " N o   d a t a   r e c e i v e d   f r o m   s e r v e r "   } ) ; 
+         } 
+         e l s e   i f   ( s t a t u s   ! =   2 0 0 )   { 
+             d w r . e n g i n e . _ h a n d l e E r r o r ( b a t c h ,   {   n a m e : " d w r . e n g i n e . h t t p . "   +   s t a t u s ,   m e s s a g e : r e q . s t a t u s T e x t   } ) ; 
+         } 
+         e l s e   { 
+             v a r   c o n t e n t T y p e   =   r e q . g e t R e s p o n s e H e a d e r ( " C o n t e n t - T y p e " ) ; 
+             i f   ( ! c o n t e n t T y p e . m a t c h ( / ^ t e x t \ / p l a i n / )   & &   ! c o n t e n t T y p e . m a t c h ( / ^ t e x t \ / j a v a s c r i p t / ) )   { 
+                 i f   ( c o n t e n t T y p e . m a t c h ( / ^ t e x t \ / h t m l / )   & &   t y p e o f   b a t c h . t e x t H t m l H a n d l e r   = =   " f u n c t i o n " )   { 
+                     b a t c h . t e x t H t m l H a n d l e r ( {   s t a t u s : s t a t u s ,   r e s p o n s e T e x t : r e p l y ,   c o n t e n t T y p e : c o n t e n t T y p e   } ) ; 
+                 } 
+                 e l s e   { 
+                     d w r . e n g i n e . _ h a n d l e W a r n i n g ( b a t c h ,   {   n a m e : " d w r . e n g i n e . i n v a l i d M i m e T y p e " ,   m e s s a g e : " I n v a l i d   c o n t e n t   t y p e :   ' "   +   c o n t e n t T y p e   +   " ' "   } ) ; 
+                 } 
+             } 
+             e l s e   { 
+                 / /   C o m e t   r e p l i e s   m i g h t   h a v e   a l r e a d y   p a r t i a l l y   e x e c u t e d 
+                 i f   ( b a t c h . i s P o l l   & &   b a t c h . m a p . p a r t i a l R e s p o n s e   = =   d w r . e n g i n e . _ p a r t i a l R e s p o n s e Y e s )   { 
+                     d w r . e n g i n e . _ p r o c e s s C o m e t R e s p o n s e ( r e p l y ,   b a t c h ) ; 
+                 } 
+                 e l s e   { 
+                     i f   ( r e p l y . s e a r c h ( " / / # D W R " )   = =   - 1 )   { 
+                         d w r . e n g i n e . _ h a n d l e W a r n i n g ( b a t c h ,   {   n a m e : " d w r . e n g i n e . i n v a l i d R e p l y " ,   m e s s a g e : " I n v a l i d   r e p l y   f r o m   s e r v e r "   } ) ; 
+                     } 
+                     e l s e   { 
+                         t o E v a l   =   r e p l y ; 
+                     } 
+                 } 
+             } 
+         } 
+     } 
+     c a t c h   ( e x )   { 
+         d w r . e n g i n e . _ h a n d l e W a r n i n g ( b a t c h ,   e x ) ; 
+     } 
+ 
+     d w r . e n g i n e . _ c a l l P o s t H o o k s ( b a t c h ) ; 
+ 
+     / /   O u t s i d e   o f   t h e   t r y / c a t c h   s o   e r r o r s   p r o p o g a t e   n o r m a l l y : 
+     d w r . e n g i n e . _ r e c e i v e d B a t c h   =   b a t c h ; 
+     i f   ( t o E v a l   ! =   n u l l )   t o E v a l   =   t o E v a l . r e p l a c e ( d w r . e n g i n e . _ s c r i p t T a g P r o t e c t i o n ,   " " ) ; 
+     d w r . e n g i n e . _ e v a l ( t o E v a l ) ; 
+     d w r . e n g i n e . _ r e c e i v e d B a t c h   =   n u l l ; 
+     d w r . e n g i n e . _ v a l i d a t e B a t c h ( b a t c h ) ; 
+     i f   ( ! b a t c h . c o m p l e t e d )   d w r . e n g i n e . _ c l e a r U p ( b a t c h ) ; 
+ } ; 
+ 
+ / * * 
+   *   @ p r i v a t e   T h i s   f u n c t i o n   i s   i n v o k e d   w h e n   a   b a t c h   r e p l y   i s   r e c e i v e d . 
+   *   I t   c h e c k s   t h a t   t h e r e   i s   a   r e s p o n s e   f o r   e v e r y   c a l l   i n   t h e   b a t c h .   O t h e r w i s e , 
+   *   a n   e r r o r   w i l l   b e   s i g n a l e d   ( a   c a l l   w i t h o u t   a   r e s p o n s e   i n d i c a t e s   t h a t   t h e 
+   *   s e r v e r   f a i l e d   t o   s e n d   c o m p l e t e   b a t c h   r e s p o n s e ) . 
+   * / 
+ d w r . e n g i n e . _ v a l i d a t e B a t c h   =   f u n c t i o n ( b a t c h )   { 
+     / /   I f   s o m e   c a l l   l e f t   u n r e p l i e d ,   r e p o r t   a n   e r r o r . 
+     i f   ( ! b a t c h . c o m p l e t e d )   { 
+         f o r   ( v a r   i   =   0 ;   i   <   b a t c h . m a p . c a l l C o u n t ;   i + + )   { 
+             i f   ( b a t c h . h a n d l e r s [ i ]   ! =   n u l l )   { 
+                 d w r . e n g i n e . _ h a n d l e W a r n i n g ( b a t c h ,   {   n a m e : " d w r . e n g i n e . i n c o m p l e t e R e p l y " ,   m e s s a g e : " I n c o m p l e t e   r e p l y   f r o m   s e r v e r "   } ) ; 
+                 b r e a k ; 
+             } 
+         } 
+     } 
+ } 
+ 
+ / * *   @ p r i v a t e   C a l l e d   f r o m   i f r a m e   o n l o a d ,   c h e c k   b a t c h   u s i n g   b a t c h - i d   * / 
+ d w r . e n g i n e . _ i f r a m e L o a d i n g C o m p l e t e   =   f u n c t i o n ( b a t c h I d )   { 
+     / /   d w r . e n g i n e . _ c h e c k C o m e t P o l l ( ) ; 
+     v a r   b a t c h   =   d w r . e n g i n e . _ b a t c h e s [ b a t c h I d ] ; 
+     i f   ( b a t c h )   d w r . e n g i n e . _ v a l i d a t e B a t c h ( b a t c h ) ; 
+ } 
+ 
+ / * *   @ p r i v a t e   C a l l e d   b y   t h e   s e r v e r :   E x e c u t e   a   c a l l b a c k   * / 
+ d w r . e n g i n e . _ r e m o t e H a n d l e C a l l b a c k   =   f u n c t i o n ( b a t c h I d ,   c a l l I d ,   r e p l y )   { 
+     v a r   b a t c h   =   d w r . e n g i n e . _ b a t c h e s [ b a t c h I d ] ; 
+     i f   ( b a t c h   = =   n u l l )   { 
+         d w r . e n g i n e . _ d e b u g ( " W a r n i n g :   b a t c h   = =   n u l l   i n   r e m o t e H a n d l e C a l l b a c k   f o r   b a t c h I d = "   +   b a t c h I d ,   t r u e ) ; 
+         r e t u r n ; 
+     } 
+     / /   E r r o r   h a n d l e r s   i n s i d e   h e r e   i n d i c a t e   a n   e r r o r   t h a t   i s   n o t h i n g   t o   d o 
+     / /   w i t h   D W R   s o   w e   h a n d l e   t h e m   d i f f e r e n t l y . 
+     t r y   { 
+         v a r   h a n d l e r s   =   b a t c h . h a n d l e r s [ c a l l I d ] ; 
+         b a t c h . h a n d l e r s [ c a l l I d ]   =   n u l l ; 
+         i f   ( ! h a n d l e r s )   { 
+             d w r . e n g i n e . _ d e b u g ( " W a r n i n g :   M i s s i n g   h a n d l e r s .   c a l l I d = "   +   c a l l I d ,   t r u e ) ; 
+         } 
+         e l s e   i f   ( t y p e o f   h a n d l e r s . c a l l b a c k   = =   " f u n c t i o n " )   h a n d l e r s . c a l l b a c k ( r e p l y ) ; 
+     } 
+     c a t c h   ( e x )   { 
+         d w r . e n g i n e . _ h a n d l e E r r o r ( b a t c h ,   e x ) ; 
+     } 
+ } ; 
+ 
+ / * *   @ p r i v a t e   C a l l e d   b y   t h e   s e r v e r :   H a n d l e   a n   e x c e p t i o n   f o r   a   c a l l   * / 
+ d w r . e n g i n e . _ r e m o t e H a n d l e E x c e p t i o n   =   f u n c t i o n ( b a t c h I d ,   c a l l I d ,   e x )   { 
+     v a r   b a t c h   =   d w r . e n g i n e . _ b a t c h e s [ b a t c h I d ] ; 
+     i f   ( b a t c h   = =   n u l l )   {   d w r . e n g i n e . _ d e b u g ( " W a r n i n g :   n u l l   b a t c h   i n   r e m o t e H a n d l e E x c e p t i o n " ,   t r u e ) ;   r e t u r n ;   } 
+     v a r   h a n d l e r s   =   b a t c h . h a n d l e r s [ c a l l I d ] ; 
+     b a t c h . h a n d l e r s [ c a l l I d ]   =   n u l l ; 
+     i f   ( h a n d l e r s   = =   n u l l )   {   d w r . e n g i n e . _ d e b u g ( " W a r n i n g :   n u l l   h a n d l e r s   i n   r e m o t e H a n d l e E x c e p t i o n " ,   t r u e ) ;   r e t u r n ;   } 
+     i f   ( e x . m e s s a g e   = =   u n d e f i n e d )   e x . m e s s a g e   =   " " ; 
+     i f   ( t y p e o f   h a n d l e r s . e x c e p t i o n H a n d l e r   = =   " f u n c t i o n " )   h a n d l e r s . e x c e p t i o n H a n d l e r ( e x . m e s s a g e ,   e x ) ; 
+     e l s e   i f   ( t y p e o f   b a t c h . e r r o r H a n d l e r   = =   " f u n c t i o n " )   b a t c h . e r r o r H a n d l e r ( e x . m e s s a g e ,   e x ) ; 
+ } ; 
+ 
+ / * *   @ p r i v a t e   C a l l e d   b y   t h e   s e r v e r :   T h e   w h o l e   b a t c h   i s   b r o k e n   * / 
+ d w r . e n g i n e . _ r e m o t e H a n d l e B a t c h E x c e p t i o n   =   f u n c t i o n ( e x ,   b a t c h I d )   { 
+     v a r   s e a r c h B a t c h   =   ( d w r . e n g i n e . _ r e c e i v e d B a t c h   = =   n u l l   & &   b a t c h I d   ! =   n u l l ) ; 
+     i f   ( s e a r c h B a t c h )   { 
+         d w r . e n g i n e . _ r e c e i v e d B a t c h   =   d w r . e n g i n e . _ b a t c h e s [ b a t c h I d ] ; 
+     } 
+     i f   ( e x . m e s s a g e   = =   u n d e f i n e d )   e x . m e s s a g e   =   " " ; 
+     d w r . e n g i n e . _ h a n d l e E r r o r ( d w r . e n g i n e . _ r e c e i v e d B a t c h ,   e x ) ; 
+     i f   ( s e a r c h B a t c h )   { 
+         d w r . e n g i n e . _ r e c e i v e d B a t c h   =   n u l l ; 
+         d w r . e n g i n e . _ c l e a r U p ( d w r . e n g i n e . _ b a t c h e s [ b a t c h I d ] ) ; 
+     } 
+ } ; 
+ 
+ / * *   @ p r i v a t e   C a l l e d   b y   t h e   s e r v e r :   R e v e r s e   a j a x   s h o u l d   n o t   b e   u s e d   * / 
+ d w r . e n g i n e . _ r e m o t e P o l l C o m e t D i s a b l e d   =   f u n c t i o n ( e x ,   b a t c h I d )   { 
+     d w r . e n g i n e . s e t A c t i v e R e v e r s e A j a x ( f a l s e ) ; 
+     v a r   s e a r c h B a t c h   =   ( d w r . e n g i n e . _ r e c e i v e d B a t c h   = =   n u l l   & &   b a t c h I d   ! =   n u l l ) ; 
+     i f   ( s e a r c h B a t c h )   { 
+         d w r . e n g i n e . _ r e c e i v e d B a t c h   =   d w r . e n g i n e . _ b a t c h e s [ b a t c h I d ] ; 
+     } 
+     i f   ( e x . m e s s a g e   = =   u n d e f i n e d )   e x . m e s s a g e   =   " " ; 
+     d w r . e n g i n e . _ h a n d l e E r r o r ( d w r . e n g i n e . _ r e c e i v e d B a t c h ,   e x ) ; 
+     i f   ( s e a r c h B a t c h )   { 
+         d w r . e n g i n e . _ r e c e i v e d B a t c h   =   n u l l ; 
+         d w r . e n g i n e . _ c l e a r U p ( d w r . e n g i n e . _ b a t c h e s [ b a t c h I d ] ) ; 
+     } 
+ } ; 
+ 
+ / * *   @ p r i v a t e   C a l l e d   b y   t h e   s e r v e r :   A n   I F r a m e   r e p l y   i s   a b o u t   t o   s t a r t   * / 
+ d w r . e n g i n e . _ r e m o t e B e g i n I F r a m e R e s p o n s e   =   f u n c t i o n ( i f r a m e ,   b a t c h I d )   { 
+     i f   ( i f r a m e   ! =   n u l l )   d w r . e n g i n e . _ r e c e i v e d B a t c h   =   i f r a m e . b a t c h ; 
+     d w r . e n g i n e . _ c a l l P o s t H o o k s ( d w r . e n g i n e . _ r e c e i v e d B a t c h ) ; 
+ } ; 
+ 
+ / * *   @ p r i v a t e   C a l l e d   b y   t h e   s e r v e r :   A n   I F r a m e   r e p l y   i s   j u s t   c o m p l e t i n g   * / 
+ d w r . e n g i n e . _ r e m o t e E n d I F r a m e R e s p o n s e   =   f u n c t i o n ( b a t c h I d )   { 
+     d w r . e n g i n e . _ c l e a r U p ( d w r . e n g i n e . _ r e c e i v e d B a t c h ) ; 
+     d w r . e n g i n e . _ r e c e i v e d B a t c h   =   n u l l ; 
+ } ; 
+ 
+ / * *   @ p r i v a t e   T h i s   i s   a   h a c k   t o   m a k e   t h e   c o n t e x t   b e   t h i s   w i n d o w   * / 
+ d w r . e n g i n e . _ e v a l   =   f u n c t i o n ( s c r i p t )   { 
+     i f   ( s c r i p t   = =   n u l l )   r e t u r n   n u l l ; 
+     i f   ( s c r i p t   = =   " " )   {   d w r . e n g i n e . _ d e b u g ( " W a r n i n g :   b l a n k   s c r i p t " ,   t r u e ) ;   r e t u r n   n u l l ;   } 
+     / /   d w r . e n g i n e . _ d e b u g ( " E x e c :   [ "   +   s c r i p t   +   " ] " ,   t r u e ) ; 
+     r e t u r n   e v a l ( s c r i p t ) ; 
+ } ; 
+ 
+ / * *   @ p r i v a t e   C a l l e d   a s   a   r e s u l t   o f   a   r e q u e s t   t i m e o u t   * / 
+ d w r . e n g i n e . _ a b o r t R e q u e s t   =   f u n c t i o n ( b a t c h )   { 
+     i f   ( b a t c h   & &   ! b a t c h . c o m p l e t e d )   { 
+         d w r . e n g i n e . _ c l e a r U p ( b a t c h ) ; 
+         i f   ( b a t c h . r e q )   b a t c h . r e q . a b o r t ( ) ; 
+         d w r . e n g i n e . _ h a n d l e E r r o r ( b a t c h ,   {   n a m e : " d w r . e n g i n e . t i m e o u t " ,   m e s s a g e : " T i m e o u t "   } ) ; 
+     } 
+ } ; 
+ 
+ / * *   @ p r i v a t e   c a l l   a l l   t h e   p o s t   h o o k s   f o r   a   b a t c h   * / 
+ d w r . e n g i n e . _ c a l l P o s t H o o k s   =   f u n c t i o n ( b a t c h )   { 
+     i f   ( b a t c h . p o s t H o o k s )   { 
+         f o r   ( v a r   i   =   0 ;   i   <   b a t c h . p o s t H o o k s . l e n g t h ;   i + + )   { 
+             b a t c h . p o s t H o o k s [ i ] ( ) ; 
+         } 
+         b a t c h . p o s t H o o k s   =   n u l l ; 
+     } 
+ } ; 
+ 
+ / * *   @ p r i v a t e   A   c a l l   h a s   f i n i s h e d   b y   w h a t e v e r   m e a n s   a n d   w e   n e e d   t o   s h u t   i t   a l l   d o w n .   * / 
+ d w r . e n g i n e . _ c l e a r U p   =   f u n c t i o n ( b a t c h )   { 
+     i f   ( ! b a t c h )   {   d w r . e n g i n e . _ d e b u g ( " W a r n i n g :   n u l l   b a t c h   i n   d w r . e n g i n e . _ c l e a r U p ( ) " ,   t r u e ) ;   r e t u r n ;   } 
+     i f   ( b a t c h . c o m p l e t e d )   {   d w r . e n g i n e . _ d e b u g ( " W a r n i n g :   D o u b l e   c o m p l e t e " ,   t r u e ) ;   r e t u r n ;   } 
+ 
+     / /   I F r a m e   t i d y u p 
+     i f   ( b a t c h . d i v )   b a t c h . d i v . p a r e n t N o d e . r e m o v e C h i l d ( b a t c h . d i v ) ; 
+     i f   ( b a t c h . i f r a m e )   { 
+         / /   I f   t h i s   i s   a   p o l l   f r a m e   t h e n   s t o p   c o m e t   p o l l i n g 
+         f o r   ( v a r   i   =   0 ;   i   <   d w r . e n g i n e . _ o u t s t a n d i n g I F r a m e s . l e n g t h ;   i + + )   { 
+             i f   ( d w r . e n g i n e . _ o u t s t a n d i n g I F r a m e s [ i ]   = =   b a t c h . i f r a m e )   { 
+                 d w r . e n g i n e . _ o u t s t a n d i n g I F r a m e s . s p l i c e ( i ,   1 ) ; 
+             } 
+         } 
+         b a t c h . i f r a m e . p a r e n t N o d e . r e m o v e C h i l d ( b a t c h . i f r a m e ) ; 
+     } 
+     i f   ( b a t c h . f o r m )   b a t c h . f o r m . p a r e n t N o d e . r e m o v e C h i l d ( b a t c h . f o r m ) ; 
+ 
+     / /   X H R   t i d y u p :   a v o i d   I E   h a n d l e s   i n c r e a s e 
+     i f   ( b a t c h . r e q )   { 
+         / /   I f   t h i s   i s   a   p o l l   f r a m e   t h e n   s t o p   c o m e t   p o l l i n g 
+         i f   ( b a t c h . r e q   = =   d w r . e n g i n e . _ p o l l R e q )   d w r . e n g i n e . _ p o l l R e q   =   n u l l ; 
+         d e l e t e   b a t c h . r e q ; 
+     } 
+ 
+     / /   T i m e o u t   t i d y u p 
+     i f   ( b a t c h . t i m e o u t I d )   { 
+         c l e a r T i m e o u t ( b a t c h . t i m e o u t I d ) ; 
+         d e l e t e   b a t c h . t i m e o u t I d ; 
+     } 
+ 
+     i f   ( b a t c h . m a p   & &   ( b a t c h . m a p . b a t c h I d   | |   b a t c h . m a p . b a t c h I d   = =   0 ) )   { 
+         d e l e t e   d w r . e n g i n e . _ b a t c h e s [ b a t c h . m a p . b a t c h I d ] ; 
+         d w r . e n g i n e . _ b a t c h e s L e n g t h - - ; 
+     } 
+ 
+     b a t c h . c o m p l e t e d   =   t r u e ; 
+ 
+     / /   I f   t h e r e   i s   a n y t h i n g   o n   t h e   q u e u e   w a i t i n g   t o   g o   o u t ,   t h e n   s e n d   i t . 
+     / /   W e   d o n ' t   n e e d   t o   c h e c k   f o r   o r d e r e d   m o d e ,   h e r e   b e c a u s e   w h e n   o r d e r e d   m o d e 
+     / /   g e t s   t u r n e d   o f f ,   w e   s t i l l   p r o c e s s   * w a i t i n g *   b a t c h e s   i n   a n   o r d e r e d   w a y . 
+     i f   ( d w r . e n g i n e . _ b a t c h Q u e u e . l e n g t h   ! =   0 )   { 
+         v a r   s e n d b a t c h   =   d w r . e n g i n e . _ b a t c h Q u e u e . s h i f t ( ) ; 
+         d w r . e n g i n e . _ s e n d D a t a ( s e n d b a t c h ) ; 
+     } 
+ } ; 
+ 
+ / * *   @ p r i v a t e   A b o r t   a n y   X H R s   i n   p r o g r e s s   a t   p a g e   u n l o a d   ( s o l v e s   z o m b i e   s o c k e t   p r o b l e m s   i n   I E ) .   * / 
+ d w r . e n g i n e . _ u n l o a d e r   =   f u n c t i o n ( )   { 
+     d w r . e n g i n e . _ u n l o a d i n g   =   t r u e ; 
+ 
+     / /   E m p t y   q u e u e   o f   w a i t i n g   o r d e r e d   r e q u e s t s 
+     d w r . e n g i n e . _ b a t c h Q u e u e . l e n g t h   =   0 ; 
+ 
+     / /   A b o r t   a n y   o n g o i n g   X H R s   a n d   c l e a r   t h e i r   b a t c h e s 
+     f o r   ( v a r   b a t c h I d   i n   d w r . e n g i n e . _ b a t c h e s )   { 
+         v a r   b a t c h   =   d w r . e n g i n e . _ b a t c h e s [ b a t c h I d ] ; 
+         / /   O n l y   p r o c e s s   o b j e c t s   t h a t   l o o k   l i k e   b a t c h e s   ( a v o i d   p r o t o t y p e   a d d i t i o n s ! ) 
+         i f   ( b a t c h   & &   b a t c h . m a p )   { 
+             i f   ( b a t c h . r e q )   { 
+                 b a t c h . r e q . a b o r t ( ) ; 
+             } 
+             d w r . e n g i n e . _ c l e a r U p ( b a t c h ) ; 
+         } 
+     } 
+ } ; 
+ / /   N o w   r e g i s t e r   t h e   u n l o a d   h a n d l e r 
+ i f   ( w i n d o w . a d d E v e n t L i s t e n e r )   w i n d o w . a d d E v e n t L i s t e n e r ( ' u n l o a d ' ,   d w r . e n g i n e . _ u n l o a d e r ,   f a l s e ) ; 
+ e l s e   i f   ( w i n d o w . a t t a c h E v e n t )   w i n d o w . a t t a c h E v e n t ( ' o n u n l o a d ' ,   d w r . e n g i n e . _ u n l o a d e r ) ; 
+ 
+ / * *   @ p r i v a t e   G e n e r i c   e r r o r   h a n d l i n g   r o u t i n g   t o   s a v e   h a v i n g   n u l l   c h e c k s   e v e r y w h e r e   * / 
+ d w r . e n g i n e . _ h a n d l e E r r o r   =   f u n c t i o n ( b a t c h ,   e x )   { 
+     i f   ( t y p e o f   e x   = =   " s t r i n g " )   e x   =   {   n a m e : " u n k n o w n " ,   m e s s a g e : e x   } ; 
+     i f   ( e x . m e s s a g e   = =   n u l l )   e x . m e s s a g e   =   " " ; 
+     i f   ( e x . n a m e   = =   n u l l )   e x . n a m e   =   " u n k n o w n " ; 
+     i f   ( b a t c h   & &   t y p e o f   b a t c h . e r r o r H a n d l e r   = =   " f u n c t i o n " )   b a t c h . e r r o r H a n d l e r ( e x . m e s s a g e ,   e x ) ; 
+     e l s e   i f   ( d w r . e n g i n e . _ e r r o r H a n d l e r )   d w r . e n g i n e . _ e r r o r H a n d l e r ( e x . m e s s a g e ,   e x ) ; 
+     i f   ( b a t c h )   d w r . e n g i n e . _ c l e a r U p ( b a t c h ) ; 
+ } ; 
+ 
+ / * *   @ p r i v a t e   G e n e r i c   e r r o r   h a n d l i n g   r o u t i n g   t o   s a v e   h a v i n g   n u l l   c h e c k s   e v e r y w h e r e   * / 
+ d w r . e n g i n e . _ h a n d l e W a r n i n g   =   f u n c t i o n ( b a t c h ,   e x )   { 
+     i f   ( t y p e o f   e x   = =   " s t r i n g " )   e x   =   {   n a m e : " u n k n o w n " ,   m e s s a g e : e x   } ; 
+     i f   ( e x . m e s s a g e   = =   n u l l )   e x . m e s s a g e   =   " " ; 
+     i f   ( e x . n a m e   = =   n u l l )   e x . n a m e   =   " u n k n o w n " ; 
+     i f   ( b a t c h   & &   t y p e o f   b a t c h . w a r n i n g H a n d l e r   = =   " f u n c t i o n " )   b a t c h . w a r n i n g H a n d l e r ( e x . m e s s a g e ,   e x ) ; 
+     e l s e   i f   ( d w r . e n g i n e . _ w a r n i n g H a n d l e r )   d w r . e n g i n e . _ w a r n i n g H a n d l e r ( e x . m e s s a g e ,   e x ) ; 
+     i f   ( b a t c h )   d w r . e n g i n e . _ c l e a r U p ( b a t c h ) ; 
+ } ; 
+ 
+ / * * 
+   *   @ p r i v a t e   M a r s h a l l   a   d a t a   i t e m 
+   *   @ p a r a m   b a t c h   A   m a p   o f   v a r i a b l e s   t o   h o w   t h e y   h a v e   b e e n   m a r s h a l l e d 
+   *   @ p a r a m   r e f e r t o   A n   a r r a y   o f   a l r e a d y   m a r s h a l l e d   v a r i a b l e s   t o   p r e v e n t   r e c u r r s i o n 
+   *   @ p a r a m   d a t a   T h e   d a t a   t o   b e   m a r s h a l l e d 
+   *   @ p a r a m   n a m e   T h e   n a m e   o f   t h e   d a t a   b e i n g   m a r s h a l l e d 
+   * / 
+ d w r . e n g i n e . _ s e r i a l i z e A l l   =   f u n c t i o n ( b a t c h ,   r e f e r t o ,   d a t a ,   n a m e )   { 
+     i f   ( d a t a   = =   n u l l )   { 
+         b a t c h . m a p [ n a m e ]   =   " n u l l : n u l l " ; 
+         r e t u r n ; 
+     } 
+ 
+     s w i t c h   ( t y p e o f   d a t a )   { 
+     c a s e   " b o o l e a n " : 
+         b a t c h . m a p [ n a m e ]   =   " b o o l e a n : "   +   d a t a ; 
+         b r e a k ; 
+     c a s e   " n u m b e r " : 
+         b a t c h . m a p [ n a m e ]   =   " n u m b e r : "   +   d a t a ; 
+         b r e a k ; 
+     c a s e   " s t r i n g " : 
+         b a t c h . m a p [ n a m e ]   =   " s t r i n g : "   +   e n c o d e U R I C o m p o n e n t ( d a t a ) ; 
+         b r e a k ; 
+     c a s e   " o b j e c t " : 
+         i f   ( d a t a   i n s t a n c e o f   S t r i n g )   b a t c h . m a p [ n a m e ]   =   " S t r i n g : "   +   e n c o d e U R I C o m p o n e n t ( d a t a ) ; 
+         e l s e   i f   ( d a t a   i n s t a n c e o f   B o o l e a n )   b a t c h . m a p [ n a m e ]   =   " B o o l e a n : "   +   d a t a ; 
+         e l s e   i f   ( d a t a   i n s t a n c e o f   N u m b e r )   b a t c h . m a p [ n a m e ]   =   " N u m b e r : "   +   d a t a ; 
+         e l s e   i f   ( d a t a   i n s t a n c e o f   D a t e )   b a t c h . m a p [ n a m e ]   =   " D a t e : "   +   d a t a . g e t T i m e ( ) ; 
+         e l s e   i f   ( d a t a   & &   d a t a . j o i n )   b a t c h . m a p [ n a m e ]   =   d w r . e n g i n e . _ s e r i a l i z e A r r a y ( b a t c h ,   r e f e r t o ,   d a t a ,   n a m e ) ; 
+         e l s e   b a t c h . m a p [ n a m e ]   =   d w r . e n g i n e . _ s e r i a l i z e O b j e c t ( b a t c h ,   r e f e r t o ,   d a t a ,   n a m e ) ; 
+         b r e a k ; 
+     c a s e   " f u n c t i o n " : 
+         / /   W e   j u s t   i g n o r e   f u n c t i o n s . 
+         b r e a k ; 
+     d e f a u l t : 
+         d w r . e n g i n e . _ h a n d l e W a r n i n g ( n u l l ,   {   n a m e : " d w r . e n g i n e . u n e x p e c t e d T y p e " ,   m e s s a g e : " U n e x p e c t e d   t y p e :   "   +   t y p e o f   d a t a   +   " ,   a t t e m p t i n g   d e f a u l t   c o n v e r t e r . "   } ) ; 
+         b a t c h . m a p [ n a m e ]   =   " d e f a u l t : "   +   d a t a ; 
+         b r e a k ; 
+     } 
+ } ; 
+ 
+ / * *   @ p r i v a t e   H a v e   w e   a l r e a d y   c o n v e r t e d   t h i s   o b j e c t ?   * / 
+ d w r . e n g i n e . _ l o o k u p   =   f u n c t i o n ( r e f e r t o ,   d a t a ,   n a m e )   { 
+     v a r   l o o k u p ; 
+     / /   C a n ' t   u s e   a   m a p :   g e t a h e a d . o r g / a j a x / j a v a s c r i p t - g o t c h a s 
+     f o r   ( v a r   i   =   0 ;   i   <   r e f e r t o . l e n g t h ;   i + + )   { 
+         i f   ( r e f e r t o [ i ] . d a t a   = =   d a t a )   { 
+             l o o k u p   =   r e f e r t o [ i ] ; 
+             b r e a k ; 
+         } 
+     } 
+     i f   ( l o o k u p )   r e t u r n   " r e f e r e n c e : "   +   l o o k u p . n a m e ; 
+     r e f e r t o . p u s h ( {   d a t a : d a t a ,   n a m e : n a m e   } ) ; 
+     r e t u r n   n u l l ; 
+ } ; 
+ 
+ / * *   @ p r i v a t e   M a r s h a l l   a n   o b j e c t   * / 
+ d w r . e n g i n e . _ s e r i a l i z e O b j e c t   =   f u n c t i o n ( b a t c h ,   r e f e r t o ,   d a t a ,   n a m e )   { 
+     v a r   r e f   =   d w r . e n g i n e . _ l o o k u p ( r e f e r t o ,   d a t a ,   n a m e ) ; 
+     i f   ( r e f )   r e t u r n   r e f ; 
+ 
+     / /   T h i s   c h e c k   f o r   a n   H T M L   i s   n o t   c o m p l e t e ,   b u t   i s   t h e r e   a   b e t t e r   w a y ? 
+     / /   M a y b e   w e   s h o u l d   a d d :   d a t a . h a s C h i l d N o d e s   t y p e o f   " f u n c t i o n "   = =   t r u e 
+     i f   ( d a t a . n o d e N a m e   & &   d a t a . n o d e T y p e )   { 
+         r e t u r n   d w r . e n g i n e . _ s e r i a l i z e X m l ( b a t c h ,   r e f e r t o ,   d a t a ,   n a m e ) ; 
+     } 
+ 
+     / /   t r e a t   o b j e c t s   a s   a n   a s s o c i a t i v e   a r r a y s 
+     v a r   r e p l y   =   " O b j e c t _ "   +   d w r . e n g i n e . _ g e t O b j e c t C l a s s N a m e ( d a t a )   +   " : { " ; 
+     v a r   e l e m e n t ; 
+     f o r   ( e l e m e n t   i n   d a t a )   { 
+         i f   ( t y p e o f   d a t a [ e l e m e n t ]   ! =   " f u n c t i o n " )   { 
+             b a t c h . p a r a m C o u n t + + ; 
+             v a r   c h i l d N a m e   =   " c "   +   d w r . e n g i n e . _ b a t c h . m a p . c a l l C o u n t   +   " - e "   +   b a t c h . p a r a m C o u n t ; 
+             d w r . e n g i n e . _ s e r i a l i z e A l l ( b a t c h ,   r e f e r t o ,   d a t a [ e l e m e n t ] ,   c h i l d N a m e ) ; 
+ 
+             r e p l y   + =   e n c o d e U R I C o m p o n e n t ( e l e m e n t )   +   " : r e f e r e n c e : "   +   c h i l d N a m e   +   " ,   " ; 
+         } 
+     } 
+ 
+     i f   ( r e p l y . s u b s t r i n g ( r e p l y . l e n g t h   -   2 )   = =   " ,   " )   { 
+         r e p l y   =   r e p l y . s u b s t r i n g ( 0 ,   r e p l y . l e n g t h   -   2 ) ; 
+     } 
+     r e p l y   + =   " } " ; 
+ 
+     r e t u r n   r e p l y ; 
+ } ; 
+ 
+ / * *   @ p r i v a t e   R e t u r n s   t h e   c l a s s n a m e   o f   s u p p l i e d   a r g u m e n t   o b j   * / 
+ d w r . e n g i n e . _ e r r o r C l a s s e s   =   {   " E r r o r " : E r r o r ,   " E v a l E r r o r " : E v a l E r r o r ,   " R a n g e E r r o r " : R a n g e E r r o r ,   " R e f e r e n c e E r r o r " : R e f e r e n c e E r r o r ,   " S y n t a x E r r o r " : S y n t a x E r r o r ,   " T y p e E r r o r " : T y p e E r r o r ,   " U R I E r r o r " : U R I E r r o r   } ; 
+ d w r . e n g i n e . _ g e t O b j e c t C l a s s N a m e   =   f u n c t i o n ( o b j )   { 
+     / /   T r y   t o   f i n d   t h e   c l a s s n a m e   b y   s t r i n g i f y i n g   t h e   o b j e c t ' s   c o n s t r u c t o r 
+     / /   a n d   e x t r a c t   < c l a s s >   f r o m   " f u n c t i o n   < c l a s s > " . 
+     i f   ( o b j   & &   o b j . c o n s t r u c t o r   & &   o b j . c o n s t r u c t o r . t o S t r i n g ) 
+     { 
+         v a r   s t r   =   o b j . c o n s t r u c t o r . t o S t r i n g ( ) ; 
+         v a r   r e g e x p m a t c h   =   s t r . m a t c h ( / f u n c t i o n \ s + ( \ w + ) / ) ; 
+         i f   ( r e g e x p m a t c h   & &   r e g e x p m a t c h . l e n g t h   = =   2 )   { 
+             r e t u r n   r e g e x p m a t c h [ 1 ] ; 
+         } 
+     } 
+ 
+     / /   N o w   m a n u a l l y   t e s t   a g a i n s t   t h e   c o r e   E r r o r   c l a s s e s ,   a s   t h e s e   i n   s o m e 
+     / /   b r o w s e r s   s u c c e s s f u l l y   m a t c h   t o   t h e   w r o n g   c l a s s   i n   t h e 
+     / /   O b j e c t . t o S t r i n g ( )   t e s t   w e   w i l l   d o   l a t e r 
+     i f   ( o b j   & &   o b j . c o n s t r u c t o r )   { 
+ 	 f o r   ( v a r   e r r o r n a m e   i n   d w r . e n g i n e . _ e r r o r C l a s s e s )   { 
+             i f   ( o b j . c o n s t r u c t o r   = =   d w r . e n g i n e . _ e r r o r C l a s s e s [ e r r o r n a m e ] )   r e t u r n   e r r o r n a m e ; 
+         } 
+     } 
+ 
+     / /   T r y   t o   f i n d   t h e   c l a s s n a m e   b y   c a l l i n g   O b j e c t . t o S t r i n g ( )   o n   t h e   o b j e c t 
+     / /   a n d   e x t r a c t i n g   < c l a s s >   f r o m   " [ o b j e c t   < c l a s s > ] " 
+     i f   ( o b j )   { 
+         v a r   s t r   =   O b j e c t . p r o t o t y p e . t o S t r i n g . c a l l ( o b j ) ; 
+         v a r   r e g e x p m a t c h   =   s t r . m a t c h ( / \ [ o b j e c t \ s + ( \ w + ) / ) ; 
+         i f   ( r e g e x p m a t c h   & &   r e g e x p m a t c h . l e n g t h = = 2 )   { 
+             r e t u r n   r e g e x p m a t c h [ 1 ] ; 
+         } 
+     } 
+ 
+     / /   S u p p l i e d   a r g u m e n t   w a s   p r o b a b l y   n o t   a n   o b j e c t ,   b u t   w h a t   i s   b e t t e r ? 
+     r e t u r n   " O b j e c t " ; 
+ } ; 
+ 
+ / * *   @ p r i v a t e   M a r s h a l l   a n   o b j e c t   * / 
+ d w r . e n g i n e . _ s e r i a l i z e X m l   =   f u n c t i o n ( b a t c h ,   r e f e r t o ,   d a t a ,   n a m e )   { 
+     v a r   r e f   =   d w r . e n g i n e . _ l o o k u p ( r e f e r t o ,   d a t a ,   n a m e ) ; 
+     i f   ( r e f )   r e t u r n   r e f ; 
+ 
+     v a r   o u t p u t ; 
+     i f   ( w i n d o w . X M L S e r i a l i z e r )   o u t p u t   =   n e w   X M L S e r i a l i z e r ( ) . s e r i a l i z e T o S t r i n g ( d a t a ) ; 
+     e l s e   i f   ( d a t a . t o X m l )   o u t p u t   =   d a t a . t o X m l ; 
+     e l s e   o u t p u t   =   d a t a . i n n e r H T M L ; 
+ 
+     r e t u r n   " X M L : "   +   e n c o d e U R I C o m p o n e n t ( o u t p u t ) ; 
+ } ; 
+ 
+ / * *   @ p r i v a t e   M a r s h a l l   a n   a r r a y   * / 
+ d w r . e n g i n e . _ s e r i a l i z e A r r a y   =   f u n c t i o n ( b a t c h ,   r e f e r t o ,   d a t a ,   n a m e )   { 
+     v a r   r e f   =   d w r . e n g i n e . _ l o o k u p ( r e f e r t o ,   d a t a ,   n a m e ) ; 
+     i f   ( r e f )   r e t u r n   r e f ; 
+ 
+     i f   ( d o c u m e n t . a l l   & &   ! w i n d o w . o p e r a )   { 
+         / /   U s e   a r r a y   j o i n i n g   o n   I E   ( f a s t e s t ) 
+         v a r   b u f   =   [ " A r r a y : [ " ] ; 
+         f o r   ( v a r   i   =   0 ;   i   <   d a t a . l e n g t h ;   i + + )   { 
+             i f   ( i   ! =   0 )   b u f . p u s h ( " , " ) ; 
+             b a t c h . p a r a m C o u n t + + ; 
+             v a r   c h i l d N a m e   =   " c "   +   d w r . e n g i n e . _ b a t c h . m a p . c a l l C o u n t   +   " - e "   +   b a t c h . p a r a m C o u n t ; 
+             d w r . e n g i n e . _ s e r i a l i z e A l l ( b a t c h ,   r e f e r t o ,   d a t a [ i ] ,   c h i l d N a m e ) ; 
+             b u f . p u s h ( " r e f e r e n c e : " ) ; 
+             b u f . p u s h ( c h i l d N a m e ) ; 
+         } 
+         b u f . p u s h ( " ] " ) ; 
+         r e p l y   =   b u f . j o i n ( " " ) ; 
+     } 
+     e l s e   { 
+         / /   U s e   s t r i n g   c o n c a t   o n   o t h e r   b r o w s e r s   ( f a s t e s t ) 
+         v a r   r e p l y   =   " A r r a y : [ " ; 
+         f o r   ( v a r   i   =   0 ;   i   <   d a t a . l e n g t h ;   i + + )   { 
+             i f   ( i   ! =   0 )   r e p l y   + =   " , " ; 
+             b a t c h . p a r a m C o u n t + + ; 
+             v a r   c h i l d N a m e   =   " c "   +   d w r . e n g i n e . _ b a t c h . m a p . c a l l C o u n t   +   " - e "   +   b a t c h . p a r a m C o u n t ; 
+             d w r . e n g i n e . _ s e r i a l i z e A l l ( b a t c h ,   r e f e r t o ,   d a t a [ i ] ,   c h i l d N a m e ) ; 
+             r e p l y   + =   " r e f e r e n c e : " ; 
+             r e p l y   + =   c h i l d N a m e ; 
+         } 
+         r e p l y   + =   " ] " ; 
+     } 
+ 
+     r e t u r n   r e p l y ; 
+ } ; 
+ 
+ / * *   @ p r i v a t e   C o n v e r t   a n   X M L   s t r i n g   i n t o   a   D O M   o b j e c t .   * / 
+ d w r . e n g i n e . _ u n s e r i a l i z e D o c u m e n t   =   f u n c t i o n ( x m l )   { 
+     v a r   d o m ; 
+     i f   ( w i n d o w . D O M P a r s e r )   { 
+         v a r   p a r s e r   =   n e w   D O M P a r s e r ( ) ; 
+         d o m   =   p a r s e r . p a r s e F r o m S t r i n g ( x m l ,   " t e x t / x m l " ) ; 
+         i f   ( ! d o m . d o c u m e n t E l e m e n t   | |   d o m . d o c u m e n t E l e m e n t . t a g N a m e   = =   " p a r s e r e r r o r " )   { 
+             v a r   m e s s a g e   =   d o m . d o c u m e n t E l e m e n t . f i r s t C h i l d . d a t a ; 
+             m e s s a g e   + =   " \ n "   +   d o m . d o c u m e n t E l e m e n t . f i r s t C h i l d . n e x t S i b l i n g . f i r s t C h i l d . d a t a ; 
+             t h r o w   m e s s a g e ; 
+         } 
+         r e t u r n   d o m ; 
+     } 
+     e l s e   i f   ( w i n d o w . A c t i v e X O b j e c t )   { 
+         d o m   =   d w r . e n g i n e . _ n e w A c t i v e X O b j e c t ( d w r . e n g i n e . _ D O M D o c u m e n t ) ; 
+         d o m . l o a d X M L ( x m l ) ;   / /   W h a t   h a p p e n s   o n   p a r s e   f a i l   w i t h   I E ? 
+         r e t u r n   d o m ; 
+     } 
+     e l s e   { 
+         v a r   d i v   =   d o c u m e n t . c r e a t e E l e m e n t ( " d i v " ) ; 
+         d i v . i n n e r H T M L   =   x m l ; 
+         r e t u r n   d i v ; 
+     } 
+ } ; 
+ 
+ / * *   @ p a r a m   a x a r r a y   A n   a r r a y   o f   s t r i n g s   t o   a t t e m p t   t o   c r e a t e   A c t i v e X   o b j e c t s   f r o m   * / 
+ d w r . e n g i n e . _ n e w A c t i v e X O b j e c t   =   f u n c t i o n ( a x a r r a y )   { 
+     v a r   r e t u r n V a l u e ; 
+     f o r   ( v a r   i   =   0 ;   i   <   a x a r r a y . l e n g t h ;   i + + )   { 
+         t r y   { 
+             r e t u r n V a l u e   =   n e w   A c t i v e X O b j e c t ( a x a r r a y [ i ] ) ; 
+             b r e a k ; 
+         } 
+         c a t c h   ( e x )   {   / *   i g n o r e   * /   } 
+     } 
+     r e t u r n   r e t u r n V a l u e ; 
+ } ; 
+ 
+ / * *   @ p r i v a t e   U s e d   i n t e r n a l l y   w h e n   s o m e   m e s s a g e   n e e d s   t o   g e t   t o   t h e   p r o g r a m m e r   * / 
+ d w r . e n g i n e . _ d e b u g   =   f u n c t i o n ( m e s s a g e ,   s t a c k t r a c e )   { 
+     v a r   w r i t t e n   =   f a l s e ; 
+     t r y   { 
+         i f   ( w i n d o w . c o n s o l e )   { 
+             i f   ( s t a c k t r a c e   & &   w i n d o w . c o n s o l e . t r a c e )   w i n d o w . c o n s o l e . t r a c e ( ) ; 
+             w i n d o w . c o n s o l e . l o g ( m e s s a g e ) ; 
+             w r i t t e n   =   t r u e ; 
+         } 
+         e l s e   i f   ( w i n d o w . o p e r a   & &   w i n d o w . o p e r a . p o s t E r r o r )   { 
+             w i n d o w . o p e r a . p o s t E r r o r ( m e s s a g e ) ; 
+             w r i t t e n   =   t r u e ; 
+         } 
+     } 
+     c a t c h   ( e x )   {   / *   i g n o r e   * /   } 
+ 
+     i f   ( ! w r i t t e n )   { 
+         v a r   d e b u g   =   d o c u m e n t . g e t E l e m e n t B y I d ( " d w r - d e b u g " ) ; 
+         i f   ( d e b u g )   { 
+             v a r   c o n t e n t s   =   m e s s a g e   +   " < b r / > "   +   d e b u g . i n n e r H T M L ; 
+             i f   ( c o n t e n t s . l e n g t h   >   2 0 4 8 )   c o n t e n t s   =   c o n t e n t s . s u b s t r i n g ( 0 ,   2 0 4 8 ) ; 
+             d e b u g . i n n e r H T M L   =   c o n t e n t s ; 
+         } 
+     } 
+ } ; 
+ 
+   q       https://d1e7kr0efngifs.cloudfront.net/3500.5.0-rel.17+9a607af/javascript/dwr/engine.js?v=3500.5.0-rel.17+9a607af     ì∏      ì∏                    Å    Å   ö    @   Ê÷    [    õ    QÊö    5   @   Êö    [   6   QÊö   @   Ê÷   ö    5   õ   QÊö    5   Ç   6   Qö    5   Ç   6   Qö    5   Ç   6   Qö    5   Ç   6   Qö    5   Ç   6   Qö    5   Ç   6   Qö    5   Ç   6	   Qö    5   Ç	   6
+   Qö    5   ?6   Qö    5   ◊6   Qö    5   ◊6   Qö    5   Ç
+   6   Qö    5   Ç   6   Qö    5   Ç   6   Qö    5   Ç   6   Qö    5   Ç   6   Qö    5   Ç   6   Qö    5   Ç   6   Qö    5   Ç   6   Qö    5   Ç   6   Qö    5   Ç   6   Qö    5   Ç   6   Qö    5   Ç   6   Qö    5   Ç   6   Qö    5   =   6   Qö    5   =   6   Qö    5   =    6   Qö    5   ="   6!   Qö    5   =$   6#   Qö    5   =    6%   Qö    5   @6&   Qö    5   Ç   6'   Qö    5   ö    5   5   6(   Qö    5   ö    5   5   6)   Qö    5   @6*   Qö    5   @6+   Qö    5   [   6,   Qö    5   >6-   Qö    5   Z    6.   Qö    5   ö    5   5   6/   Qö    5   =1   60   Qö    5   B62   Qö    5   C63   Qö    5   @64   Qö    5   >65   Qö    5   P   66   Qö    5   P   67   Qö    5   B68   Qö    5   Z    69   Qö    5   @6:   Qö    5   X» 6;   Qö    5   >6<   Qö    5   >6=   Qö    5   @6>   Qö    5   @6?   Qö    5   @6@   Qö    5   =B   6A   Qö    5   Ç   6C   Qö    5   ö    5   5C   6D   Qö    5   ö    5   5C   6E   Qö    5   ö    5   5C   6F   Qö    5   >6G   Qö    5   P   6H   Qö    5   >6I   Qö    5   ?6J   Qö    5   ◊6K   Qö    5   B6L   Qö    5   Ç   6M   Qö    5   Ç   6N   Qö    5   Ç   6O   Qö    5   Ç    6P   Qö    5   Ç!   6Q   Qö    5   Ç"   6R   Qö    5   Ç#   6S   Qö    5   Ç$   6T   Qö    5   Ç%   6U   Qö    5   Ç&   6V   Qö    5   =X   6W   Qö    5   =Z   6Y   Qö    5   =\   6[   Qö    5   =^   6]   Qö    5   Ç'   6_   Qö    5   Ç(   6`   Qö    5   Ç)   6a   Qö    5   Ç*   6b   Qö    5   Ç+   6c   Qö    5   Ç,   6d   Qö    5   Ç-   6e   Qö    5   Ç.   6f   Qö    5   Ç/   6g   Qö    5   Ç0   6h   Qö    5   Ç1   6i   Qö    5   Ç2   6j   Qö    5   Ç3   6k   Qö    5   Ç4   6l   Qö    5   Ç5   6m   Qön   5o   0   Êön   ∏o   
+=p   ö    5   5m   BÁ Q:   Êön   5q   *   Êön   ∏q   
+=r   ö    5   5m   Á QÊö    5   Ç6   6s   Qö    5   Ç7   6t   Qö    5   Ç8   6u   Qö    5   Ç9   6v   Qö    5   Ç:   6w   Qö    5   [;   öy   ]y   öz   ]z   ö{   ]{   ö|   ]|   ö}   ]}   ö~   ]~   ö   ]   6x   Qö    5   Ç<   6Ä   Qö    5   Ç=   6Å   Qö    5   Ç>   6Ç   Qö    5   Ç?   6É   Qö    5   Ç@   6Ñ   Qö    5   ÇA   6Ö   Qô√ßñ—òÃñ—òñ÷†’†$’†,’†4’†<’†D’†L’†T’†Y—†\“†_“†f’†r’†~’†Ä  Ü’†Ä  é’†Ä  £’†Ä  Ø’†Ä  ∑’†Ä  √’†Ä  Ÿ’ò’ò’ò’†Ä  „’òòò’òòò’òòò’òòò’òòò’òòò—òòò’†Ä  ﬂòòòﬂòòò—òòò—òòò’òòò—òòò’òòòﬂòòò’òòò—òòò—òòò—òòò—òòò’òòò’òòò—òòò’òòò—òòò”òòò—ò—òòò—òòò—òòò—òòò’ò’òﬂòﬂòﬂòòò—òòò’òòò—ò—ò“òòò—†Ä c’†Ä ñ’†Ä ¬’†Ä –’†Ä ˆ’†Ä ’†Ä ’†Ä 3’†Ä ?’†Ä f’†Ä ›’ò’ò’ò’òòò’†Ä ’†Ä p’†Ä }’†Ä Ñ’†Ä ö’†Ä ¶’†Ä ¥’†Ä √’†Ä …’†Ä œ’†Ä ◊’†Ä ‡’†Ä Í’†Ä ’†Ä , ñÎò ñÂòòò’†Ä :’†Ä J’†Ä m’†Ä |’†Ä úœê ê ê ê ê! ê ê–ò’†Ä ¡’†Ä Œ’†Ä Ú’†Ä ’†Ä ’†Ä 1    dwr   DWREngine   engine   setErrorHandler#   setWarningHandler%   setTextHtmlHandler   setTimeout   setPreHook   setPostHook   setHeaders   setParameters   XMLHttpRequest   IFrame   ScriptTag   setRpcType   setHttpMethod   setOrdered   setAsync)   setActiveReverseAjax'   defaultErrorHandler+   defaultWarningHandler   beginBatch   endBatch   setPollMethod   setMethod   setVerb   setPollType)   _origScriptSessionIdA   8A22AEE4C7B3F9CA3A094735175A6B14%   _sessionCookieName   JSESSIONIDM   _allowGetForSafariButMakeForgeryEasier   false)   _scriptTagProtectionS   throw 'allowScriptTagRemoting is false.';   _defaultPath/   /webapps/blackboard/dwr   _pollWithXhr!   _scriptSessionId'   _getScriptSessionId   _errorHandler   _warningHandler   _preHook   _postHook   _batches   _batchesLength   _batchQueue   _rpcType   _httpMethod	   POST   _ordered   _async   _batch   _timeout   _DOMDocument   _XMLHTTP%   _activeReverseAjax'   _outstandingIFrames   _pollReq%   _pollCometInterval   _pollRetries   _maxPollRetries!   _textHtmlHandler   _headers   _parameters   _postSeperator   
+'   _defaultInterceptor%   _urlRewriteHandler-   _contentRewriteHandler)   _replyRewriteHandler   _nextBatchId   _propnames%   _partialResponseNo'   _partialResponseYes+   _partialResponseFlush   _unloading   _execute   _poll#   _pollErrorHandler   _createBatch   _mergeBatch   _getJSessionId   _checkCometPoll/   _getTextFromCometIFrame+   _processCometResponse   _sendData   _ModePlainCall!   /call/plaincall/   _ModeHtmlCall   /call/htmlcall/   _ModePlainPoll!   /call/plainpoll/   _ModeHtmlPoll   /call/htmlpoll/#   _constructRequest   _stateChange   _validateBatch-   _iframeLoadingComplete+   _remoteHandleCallback-   _remoteHandleException7   _remoteHandleBatchException1   _remotePollCometDisabled5   _remoteBeginIFrameResponse1   _remoteEndIFrameResponse   _eval   _abortRequest   _callPostHooks   _clearUp   _unloader   window!   addEventListener   unload   attachEvent   onunload   _handleError   _handleWarning   _serializeAll   _lookup!   _serializeObject   _errorClasses   Error   EvalError   RangeError   ReferenceError   SyntaxError   TypeError   URIError'   _getObjectClassName   _serializeXml   _serializeArray)   _unserializeDocument#   _newActiveXObject   _debugá!´!ˇˇˇˇ      dwr   DWREngine      ´+íHé!´!            é!´!            ç!´!       5   dwr.engine.setErrorHandlerb ¨  ﬂ  §  ﬂ     %           5û ç!´!       9   dwr.engine.setWarningHandlerb Ç  ∑  z  ∑  $   '           5û ç!´!       ;   dwr.engine.setTextHtmlHandlerb Ñ  ∫  |  ∫  ,   (           5ûç!´!       +   dwr.engine.setTimeoutb f  î  ^  î  4               5ûç!´!       +   dwr.engine.setPreHookb (  V     V  <               5ûç!´!       -   dwr.engine.setPostHookb Î    „    D   !           5û ç!´!       +   dwr.engine.setHeadersb á  µ    µ  L               5ûç!´!       1   dwr.engine.setParametersb (	  _	   	  _	  T   #           5û ç!´!       +   dwr.engine.setRpcTypeb \  Ω  T  Ω  f               5û ç!´!       1   dwr.engine.setHttpMethodb k  i  c  i  r   #           5ûç!´!       +   dwr.engine.setOrderedb   M    M  ~               5ûç!´!       '   dwr.engine.setAsyncb Ê    ﬁ    Ü              5ûç!´!       ?   dwr.engine.setActiveReverseAjaxb ≠  ¸  •  ¸  é   *           5ûç!´!       =   dwr.engine.defaultErrorHandlerb   ¬  w  ¬  £   )           5û ç!´!       A   dwr.engine.defaultWarningHandlerb G  v  ?  v  Ø   +           5û ç!´!    	   +   dwr.engine.beginBatchc   l       	   %                                Ä  !  Á    Á  ∑                  ö    5   5   7   Êö    5   ∏   
+@[    =   ]   =   ]   Á QÊö    5   ö    5   ∏   
+:  6   Qôòœûê◊ê  ê êˇˇˇ¬úêôòò¢Ä  ºê€ê…ò    dwr   engine   _batch   _handleError+   dwr.engine.batchBegun	   name'   Batch already begun   message   _createBatchå!´!ˇˇˇˇ              ´+íHé!´!       é!´!	   nameã!´!é!´!   messageã!´!    öò;¯       5û ç!´!    	   '   dwr.engine.endBatchc           J                                Ä  å    Ñ    √                ö    5   5   W   QV   @7   Êö    5   ∏   
+@[    =   ]   =   ]   Á QÊö    5   @6   QV   5   5	   >   ÊÊT  "   Êö    5   ∏
+   
+V   T  Á QÊö    5   5   E   ÊQö    5   5   >Ê4   Êö    5   5   ö    5   5   Ÿ   V   8Q   Êö    5   ∏   
+V   Á QÊôòê‘òûê◊ê  ê! êˇˇˇøúê°Ä  ÷¢Ä  …ê—ò–ñ °Ä  ÷¢Ä  Õñ›òòòËûêÔòòòê⁄òò    dwr   engine   _batch   _handleError1   dwr.engine.batchNotBegun	   name)   No batch in progress   message   map   callCount   _mergeBatch   _ordered   _batchesLength   _batchQueue   length   _sendDataå!´!ˇˇˇˇ      options   batch       ´+íHé!´!       é!´!	   nameã!´!é!´!   messageã!´!    öò;¯        5û ç!´!       1   dwr.engine.setPollMethodb >  f  6  f  Ÿ   #           5û ç!´!       )   dwr.engine.setMethodb á  Æ    Æ  ⁄              5û ç!´!       %   dwr.engine.setVerbb Õ  ˜  ≈  ˜  €              5û ç!´!       -   dwr.engine.setPollTypeb    f    f  ‹   !           5û ç!´!    	   =   dwr.engine._getScriptSessionIdc   k                                           Ä  á  J     J   ¯   )              ö    5   5   @H   Êö    5   ö    5   5   ö   ∏   
+ö   ∏   
+:  XË: 6   QÊö    5   5   ôò—ûêÒêKóˇˇˇıÀòòêœò    dwr   engine!   _scriptSessionId)   _origScriptSessionId	   Math   floor   randomå!´!ˇˇˇˇ              ´+íHöò;¯       5û é!´!            é!´!      é!´!-   Msxml2.DOMDocument.6.0é!´!-   Msxml2.DOMDocument.5.0é!´!-   Msxml2.DOMDocument.4.0é!´!-   Msxml2.DOMDocument.3.0é!´!%   MSXML2.DOMDocumenté!´!#   MSXML.DOMDocumenté!´!!   Microsoft.XMLDOM    é!´!      é!´!%   Msxml2.XMLHTTP.6.0é!´!%   Msxml2.XMLHTTP.5.0é!´!%   Msxml2.XMLHTTP.4.0é!´!%   MSXML2.XMLHTTP.3.0é!´!   MSXML2.XMLHTTPé!´!#   Microsoft.XMLHTTP    ç!´!    	   =   dwr.engine._defaultInterceptorc                                              Ä  ß*  æ*  ü*  æ*  G  )              T  ôê2ì å!´!ˇˇˇˇ   	   data        ´+íHöò;¯       5ûé!´!      é!´!   rpcTypeé!´!   httpMethodé!´!   asyncé!´!   timeouté!´!   errorHandleré!´!   warningHandleré!´!   textHtmlHandler    ç!´!    	   '   dwr.engine._executec  Ó        ‚                        4      †  û/  F6  ñ/  F6  c               	W  QBW   Qö    5   5   @!   Êö    5   ∏   
+Á  QCW   QÊö    5   5   W  QZ    W  Q>W  Q +   mV  V  V  V  ◊78QÊV  #?W  QQ„ÅV  V  Ÿ   ◊«ˇˇˇÊV  5   @   ÊV  T  6   QM   ÊV  5   T  :   Êö    5   ∏   
+V  [    =   ]   =	   ]
+   Á QÊV  V  Ÿ   ?7W  QV  '=   D   ÊQV  @Ê(   Ê[   V  ∏   
+:  ]   W  Q   ÊV  ∏   
+:  W  QÊö    5   ∏   
+V  V  Á QV  5   V  5   5   [   V  5   ]   V  5   ]   8Q=   V  5   5   =   W  QV  5   V  =   T 8QV  5   V  =   T 8QV  5   V  =   V  5   5   8Q>W  Q K   mö    5   ∏   
+V  Z    V  V  7V  =   V  Á QÊV  #?W  QQ„ÅV  V  Ÿ   ™ˇˇˇÊV  5   5   #?Ö
+6   QQV      Êö    5   ∏   
+Á  QÊôûêû—ûê’òêüòê‘òòê òêê&+>ûê°Ä lòê◊†Ä lê,Œ†Ä n†Ä lêŸòòòòÀûê”òòòÕûê⁄ê! ê$ êˇˇˇªúê°Ä ì¢Ä {êòê’òêŸñ1ïÀê	”òêÀê…òòòê›òê‹òêŒòê–òòòòêﬂòêÿòêÿòê„òê&K<[ûê°Ä åòê˜†Ä åêŒ†Ä é†Ä åê÷†Ä ëê›òñ÷ò    dwr   engine   _batch   beginBatch   length	   path   _handleError7   dwr.engine.multipleServlets	   name]   Can't batch requests to multiple DWR Servlets.   message   function   pop   callback   _mergeBatch   handlers   map   callCount!   exceptionHandler   c   -   scriptName   methodName   id   _serializeAll   param   endBatchå!´!ˇˇˇˇ   	   path   scriptName   methodName   vararg_params   singleShot   batch	   args   i   callData   lastArg   prefix   arguments       ´+íHé!´!       é!´!	   nameã!´!é!´!   messageã!´!    é!´!       é!´!   callbackã!´!    é!´!       é!´!!   exceptionHandlerã!´!é!´!   callbackã!´!    öò;¯    N  [       c   >   9       5û ç!´!       !   dwr.engine._pollb  ®6  ´;  †6  ´;  ñ     0         B {:  ÿ:  s:  ÿ:  ¥             5û  5ûç!´!       9   dwr.engine._pollErrorHandlerb ˇ;  ø=  ˜;  ø=  ¬  '           5û ç!´!    	   /   dwr.engine._createBatchc   ≤      )   ß                        K       Ä  >  ÀB  
+>  ÀB  –  "             [   [    >]    ö   5   5   ö   5   5   ]   ö   5   ∏   
+:  ]	   ö   5   ∏
+   
+:  ]   ]   >]   >]   [   ]   [   ]   B]   [   ]   Z    ]   Z    ]   ö   5   5   ]   ö   5   5   ]   ö   5   5   ]   ö   5   5   ]   ö   5   5   ]   ö   5   5   ]    ö   5   5!   ]"   W   Qö   5   5#   )   ÊV   5   ∏$   
+ö   5   5#   Á QÊö   5   5%   )   ÊV   5   ∏$   
+ö   5   5%   Á QÊö   5   5&   m   Êö   5   5&   KI   mﬁW  ö   5   5&   V  7W  QV  '='      ÊV   5   V  V  8QÊ„ÅQLM∑ˇˇˇÊQNÊö   5   5(   m   Êö   5   5(   KI   mﬁW  ö   5   5(   V  7W  QV  '='      ÊV   5   V  V  8QÊ„ÅQLM∑ˇˇˇÊQNÊV   ôòêùêùêûê‰òê—ê»òê—êÕòòêñûê ê òêñ ê ê òê‘òê‘òê‘òê‘òê‘òê‘òêŸòòœñ‰òœñ‰òêê
+òœû—0NÀòêŸòê
+Àñ‘†Ä ÁêŒ†Ä Ïœû—0NÀòêŸòê
+Àñ‘†Ä ÌêŒ†Ä Úêú    callCount   window   location   pathname   search	   page   dwr   engine   _getJSessionId   httpSessionId'   _getScriptSessionId   scriptSessionId   map   charsProcessed   paramCount   parameters   headers   isPoll   handlers   preHooks   postHooks   _rpcType   rpcType   _httpMethod   httpMethod   _async   async   _timeout   timeout   _errorHandler   errorHandler   _warningHandler   warningHandler!   _textHtmlHandler   textHtmlHandler   _preHook	   push   _postHook   _headers   function   _parameterså!´!ˇˇˇˇ      batch   propname	   data         ´+íHé!´!       é!´!   callCountã!´!é!´!	   pageã!´!é!´!   httpSessionIdã!´!é!´!   scriptSessionIdã!´!    é!´!            é!´!            é!´!            é!´!       é!´!   mapã!´!é!´!   charsProcessedã!´!é!´!   paramCountã!´!é!´!   parametersã!´!é!´!   headersã!´!é!´!   isPollã!´!é!´!   handlersã!´!é!´!   preHooksã!´!é!´!   postHooksã!´!é!´!   rpcTypeã!´!é!´!   httpMethodã!´!é!´!   asyncã!´!é!´!   timeoutã!´!é!´!   errorHandlerã!´!é!´!   warningHandlerã!´!é!´!   textHtmlHandlerã!´!    öò;¯   Z  P      ›  P   (       5ûç!´!    	   -   dwr.engine._mergeBatchc  ™         Ü                               Ä  (C  -F   C  -F  ˆ  !      	       >W  Q O   mö    5   5   V  7W   QT V   7@   ÊT  V   T V   78QÊV  #?W  QQ„ÅV  ö    5   5   Ÿ   õˇˇˇÊT 5   @!   ÊT  5   ∏   
+T 5   Á QÊT 5   @!   ÊT  5   ∏	   
+T 5   Á QÊT 5
+   ^   ÊT 5
+   KA   mﬁW   T 5
+   V   7W  QV  '=      ÊT  5
+   V   V  8QÊ„ÅQLMøˇˇˇÊQNÊT 5   j   ÊT 5   KM   mﬁW   T 5   V   7W  QV  '=   $   ÊT  5   =   V   =   V  8QÊ„ÅQLM≥ˇˇˇÊQNÊôòêê
+òêê&O@jûê°Ä ¯òêŸò ñ%“†Ä ¯ê4Œ†Ä ˚†Ä ¯ê·òòòò ñ!‹ò ñ"‹ò»û 0FÀòê“òê
+Àñ”†Ä ˇêŒ†Ä »û 0RÀòê“òê
+Àñﬂ†Ä êŒ†Ä 
+    dwr   engine   _propnames   length   preHook   preHooks   unshift   postHook   postHooks	   push   headers   function   parameters   map   p-   å!´!ˇˇˇˇ      batch   overrides   propname	   data   i       ´+íHöò;¯   S  T      Ï   H          j   0       5û ç!´!    	   3   dwr.engine._getJSessionIdc   ˇ          c                                Ä  }F  ˝G  uF  ˝G    %             ö    5   ∏   
+=   : W   Q>W  Q Ω   mV   V  7W  QÊ#   mV  ∏   
+?V  Ÿ   : W  Q„ÇV  ∏   
+>: =   ÀˇˇˇÊV  ∏   
+ö	   5
+   5   =   : >4   ÊV  ∏   
+ö	   5
+   5   Ÿ   ?V  Ÿ   : ÊV  #?W  QQ„ÅV  V   Ÿ   8ˇˇˇÊ=   ôòê÷ê
+»òêê&Ä  ΩÄ  ÆÄ  Õûê°Ä òêŒòê):ï ÷ê	»êˇˇˇﬁ›ò‡êûêÍêõòòò¢Ä ê&Œ†Ä †Ä ê÷†Ä êù    document   cookie   split   ;   substring   length   charAt       indexOf   dwr   engine%   _sessionCookieName   =   å!´!ˇˇˇˇ      cookies   i   cookie         ´+íHöò;¯    *   Õ       ?   :          5ûç!´!       5   dwr.engine._checkCometPollb  UH  KK  MH  KK    %   8        5û ç!´!       E   dwr.engine._getTextFromCometIFrameb ÃK  M  ƒK  M  3  -           5ûç!´!       A   dwr.engine._processCometResponseb ÇM  ìR  zM  ìR  ?  +   0        5ûç!´!    	   )   dwr.engine._sendDatac  $
+      `   ¯                      D     ê  ˙R  ◊f  ÚR  ◊f  f      	          à   5    ö   5   5   6   Qö   5   5   #?Ö
+6   QQö   5   5   à   5    5   à   8Qö   5   5   #?Ö
+6   QQà   B6   Q>W   Q *   mà   5   V   ¡
+Á  QÊV   #?W   QQ„ÅV   à   5   Ÿ	   ≈ˇˇˇÊà   @6   Qà   5
+   E   ÊQà   5
+   >Ê-   Êà   ö   ù   Ç    à   5
+   : 6   QÊà   5   ö   5   5   π   Êö   5   #   Êà   ö   A,  R  6   Qã   Êö   5   EF   ÊQö   5   ∏   
+=   : >E"   ÊQö   5   ∏   
+=   : >Ê Ê4   Êà   ö   5   ∏   
+ö   5   5   : 6   QÊà   5   D  Êà   5      Êà   5   Ç   6   QÊà   5   Y   Êö   5   à   5   6   Qö   5   E   ÊQö   5    Ê    Êà   5   à   6    QÊö   5   ∏   
+=!   : W  QV  >ß   Êö   5   ∏"   
+V  ◊: W  Qö#   ù#   V  ◊
+: Xêj   Êö   5   5$   =%      Êà   ='   6&   Q9   Êö   5   ∏(   
+à   [   =)   ]*   =+   ],   Á QÊà   à   5      Êö   5   5.      Êö   5   5/   Ê6-   Qö   5   ∏0   
+à   : W  QÜà   5   ∏1   
+à   5&   V  52   à   5   Á QÜà   53   KN   mﬁW  à   53   V  7W  QV  '=4   #   Êà   5   ∏5   
+V  V  Á QÊ„ÅQLM≤ˇˇˇÊQNà   53   56    %   Êà   5   ∏5   
+=6   =7   Á QÊ4   Êòéã  Qvã  Qö   5   ∏(   
+à   V  Á Q… Êà   5   ∏8   
+V  59   Á Qà   5        Êö   5   ∏:   
+à   Á QÊ4   Êòéã  Qvã  Qö   5   ∏;   
+à   V  Á Q… Ê‘  Êà   5   ö   5   5<   …  Êà   5       Ê==   à   5    5      Ê=>   à   5    5   ÊW  Qà   ö   ∏@   
+=?   : 6?   Qö   59   ∏A   
+à   5?   Á Qà   5?   =C   V  =D   V  =E   à   5    5   =F   6B   Qà   ö   6   Qà   à   5   ∏H   
+V  : 6G   Qà   5G   à   6    Qà   à   5      Êö   5   5I      Êö   5   5J   Ê6-   Qà   5   *   Êö   5   5K   ∏L   
+à   5G   Á QÊö   5   ∏0   
+à   : W  Qà   5&   ='   .   Êà   5G   ∏M   
+=N   V  52   Á Q‰  Êà   à   5   ∏@   
+=O   : 6O   Qà   5O   ∏M   
+=P   =Q   Á Qà   5O   ∏M   
+=R   V  52   Á Qà   5O   ∏M   
+=S   =T   Á Qà   5O   ∏M   
+=U   V  Á Qà   5O   V  6U   Qà   5O   ∏M   
+=V   à   5&   Á Qà   5    K±   mﬁW  à   5    V  7W  QV  '=W   Ü   Êà   5   ∏@   
+=X   : W  QV  ∏M   
+=Y   =Z   Á QV  ∏M   
+=*   V  Á QV  ∏M   
+=[   V  Á Qà   5O   ∏A   
+V  Á QÊ„ÅQLMOˇˇˇÊQNà   5   59   ∏A   
+à   5O   Á Qà   5O   ∏\   
+Á  QÊ   Êà   ='   6&   Qà   à   5      Êö   5   5.      Êö   5   5/   Ê6-   Qö   5   ∏0   
+à   : W  Qà   ö   ∏@   
+=]   : 6]   Qà   5]   =^   à   5    5_   6P   Qà   5]   V  52   6N   Qö   59   ∏A   
+à   5]   Á QÊôòêﬂòêﬁòêÂòêﬁòêÃòòêê&*@ûê°Ä mòê÷†Ä mê-Œ†Ä o†Ä mê‹òòòêÃòòﬁûêﬁê òòò⁄û ûêœêœòòò—ê%÷ê‚ê+»ûêÂê òòòòêêò ûò ûê÷†Ä â ûê⁄òòê
+—êÕñ÷òòòê÷ê»òûê
+ÿê
+»ò–ê
+û’ñI÷òê€ê# ê êˇˇˇ¿ùòòêœÒòê÷ê
+»òàÄ PôêÚòàÄ  ûôÃ0SÀòê‘òêÀñﬁ†Ä úêÕòòòòê–ñ ËòòêÃòê·òòêﬁòê
+Àñ„òòêÃòêÁòòò⁄ûê ¸òòê÷ê…òòêﬂòêˇöê–òê⁄ê…òê’òêœÒò ñÂòê÷ê
+»ò–ûêÈòòòê€ê…òêﬂòê„òêﬂòêﬁòê‘òê‰òÃ0Ä  ∂Àòê‘òêÀûê÷ê»òê
+Ÿòê
+ÿòê
+ÿòê
+⁄†Ä ƒêÕ†Ä Œê‰òê‹òòòòê–òêœÒòê÷ê
+»òê÷ê…òêÂòêŸòê‡òò    map   batchId   dwr   engine   _nextBatchId   _batches   _batchesLength   completed   preHooks   length   timeout   timeoutId   setTimeout   rpcType   XMLHttpRequest   window   req   ActiveXObject   navigator   userAgent   indexOf   Mac	   MSIE#   _newActiveXObject   _XMLHTTP   async%   onreadystatechange   isPoll   _pollReq   document   all   opera   batch   Safari/   substring   parseIntM   _allowGetForSafariButMakeForgeryEasier	   true   httpMethod   GET   _handleWarning)   dwr.engine.oldSafari	   name◊   Safari GET support disabled. See getahead.org/dwr/server/servlet and allowGetForSafariButMakeForgeryEasier.   message	   mode   _ModePlainPoll   _ModePlainCall#   _constructRequest	   open   url   headers   string!   setRequestHeader   Content-Type   text/plain	   send	   body   _stateChange   _handleError   ScriptTag   dwr-if-poll-   dwr-if-   div   createElement   appendChild   innerHTMLπ   <iframe src='javascript:void(0)' frameborder='0' style='width:0px;height:0px;border:0;' id='   ' name='[   ' onload='dwr.engine._iframeLoadingComplete (   );'></iframe>   iframe   getElementById   _ModeHtmlPoll   _ModeHtmlCall'   _outstandingIFrames	   push   setAttribute   src	   form   id   dwr-form   action   style   display:none;   target   method   function   input	   type   hidden   value   submit   script   dwr-st-   c0-idå!´!ˇˇˇˇ	      batch   i	   prop   request   indexSafari   version   value   idname   formInput      à!´!          ex      	   à!´!          ex      	   ´+íHç!´!       K   dwr.engine._sendData/batch.timeoutId<b  êT  ∑T  àT  ∑T  s  )           5ûç!´!       c   dwr.engine._sendData/batch.req.onreadystatechangec   .                                           Ä  ?W  íW  7W  íW  Ñ  -              ö    '=       Êö    5   ∏   
+à   Á QÊôòêÃñ€òê    dwr   undefined   engine   _stateChangeå!´!ˇˇˇˇ              ´+íHöò;¯        5ûé!´!       é!´!	   nameã!´!é!´!   messageã!´!    öò;¯   ?  ∏           T       ˝  ¢        U       ò   @      ¢  +   ˇˇˇˇ   !  +   ˇˇˇˇ 5ûç!´!    	   9   dwr.engine._constructRequestc  º      &   ÿ                        K      Ä  ıg  öo  Ìg  öo  „  '             [    T  5    T  5   ]   @]   W   QT  5   C!   ÊV   5   =   6   QÉ   ÊT  5   5   ?C   ÊV   5   T  5   5   =	   T  5   5
+   =   6   Q0   ÊV   5   =   T  5   5   =   6   QÊö   5   ∏   
+†   : W  QV  @#   ÊV   5   =   V  ?76   QÊT  5   =   ˆ   ÊT  5   =   T  5   5   6   QV   5   =   6   QT  5   Ko   mﬁW  T  5   V  7ƒ=   O   ÊV   5   ö   ù   V  : =   ö   ù   T  5   V  7: =   6   QÊ„ÅQLMëˇˇˇÊQNV   V   5   ∏   
+>V   5   Ÿ   ?: 6   Qw  ÊV   =   6   Qö   5   E   ÊQö   5    Ê¶   ÊZ    W  QT  5   K]   mﬁW  T  5   V  7ƒ=   =   ÊV  ∏   
+V  =   T  5   V  7ö    5!   5"   Á QÊ„ÅQLM£ˇˇˇÊQNV   V  ∏#   
+=   : 6   Q|   ÊT  5   K_   mﬁW  T  5   V  7ƒ=   ?   ÊV   5   V  =   T  5   V  7ö    5!   5"   6   QÊ„ÅQLM°ˇˇˇÊQNÊV   ö    5!   ∏$   
+V   5   : 6   QÊV   ö    5!   ∏%   
+V   5   : 6   QV   ôòòêï÷êÀò ûêœxÕòòœûêÒxÕòòòê„x»òòòê÷ê»òûê÷x»òòòêòŒûòòê·òêœxü 0tÀòê
+‘ûêÿê‡ê! x»†Ä ˚êÕ†Ä  êÂêœòòòòêœò—êÃûòê
+ ò 0bÀòê‘ûê
+¯†Ä êÕ†Ä ê‘êœòòòò 0dÀòê‘ûê
+Úx»†Ä êŒ†Ä êﬁê òòêﬁê…òêú 	   path	   mode   url	   body   isPoll   ReverseAjax.dwr   map   callCount   c0-scriptName   .   c0-methodName	   .dwr   Multiple.   location	   href   match   ;jsessionid=   httpMethod   GET      ?   function%   encodeURIComponent   =   &   substring   length   document   all   window   opera	   push   dwr   engine   _postSeperator	   join-   _contentRewriteHandler%   _urlRewriteHandlerå!´!ˇˇˇˇ      batch   request   sessionMatch	   prop   buf       ´+íHé!´!       é!´!   urlã!´!é!´!	   bodyã!´!    å!´!%   jsessionid=([^?]+)    öò;¯   ˇ  f      h  d      r  v   x       5ûç!´!    	   /   dwr.engine._stateChangec  P      .   8                      b      Ä  p  ëy  p  ëy    "             T  5    "   Êö   5   ∏   
+=   Á QÊT  5   W  QÜV  5   ◊   ÊÊN   Êòéã  Qvã  Qö   5   ∏   
+T  V  Á Qö   5   ∏   
+T  Á Qò…ô… Êö   5   5	   "   Êö   5   ∏   
+=
+   Á QÊÜV  5   W  Qö   5   ∏   
+V  : W  QV  5   W  QV  @D   ÊQV  =   Ê<   Êö   5   ∏   
+T  [    =   ]   =   ]   Á Q˙  ÊV  X» E   Êö   5   ∏   
+T  [   =   V  ]   V  5   ]   Á Q¨  ÊV  ∏   
+=   : W  QV  ∏   
+†   :  E   ÊQV  ∏   
+†   :  Ê¨   ÊV  ∏   
+†   : E   ÊQT  5   ƒ=   Ê9   ÊT  ∏   
+[   V  ]   V  ]   V  ]   Á QB   Êö   5   ∏   
+T  [   =   ]   =   V  =   ]   Á QÊ∑   ÊT  5   E$   ÊQT  5    5!   ö   5   5"   Ê'   Êö   5   ∏#   
+V  T  Á Qb   ÊV  ∏$   
+=%   : ◊ˇ<   Êö   5   ∏   
+T  [   =&   ]   ='   ]   Á Q   ÊV  W   QÊ2   Êòéã  Qvã  Qö   5   ∏   
+T  V  Á Q… Êö   5   ∏(   
+T  Á Qö   5   T  6)   QV   @-   ÊV   ∏*   
+ö   5   5+   =   : W   QÊö   5   ∏,   
+V   Á Qö   5   @6)   Qö   5   ∏-   
+T  Á QT  5        Êö   5   ∏   
+T  Á QÊôòêòò»ûê⁄òê°Ä h¢Ä &êÕòàôÃñ°Ä h †Ä *êÃòê‹òòêÿòê°Ä h¶Ä 1œûê⁄òê°Ä h¢Ä 6àÄ ÑôêŒòê’ê»òêŒòòÿûêŸê# ê êˇˇˇæ òò»ûêŸê!œê"ŒêˇˇˇΩ òòòê
+–ê»òê
+–êÀê%–êû–ê ê$–ûê
+œê…ê…ê…êˇˇˇ≈ òòòê
+Ÿê# ê#’êˇˇˇ∫ÀòòòòòÌûê
+‚òòò–êûêŸê# ê  êˇˇˇΩ òòòê“†Ä [êÃòêﬂòòòêÿòòòê”òñﬂê	…òêŸòê—òêÿòê…ñŸò    completed   dwr   engine   _debugU   Error: _stateChange() with batch.completed   req   readyState   _handleWarning   _clearUp   _unloadinga   Ignoring reply from server as page is unloading.   responseText)   _replyRewriteHandler   status   -   dwr.engine.missingData	   name9   No data received from server   message   _handleError!   dwr.engine.http.   statusText#   getResponseHeader   Content-Type   match   textHtmlHandler   function   contentType5   dwr.engine.invalidMimeType/   Invalid content type: '   '   isPoll   map   partialResponse'   _partialResponseYes+   _processCometResponse   search   //#DWR/   dwr.engine.invalidReply3   Invalid reply from server   _callPostHooks   _receivedBatch   replace)   _scriptTagProtection   _eval   _validateBatchå!´!ˇˇˇˇ      batch   toEval   req   reply   status   contentType       à!´!          ex         à!´!          ex         ´+íHé!´!       é!´!	   nameã!´!é!´!   messageã!´!    é!´!       é!´!	   nameã!´!é!´!   messageã!´!    å!´!   ^text\/plain    å!´!#   ^text\/javascript    å!´!   ^text\/html    é!´!       é!´!   statusã!´!é!´!   responseTextã!´!é!´!   contentTypeã!´!    é!´!       é!´!	   nameã!´!é!´!   messageã!´!    é!´!       é!´!	   nameã!´!é!´!   messageã!´!    öò;¯     –   à       9         V   E   ˇˇˇˇ    ô             [  )   ˇˇˇˇ†       5ûç!´!    	   3   dwr.engine._validateBatchc  ë          F                        	      Ä  —z  |  …z  |  p  $             T  5     Ü   Ê>W   Q `   mT  5   V   7@<   Êö   5   ∏   
+T  [    =   ]   =   ]   Á Q-   ÊV   #?W   QQ„ÅV   T  5	   5
+   ëˇˇˇÊôòòê…ûê	ê&`Qtûê°Ä sòœûêŸê# ê# êˇˇˇ∫úH¶Ä sê-Œ†Ä x†Ä sê⁄†Ä z    completed   handlers   dwr   engine   _handleWarning5   dwr.engine.incompleteReply	   name9   Incomplete reply from server   message   map   callCountå!´!ˇˇˇˇ      batch   i       ´+íHé!´!       é!´!	   nameã!´!é!´!   messageã!´!    öò;¯       t           5û ç!´!       C   dwr.engine._iframeLoadingCompleteb í|  }  ä|  }  }  ,           5ûç!´!    	   A   dwr.engine._remoteHandleCallbackc  ˆ       
+   >                              Ä  É}  Ä  {}  Ä  Ñ  +             ö    5   5   T  7W   QV   @'   Êö    5   ∏   
+=   T  CÁ QÊÜV   5   T 7W  QV   5   T @8QV   *   Êö    5   ∏   
+=   T CÁ Q.   ÊV  5   ƒ=      ÊV  ∏   
+T Á QÊ3   Êòéã  Qvã  Qö    5   ∏	   
+V   V  Á Q… Êôòêÿòûêﬂòê°Ä ó¢Ä åà{ôê“òêœòêûêÂòòê–ñ(€òòêÃòê‡òò    dwr   engine   _batches   _debugw   Warning: batch == null in remoteHandleCallback for batchId=   handlersE   Warning: Missing handlers. callId=   callback   function   _handleErrorå!´!ˇˇˇˇ      batchId   callId   reply   batch   handlers       à!´!          ex         ´+íHöò;¯     G         …   *   ˇˇˇˇ0       5ûç!´!       C   dwr.engine._remoteHandleExceptionb éÄ  ‡Ç  ÜÄ  ‡Ç  ö  ,           5ûç!´!       M   dwr.engine._remoteHandleBatchExceptionb TÉ  ËÑ  LÉ  ËÑ  ¶  1           5û ç!´!       G   dwr.engine._remotePollCometDisabledb _Ö  á  WÖ  á  ¥  .           5ûç!´!       K   dwr.engine._remoteBeginIFrameResponseb òá  %à  êá  %à  √  0           5ûç!´!       G   dwr.engine._remoteEndIFrameResponseb üà  â  óà  â  …  .           5ûç!´!    	   !   dwr.engine._evalc  f         %                          	      ¸  bâ  7ä  Zâ  7ä  œ                 	â   Qπâ   Qà   @   Ê@Êà   =    #   Ê;   5   ∏   
+=   CÁ Q@Ê;   ù   à   { w”  ô«üñôòòò¢Ä —Àñ€ê2ôòò¢Ä ”êœê»ò       dwr   engine   _debug+   Warning: blank script	   evalå!´!ˇˇˇˇ      script   arguments   .this       ´+íHöò;¯ 5ûç!´!       1   dwr.engine._abortRequestb ïä  cã  çä  cã  ◊  #           5ûç!´!    	   3   dwr.engine._callPostHooksc  c          6                               Ä  æã  [å  ∂ã  [å  ‡  $             T  5    Y   Ê>W   Q (   mT  5    V   ¡
+Á  QÊV   #?W   QQ„ÅV   T  5    Ÿ   …ˇˇˇÊT  @6    QÊôò»ûê	ê&(<ûê°Ä ‚òê‘†Ä ‚ê0Œ†Ä ‰†Ä ‚ê⁄òòòêÀòò    postHooks   lengthå!´!ˇˇˇˇ      batch   i       ´+íHöò;¯       <          5û ç!´!    	   '   dwr.engine._clearUpc  ´         Ø                         N      Ä  ”å  Êí  Àå  Êí  Í               T   #   Êö    5   ∏   
+=   CÁ QÊT  5   #   Êö    5   ∏   
+=   CÁ QÊT  5   &   ÊT  5   5   ∏   
+T  5   Á QÊT  5	   •   Ê>W   Q W   mö    5   5
+   V   7T  5	   %   Êö    5   5
+   ∏   
+V   ?Á QÊV   #?W   QQ„ÅV   ö    5   5
+   Ÿ   ìˇˇˇÊT  5	   5   ∏   
+T  5	   Á QÊT  5   &   ÊT  5   5   ∏   
+T  5   Á QÊT  5   ?   ÊT  5   ö    5   5      Êö    5   @6   QÊT  %   QÊT  5   %   Êö   ù   T  5   Á QT  %   QÊT  5   E*   ÊQT  5   5   D   ÊQT  5   5   >ÊB   Êö    5   5   T  5   5   &Qö    5   5   #?Ö
+6   QQÊT  C6   Qö    5   5   Ÿ   >=   Êö    5   5   ∏   
+:  W  Qö    5   ∏   
+V  Á QÊôòêñ
+€êI°Ä ¢Ä Ï»ñ€ê5°Ä ¢Ä Ô»ñ·ò»ûòê	ê&WHrûê°Ä Úò›ûê‡†Ä Úê?Œ†Ä ˆ†Ä Úê·†Ä ˜ê·òò»ñ·òòò»ûòÿñ*“òê òòòò»ûê÷òê òòòÛûêﬁòêﬂòòòê †Ä ÷ûê÷ê»òê⁄òò    dwr   engine   _debugY   Warning: null batch in dwr.engine._clearUp()   completed1   Warning: Double complete   div   parentNode   removeChild   iframe'   _outstandingIFrames   splice   length	   form   req   _pollReq   timeoutId   clearTimeout   map   batchId   _batches   _batchesLength   _batchQueue   shift   _sendDataå!´!ˇˇˇˇ      batch   i   sendbatch       ´+íHöò;¯    ù   r   P       5ûç!´!       )   dwr.engine._unloaderb  iì  Fï  aì  Fï                5ûç!´!       /   dwr.engine._handleErrorb ìñ  ò  ãñ  ò  0  "           5ûç!´!       3   dwr.engine._handleWarningb ãò  ö  Éò  ö  :  $           5ûç!´!    	   1   dwr.engine._serializeAllc  c          ê                         "      Ä  Qõ  Áü  Iõ  Áü  J  #              T @   ÊT  5    T =   8QÊT 'x=   y7   Ê=   yH   Ê=   yY   Ê=   yw   Ê=   yØ  ÊzØ  ÊT  5    T =   T 8QÈ  ÊT  5    T =   T 8QÕ  ÊT  5    T =	   ö
+   ù
+   T : 8Q§  ÊT ö   r.   ÊT  5    T =   ö
+   ù
+   T : 8Q
+  ÊT ö   r!   ÊT  5    T =   T 8Qﬂ   ÊT ö   r!   ÊT  5    T =   T 8Q¥   ÊT ö   r+   ÊT  5    T =   T ∏   
+:  8Q   ÊT E   ÊQT 5   Ê8   ÊT  5    T ö   5   ∏   
+T  T T T : 8Q3   ÊT  5    T ö   5   ∏   
+T  T T T : 8QÊa   Ê[   Êö   5   ∏   
+@[    =   ]   =   T '=   ]   Á QT  5    T =   T 8Q   Êôòûê“òê°Ä j¢Ä Pê
+lÄ =vÀpÀpÀpÀpÃòòê÷òXûòê÷òXûòê›êûXûò…ñ ›êÃò…ñ&‹ò…ñ%‹ò…ñ#⁄êÃò”ñ ËêÀòê	ËêûXûòòXûòê◊ê" ê"ï–êˇˇˇûúê÷òXûò    map   null:null   boolean   number   string   object   function   boolean:   number:   string:%   encodeURIComponent   String   String:   Boolean   Boolean:   Number   Number:	   Date   Date:   getTime	   join   dwr   engine   _serializeArray!   _serializeObject   _handleWarning3   dwr.engine.unexpectedType	   name#   Unexpected type: ?   , attempting default converter.   message   default:å!´!ˇˇˇˇ      batch   referto	   data	   name        ´+íHé!´!       é!´!	   nameã!´!é!´!   messageã!´!    öò;¯       5û ç!´!       %   dwr.engine._lookupb >†  å°  6†  å°  m             5û ç!´!       7   dwr.engine._serializeObjectb ÿ°  ¨•  –°  ¨•  |  &   (        5ûé!´!       é!´!   Errorã!´!é!´!   EvalErrorã!´!é!´!   RangeErrorã!´!é!´!   ReferenceErrorã!´!é!´!   SyntaxErrorã!´!é!´!   TypeErrorã!´!é!´!   URIErrorã!´!    ç!´!       =   dwr.engine._getObjectClassNameb ›¶  ^´  ’¶  ^´  ù  )   8        5û ç!´!       1   dwr.engine._serializeXmlb ß´  Ô¨  ü´  Ô¨  ¡  #           5û ç!´!       5   dwr.engine._serializeArrayb 9≠  A±  1≠  A±  Œ  %   (        5û ç!´!       ?   dwr.engine._unserializeDocumentb ß±  N¥  ü±  N¥  Ú  *   (        5ûç!´!       9   dwr.engine._newActiveXObjectb Ã¥  £µ  ƒ¥  £µ    '   (        5û ç!´!       #   dwr.engine._debugb ∂  ê∏  ∂  ê∏       @        5û öò;¯íC¯'˚}      
+\[\[?‘*\ë¢   q    :https://d1e7kr0efngifs.cloudfront.net/3500.5.0-rel.17+9a607af/javascript/dwr/engine.js?v=3500.5.0-rel.17+9a607af necko:classified 1 strongly-framed 1 security-info FnhllAKWRHGAlo+ESXykKAAAAAAAAAAAwAAAAAAAAEaphjojH6pBabDSgSnsfLHeAAQAAgAAAAAAAAAAAAAAAAAAAAAB4vFIJp5wRkeyPxAQ9RJGKPqbqVvKO0mKuIl8ec8o/uhmCjImkVxP+7sgiYWmMt8FvcOXmlQiTNWFiWlrbpbqgwAAAAAAAAYtMIIGKTCCBRGgAwIBAgIQAp7jbAIBs3dIjqHU5IZWXjANBgkqhkiG9w0BAQsFADBEMQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMR4wHAYDVQQDExVEaWdpQ2VydCBHbG9iYWwgQ0EgRzIwHhcNMTgxMDA4MDAwMDAwWhcNMTkxMDA5MTIwMDAwWjBqMQswCQYDVQQGEwJVUzETMBEGA1UECBMKV2FzaGluZ3RvbjEQMA4GA1UEBxMHU2VhdHRsZTEZMBcGA1UEChMQQW1hem9uLmNvbSwgSW5jLjEZMBcGA1UEAwwQKi5jbG91ZGZyb250Lm5ldDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJZ6PozLj9mQla/FT+MxDVgVF3qrw33i8cZR0dYOYRASZiH+omzJLEqKnj7dmXU9kfC1OsKoWYeeLiZLoG4Dqo10PiTED3mZ6SQzNuZZ/hnJC5aYuAs/bd/w5PMMtTwwWHBWGck/8/RA/L1EQ+MB0EmPQI6H2toL5l2cbjSeg3nOQ9dzeSfjtsfMpKkxeobcd+i+fU870bP8F9KJUeOtGUfbZuhqO205xUEZrcPHEufJgsJi+9FAGnLHe0Bc4dK3sc7ld5RydpBddGCOC3dN82NKVlNfhciJ47RizZ/mRBgBqj8/GI4YkFcspgW9gKuH8vUckjx9HrCtWJAE5Vr/kDMCAwEAAaOCAu8wggLrMB8GA1UdIwQYMBaAFCRuKy3QapJRUSVpAaqaR6aJ50AgMB0GA1UdDgQWBBS9aHeW676NbYgPQqDGTnzoT9iUGjArBgNVHREEJDAigg5jbG91ZGZyb250Lm5ldIIQKi5jbG91ZGZyb250Lm5ldDAOBgNVHQ8BAf8EBAMCBaAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMHcGA1UdHwRwMG4wNaAzoDGGL2h0dHA6Ly9jcmwzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEdsb2JhbENBRzIuY3JsMDWgM6Axhi9odHRwOi8vY3JsNC5kaWdpY2VydC5jb20vRGlnaUNlcnRHbG9iYWxDQUcyLmNybDBMBgNVHSAERTBDMDcGCWCGSAGG/WwBATAqMCgGCCsGAQUFBwIBFhxodHRwczovL3d3dy5kaWdpY2VydC5jb20vQ1BTMAgGBmeBDAECAjB0BggrBgEFBQcBAQRoMGYwJAYIKwYBBQUHMAGGGGh0dHA6Ly9vY3NwLmRpZ2ljZXJ0LmNvbTA+BggrBgEFBQcwAoYyaHR0cDovL2NhY2VydHMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0R2xvYmFsQ0FHMi5jcnQwCQYDVR0TBAIwADCCAQMGCisGAQQB1nkCBAIEgfQEgfEA7wB1ALvZ37wfinG1k5Qjl6qSe0c4V5UKq1LoGpCWZDaOHtGFAAABZlT5wBEAAAQDAEYwRAIgeP4X5cOzsw5j1dnEToeG4CVdeLVdrj+/nw/qoU7zfrUCIAY84kR/7I6n6BkVjaqvQY6PrNKgYkPy+G8JNBpPHrEVAHYAh3W/51l8+IxDmV+9827/Vo1HVjb/SrVgwbTq/16ggw8AAAFmVPnAngAABAMARzBFAiEA/ykbFbpwAPSuQTV6SrxeZvpLDEVjR23bL5wHtd7gu54CIDi6db9yGeZVDq6OBURx0jRJIhTgg8EIv3wRsiSj9wK3MA0GCSqGSIb3DQEBCwUAA4IBAQBZAXjdOHVBp+Q57Kio7I4x5G8A7aZT1vHY+OzaKXOnGbY7/yO/Aio/siJzo2rNDHDh0JTbTuHuxt/X7/B9L1Lz1j6ufCbpHnRK8jBXmayMvEHLS29Be5s9muLydVxdMm9WM33g6tqDikVXARDriwIs8B+PxwndFkh5muUXPw8mSnmFjyLYNjTV+NzX38I4s1JvjpoFTnzLybiHVZr6Wt3Jo8QYggSuU5SoK/bOtSb7apixTOxsPY23llverRdsMigWLSKsbcW107wfspNbo+kr8i6Sr0kGf9EEaTijWa+DQmHsAt1nknoDpz5hn7w6FxL2LJaAtUMmAWrYyKFjFbipwC8DAwAAAAABAQAAAAAAAARQMjU2AAAAEFJTQS1QS0NTMS1TSEE1MTIBlZ+xZWUXSH+rm9iRO+Uxl650zaXNL0c/lvXwt//2LGgAAAADZgoyJpFcT/u7IImFpjLfBb3Dl5pUIkzVhYlpa26W6oMAAAAAAAAGLTCCBikwggURoAMCAQICEAKe42wCAbN3SI6h1OSGVl4wDQYJKoZIhvcNAQELBQAwRDELMAkGA1UEBhMCVVMxFTATBgNVBAoTDERpZ2lDZXJ0IEluYzEeMBwGA1UEAxMVRGlnaUNlcnQgR2xvYmFsIENBIEcyMB4XDTE4MTAwODAwMDAwMFoXDTE5MTAwOTEyMDAwMFowajELMAkGA1UEBhMCVVMxEzARBgNVBAgTCldhc2hpbmd0b24xEDAOBgNVBAcTB1NlYXR0bGUxGTAXBgNVBAoTEEFtYXpvbi5jb20sIEluYy4xGTAXBgNVBAMMECouY2xvdWRmcm9udC5uZXQwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCWej6My4/ZkJWvxU/jMQ1YFRd6q8N94vHGUdHWDmEQEmYh/qJsySxKip4+3Zl1PZHwtTrCqFmHni4mS6BuA6qNdD4kxA95mekkMzbmWf4ZyQuWmLgLP23f8OTzDLU8MFhwVhnJP/P0QPy9REPjAdBJj0COh9raC+ZdnG40noN5zkPXc3kn47bHzKSpMXqG3Hfovn1PO9Gz/BfSiVHjrRlH22boajttOcVBGa3DxxLnyYLCYvvRQBpyx3tAXOHSt7HO5XeUcnaQXXRgjgt3TfNjSlZTX4XIieO0Ys2f5kQYAao/PxiOGJBXLKYFvYCrh/L1HJI8fR6wrViQBOVa/5AzAgMBAAGjggLvMIIC6zAfBgNVHSMEGDAWgBQkbist0GqSUVElaQGqmkemiedAIDAdBgNVHQ4EFgQUvWh3luu+jW2ID0Kgxk586E/YlBowKwYDVR0RBCQwIoIOY2xvdWRmcm9udC5uZXSCECouY2xvdWRmcm9udC5uZXQwDgYDVR0PAQH/BAQDAgWgMB0GA1UdJQQWMBQGCCsGAQUFBwMBBggrBgEFBQcDAjB3BgNVHR8EcDBuMDWgM6Axhi9odHRwOi8vY3JsMy5kaWdpY2VydC5jb20vRGlnaUNlcnRHbG9iYWxDQUcyLmNybDA1oDOgMYYvaHR0cDovL2NybDQuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0R2xvYmFsQ0FHMi5jcmwwTAYDVR0gBEUwQzA3BglghkgBhv1sAQEwKjAoBggrBgEFBQcCARYcaHR0cHM6Ly93d3cuZGlnaWNlcnQuY29tL0NQUzAIBgZngQwBAgIwdAYIKwYBBQUHAQEEaDBmMCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5kaWdpY2VydC5jb20wPgYIKwYBBQUHMAKGMmh0dHA6Ly9jYWNlcnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEdsb2JhbENBRzIuY3J0MAkGA1UdEwQCMAAwggEDBgorBgEEAdZ5AgQCBIH0BIHxAO8AdQC72d+8H4pxtZOUI5eqkntHOFeVCqtS6BqQlmQ2jh7RhQAAAWZU+cARAAAEAwBGMEQCIHj+F+XDs7MOY9XZxE6HhuAlXXi1Xa4/v58P6qFO8361AiAGPOJEf+yOp+gZFY2qr0GOj6zSoGJD8vhvCTQaTx6xFQB2AId1v+dZfPiMQ5lfvfNu/1aNR1Y2/0q1YMG06v9eoIMPAAABZlT5wJ4AAAQDAEcwRQIhAP8pGxW6cAD0rkE1ekq8Xmb6SwxFY0dt2y+cB7Xe4LueAiA4unW/chnmVQ6ujgVEcdI0SSIU4IPBCL98EbIko/cCtzANBgkqhkiG9w0BAQsFAAOCAQEAWQF43Th1QafkOeyoqOyOMeRvAO2mU9bx2Pjs2ilzpxm2O/8jvwIqP7Iic6NqzQxw4dCU207h7sbf1+/wfS9S89Y+rnwm6R50SvIwV5msjLxBy0tvQXubPZri8nVcXTJvVjN94Orag4pFVwEQ64sCLPAfj8cJ3RZIeZrlFz8PJkp5hY8i2DY01fjc19/COLNSb46aBU58y8m4h1Wa+lrdyaPEGIIErlOUqCv2zrUm+2qYsUzsbD2Nt5Zb3q0XbDIoFi0irG3FtdO8H7KTW6PpK/Iukq9JBn/RBGk4o1mvg0Jh7ALdZ5J6A6c+YZ+8OhcS9iyWgLVDJgFq2MihYxW4qWYKMiaRXE/7uyCJhaYy3wW9w5eaVCJM1YWJaWtuluqDAAAAAAAABI8wggSLMIIDc6ADAgECAhAMjuDJDWqJFYgEBh7iQfmvMA0GCSqGSIb3DQEBCwUAMGExCzAJBgNVBAYTAlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5jb20xIDAeBgNVBAMTF0RpZ2lDZXJ0IEdsb2JhbCBSb290IEcyMB4XDTEzMDgwMTEyMDAwMFoXDTI4MDgwMTEyMDAwMFowRDELMAkGA1UEBhMCVVMxFTATBgNVBAoTDERpZ2lDZXJ0IEluYzEeMBwGA1UEAxMVRGlnaUNlcnQgR2xvYmFsIENBIEcyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA00h8vvMFhl1b1S+FTkvghq0VrGHPW68+agpH+5p2kWALimvNz9xXfmCYC+RU2VbtIcwCtlqBX5dq7gIvIye4bdSw5wYCeAsfXKmZNv67rBsF+lfNgRBAZ9Ywi1g11JZhvtCMepefGvki5hQvqcboAR+r+CYPrI5NLDI5HYGbjRxlshzbYaiJL2Dn68JKGMRvKukQkgntF9EAK+Z97wSJFE4zobIPl4efs6DNL7ws7LiDaDE9H9VKkBAZC4GV1il2Ufk2dtC3CXo4StdvjL8TfDntuq6Q/JX3e3gJNl50kx4l8P/Ura5oa8b/D9U18VVuSEn4+LjviPjxXhF3qt8CswIDAQABo4IBWjCCAVYwEgYDVR0TAQH/BAgwBgEB/wIBADAOBgNVHQ8BAf8EBAMCAYYwNAYIKwYBBQUHAQEEKDAmMCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5kaWdpY2VydC5jb20wewYDVR0fBHQwcjA3oDWgM4YxaHR0cDovL2NybDQuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0R2xvYmFsUm9vdEcyLmNybDA3oDWgM4YxaHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0R2xvYmFsUm9vdEcyLmNybDA9BgNVHSAENjA0MDIGBFUdIAAwKjAoBggrBgEFBQcCARYcaHR0cHM6Ly93d3cuZGlnaWNlcnQuY29tL0NQUzAdBgNVHQ4EFgQUJG4rLdBqklFRJWkBqppHponnQCAwHwYDVR0jBBgwFoAUTiJUIBiV5uNu5g/6+rkS7QYXjzkwDQYJKoZIhvcNAQELBQADggEBAAs5hJH5l+uqga+E6Vo4kvzibFm/NshFpzEDEeEGwKwyx1pVKdpPQAL1od6w7d7A+PZ1nXa5h/5BgHrPXeMAxlsC5pt4YsncuGKad+2JCNdLxf1D1WIjJ8QEWW1xPyNb6tny5yQnb/SVgNuWLORUi8/qGdl/VZlReg4tGD14WFK8Y2hXC91Es1dKYObIcHBbhyhq1ztOUkUZryQGkkgRGouurBgSV6wDy7j0vcomDqfB3eMz78BVMA2VWU6cAzYG+MCPFJmcTSqeweF9O69yp0W6E5YpThnQGpgG9DeUF62jGLo+sAEMldYpNSA1ffUQYOT3aGIe7BnhJPKHEazpCIBmCjImkVxP+7sgiYWmMt8FvcOXmlQiTNWFiWlrbpbqgwAAAAAAAAOSMIIDjjCCAnagAwIBAgIQAzrx5qcRqaC7KGSxHQn65TANBgkqhkiG9w0BAQsFADBhMQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3d3cuZGlnaWNlcnQuY29tMSAwHgYDVQQDExdEaWdpQ2VydCBHbG9iYWwgUm9vdCBHMjAeFw0xMzA4MDExMjAwMDBaFw0zODAxMTUxMjAwMDBaMGExCzAJBgNVBAYTAlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5jb20xIDAeBgNVBAMTF0RpZ2lDZXJ0IEdsb2JhbCBSb290IEcyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuzfNNNx7a8myaJCtSnX/RrohCgiN9RlUyfuI2/Ou8jqJkTx65qsGGmvPrC3oXgkkRLpimn7Wo6h+4FR1IAWsULecYxpsMNzaHxmx1x7e/dfgy5SDN67sH0NO3Xss0r0upS/kqbitOtSZpLYl6ZtrAGCSYP9PIUkY92eQq2EGnI/yuum06ZIya7XzV+hdG82MHauVBJVJ8zUtluNJbd134/tJS7SsVQepj5WztCO7TG1F8PapspUwtP1MVYwnSlcUfIKdzXOS0xZKBgyMUNGPHgm+F6HmIcr9g+UQvIOlCsRnKPZzFBQ9RnbDhxSJITRNrw9FDKZJobq7nMWxM4MphQIDAQABo0IwQDAPBgNVHRMBAf8EBTADAQH/MA4GA1UdDwEB/wQEAwIBhjAdBgNVHQ4EFgQUTiJUIBiV5uNu5g/6+rkS7QYXjzkwDQYJKoZIhvcNAQELBQADggEBAGBnKJRvDkhj6zHd6mcY1Yl9PMWLSn/pvtsrF9+wX3N3KjITOYFnQoQj8kVnNeyIv/iPsGEMNKSuIEyExtv4NeF22d+mQrvHRAiGfzZ0JFrabA0UWTW98kndth/Jsw1HKj2ZL7tcu7XUIOGZX1NGFdtom/DzMNU+MeKNhJ7jitralj41E6Vf8PlwUHBHQRFXGU7Aj64GxJUTFy8bJZ918rGOmaFvE7FBcf6IKshPECBV1/MUReXgRPTqh5Uykw7+U0b6LJ3/iyK5S9kJRaTepLiaWN0bfVKfjllDiIGknibVb63dDcY3fe0Dkhvld1927jyNxF1WW6LZZm6zNTflMrYAAA== request-method GET response-head HTTP/1.1 200 OK
+Content-Type: application/javascript
+Content-Length: 47251
+Last-Modified: Tue, 04 Dec 2018 17:42:10 GMT
+Accept-Ranges: bytes
+Server: AmazonS3
+Date: Wed, 12 Dec 2018 15:23:26 GMT
+ETag: "e82a36ab69df9f513b98dbf5fa391e61"
+Age: 54180
+X-Cache: Hit from cloudfront
+Via: 1.1 547c5e28f010be7961f641c3903c0954.cloudfront.net (CloudFront)
+X-Amz-Cf-Id: WeJEsd_qVPd7D6HU91VH8NTihr-pRmwNhwmmjICk-LhzbIpJMdkRNw==
+ original-response-headers Content-Type: application/javascript
+Content-Length: 47251
+Connection: keep-alive
+Last-Modified: Tue, 04 Dec 2018 17:42:10 GMT
+Accept-Ranges: bytes
+Server: AmazonS3
+Date: Wed, 12 Dec 2018 15:23:26 GMT
+ETag: "e82a36ab69df9f513b98dbf5fa391e61"
+Age: 54180
+X-Cache: Hit from cloudfront
+Via: 1.1 547c5e28f010be7961f641c3903c0954.cloudfront.net (CloudFront)
+X-Amz-Cf-Id: WeJEsd_qVPd7D6HU91VH8NTihr-pRmwNhwmmjICk-LhzbIpJMdkRNw==
+ uncompressed-len 0 net-response-time-onstart 42 net-response-time-onstop 47 alt-data 1;47251,javascript/moz-bytecode-20181009141245 alt-data-from-child 1  ™ı

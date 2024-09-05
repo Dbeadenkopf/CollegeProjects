@@ -1,0 +1,2 @@
+program: card.cpp card.h pokerhand3.cpp pokerhand.h mypokertest.cpp wager.h wager.cpp compWallet.cpp compWallet.h wagerMenu.h wagerMenu.cpp wallet.h wallet.cpp
+	g++ -Wall wager.h wager.cpp wallet.h wallet.cpp card.cpp card.h pokerhand3.cpp compWallet.cpp compWallet.h pokerhand.h mypokertest.cpp wagerMenu.h wagerMenu.cpp -o proj2

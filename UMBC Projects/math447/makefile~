@@ -1,0 +1,9 @@
+EXECS=hello_parallel
+MPICC?=mpicc
+all:	${EXECS}
+
+hello_parallel: hello_parallel.c
+	${MPICC} -o hello_parallel hello_parallel.c
+
+clean:
+	rm ${EXECsS}
